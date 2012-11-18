@@ -383,7 +383,7 @@ class AdminController extends Controller
         $entity_estado = $em->getRepository('cloudBundle:EstadoNotificacion')->find(1);
 
         $entity->setAsunto("Codigo de Verificacion");
-        $entity->setMensaje("")
+        $entity->setMensaje("");
 
         $entity->setEstadoId($entity_estado);
         $entity->setDateCreate(new \DateTime());

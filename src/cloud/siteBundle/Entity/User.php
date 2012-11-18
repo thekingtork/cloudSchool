@@ -114,12 +114,9 @@ class User implements UserInterface
      */
     protected $institucion_id;
    
-<<<<<<< HEAD
-=======
    public function __toString() {
         return $this->getApellido() . " " . $this->getNombre();
     }
->>>>>>> origin/Amado
 
     /**
      * Set nombre
