@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 18-11-2012 a las 20:09:38
+-- Tiempo de generación: 18-11-2012 a las 20:13:58
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `ajustesevaluacion` (
 -- Volcado de datos para la tabla `ajustesevaluacion`
 --
 
-INSERT INTO `ajustesevaluacion` (`id`, `modelo_evaluacion`, `acumula`, `escala`) VALUES
+INSERT IGNORE INTO `ajustesevaluacion` (`id`, `modelo_evaluacion`, `acumula`, `escala`) VALUES
 (1, 'Por Logros', 1, 'Escala Cualitativa');
 
 -- --------------------------------------------------------
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `anio` (
 -- Volcado de datos para la tabla `anio`
 --
 
-INSERT INTO `anio` (`id`, `nombre`, `date_create`, `active`) VALUES
+INSERT IGNORE INTO `anio` (`id`, `nombre`, `date_create`, `active`) VALUES
 (1, '2012', '2007-01-01 00:00:00', 1);
 
 -- --------------------------------------------------------
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `departamento` (
 -- Volcado de datos para la tabla `departamento`
 --
 
-INSERT INTO `departamento` (`id`, `nombre`) VALUES
+INSERT IGNORE INTO `departamento` (`id`, `nombre`) VALUES
 (1, 'Amazonas'),
 (2, 'Antioquia'),
 (3, 'Arauca'),
@@ -152,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `esccualitativa` (
 -- Volcado de datos para la tabla `esccualitativa`
 --
 
-INSERT INTO `esccualitativa` (`id`, `valoracion`) VALUES
+INSERT IGNORE INTO `esccualitativa` (`id`, `valoracion`) VALUES
 (1, 'Insuficiente (I)'),
 (2, 'Aceptable (A)'),
 (3, 'Sobresaliente (S)'),
@@ -175,7 +175,7 @@ CREATE TABLE IF NOT EXISTS `escnacional` (
 -- Volcado de datos para la tabla `escnacional`
 --
 
-INSERT INTO `escnacional` (`id`, `valoracion`) VALUES
+INSERT IGNORE INTO `escnacional` (`id`, `valoracion`) VALUES
 (1, 'Desempeño Bajo'),
 (2, 'Desempeño Básico'),
 (3, 'Desempeño Alto'),
@@ -198,7 +198,7 @@ CREATE TABLE IF NOT EXISTS `estado_notificacion` (
 -- Volcado de datos para la tabla `estado_notificacion`
 --
 
-INSERT INTO `estado_notificacion` (`id`, `nombre`) VALUES
+INSERT IGNORE INTO `estado_notificacion` (`id`, `nombre`) VALUES
 (1, 'No Leido'),
 (2, 'Leido');
 
@@ -275,7 +275,7 @@ CREATE TABLE IF NOT EXISTS `institucion` (
 -- Volcado de datos para la tabla `institucion`
 --
 
-INSERT INTO `institucion` (`id`, `nombre`, `direccion`, `ciudad`, `telefono`, `fax`, `nit`, `dane`, `men`, `rector`, `secretario`, `email`, `distribucion_usuario`, `modelo_pedagogico`, `url_imagen`) VALUES
+INSERT IGNORE INTO `institucion` (`id`, `nombre`, `direccion`, `ciudad`, `telefono`, `fax`, `nit`, `dane`, `men`, `rector`, `secretario`, `email`, `distribucion_usuario`, `modelo_pedagogico`, `url_imagen`) VALUES
 (1, 'IE ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1');
 
 -- --------------------------------------------------------
@@ -295,7 +295,7 @@ CREATE TABLE IF NOT EXISTS `jornada` (
 -- Volcado de datos para la tabla `jornada`
 --
 
-INSERT INTO `jornada` (`id`, `nombre`) VALUES
+INSERT IGNORE INTO `jornada` (`id`, `nombre`) VALUES
 (1, 'Mañana'),
 (2, 'Tarde'),
 (3, 'Noche');
@@ -319,7 +319,7 @@ CREATE TABLE IF NOT EXISTS `jornada_sede` (
 -- Volcado de datos para la tabla `jornada_sede`
 --
 
-INSERT INTO `jornada_sede` (`sede_id`, `jornada_id`) VALUES
+INSERT IGNORE INTO `jornada_sede` (`sede_id`, `jornada_id`) VALUES
 (1, 1);
 
 -- --------------------------------------------------------
@@ -341,7 +341,7 @@ CREATE TABLE IF NOT EXISTS `municipio` (
 -- Volcado de datos para la tabla `municipio`
 --
 
-INSERT INTO `municipio` (`id`, `departamento_id`, `nombre`) VALUES
+INSERT IGNORE INTO `municipio` (`id`, `departamento_id`, `nombre`) VALUES
 (1, 1, 'Leticia'),
 (2, 1, 'Puerto Nariño'),
 (3, 2, 'Abejorral'),
@@ -1462,7 +1462,7 @@ CREATE TABLE IF NOT EXISTS `nivelesacademicos` (
 -- Volcado de datos para la tabla `nivelesacademicos`
 --
 
-INSERT INTO `nivelesacademicos` (`id`, `nombre`) VALUES
+INSERT IGNORE INTO `nivelesacademicos` (`id`, `nombre`) VALUES
 (1, 'Pre-escolar'),
 (2, 'Primaria'),
 (3, 'Básica secundaria'),
@@ -1488,7 +1488,7 @@ CREATE TABLE IF NOT EXISTS `nivelesacademicos_sede` (
 -- Volcado de datos para la tabla `nivelesacademicos_sede`
 --
 
-INSERT INTO `nivelesacademicos_sede` (`sede_id`, `nivel_id`) VALUES
+INSERT IGNORE INTO `nivelesacademicos_sede` (`sede_id`, `nivel_id`) VALUES
 (1, 1),
 (1, 2),
 (1, 3);
@@ -1520,7 +1520,7 @@ CREATE TABLE IF NOT EXISTS `notificaciones` (
 -- Volcado de datos para la tabla `notificaciones`
 --
 
-INSERT INTO `notificaciones` (`id`, `tipo_id`, `estado_id`, `asunto`, `mensaje`, `date_create`, `user_id`, `curso_id`) VALUES
+INSERT IGNORE INTO `notificaciones` (`id`, `tipo_id`, `estado_id`, `asunto`, `mensaje`, `date_create`, `user_id`, `curso_id`) VALUES
 (1, 3, 1, 'Noti', 'exampl', '2012-11-18 10:14:30', 3, NULL);
 
 -- --------------------------------------------------------
@@ -1566,7 +1566,7 @@ CREATE TABLE IF NOT EXISTS `rangocuantitativo` (
 -- Volcado de datos para la tabla `rangocuantitativo`
 --
 
-INSERT INTO `rangocuantitativo` (`id`, `escalanacional_id`, `limite1`, `limite2`, `limite3`, `limite4`) VALUES
+INSERT IGNORE INTO `rangocuantitativo` (`id`, `escalanacional_id`, `limite1`, `limite2`, `limite3`, `limite4`) VALUES
 (1, NULL, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
@@ -1586,7 +1586,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
 -- Volcado de datos para la tabla `roles`
 --
 
-INSERT INTO `roles` (`id`, `nombre`) VALUES
+INSERT IGNORE INTO `roles` (`id`, `nombre`) VALUES
 (1, 'ROLE_USER'),
 (2, 'ROLE_ADMIN'),
 (3, 'ROLE_SUPER_ADMIN'),
@@ -1618,7 +1618,7 @@ CREATE TABLE IF NOT EXISTS `sede` (
 -- Volcado de datos para la tabla `sede`
 --
 
-INSERT INTO `sede` (`id`, `nombre`, `capacidad`, `direccion`, `telefono`, `fax`, `email`, `rector`, `secretaria`, `institucion_id`) VALUES
+INSERT IGNORE INTO `sede` (`id`, `nombre`, `capacidad`, `direccion`, `telefono`, `fax`, `email`, `rector`, `secretaria`, `institucion_id`) VALUES
 (1, 'ejemplo', 123, 'ejemplo', 'ejemplo', 'ejemplo', 'ejemplo', 'ejemplo', 'ejemplo', 1);
 
 -- --------------------------------------------------------
@@ -1638,7 +1638,7 @@ CREATE TABLE IF NOT EXISTS `tipo_documento` (
 -- Volcado de datos para la tabla `tipo_documento`
 --
 
-INSERT INTO `tipo_documento` (`id`, `nombre`) VALUES
+INSERT IGNORE INTO `tipo_documento` (`id`, `nombre`) VALUES
 (1, 'Cédula de Ciudadania'),
 (2, 'Tarjeta de Identidad');
 
@@ -1659,7 +1659,7 @@ CREATE TABLE IF NOT EXISTS `tipo_notificacion` (
 -- Volcado de datos para la tabla `tipo_notificacion`
 --
 
-INSERT INTO `tipo_notificacion` (`id`, `nombre`) VALUES
+INSERT IGNORE INTO `tipo_notificacion` (`id`, `nombre`) VALUES
 (1, 'Institucion'),
 (2, 'Grupo'),
 (3, 'Persona');
@@ -1700,7 +1700,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `salt`, `municipio_id`, `tipodocumento_id`, `nombre`, `apellido`, `apellido_materno`, `fecha_nacimiento`, `direccion`, `lugar_nacimiento`, `nmr_documento`, `sexo`, `email`, `avatar_url`, `institucion_id`) VALUES
+INSERT IGNORE INTO `user` (`id`, `username`, `password`, `salt`, `municipio_id`, `tipodocumento_id`, `nombre`, `apellido`, `apellido_materno`, `fecha_nacimiento`, `direccion`, `lugar_nacimiento`, `nmr_documento`, `sexo`, `email`, `avatar_url`, `institucion_id`) VALUES
 (1, 'cloudadmin', 'y7q1ig71pslTX3iWrqgQv9SDGZYZFm6dJbajzTeYy26CM5BqPSzO2ZSdR19lwdkBW197/+J6YXWlCJQPskKiWQ==', '7eb3c4430aa57bdbd36710028e0089ef', NULL, NULL, '', '', '', '0000-00-00 00:00:00', '', '', '', '', '', '', NULL),
 (3, 'ZOCPKOZZLO', 'BrihVuMtkhSXuKioci4RuWwuCEgbrnZ+/AFnSEjuFdJgW//W3sxRRKO3XUXoLJ2WkjeBNGa5I0O2wRlu0Z0eIw==', '58ffa8a4694ac5ffc7fea4b1f8bd0350', 91, 1, 'Amado', 'Ramos', 'Arboleda', '2012-11-28 00:00:00', 'Cr 8 N 40 - 50', 'Monteria', '1067901140', 'm', 'amado0529@gmail.com', 'imagen.jpg', 1);
 
@@ -1723,7 +1723,7 @@ CREATE TABLE IF NOT EXISTS `user_role` (
 -- Volcado de datos para la tabla `user_role`
 --
 
-INSERT INTO `user_role` (`user_id`, `role_id`) VALUES
+INSERT IGNORE INTO `user_role` (`user_id`, `role_id`) VALUES
 (1, 3),
 (3, 2);
 
