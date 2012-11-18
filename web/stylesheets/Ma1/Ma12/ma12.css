@@ -1,0 +1,249 @@
+#bloqueCgenerales{
+    background: rgb(0,174,239) ;
+    height: 100%;
+    vertical-align: top;
+    width: 100%;
+}
+#contenidoDer{
+    float:left;
+    overflow: hidden; 
+    position: relative;
+    width: 40%;
+}
+#contenidoIzq{
+	float: left;
+    position: relative;
+    width: 60%;
+}
+#contenidoIzq  label{
+    color: rgb(255,255,255);
+    display: inline;
+    font-family: "Segoe UI light";
+    font-size: 32px;
+}
+#ContTitulo{
+    display: inline;
+    margin-left: 20px;
+    position: absolute;
+    top: 210px;
+    vertical-align: bottom;
+    width: 145px;
+}
+#ContTitulo p {
+    color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 32px;
+    line-height: 1;
+    position: relative;
+    text-align: justify;
+}
+#contSelect{
+    overflow: hidden;
+    float: left;
+}
+#lineas{
+    left: 180px;
+    position: relative;
+    top: -40px;
+    vertical-align: top;
+    width: 46%;
+}
+#menuAux{
+    position: relative;
+    right: 124px;
+    top: 50px;
+}
+#menuAux ul{
+    display: block;
+    list-style: none;   
+}
+#menuAux li{
+    margin-bottom: 20px;
+}
+#menuAux li a{
+    color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 28px;
+}
+#tituloAeV{
+	float: left;
+	margin-top: 4%;
+	width: 80%;
+}
+#tituloAeV p{
+	color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 28px;
+	text-align: center;
+}
+#conf{
+	float: left;
+	width: 100%;
+}
+#modeloEv{
+	float: left;
+    height: 24px;
+	width: 100%;
+}
+#modeloEv p{
+	color: rgb(255,255,255);
+	float: left;
+    font-family: "Segoe UI light";
+    font-size: 18px;
+	width: 60%;
+}
+#modeloEv select{
+	float: left;
+	width: 40%;
+}
+#contEscalaNal{
+	float: left;
+	width: 100%;
+}
+#contVinetas{
+	float: left;
+	margin:0 3% 0 3%;
+    overflow: hidden;
+	width: 4%;
+}
+
+.cajaTransp{
+	background-color: transparent;
+    float: left;
+	height: 4px;
+    margin: 5px 5px 25px 5px;      
+	width: 100%;
+}
+.cajaBlanca{
+	background-color: rgb(255,255,255);
+    float: left;
+    height: 14px;
+    margin: 13px 5px 4.5px 5px;
+	width: 100%;
+}
+#escalaNal{
+    float: left;
+    margin-left: 5%;
+    overflow: hidden;
+    width: 35%;
+}
+.tituloTabla{
+    
+}
+.tituloTabla p{
+    color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 20px;
+    text-align: left;
+}
+.itemTabla p{
+    color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 1em;
+    text-align: left;
+}
+#escalaUso{
+    float: left;
+    overflow: hidden;
+    width: 60%;
+}
+.textoForm{
+    float: left;
+    margin: 0 0 0 7%;
+    width: 40%;
+}
+#escalaUso .textoForm p{
+    color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 16px;
+    margin-bottom:0px;
+    text-align: left;
+}
+#escalaUso select{
+    float: left;
+    width: 53%;
+}
+#acumulador{
+    float: left;
+    width: 40%;
+}
+.textoForm2{
+    float: left;
+    margin: 0 0 0 7%;
+    width: 67%;
+}
+#acumulador .textoForm2 p{
+    color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 16px;
+    margin-bottom:0px;
+    text-align: left;
+}
+#acumulador select{
+    float: left;
+    margin-left: 5%;
+    width: 21%;
+}
+#contBotones{
+    float: left;
+    margin: auto;
+    text-align: center;
+    width: 100%;
+}
+#contBotones button{
+    background-color: transparent;
+    border: none;
+    color: rgb(255,255,255);
+    font-family:  "Segoe UI light";
+    font-size: 24px;
+    margin: 0 0 5px 0;
+}
+#contBotones a{
+    color: rgb(255,255,255);
+    font-family:  "Segoe UI light";
+    font-size: 24px;
+    margin: 0 5px 5px 40px;
+}
+.Inicio{    
+    top: 0px;
+}
+#rang{
+    float: left;
+    margin-left: 10px;
+    margin-top: 24%;
+    overflow: hidden;
+    width: 70%;
+}
+.rangoCol{
+    float: left;
+    margin: 0 3% 0 3%;
+    width: 30%;
+}
+.rangoCol input{
+    margin-bottom:6px; 
+    width: 100%;
+}
+#Rangos_limite1{
+    border-radius: 0;
+    height: 22px;
+    margin-bottom:6px; 
+    width: 100%;
+}
+#Rangos_limite2{
+    border-radius: 0;
+    height: 22px;
+    margin-bottom:6px; 
+    width: 100%;
+}
+#Rangos_limite3{
+    border-radius: 0;
+    height: 22px;
+    margin-bottom:6px; 
+    width: 100%;
+}
+#Rangos_limite4{
+    border-radius: 0;
+    height: 22px;
+    margin-bottom:6px; 
+    width: 100%;
+}

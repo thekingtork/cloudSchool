@@ -1,0 +1,76 @@
+ @media only screen and (min-width: 480px) and (max-width: 767px) {
+    #avatar{
+           border: solid 4px #b1cd49;
+           max-height: 115px;
+           max-width: 98px;
+           margin-top: -50px;
+           position: absolute;
+           right: 0;
+        }
+    #aulaVirtual{
+            left: 270.5px;
+            max-height: 73.2px;
+            max-width: 157.2px;
+            top: -451.4px;
+        }
+    #admacademica{
+           max-height: 116.8px;
+           left: 185px;
+           top: -380.2px;
+           width: 161px;
+        }
+    #admPersonas{
+            height: 73.2px;
+            width: 99px;
+        } 
+    h1{
+    color: #b5d659;
+    font-family: Champagne;
+    font-size: 2em;    
+    }
+    h2{
+    color: rgb(255,255,255);
+    font-family:"Champagne";
+    font-size: 2.5em;
+    }
+    #Fecha label{
+    color: rgb(234,0,132);
+    font-family:"Champagne";
+    font-size: 28px;
+    }
+    #confSitema{
+            max-height: 116.7px;
+            position: relative;
+            max-width: 99px;
+     }
+     #Estaditicas{
+     height: 57.9px;
+     left: 100px;
+     top: -192px;
+     width: 84px;
+     }
+     #obsevaciones{
+            left: 348px;
+            max-height: 57.9px;
+            max-width: 79.8px;
+            top: -642.5px;
+        }
+        #organizador{
+            left: 348px;
+            max-height: 57.9px;
+            max-width: 79.8px;
+            top: -643.7px;        
+        }
+        #perfil{
+            left: 185px;
+            max-height: 73.2px;
+            max-width: 84px;
+            top: -378.2px;
+        }
+     #tutoriales{
+            height: 73.2px;
+            left: 100px;
+            top: -188px;
+            width: 84px;
+        }
+  }

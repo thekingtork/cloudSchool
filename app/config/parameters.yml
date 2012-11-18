@@ -1,0 +1,14 @@
+parameters:
+    database_driver: pdo_mysql
+    database_host: localhost
+    database_port: null
+    database_name: cloud_cloudschool
+    database_user: cloudschool
+    database_password: cloudschool
+    mailer_transport: smtp
+    mailer_host: localhost
+    mailer_user: null
+    mailer_password: null
+    locale: en
+    secret: 09974e6b7e2ba843b64e1c95a8ad6de31d309597
+    database_path: null

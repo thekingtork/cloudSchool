@@ -1,0 +1,112 @@
+.Fl{
+	float: left;
+}
+#contenedorAut{
+	height: 36.3%;
+	max-width:400px; 
+	position: relative;
+	top: -40px;
+	width: 38%;
+}
+#m{
+	background-color: rgb(177,205,73);
+	width: 36.83%;
+}
+#m label{
+	color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 8em;
+    text-align: center;
+}
+#d{
+	background-color: rgb(204,217,73);
+	width: 32.63%;
+}
+#d label{
+	color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 6em;
+    text-align: center;
+}
+#o{
+	background-color: rgb(177,205,73);
+	width: 30.53%;
+}
+#o label{
+	color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 6em;
+    text-align: center;
+}
+#f{
+	background-color: rgb(204,217,73);
+	position: absolute;
+	top: 115px;
+	width: 36.83%;
+}
+#f label{
+	color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 4em;
+    text-align: center;
+}
+#a{
+	background-color: rgb(214,226,140);
+	width: 32.63%;
+}
+#a label{
+	color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 6em;
+    text-align: center;
+}
+#e{
+	background-color: rgb(50,164,87);
+	width: 30.53%;
+}
+#e label{
+	color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 6em;
+    text-align: center;
+}
+#c{
+	background-color: rgb(50,164,87);
+	width: 36.83%;
+}
+#c label{
+	color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 4em;
+    text-align: center;
+}
+#l{
+	background-color: rgb(177,205,73);
+	width: 19.84%;
+}
+#l label{
+	color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 4em;
+    text-align: center;
+}
+#i{
+	background-color: rgb(204,217,73);
+	width: 21.18%;
+}
+#i label{
+	color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 4em;
+    text-align: center;
+}
+#t{
+	background-color: rgb(214,226,140);
+	width: 22.13%;
+}
+#t label{
+	color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 4em;
+    text-align: center;
+}

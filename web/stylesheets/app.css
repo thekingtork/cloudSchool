@@ -1,0 +1,387 @@
+@font-face {
+    font-family: 'Champagne';
+    src: url('../font/Champagne_Limousines.eot');
+    src: url('../font/Champagne_Limousines.eot?#iefix') format('embedded-opentype'),
+        url('../font/Champagne_Limousines.woff') format('woff'),
+        url('../font/Champagne_Limousines.ttf') format('truetype'),
+        url('../font/Champagne_Limousines.svg') format('svg');
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('../font/segoeui.eot');
+    src: url('../font/segoeui.eot?#iefix') format('embedded-opentype'),
+         url('../font/segoeui.woff') format('woff'),
+         url('../font/segoeui.ttf') format('truetype'),
+         url('../font/segoeui.svg') format('svg');
+}
+@font-face {
+    font-family: 'Segoe UI Bold';
+    src: url('../font/segoeuib.eot');
+    src: url('../font/segoeuib.eot?#iefix') format('embedded-opentype'),
+        url('../font/segoeuib.woff') format('woff'),
+        url('../font/segoeuib.ttf') format('truetype'),
+        url('../font/segoeuib.svg') format('svg');
+}
+@font-face {
+    font-family: 'Segoe UI light';
+    src: url('../font/segoeuil.eot');
+    src: url('../font/segoeuil.eot?#iefix') format('embedded-opentype'),
+        url('../font/segoeuil.woff') format('woff'),
+        url('../font/segoeuil.ttf') format('truetype'),
+        url('../font/segoeuil.svg') format('svg');
+}
+h1{
+    color: #b5d659;
+    font-family: Segoe UI light;
+    font-size: 2.125em;    
+}
+h2{
+    color: rgb(255,255,255);
+    font-family:"Segoe UI light";
+    font-size: 3.5em;
+}
+html{
+    max-height: 580px;
+}
+form li #username{
+    border: none;
+    font-family: Segoe UI light;
+    font-size: 16px;
+    height: 26px;
+    left: 90px;
+    line-height: 26px;
+    margin: 15px 5px 10px 15px;
+    max-width: 160px;
+    position: relative;
+    text-indent: 0px;
+    top: 5px;
+    width: 57%;   
+}
+form li #password{
+    border: none;
+    font-family: Segoe UI light;
+    font-size: 16px;
+    height: 26px;
+    left: 90px;
+    line-height: 26px;
+    max-width: 160px;
+    margin: 15px 5px 10px 15px;
+    position: relative;
+    text-indent: 0px;
+    top: 5px;
+    width: 57%;    
+}
+form p{
+    text-align: center;
+}
+form p input{
+    background-color: transparent;
+    border: none;
+    color: rgb(255,255,255);
+    cursor: pointer;
+    font-family: Segoe UI light;
+    font-size: 24px;
+    height: 6%;
+    line-height: 26px;
+    margin-bottom: 15px;
+}
+header{
+    border-bottom: solid 4px #b1cd49;
+    background: #41763c url('../images/headerTork.jpg') center 0 no-repeat fixed;
+    max-height: 200px;
+}
+
+section{
+    display: inline;
+}
+  
+.bienvenida{
+    color: white;
+    font-family: "Segoe UI light";
+    font-size: 34px;
+    margin: 14px 0px 14px 0px;
+}
+.nombre{
+    color: white;
+    font-family: "Segoe UI light";
+    font-size: 56px;
+    margin: 14px 0px 14px 0px;
+}
+.reset_padding{
+    padding: 0px;
+}
+#bloqueLogin{
+    float: right;
+    max-width: 300px;
+    max-height: 160px;
+    background-color: #b1cd49;
+    padding: 10px;
+    position: relative;
+    right: 10px;
+    width: 30%;
+}
+#bloqueLogin li label{
+    color: white;
+    font-family: "Segoe UI light";
+    font-size: 20px;
+    position: absolute;
+}
+#bloqueLogin li{
+    display: block;
+}
+#ContAjax{
+    float: left;
+    height: 330px;
+    overflow: hidden;
+    vertical-align: top;
+    width:74%;
+}
+#bloqueLogin form{
+    
+}
+#loginHeader{
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSI0MCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjAiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+    background: -moz-linear-gradient(top,  rgba(255,255,255,1) 40%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(40%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 40%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(255,255,255,1) 40%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(255,255,255,1) 40%,rgba(255,255,255,0) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(255,255,255,1) 40%,rgba(255,255,255,0) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-8 */
+    height: 57%;
+    max-height: 700px;
+    width: 100%;
+}
+
+#loginHeader label{
+    color: #b1cd49;
+    font-family: "Segoe UI light";
+    font-size: 56px;
+}
+#fondo{
+    background: url(../images/fondo.jpg)no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#tela{
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 25.5%;
+}
+#ContAvatar{
+    float: right;
+    left: 72%;
+    overflow: hidden;
+    position: absolute;
+    top: 10%;
+    width: 14%;
+}
+#avatar{
+    border: solid 4px #b1cd49;
+    max-width: 95%;
+}
+
+#contMetro{
+   /*background-color: rgba(0,0,0,.3);*/
+    height: 1%;
+    max-height: 380px;
+    overflow: hidden;
+    padding: 5px;
+    margin: auto;
+}
+#contMetro label{
+    color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    /*text-align: left;*/
+    word-wrap: break-word; 
+}
+
+#Fecha{
+    height: 50px;
+    margin: 5px 0 5px 0;
+}
+#Fecha label{
+    color: rgb(234,0,132);
+    font-family:"Segoe UI light";
+    font-size: 34px;
+}
+#Fecha label span {
+    float: left;
+    font-size: 50px;
+    width: 31%;
+}
+#Fecha label p {
+    float: left;
+    font-family:"Segoe UI light";
+    font-size: 34px;
+    margin-left: 5px;
+    position: relative;
+    top: 4px;
+    width: 50%;
+}
+
+/*************************** Ajax Confi Sistema ************************/
+.botonRegresar{
+    float: left;
+    padding: 0px 10px;
+    max-width: 65px
+}
+.botonRegresar a{
+    color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 18px;
+}
+.botonRegresar img{
+    padding: 10px 0px 0px 0px;
+    display: block;
+}
+
+#decoracionAjax{
+    display: inline;
+    left: 5px;
+    position: relative;
+}
+/***************************** Ajax Ajustes Generales ***************************/
+.breadcumbr{
+    position: relative;
+    text-align: center;
+    top: 10px;
+}
+.breadcumbr a{
+    color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 20px;
+}
+.breadcumbrBlue{
+    left: 70%;
+    max-width: 200px;
+    position: relative;
+}
+.breadcumbrBlue a{
+    color: rgb(0,174,239);
+    font-family: "Segoe UI light";
+    font-size: 20px;
+}
+.Inicio{    
+    display: inline;
+    float: right;
+    position: relative;
+    right: 20px;
+    top: 80px;
+}
+.Inicio a{
+    color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 50px;
+}
+.InicioBlue{    
+    display: inline;
+    float: left;
+    position: relative;
+    top: 15px;
+}
+.InicioBlue a{
+    color: rgb(0,174,239) ;
+    font-family: "Segoe UI light";
+    font-size: 50px;
+}
+#imgLoader{
+    display: inline-block;
+    margin: 20% 20%;
+    position: absolute;
+}
+#salir{
+    float: right;
+    max-width: 200px;
+    text-align: center;
+    width: 22%;
+}
+#salir a{
+    color: rgb(204,33,40);
+    font-family: "Segoe UI light";
+    font-size: 2em;
+}
+#contenedorFront{
+    margin: auto;
+    width: 80%;
+}
+#contenedorAut{
+    float: left;
+}
+#bigTitulo{
+    margin: auto;
+    width: 80%;
+}
+/************** Clase Colores fondo ***********/
+.azul{
+    background-color: rgb(0,172,237);
+}
+.amarillo{
+    background-color: rgb(242,201,47);
+}
+.rojo{
+    background-color: rgb(204,33,40);
+}
+.lima{
+    background-color: rgb(177,205,73);
+}
+.fucsia{
+    background-color: rgb(202,0,136);
+}
+.verdeLight{
+    background-color: rgb(140,152,119);
+}
+.verdeDark{
+    background-color: rgb(50,164,86);
+}
+.naranja{
+    background-color: rgb(219,129,45);
+}
+.morado{
+    background-color: rgb(139,39,139);
+}
+.gris{
+    background-color: rgb(138,155,168);
+}
+/************** Clase Colores fuente ***********/
+.azulFc{
+    color: rgb(0,172,237);
+}
+.amarilloFc{
+    color: rgb(242,201,47);
+}
+.rojoFc{
+    color: rgb(204,33,40);
+}
+.limaFc{
+    color: rgb(177,205,73);
+}
+.fucsiaFc{
+    color: rgb(202,0,136);
+}
+.verdeLightFc{
+    color: rgb(140,152,119);
+}
+.verdeDarkFc{
+    color: rgb(50,164,86);
+}
+.naranjaFc{
+    color: rgb(219,129,45);
+}
+.moradoFc{
+    color: rgb(139,39,139);
+}
+.grisFc{
+    color: rgb(138,155,168);
+}
+/*Clases Genericas*/
+.cuerpoCentrado{
+    margin: auto;
+    overflow: hidden;
+    width: 80%;
+}

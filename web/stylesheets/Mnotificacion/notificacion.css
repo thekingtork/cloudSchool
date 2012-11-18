@@ -1,0 +1,97 @@
+#notificaciones{
+    display: inline-block;
+    height: 330px;
+    left: 0px;
+    margin-left: 3%;
+    max-width: 200px;
+    position: relative;
+    top: -2px;
+    vertical-align: top;
+    width: 21.42%
+}
+#notificaciones .titulo{
+    color: rgb(177, 205, 73);
+    font-family: "Segoe UI light";
+    font-size: 1.250em;
+    line-height: 1;
+    margin-bottom: 10px;
+    position: relative;
+}
+#tituloN{
+    height: 53px;
+    min-width: 122px;
+    width: 61%; 
+}
+#fechaN{
+    margin: auto;
+    width: 75%;
+}
+#fechaN{
+    color: rgb(255, 0, 0);
+    font-family: "Segoe UI light";
+    font-size: 1em;
+}
+#paginadorN{
+ margin: auto;
+ overflow: hidden;
+ width: 62%;
+}
+#paginadorN ul {
+    list-style: none;
+}
+#paginadorN li {
+    color: rgb(185,185,200);
+    cursor: pointer;
+    background-color: rgb(185,185,200);
+    float: left;
+    height: 15px;
+    line-height: 1;
+    margin-left: 5px;
+    width: 15px;
+}
+.itemN{
+    cursor: pointer;
+    margin-bottom: 5px;
+    overflow: hidden;
+    width: 100%;
+}
+.iconoN{
+    float: left;
+    max-height: 40px;
+    max-width: 40px;
+    text-align: center;
+    width: 20%;
+}
+.iconoN label{
+    color: rgb(255,255,255);
+    font-family: "Segoe UI";
+    font-size: 2.250em;
+    margin: 4px 0px 4px 0px;
+}
+.ContenidoN{
+    float: left;
+    margin-left: 2px;
+    max-height: 40px;
+    max-width: 160px;
+    width: 77%;
+}
+.ContenidoN .tituloN{
+    font-family: "Segoe UI light";
+    font-size: 0.750em;
+    height: 19px;
+    line-height: 1;
+    text-align: left;
+    text-transform: uppercase;
+}
+.ContenidoN .tituloN p{
+    margin-bottom: 2px;
+}
+.ContenidoN .noticiaN p{
+    color: rgb(0,0,0);
+    font-family: "Segoe UI light";
+    font-size: 0.688em;
+    line-height: 1;
+    margin-bottom: 2px;
+    text-align: left;
+}
+

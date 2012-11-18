@@ -1,0 +1,306 @@
+#bloqueCgenerales{
+    background: rgb(255,255,255) ;
+    height: 100%;
+    vertical-align: top;
+    width: 100%;
+}
+#contenidoDer{
+    display: inline;
+    float:right; 
+    position: relative;
+    width: 80%;
+}
+#contenidoIzq{
+    max-width: 460px;
+    position: absolute;
+    width: 10%;
+}
+#contenidoIzq  label{
+    color: rgb(255,255,255);
+    display: inline;
+    font-family: "Segoe UI light";
+    font-size: 32px;
+}
+#avatarInst{}
+#contAvatar{
+    float: left;
+    overflow: hidden;
+    padding: 5px;
+    position: relative;
+    top: 10px;
+    width: 100%;
+}
+#contAvatar img{
+    width: 100%;
+}
+#cargador{
+    overflow: hidden;
+    position: relative;
+    top: 10px;
+    width: 100%;
+}
+#TituloSecction{
+    position: relative;
+    width: 48%;
+}
+#TituloSecction label{
+    color: rgb(0,174,239);
+    font-family: "Segoe UI light";
+    font-size: 30px;
+}
+#cloud_sitebundle_instituciontype{
+    display: inline;
+    vertical-align: top;
+}
+#formularioInst{
+    max-height: 279px;
+    width: 100%;
+    overflow: hidden;
+}
+form{
+    display: inline;
+    vertical-align: top;
+}
+#nombreInst{
+    float: left;
+    margin-top: 23px;
+    width: 100%;
+}
+#nombreInst input{
+    width: 70%;   
+}
+#nombreInst p{
+    top: 2px;
+    width: 25%;
+}
+#lineaDos{
+    max-height: 50px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+#lineaDos select{
+    margin-left: 3px;
+    width: 54%;
+}
+#nit{
+    float: left;
+    width: 47%;
+}
+#nit input{
+    width: 78%  
+}
+#nit p{
+    width: 6%;
+}
+#departamentos{
+    float: left;
+    margin-left: 5px;
+    width: 47%;
+}
+#departamentos p{
+    width: 47%;
+}
+#departamentos select{
+    appearance:none;
+    background: #fff url('../../../images/b_selec.png') 0 0 no-repeat;
+    border: solid 1px rgb(0,174,239);
+    height: 22px;
+    width: 53.1%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+}
+#nit p{
+    width: 6%;
+}
+.textoEtq{
+    color: rgb(0,0,0);
+    float: left;
+    font-family: "Segoe UI light";
+    font-size: 1.2em;
+    min-width: 34px;
+    position: relative;
+    text-align: left;
+    vertical-align: bottom;
+    top: 1px;
+}
+.entradaTexto input{
+    appearance:none;
+    border: solid 1px  rgb(0,174,239);
+    border-radius: 0;
+    height: 22px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none; 
+}
+.desplegable select{
+    appearance:none;
+    background: #fff url('../../../images/b_selec.png') 0 0 no-repeat;
+    border: solid 1px rgb(0,174,239);
+    height: 22px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+}
+#ciudad{
+    float: left;
+    width: 37%;
+}
+#ciudad p{
+    width: 30%;
+}
+#ciudad select{
+    width: 62%;
+}
+#direccion{
+    float: left;
+    width: 58%;
+}
+#direccion p{
+    width: 25%;
+}
+#direccion input{
+    width: 75%;
+}
+#telefono{
+    float: left;
+    width: 32%;
+}
+#telefono p{
+    width: 40%;
+}
+#telefono input{
+    width: 56%;
+}
+#fax{
+    float: left;
+    width: 25%;
+}
+#fax p{
+    width: 22%;
+}
+#fax input{
+    width: 70%;
+}
+#email{
+    float: left;
+    width: 38%;
+}
+#email p{
+    width: 25%;
+}
+#email input{
+    width: 75%;
+}
+#dane{
+    float: left;
+    width: 46%;
+}
+#dane p{
+    width: 44%;
+}
+#dane input{
+    width: 55%;
+}
+#men{
+    float: left;
+    width: 49%;
+}
+#men p{
+    width: 46%;
+}
+#men input{
+    width: 54%;
+}
+#mPedagogico{
+    float: left;
+    margin-top: 23px;
+    width: 95%;
+}
+#mPedagogico p{
+    width: 29%;
+}
+#mPedagogico input{
+    width: 71%;
+}
+#rector{
+    float: left;
+    width: 95%;
+}
+#rector p{
+    width: 18.5%;
+}
+#rector input{
+    width: 81.5%;
+}
+#Secretario{
+    float: left;
+    width: 95%;
+}
+#Secretario p{
+    width: 18.5%;
+}
+#Secretario input{
+    width: 81.5%;
+}
+#Usuario{
+    float: left;
+    width: 47.5%;
+}
+#Usuario p{
+    width: 22%;
+}
+#Usuario input{
+    width: 74%;
+}
+#imagen{
+    float: left;
+    width: 47.5%;
+}
+#imagen p{
+    width: 22%;
+}
+#imagen input{
+    width: 78%;
+}
+#pantalla1{
+    float: left;
+    height: 230px;
+    width: 577px;
+}
+#pantalla2{
+    float: left;
+    height: 230px;
+    width: 567px;
+}
+#botonesDow{
+    margin: auto;
+    overflow: hidden;
+    width: 70%;
+}
+#botonesDow ul{
+    list-style: none;
+}
+#botonesDow ul li{
+    float: left;
+}
+.botonesDw{
+    color: rgb(0,174,239);
+    cursor: pointer;
+    font-family: "Segoe UI light";
+    font-size: 2em;
+    background-color: transparent;
+    border: none;
+}
+#content_1{
+    max-height: 230px;
+    overflow: hidden;
+}

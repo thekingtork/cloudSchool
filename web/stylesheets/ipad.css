@@ -1,0 +1,152 @@
+ @media only screen and (min-width: 768px) and (max-width: 959px) {
+        form li #username{
+            max-width: 105px;
+            }
+        form li #password{
+            max-width: 105px;
+        }
+        form p input{
+            font-size: 18px;
+            height: 20px;
+            line-height: 20px;
+            margin-bottom: 5px;
+}
+        .contNtf .titulo label{
+            font-size: 12px;
+            left: 20px;
+        }
+        .contNtfEv .titulo label{
+            left: 20px;
+        }
+        .contNtfAc .titulo label{
+            left: 20px;
+        }
+        .contNtfNt .titulo label{
+            left: 20px;
+        }
+        #admacademica label{
+            font-size: 22.8px;
+            left: 25px;
+            
+        }
+        #admPersonas label{
+            font-size: 13.2px;
+        }
+        #aulaVirtual label {
+            font-size: 22.8px;
+        }
+        #confSitema label{
+            font-size: 15.6px;
+            left: 10px;
+            top: 75px;
+        }
+        #Estaditicas label{
+            left: 0;
+            font-size: 13.2px;
+            text-align: center;
+        }
+        #perfil label{
+            font-size: 13.2px;
+            top: 60px;
+        }
+        #obsevaciones label {
+            font-size: 13.2px;
+        }
+        #organizador label {
+            font-size: 13.2px;
+        }
+        #planEstudios label{
+            font-size: 13.2px;
+            top: 23px;
+        }
+        #tutoriales label{
+            font-size: 22.8px;
+        }
+        #avatar{
+        	border: solid 4px #b1cd49;
+       		max-height: 115px;
+	        max-width: 98px;
+	        margin-top: 105px;
+	        position: absolute;
+        }
+        #aulaVirtual{
+            left: 310px;
+            max-height: 82px;
+            max-width: 23.04%;
+            top: -497px;
+        }
+        #admacademica{
+            max-height: 130px;
+            left: 209px;
+            top: -420px;
+            max-width: 23%;
+        }
+        #admPersonas{
+            max-height: 82px;
+            max-width: 14%;
+            top: 5px;
+        }        
+        #confSitema{
+            max-height: 130px;
+            position: relative;
+            max-width: 14%;
+            top: 0px;
+        }
+		#contMetro{
+			max-height: 215px;
+		}
+        #Estaditicas{
+            max-height: 63px;
+            left: 108px;
+            top: -212px;
+            max-width: 13%;
+        }
+        #obsevaciones{
+            left: 385px;
+            max-height: 63px;
+            max-width: 13%;
+            top: -777px;
+        }
+        #notificaciones{
+            left: 498px;
+            max-width: 200px;
+            top: 170px;
+        }
+        #notificaciones .titulo{
+            font-size: 16px;
+            left: 50px;
+        }
+        #organizador{
+            left: 385px;
+            max-height: 63px;
+            max-width: 13%;
+            top: -647px;        
+        }
+        #perfil{
+            left: 209px;
+            max-height: 82px;
+            max-width: 13%;
+            top: -415px;
+        }
+        #planEstudios{
+            left: 108px;
+            max-height: 63px;
+            top: -208px;
+            max-width: 13%;
+        }
+        #tutoriales{
+            max-height: 82px;
+            left: 108px;
+            top: -203.1px;
+            max-width: 13%;
+        }
+    }
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+     #notificaciones{
+        display: none;
+     }
+}        

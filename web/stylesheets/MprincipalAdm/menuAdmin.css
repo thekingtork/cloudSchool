@@ -1,0 +1,122 @@
+#confSitema  p{
+   font-size: 197%;
+   margin-top: 70%;
+}
+#Estaditicas a p{
+   font-size: 180%;
+   margin-top: 21%;
+}
+#planEstudios a p{
+    font-size: 180%;
+}
+#admacademica a p{
+   font-size: 240%;
+   margin: 21% 0 0 10%;
+}
+#obsevaciones a p{
+   font-size: 180%;
+   margin-top: 21%;
+}
+#admPersonas a p{
+   font-size: 153%%;
+   margin-top: 21%;
+}
+#organizador a p{
+   font-size: 180%;
+   margin-top: 21%;
+}
+#perfil a p{
+   font-size: 360%;
+   margin-top: 21%;
+}
+#tutoriales a p{
+   font-size: 180%;
+   margin-top: 21%;
+}
+#aulaVirtual a p{
+   font-size: 240%;
+   margin: 5% 0 0 10%;
+}
+#CsuperiorIzq{
+    float: left;
+    height: 64%;
+    overflow: hidden;
+    vertical-align: top;
+    width: 40%;
+}
+#CsuperiorDer{
+    float: left;
+    height: 64%;
+    overflow: hidden;
+    vertical-align: top;
+    width: 60%;
+}
+#CinferiorIzq{
+    float: left;
+    height: 34%;
+    margin-top:0.9%; 
+    overflow: hidden;
+    width: 40%;
+}
+#CinferiorDer{
+    float: left;
+    height: 34%;
+    margin-top:0.9%;
+    overflow: hidden;
+    width: 60%;
+}
+.boxMPA{
+    cursor: pointer;
+    box-shadow: inset 0px 0px 1px #FFFFCC;
+    float: left;
+    margin: 0 2% 2% 0;
+    overflow: hidden;
+    padding: 3%;
+    position: relative;
+    vertical-align: top;
+}
+.boxMPA:hover{
+    border: solid 2px ;
+    border-color: rgba(166, 166, 166, 0.8) 
+}
+.caja1MPA{
+    height: 100%;
+    width: 48%;
+}
+.caja2MPA{
+    height: 48.5%;
+    width: 48%;
+}
+.caja3MPA{
+    height: 100%;
+    margin: 0 1.333% 1.333% 0;
+    width: 60%;
+}
+.caja4MPA{
+    height: 48.5%;
+    margin: 0 0 1.333% 0;
+    width: 38%;
+}
+.caja5MPA{
+    height: 100%;
+    margin: 0 1.333% 1.333% 0;
+    width: 38%;
+}
+.caja6MPA{
+    height: 100%;
+    margin: 0 0 1.333% 0;
+    width: 60%;
+}
+.textoMPA{
+    color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    line-height: 1.1;
+    position: relative;
+    word-wrap: break-word; 
+}
+.TexLeft{
+    text-align: left;
+}
+.TexCentro{
+    text-align: center;
+}
