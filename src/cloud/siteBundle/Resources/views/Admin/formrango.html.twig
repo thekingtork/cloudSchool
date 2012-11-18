@@ -1,0 +1,36 @@
+<div id="rang">{#Form2#}
+<form  action="{{path('formrango')}}" method="post" name="form_Rangos" id="form_Rangos">
+    <div class="tituloTabla">
+        <p>Escala Cuantitativa</p>
+    </div>
+    <div class="rangoCol">
+        <input type="">
+        <input type="">
+        <input type="">
+        <input type="">
+    </div>
+    <div class="rangoCol">
+        {{form_errors(form2)}}
+            <div id="rBajo">
+            {{form_errors(form2.limite1)}}
+            {{form_widget(form2.limite1)}}
+            </div>
+            <div>
+            {{form_errors(form2.limite2)}}
+            {{form_widget(form2.limite2)}}
+            </div>
+            <div>
+            {{form_errors(form2.limite3)}}
+            {{form_widget(form2.limite3)}}
+            </div>
+            <div>
+            {{form_errors(form2.limite4)}}
+            {{form_widget(form2.limite4)}}
+            </div>
+    {{form_rest(form2)}}
+    </div>    
+    <div style="display:none" >
+        <button type="submit">Guardar</button>
+    </div>
+    </form>
+</div>{#fin Form2#}                        

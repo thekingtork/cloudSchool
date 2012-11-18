@@ -1,0 +1,81 @@
+{% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
+{% block title %}
+	MA12
+{% endblock %}
+ 	{% block menu_principal %}
+	 <div class="cuerpoCentrado" id="contMetro">
+		<div id="ContAjax">
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/ma1.css') }}"/> 
+			<div id="bloqueCgenerales">
+				<div id="contenidoIzq">
+					<div class="botonRegresar">
+						{% block back %}
+							<a href="{{ path('ma') }}" class="ajax"><img src="{{ asset('images/b_atras.png') }}"></a>
+						{% endblock %}
+					</div>
+					<form action="{{path('ma12_b')}}" method="post">
+						{{form_errors(form)}}
+						<div>
+							{{form_errors(form.modelo_evaluacion)}}
+							{{form_label(form.modelo_evaluacion)}}
+							{{form_widget(form.modelo_evaluacion)}}
+						</div>
+						<div>
+							{{form_errors(form.acumula)}}
+							{{form_label(form.acumula)}}
+							{{form_widget(form.acumula)}}
+						</div>
+						<div>
+							{{form_errors(form.db1)}}
+							{{form_label(form.db1)}}
+							{{form_widget(form.db1)}}
+						</div>
+						<div>
+							{{form_errors(form.db2)}}
+							{{form_label(form.db2)}}
+							{{form_widget(form.db2)}}
+						</div>
+						<div>
+							{{form_errors(form.dbs1)}}
+							{{form_label(form.dbs1)}}
+							{{form_widget(form.dbs1)}}
+						</div>
+						<div>
+							{{form_errors(form.dbs2)}}
+							{{form_label(form.dbs2)}}
+							{{form_widget(form.dbs2)}}
+						</div>
+						<div>
+							{{form_errors(form.da1)}}
+							{{form_label(form.da1)}}
+							{{form_widget(form.da1)}}
+						</div>
+						<div>
+							{{form_errors(form.da2)}}
+							{{form_label(form.da2)}}
+							{{form_widget(form.da2)}}
+						</div>
+						<div>
+							{{form_errors(form.ds1)}}
+							{{form_label(form.ds1)}}
+							{{form_widget(form.ds1)}}
+						</div>
+						<div>
+							{{form_errors(form.ds2)}}
+							{{form_label(form.ds2)}}
+							{{form_widget(form.ds2)}}
+						</div>
+						{{ form_rest(form) }}
+						<button type="submit">Guardar</button>
+					</form>
+				</div>
+			</div>
+		</div>		
+             {% block notificaciones %}         
+                {% include "cloudBundle::layout_notificaciones.html.twig" %}
+             {% endblock notificaciones %}
+        
+		</div>
+	</div>
+{% endblock %}
+

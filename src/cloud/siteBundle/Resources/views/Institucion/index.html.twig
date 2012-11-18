@@ -1,0 +1,63 @@
+<h1>Institucion list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Direccion</th>
+            <th>Ciudad</th>
+            <th>Telefono</th>
+            <th>Fax</th>
+            <th>Nit</th>
+            <th>Dane</th>
+            <th>Men</th>
+            <th>Rector</th>
+            <th>Secretario</th>
+            <th>Email</th>
+            <th>Distribucion_usuario</th>
+            <th>Modelo_pedagogico</th>
+            <th>Url_imagen</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('admincloud_institucion_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.name }}</td>
+            <td>{{ entity.direccion }}</td>
+            <td>{{ entity.ciudad }}</td>
+            <td>{{ entity.telefono }}</td>
+            <td>{{ entity.fax }}</td>
+            <td>{{ entity.nit }}</td>
+            <td>{{ entity.dane }}</td>
+            <td>{{ entity.men }}</td>
+            <td>{{ entity.rector }}</td>
+            <td>{{ entity.secretario }}</td>
+            <td>{{ entity.email }}</td>
+            <td>{{ entity.distribucionusuario }}</td>
+            <td>{{ entity.modelopedagogico }}</td>
+            <td>{{ entity.urlimagen }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('admincloud_institucion_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admincloud_institucion_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('admincloud_institucion_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>

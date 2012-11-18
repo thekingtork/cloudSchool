@@ -1,0 +1,107 @@
+{% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
+{% block title %}
+	MA1131
+{% endblock %}
+{% block menu_principal %}
+	 <div class="cuerpoCentrado" id="contMetro">
+<script>
+$(document).on("ready",iniciar)
+
+function iniciar(){
+		$("#boton_codigo button").click( function(e){
+			//se dejara el alert?
+		alert("Espere su codigo de verificacion en sus notificaciones cloud")
+		$("#boton_codigo").css("display","none")
+		$("#input_codigo").css("display","inline-block")
+
+		$.ajax({
+			url: "{{ path('codigo_verificacion') }}",
+			type: 'get',
+			success: function (r) {
+				console.log(r)
+			},
+			error: function(e,error){
+				console.log("error")
+				console.log(error)
+			}
+        });
+	})
+
+	$("#boton_enviar").click( function(){
+
+		$.ajax({
+			url: "{{ path('valid_user') }}",
+			type: 'POST',
+			data: { "user" : $("#user").attr('value'), "password" : $("#password").attr('value')  },
+			success: function (r) {
+
+				if (r == 1) 
+					{	
+						//Quitar la linea siguiente y poner ventana emergente
+						$("#form_user_validacion").css("display","none")
+						$(".simple_overlay").css("display","inline-block")
+					}
+					else
+					{
+						//Ventana emergente;
+						alert("Datos Incorrectos")
+					}
+			},
+			error: function(e,error){
+				console.log("error")
+				console.log(error)
+			}
+        });
+        
+	})
+}
+</script>
+		<div id="ContAjax">
+
+
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma1131/ma1131.css') }}"/> 
+			<div id="bloqueCgenerales">
+				<div id="contenidoIzq">
+					<div class="botonRegresar">
+						{% block back %}
+							<a href="{{ path('ma113') }}" class="ajax" ><img src="{{ asset('images/b_atras.png') }}"></a>
+						{% endblock %}
+					</div>
+					<div id="tituloApAn">
+						<p>Apertura de A&ntilde;os</p>
+					</div>
+					<div id="conf">
+						<div id="form_user_validacion">
+                            <div class="tituloitem">
+                                <p>Digite su usuario</p>
+                                <input type="text" name="user" id="user">
+                            </div>
+                            <div class="tituloitem">
+                                <p for="password">Digite su contraseña</p>
+                                <input type="password" name="password" id="password">
+                            </div>
+                            <div class="tituloitem" id="boton_codigo">
+                                <p>Solicite su codigo de verificacion</p>
+                                <button >Generar Codigo</button>
+                            </div>
+                            <div class="tituloitem" id="input_codigo" style="display:none">
+                                <p>Digite su codigo de verificacion</p>
+                                <input type="text" name="codigo" id="codigo">
+                            </div>
+                            <div id="boton_enviar">
+                                <button >Guardar</button>
+                            </div>
+                        </div>
+					</div>
+				</div>
+				<div id="contenidoDer">
+					<div class="breadcumbr"><a href="{{ path('ma113') }}" class="ajax" >Ajustes del Sistema</a></div>
+                    <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
+				</div>
+			</div>
+		</div>
+		 {% block notificaciones %}         
+                {% include "cloudBundle::layout_notificaciones.html.twig" %}
+             {% endblock notificaciones %}
+	</div>
+{% endblock %}

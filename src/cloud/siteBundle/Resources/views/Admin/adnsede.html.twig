@@ -1,0 +1,64 @@
+{% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
+{% block title %}
+	MA112
+{% endblock %}
+{% block menu_principal %}
+	<div class="cuerpoCentrado" id="contMetro">
+		<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/jquery.mCustomScrollbar.css') }}"/>
+		<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma111/contenido.css') }}"/>
+		<script src="{{ asset('javascripts/scroll/jquery.mousewheel.min.js') }}"></script>
+      	<script src="{{ asset('javascripts/scroll/jquery.mCustomScrollbar.js') }}"></script>
+		<script>
+			(function($){
+				$(window).load(function(){
+					$("#content_1").mCustomScrollbar({
+						horizontalScroll:true,
+						scrollButtons:{
+							enable:false,
+							scrollType:"continuous",
+							scrollSpeed:20,
+							scrollAmount:40
+						},
+						advanced:{
+							autoExpandHorizontalScroll:true,
+						},
+					});
+				});
+			})(jQuery);
+		</script>
+		<div id="ContAjax">
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/ma112.css') }}"/>
+			<div id="bloqueCgenerales">
+			  	<div id="contenidoIzq">
+					<div class="botonRegresar">
+						{% block back %}
+						<a href="{{ path('ma11') }}" class="ajax"><img src="{{ asset('images/b_atras_blue.png') }}"/></a>
+						{% endblock %}
+					</div>
+					<div id="addSede">
+						<img src="{{ asset('images/b_agregar.png') }}" alt=""/>
+						<p>agregar Sede</p>
+					</div>				
+					<div class="InicioBlue" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
+				</div>
+				<div id="contenidoDer">
+					<div class="breadcumbrBlue">
+						<a href="{{ path('ma1') }}" class="ajax">Ajustes del sistema</a>
+					</div>
+					<div id="TituloSecction">
+						<label>Administraci&oacute;n de Sedes</label>
+					</div>
+					<div id="content_1">
+						<form action="{{path('gestionsede')}}" method="POST">
+                            <label>Numero de sedes a agregar</label>
+                            <br />
+                            <input type="text" id="nsedes" name="numero" />
+                            <button type="submit">Agregar</button>
+                        </form>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% include "cloudBundle::layout_notificaciones.html.twig" %}
+	</div>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% block menu_principal %}
+    {% block estilos %} 
+
+    {% endblock %}
+	<div class="cuerpoCentrado" id="contMetro">
+    <div id="ContAjax">
+        <link rel="stylesheet" href="{{ asset('stylesheets/MprincipalAdm/menuAdmin.css') }}"/> 
+    	<div id="CsuperiorIzq">
+    	  	<a href="{{ path('ma1') }}" class="ajax">
+                <div id="confSitema" class="boxMPA caja1MPA azul">
+    	  			<p class="textoMPA TexLeft">Ajustes </br> del Sistema</p>
+                </div>
+    	  	</a>
+    	   	<div id="Estaditicas" class="boxMPA caja2MPA rojo">
+    	  		<a href="#">
+                    <p class="textoMPA TexCentro">Estadisticas</p>
+                </a>
+    	   	</div>
+    	   	<div id="planEstudios" class="boxMPA caja2MPA lima">
+    	   		<a href="#">
+                    <p class="textoMPA TexLeft">Plan </br>de estudios</p>
+                </a>
+    	   	</div>
+    	</div>
+    	<div id="CsuperiorDer">
+    	    	<div id="admacademica" class="boxMPA caja3MPA fucsia">
+                    <a href="#">
+                        <p class="textoMPA TexLeft">Administraci&oacute;n<br/>academica</p>
+                    </a>
+                </div>
+    	    	<div id="obsevaciones" class="boxMPA caja4MPA naranja">
+                    <a href="#">
+                        <p class="textoMPA TexCentro">Obsevaciones</p>
+                    </a>
+                </div>
+    	    	<div id="organizador" class="boxMPA caja4MPA morado">
+                    <a href="#">
+                        <p class="textoMPA TexCentro">Organizador</p>
+                    </a>      
+                </div>
+    	</div>
+    	<div id="CinferiorIzq">
+    	    	<div id="admPersonas" class="boxMPA caja1MPA amarillo ">
+                    <a href="{{path('ma1')}}" class="ajax">
+                        <p class="textoMPA TexLeft">Administraci&oacute;n<br/> de Personas</p>
+                    </a>
+                </div>
+    	    	<div id="perfil" class="boxMPA caja1MPA verdeLight">
+                    <a href="#">
+                        <p class="textoMPA TexCentro">Perfil</p>
+                    </a>
+                </div>
+    	</div>
+        <div id="CinferiorDer">
+                <div id="tutoriales" class="boxMPA caja5MPA verdeDark ">
+                    <a href="#">
+                        <p class="textoMPA TexCentro">Tutoriales</p>
+                    </a>
+                </div>
+                <div id="aulaVirtual" class="boxMPA caja6MPA gris">
+                    <a href="#">
+                        <p class="textoMPA TexCentro">Aula Virtual</p>
+                    </a>
+                </div>
+        </div>   
+		
+    </div> 
+    {% block notificaciones %}         
+       {% include "cloudBundle::layout_notificaciones.html.twig" %}
+      {% endblock %}
+	</div>
+    <div class="cuerpoCentrado" id="footer">
+        {% block menu_colores %}
+          {% include "cloudBundle::menuColores.html.twig" %}
+        {% endblock %}
+    </div>
+{% endblock %}

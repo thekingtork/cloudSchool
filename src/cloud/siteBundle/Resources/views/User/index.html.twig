@@ -1,0 +1,71 @@
+ {% extends 'cloudBundle::layout.html.twig' %}
+
+ {% block title %}
+ Administrar Usuario 
+ {% endblock %}
+
+ {% block menu_principal %}
+ <div class="row" id="contMetro">
+<h1>User list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Salt</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Apellido_materno</th>
+            <th>Fecha_nacimiento</th>
+            <th>Direccion</th>
+            <th>Lugar_nacimiento</th>
+            <th>Nmr_documento</th>
+            <th>Sexo</th>
+            <th>Email</th>
+            <th>Avatar_url</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('admincloud_user_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.username }}</td>
+            <td>{{ entity.password }}</td>
+            <td>{{ entity.salt }}</td>
+            <td>{{ entity.nombre }}</td>
+            <td>{{ entity.apellido }}</td>
+            <td>{{ entity.apellidomaterno }}</td>
+            <td>{% if entity.fechanacimiento %}{{ entity.fechanacimiento|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{{ entity.direccion }}</td>
+            <td>{{ entity.lugarnacimiento }}</td>
+            <td>{{ entity.nmrdocumento }}</td>
+            <td>{{ entity.sexo }}</td>
+            <td>{{ entity.email }}</td>
+            <td>{{ entity.avatarurl }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('admincloud_user_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admincloud_user_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('admincloud_user_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>
+</div>
+{% endblock %}

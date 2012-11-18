@@ -1,0 +1,153 @@
+{% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
+{% block title %}
+	MA111
+{% endblock %}
+{% block menu_principal %}
+ 	<div class="cuerpoCentrado" id="contMetro">
+		<div id="ContAjax">
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma111/jquery.mCustomScrollbar.css') }}"/>
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma111/contenido.css') }}"/>
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma111/ma111.css') }}"/>
+			<div id="bloqueCgenerales">
+				<div id="contenidoIzq">
+					<div class="botonRegresar">
+						{% block back %}
+							<a href="{{ path('ma11') }}" class="ajax"><img src="{{ asset('images/b_atras_blue.png') }}"></a>
+						{% endblock %}
+					</div>
+					<div id="avatarInst">
+						<div id="contAvatar">
+							<img src="{{ asset('images/Examinar.png') }}" alt="">
+						</div>
+						<div id="cargador">
+							<img src="{{ asset('images/b_examinar.png') }}">
+						</div>
+					</div>
+					<div class="InicioBlue" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
+				</div>
+				<div id="contenidoDer">
+					<div class="breadcumbrBlue">
+						<a href="{{ path('ma1') }}" class="ajax">Ajustes del sistema</a>
+					</div>
+					<div id="TituloSecction">
+						<label>Informaci&oacute;n General</label>
+					</div>
+					<div id="formularioInst">
+						{% if institucion is defined %}		
+						<form action="{{ path('admincloud_institucion_update', { 'id': institucion.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+							{{form_errors(edit_form)}}
+							<div id="content_1">
+								<div id="pantalla1">	
+		    						<div id="nombreInst" class="entradaTexto">
+		    							<p class="textoEtq">Nombre Intituci&oacute;n</p>
+		    							{{form_errors(edit_form.name)}}
+		    							{{form_widget(edit_form.name)}}
+		    						</div>
+	    							<div id="nit" class="entradaTexto ">
+	    								<p class="textoEtq">NIT</p>
+	    								{{form_errors(edit_form.nit)}}
+	    								{{form_widget(edit_form.nit)}}
+	    							</div>
+	    							<div id="departamentos" class="entradaTexto">
+	    								<p class="porc textoEtq">Departamento</p>
+	    								<SELECT>
+	    									<option>Departamentos</option>
+	    								</SELECT>
+	    							</div>
+	    							<div id="ciudad" class="entradaTexto desplegable">
+	    								<p class="textoEtq">Ciudad</p>
+	    								<SELECT>
+	    									<option>Ciudad</option>
+	    								</SELECT>
+	    							</div>
+	    							<div id="direccion" class="entradaTexto">
+	    								<p class="textoEtq">Direcci&oacute;n</p>
+	    								{{form_errors(edit_form.direccion)}}
+	    								{{form_widget(edit_form.direccion)}}
+	    							</div>
+	    							<div id="telefono" class="entradaTexto">
+	    								<p class="textoEtq">Telefono</p>
+	    								{{form_errors(edit_form.telefono)}}
+	    								{{form_widget(edit_form.telefono)}}
+	    							</div>
+	    							<div id="fax" class="entradaTexto">
+	    								<p class="textoEtq">Fax</p>
+	    								{{form_errors(edit_form.fax)}}
+	    								{{form_widget(edit_form.fax)}}
+	    							</div>
+	    							<div id="email" class="entradaTexto">
+	    								<p class="textoEtq">E-mail</p>
+	    								{{form_errors(edit_form.email)}}
+	    								{{form_widget(edit_form.email)}}
+	    							</div>
+	    							<div id="dane" class="entradaTexto">
+	    								<p class="textoEtq">Registro-DANE</p>
+	    								{{form_errors(edit_form.dane)}}
+	    								{{form_widget(edit_form.dane)}}
+	    							</div>
+	    							<div id="men" class="entradaTexto">
+	    								<p class="textoEtq">Resoluci&oacute;n-MEN</p>
+	    								{{form_errors(edit_form.men)}}
+	    								{{form_widget(edit_form.men)}}
+	    							</div>
+								</div>
+									<div id="pantalla2">
+										<div id="mPedagogico" class="entradaTexto">
+		    								<p class="textoEtq">Modelo Pedag&oacute;gico</p>
+		    								{{form_errors(edit_form.modelo_pedagogico)}}
+		    								{{form_widget(edit_form.modelo_pedagogico)}}
+	    								</div>
+										<div id="rector" class="entradaTexto">
+		    								<p class="textoEtq">Rector(a)</p>
+		    								{{form_errors(edit_form.rector)}}
+		    								{{form_widget(edit_form.rector)}}
+	    								</div>
+		    							<div id="Secretario" class="entradaTexto">
+		                                    <p class="textoEtq">Secretario(a)</p>
+		                                    {{form_errors(edit_form.secretario)}}
+		                                    {{form_widget(edit_form.secretario)}}
+		                            	</div>		
+									</div>
+							</div>
+							<div id="botonesDow">
+								<ul>
+									<li><button class="botonesDw" type="submit">Guardar</button></li>
+									<li><input  class="botonesDw" type="button" value="Limpiar" onClick="limpiaForm('#formularioInst form')"></li>
+									<li><input  class="botonesDw" type="button" value="Eliminar"></li>
+								</ul>
+							</div>
+						</form>
+					{% endif %}
+					</div>
+	            </div>
+			</div>
+			<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+			<script src="{{ asset('javascripts/scroll/jquery-ui-1.8.21.custom.min.js') }}"></script>
+			<!-- mousewheel plugin -->
+			<script src="{{ asset('javascripts/scroll/jquery.mousewheel.min.js') }}"></script>
+			<!-- custom scrollbars plugin -->
+			<script src="{{ asset('javascripts/scroll/jquery.mCustomScrollbar.js') }}"></script>
+			<script >
+				(function($){
+				$(window).load(function(){
+					$("#content_1").mCustomScrollbar({
+						horizontalScroll:true,
+						scrollButtons:{
+							enable:false,
+							scrollType:"continuous",
+							scrollSpeed:20,
+							scrollAmount:40
+						},
+						advanced:{
+							autoExpandHorizontalScroll:true,
+						},
+					});
+				});
+			})(jQuery);
+			</script>
+	    </div>
+       
+       {% include "cloudBundle::layout_notificaciones.html.twig" %}
+       	
+    </div>
+{% endblock %}

@@ -1,0 +1,122 @@
+{% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
+{% block title %}
+	MA112
+{% endblock %}
+{% block menu_principal %}
+	<div class="cuerpoCentrado" id="contMetro">
+		<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/jquery.mCustomScrollbar.css') }}"/>
+		<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/contenido.css') }}"/>
+		<script>
+            $(document).ready(function(){
+                var nsede=$('#enlace').attr('data-num');
+                var cuadros="<div class='contenedorSedes'>";
+                for(var i=1; i<=nsede; i++){
+                    if(i>10){
+                        break;
+                    }
+                    if((i==1)||(i==4)||(i==7)){
+                        cuadros+="<a href='{{path('ma112_new')}}' class='ajax'><div class='sedeI'><p class='signoUp'>+</p><p class='titulocajas'>agregar sede</p></div></a>"
+                    }
+                    if((i!=4)&&(i!=10)&&(i%2==0)){
+                        cuadros+="<a href='{{path('ma112_new')}}' class='ajax'><div class='sedeII'><p class='signoUp'>+</p><p class='titulocajas'>agregar sede</p></div></a>"
+                        if(i==6){
+                            cuadros+="</div><div class='contenedorSedes'>"
+                        }
+                    }if(((i!=1)&&(i!=7)) && (i%2!=0)){
+                        cuadros+="<a href='{{path('ma112_new')}}' class='ajax'><div class='sedeIII'><p class='signoUp'>+</p><p class='titulocajas'>agregar sede</p></div></a>"
+                        if(i==3){
+                            cuadros+="</div><div class='contenedorSedes'>"
+                        }
+                    }
+                    
+                }
+                if(nsede>=4){
+                    cuadros+="</div>"
+                }
+                if(nsede>9){
+                    cuadros+="<div class='contenedorSedes'><a href='{{path('ma112_new')}}' class='ajax'><div class='sedeI adsede'><p class='signoUp'>+</p><p class='titulocajas'>Mas sedes</p></div></a></div>"
+                }
+                $('#content_1').append(cuadros);
+                
+            })
+		</script>
+		<div id="ContAjax">
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/ma112.css') }}"/>
+			<div id="bloqueCgenerales">
+			  	<div id="contenidoIzq">
+					<div class="botonRegresar">
+						{% block back %}
+							<a href="{{ path('ma11') }}" class="ajax"><img src="{{ asset('images/b_atras_blue.png') }}"></a>
+						{% endblock %}
+					</div>
+					<div id="addSede">
+						<img src="{{ asset('images/b_agregar.png') }}" alt=""/>
+						<p>agregar Sede</p>
+					</div>				
+					<div class="InicioBlue" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
+				</div>
+				<div id="contenidoDer">
+					<div class="breadcumbrBlue">
+						<a href="{{ path('ma1') }}" class="ajax">Ajustes del sistema</a>
+					</div>
+					<div id="TituloSecction">
+						<label>Administraci&oacute;n de Sedes</label>
+					</div>
+					<div id="content_1">
+                    {% if sedes %}
+                    {%for sede in sedes%}
+						<div class="contenedorSedes">
+							<div class="sedeI">
+								<p class="signoUp">+</p>
+								<p class="titulocajas">{{sede.name}}</p>
+							</div>
+						</div>
+                    {%endfor%}
+                    {%endif%}
+                    
+						{#<div class="contenedorSedes">
+							<div class="sedeI">
+								<p class="signoUp">+</p>
+								<p class="titulocajas">agregar sede</p>
+							</div>
+							<div class="sedeII">
+								<p class="titulocajas">agregar sede</p>
+								<p class="signoUp">+</p>
+							</div>
+							<div class="sedeIII">
+								<p class="signoUp">+</p>
+								<p class="titulocajas">agregar sede</p>
+							</div>
+						</div>#}
+					</div>
+				</div>
+			</div>
+			<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+			<script src="{{ asset('javascripts/scroll/jquery-ui-1.8.21.custom.min.js') }}"></script>
+			<!-- mousewheel plugin -->
+			<script src="{{ asset('javascripts/scroll/jquery.mousewheel.min.js') }}"></script>
+			<!-- custom scrollbars plugin -->
+			<script src="{{ asset('javascripts/scroll/jquery.mCustomScrollbar.js') }}"></script>
+			<script >
+				(function($){
+				$(window).load(function(){
+					$("#content_1").mCustomScrollbar({
+						horizontalScroll:true,
+						scrollButtons:{
+							enable:false,
+							scrollType:"continuous",
+							scrollSpeed:20,
+							scrollAmount:40
+						},
+						advanced:{
+							autoExpandHorizontalScroll:true,
+						},
+					});
+				});
+			})(jQuery);
+			</script>
+		</div>
+		{% include "cloudBundle::layout_notificaciones.html.twig" %}
+	</div>
+    <span style="display: none;" id="enlace" data-num="{{numero|default('')}}"></span>
+{% endblock %}

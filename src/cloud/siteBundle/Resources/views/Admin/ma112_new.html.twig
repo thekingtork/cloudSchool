@@ -1,0 +1,33 @@
+{% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
+{% block title %}
+	MA112
+{% endblock %}
+{% block menu_principal %}
+	 <div class="cuerpoCentrado" id="contMetro">
+	 	<div id="ContAjax">
+			<div id="bloqueCgenerales">
+				<div id="contenidoIzq">
+					<div class="botonRegresar">
+						{% block back %}
+						<a href="{{ path('ma1') }}" class="ajax"><img src="{{ asset('images/b_atras.png') }}"></a>
+						{% endblock %}
+					</div>
+				</div>
+				<h2>Administracion sedes</h2>
+				<div id="contenidoDer">
+	                <div id="breadcumbr">Ajustes del Sistema</div>
+						<form action="{{ path('ma112_create') }}" method="post" {{ form_enctype(form) }}>
+					    {{ form_widget(form) }}
+					    <p>
+					        <button type="submit">Crear</button>
+					    </p>
+					</form>
+	                <div id="Inicio">Inicio</div>    
+				</div>
+			</div>
+		</div>
+		 {% block notificaciones %}         
+                {% include "cloudBundle::layout_notificaciones.html.twig" %}
+             {% endblock notificaciones %}
+	</div>
+{% endblock %}

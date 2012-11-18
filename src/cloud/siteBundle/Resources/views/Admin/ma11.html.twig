@@ -1,0 +1,62 @@
+{% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
+{% block title %}
+	MA11
+{% endblock %}
+{% block menu_principal %}
+	 <div class="cuerpoCentrado" id="contMetro">
+		<div id="ContAjax">
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma11/ma11.css') }}"/> 
+            
+			<div id="bloqueCgenerales">
+				<div id="contenidoIzq">
+					<div class="botonRegresar">
+						{% block back %}
+							<a href="{{ path('ma1') }}" class="ajax"><img src="{{ asset('images/b_atras.png') }}"></a>
+						{% endblock %}
+					</div>
+                    <div id="formulario" style="display: none;">
+                        <form action="{{path('gestionsede')}}" method="post">
+                            <input type="text" name="numsede" id="numsede" />
+                            <button type="submit">Ingresar</button>
+                        </form>
+                    </div>
+					<div id="ContTitulo">
+						<p>Ajustes Generales</p>
+					</div>
+					<div id="lineas">
+						<img id="decoracionAjax" src="{{ asset('images/backgroudAjax.svg') }}">
+					</div>
+				</div>
+				<div id="contenidoDer">
+					<div class="breadcumbr"><a href="{{ path('ma1') }}" class="ajax">Ajustes del sistema</a></div>
+					<div id="menuAux">
+						<ul>
+							<li><a href="{{ path('ma111') }}" class="ajax" >Infomaci&oacute;n General</a></li>
+							<li><a href="{{ path('gestionsede') }}" class="iniciar" id="gestion">Gesti&oacute;n de Sedes</a></li>
+							<li><a href="{{ path('ma113') }}" class="ajax" >Otros Ajustes</a></li>
+						</ul>
+					</div>
+                    <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
+				</div>
+			</div>
+		</div>
+        
+		 {% block notificaciones %}         
+                {% include "cloudBundle::layout_notificaciones.html.twig" %}
+             {% endblock notificaciones %}
+	</div>
+    <script type="text/javascript" src="{{asset('javascripts/jquery.js')}}"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            console.log('Soporte jQuey');
+            var estado="{{estado|default('si')}}";
+            $('.iniciar').click(function(e){
+                e.preventDefault();
+                if(estado=='nulo'){
+                    console.log('mostrar formulario')
+                    $('#formulario').css('display','block')
+                }
+            })
+        })
+    </script>
+{% endblock %}

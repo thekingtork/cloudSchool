@@ -1,0 +1,4 @@
+cloudAnnotations:
+    resource: "@cloudBundle/Controller/"
+    prefix:   /
+    type:     annotation

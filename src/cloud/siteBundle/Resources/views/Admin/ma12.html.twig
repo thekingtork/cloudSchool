@@ -1,0 +1,133 @@
+{% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
+{% block title %}
+	MA12
+{% endblock %}
+ 	{% block menu_principal %}
+	 <div class="cuerpoCentrado" id="contMetro">
+        <div id="ContAjax">
+            <link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma12/ma12.css') }}"/> 
+            <div id="bloqueCgenerales">
+                <div id="contenidoIzq">
+                    <div class="botonRegresar">
+                        {% block back %}
+                            <a href="{{ path('ma113') }}" class="ajax" ><img src="{{ asset('images/b_atras.png') }}"/></a>
+                        {% endblock %}
+                    </div>
+                    <div id="tituloAeV"><p>Ajustes de Evaluaci&oacute;n</p></div>
+                    <div id="conf">{#Form1#}
+                        <form action="{{path('ma12')}}" method="post"  id="brang">
+                            {{form_errors(form)}}
+                            <div id="modeloEv">
+                                <p>Modelos de Evaluaci&oacute;n:</p>
+                                {{form_errors(form.modelo_evaluacion)}}
+                                {{form_widget(form.modelo_evaluacion)}}
+                            </div>
+                            <div id="contEscalaNal">
+                                <div id="contVinetas">
+                                        <div class="cajaTransp"></div>
+                                        <div class="cajaBlanca"></div>
+                                        <div class="cajaBlanca"></div>
+                                        <div class="cajaBlanca"></div>
+                                        <div class="cajaBlanca"></div>
+                                </div>
+                                <div id="escalaNal">
+                                    <div class="tituloTabla">
+                                        <p>Escala Nacional</p>                                        
+                                    </div>
+                                    <div class="itemTabla">
+                                        <p>Desempe&ntilde;o Bajo</p>
+                                    </div>
+                                    <div class="itemTabla">
+                                        <p>Desempe&ntilde;o Basico</p>
+                                    </div>
+                                    <div class="itemTabla">
+                                        <p>Desempe&ntilde;o Alto</p>
+                                    </div>
+                                    <div class="itemTabla">
+                                        <p>Desempe&ntilde;o Superior</p>
+                                    </div>
+                                </div>
+                                <div id="escalaNal">
+                                    <div class="tituloTabla">
+                                        <p>Escala Cualitativa</p>                                        
+                                    </div>
+                                    <div class="itemTabla">
+                                        <p>Insuficiente (I)</p>
+                                    </div>
+                                    <div class="itemTabla">
+                                        <p>Aceptable (A)</p>
+                                    </div>
+                                    <div class="itemTabla">
+                                        <p>Sobresaliente (S)</p>
+                                    </div>
+                                    <div class="itemTabla">
+                                        <p>Excelente (E)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="contSelect">
+                            <div id="escalaUso">
+                                <div class="textoForm">
+                                    <p>Escala de Uso</p>
+                                </div>
+                                    {{form_errors(form.escala)}}
+                                    {{form_widget(form.escala)}}
+                            </div>
+                            <div id="acumulador">
+                                <div class="textoForm2">
+                                    <p>Acumular Periodos</p>
+                                </div>
+                                {{form_errors(form.acumula)}}
+                                {{form_widget(form.acumula)}}
+                                {{form_rest(form)}}
+                            </div>
+                        </div>
+                        <div id="contBotones">
+                            <button type="submit">Guardar</button>
+                            <a href="#" onclick="limpiaForm('#conf form'), limpiaForm('#form_Rangos')">Limpiar</a>
+                            <a href="#">Cancelar</a>
+                        </div>  
+                    </form>
+                </div>
+                <div id="contenidoDer">
+                    <div class="breadcumbr"><a href="{{ path('ma113') }}" class="ajax" >Ajustes del Sistema</a></div>
+                    {% render "cloudBundle:Admin:formRangos" %}
+                    <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
+                </div>
+            </div>
+        </div>
+         {% block notificaciones %}         
+                {% include "cloudBundle::layout_notificaciones.html.twig" %}
+             {% endblock notificaciones %}
+    </div>
+        <span style="display: none;" data-url={{url('formrango')}} id="enlace"></span>
+	</div>
+    <script src="{{ asset('javascripts/jquery.js') }}"></script>
+        <script>
+            $(document).ready(function(){
+                $('#brang').submit(function(e){
+                    //e.preventDefault();
+                    console.log("Inicio")
+                     $.ajax({
+                        url:"{{ path('formrango_update') }}",
+                        type:'POST',
+                        data: $('#form_Rangos').serialize() ,
+                        success:function(){
+                            //$('#rang input, #brang').attr('disabled','disabled');
+                           console.log("success")
+                           // alert("success")
+                           // console.log($('#form_Rangos').serialize())
+                        },
+                        error:function(e){
+                            console.log("Error"+ e)
+                            //alert("Error"+ e)
+                        }
+                    })
+                     return false;
+                })
+            })
+        </script>
+{% endblock %}
+
+

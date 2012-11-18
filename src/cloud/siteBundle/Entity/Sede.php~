@@ -1,0 +1,428 @@
+<?php
+namespace cloud\siteBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="sede")
+ */
+class Sede
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(name="nombre", type="string", length=255)
+     */
+    protected $name;
+    
+
+    /**
+     * @ORM\Column(name="capacidad", type="integer")
+     */
+    protected $capacidad;
+
+    /**
+     * 
+     * @ORM\ManyToMany(targetEntity="NivelesAcademicos")
+     * @ORM\JoinTable(name="nivelesacademicos_sede",
+     *     joinColumns={@ORM\JoinColumn(name="sede_id", referencedColumnName="id")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="nivel_id", referencedColumnName="id")}
+     * )
+     */
+    protected $nivelesacademicos;
+
+
+    /**
+     * 
+     * @ORM\ManyToMany(targetEntity="Grado")
+     * @ORM\JoinTable(name="grado_sede",
+     *     joinColumns={@ORM\JoinColumn(name="sede_id", referencedColumnName="id")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="grado_id", referencedColumnName="id")}
+     * )
+     */
+    protected $grado_id;
+
+    /**
+     * se utilizó rel_id para no hacer conflicto al aplicar ->toArray en getRoles()
+     * @ORM\ManyToMany(targetEntity="Jornada")
+     * @ORM\JoinTable(name="jornada_sede",
+     *     joinColumns={@ORM\JoinColumn(name="sede_id", referencedColumnName="id")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="jornada_id", referencedColumnName="id")}
+     * )
+     */
+    protected $rel_id;
+
+    /**
+     * @ORM\Column(name="direccion", type="string", length=255)
+     */
+    protected $direccion;
+
+    /**
+     * @ORM\Column(name="telefono", type="string", length=255)
+     */
+    protected $telefono;
+
+    /**
+     * @ORM\Column(name="fax", type="string", length=255)
+     */
+    protected $fax;
+
+
+    /**
+     * @ORM\Column(name="email", type="string", length=255)
+     */
+    protected $email;
+
+
+    /**
+     * @ORM\Column(name="rector", type="string", length=255)
+     */
+    protected $rector;
+
+    /**
+     * @ORM\Column(name="secretaria", type="string", length=255)
+     */
+    protected $secretaria; 
+
+    /**
+    *
+    * @ORM\ManyToOne(targetEntity="Institucion", inversedBy="Sede")
+    *   @ORM\JoinColumn(name="institucion_id", referencedColumnName="id")
+    */
+    protected $institucion;
+
+    public function __toString() {
+        return $this->getName();
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->rel_id = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Sede
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set capacidad
+     *
+     * @param integer $capacidad
+     * @return Sede
+     */
+    public function setCapacidad($capacidad)
+    {
+        $this->capacidad = $capacidad;
+    
+        return $this;
+    }
+
+    /**
+     * Get capacidad
+     *
+     * @return integer 
+     */
+    public function getCapacidad()
+    {
+        return $this->capacidad;
+    }
+
+    /**
+     * Set direccion
+     *
+     * @param string $direccion
+     * @return Sede
+     */
+    public function setDireccion($direccion)
+    {
+        $this->direccion = $direccion;
+    
+        return $this;
+    }
+
+    /**
+     * Get direccion
+     *
+     * @return string 
+     */
+    public function getDireccion()
+    {
+        return $this->direccion;
+    }
+
+    /**
+     * Set telefono
+     *
+     * @param string $telefono
+     * @return Sede
+     */
+    public function setTelefono($telefono)
+    {
+        $this->telefono = $telefono;
+    
+        return $this;
+    }
+
+    /**
+     * Get telefono
+     *
+     * @return string 
+     */
+    public function getTelefono()
+    {
+        return $this->telefono;
+    }
+
+    /**
+     * Set fax
+     *
+     * @param string $fax
+     * @return Sede
+     */
+    public function setFax($fax)
+    {
+        $this->fax = $fax;
+    
+        return $this;
+    }
+
+    /**
+     * Get fax
+     *
+     * @return string 
+     */
+    public function getFax()
+    {
+        return $this->fax;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return Sede
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set rector
+     *
+     * @param string $rector
+     * @return Sede
+     */
+    public function setRector($rector)
+    {
+        $this->rector = $rector;
+    
+        return $this;
+    }
+
+    /**
+     * Get rector
+     *
+     * @return string 
+     */
+    public function getRector()
+    {
+        return $this->rector;
+    }
+
+    /**
+     * Set secretaria
+     *
+     * @param string $secretaria
+     * @return Sede
+     */
+    public function setSecretaria($secretaria)
+    {
+        $this->secretaria = $secretaria;
+    
+        return $this;
+    }
+
+    /**
+     * Get secretaria
+     *
+     * @return string 
+     */
+    public function getSecretaria()
+    {
+        return $this->secretaria;
+    }
+
+    /**
+     * Add nivelesacademicos
+     *
+     * @param cloud\siteBundle\Entity\NivelesAcademicos $nivelesacademicos
+     * @return Sede
+     */
+    public function addNivelesacademico(\cloud\siteBundle\Entity\NivelesAcademicos $nivelesacademicos)
+    {
+        $this->nivelesacademicos[] = $nivelesacademicos;
+    
+        return $this;
+    }
+
+    /**
+     * Remove nivelesacademicos
+     *
+     * @param cloud\siteBundle\Entity\NivelesAcademicos $nivelesacademicos
+     */
+    public function removeNivelesacademico(\cloud\siteBundle\Entity\NivelesAcademicos $nivelesacademicos)
+    {
+        $this->nivelesacademicos->removeElement($nivelesacademicos);
+    }
+
+    /**
+     * Get nivelesacademicos
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getNivelesacademicos()
+    {
+        return $this->nivelesacademicos;
+    }
+
+    /**
+     * Add grado_id
+     *
+     * @param cloud\siteBundle\Entity\Grado $gradoId
+     * @return Sede
+     */
+    public function addGradoId(\cloud\siteBundle\Entity\Grado $gradoId)
+    {
+        $this->grado_id[] = $gradoId;
+    
+        return $this;
+    }
+
+    /**
+     * Remove grado_id
+     *
+     * @param cloud\siteBundle\Entity\Grado $gradoId
+     */
+    public function removeGradoId(\cloud\siteBundle\Entity\Grado $gradoId)
+    {
+        $this->grado_id->removeElement($gradoId);
+    }
+
+    /**
+     * Get grado_id
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getGradoId()
+    {
+        return $this->grado_id;
+    }
+
+    /**
+     * Add rel_id
+     *
+     * @param cloud\siteBundle\Entity\Jornada $relId
+     * @return Sede
+     */
+    public function addRelId(\cloud\siteBundle\Entity\Jornada $relId)
+    {
+        $this->rel_id[] = $relId;
+    
+        return $this;
+    }
+
+    /**
+     * Remove rel_id
+     *
+     * @param cloud\siteBundle\Entity\Jornada $relId
+     */
+    public function removeRelId(\cloud\siteBundle\Entity\Jornada $relId)
+    {
+        $this->rel_id->removeElement($relId);
+    }
+
+    /**
+     * Get rel_id
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getRelId()
+    {
+        return $this->rel_id;
+    }
+
+    
+    /**
+     * Set institucion
+     *
+     * @param Cloud\siteBundle\Entity\Institucion $institucion
+     * @return Sede
+     */
+    public function setInstitucion(\Cloud\siteBundle\Entity\Institucion $institucion = null)
+    {
+        $this->institucion = $institucion;
+    
+        return $this;
+    }
+
+    /**
+     * Get institucion
+     *
+     * @return Cloud\siteBundle\Entity\Institucion 
+     */
+    public function getInstitucion()
+    {
+        return $this->institucion;
+    }
+}

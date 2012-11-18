@@ -1,0 +1,40 @@
+{% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
+{% block title %}
+	MA113
+{% endblock %}
+{% block menu_principal %}
+	 <div class="cuerpoCentrado" id="contMetro">
+		<div id="ContAjax">
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma113/ma113.css') }}"/> 
+			<div id="bloqueCgenerales">
+				<div id="contenidoIzq">
+					<div class="botonRegresar">
+						{% block back %}
+							<a href="{{ path('ma11') }}" class="ajax" ><img src="{{ asset('images/b_atras.png') }}"></a>
+						{% endblock %}
+					</div>
+					<div id="ContTitulo">
+						<p>Otros Ajustes</p>
+					</div>
+					<div id="lineas">
+						<img id="decoracionAjax" src="{{ asset('images/backgroudAjax.svg') }}">
+					</div>
+				</div>
+				<div id="contenidoDer">
+					<div class="breadcumbr"><a href="{{ path('ma11') }}" class="ajax" >Ajustes generales</a></div>
+					<div id="menuAux">
+						<ul>
+							<li><a href="{{ path('ma1131') }}" class="ajax" >Apertura de Año</a></li>
+							<li><a href="{{ path('ma1132') }}" class="ajax" >Apertura de Inscripcion</a></li>
+							<li><a href="{{ path('ma113') }}" class="ajax" >Generación Carnet</a></li>
+						</ul>
+					</div>
+                    <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
+				</div>
+			</div>
+		</div>
+		 {% block notificaciones %}         
+                {% include "cloudBundle::layout_notificaciones.html.twig" %}
+             {% endblock notificaciones %}
+	</div>
+{% endblock %}

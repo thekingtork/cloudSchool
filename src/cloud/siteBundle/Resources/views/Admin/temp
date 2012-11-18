@@ -1,0 +1,48 @@
+<div>
+                    {% block mod_autenticacion %}
+                        {% include "cloudBundle::mod_autenticion.html.twig" %}
+                    {% endblock %}
+                    </div>
+
+
+
+                    <div id="form_user_validacion">
+                            <div>
+                                <label for="user">
+                                    Digite su usuario
+                                </label>
+                                <input type="text" name="user" id="user">
+                            </div>
+                            <div>
+                                <label for="password">Digite su contraseña</label>
+                                <input type="password" name="password" id="password">
+                            </div>
+                            <div id="boton_codigo">
+                                <label>
+                                    solicite su codigo de verificacion
+                                </label>
+                                <button >Generar Codigo</button>
+                            </div>
+                            <div id="input_codigo" style="display:none">
+                                <label for="codigo">
+                                    Digite su codigo de verificacion
+                                </label>
+                                <input type="text" name="codigo" id="codigo">
+                            </div>
+                            <div id="boton_enviar">
+                                <button >Guardar</button>
+                            </div>
+                        </div>
+                        <div class="simple_overlay" style="display:none">
+                            
+                        <form id="form_anio" action="{{path('ma1131_create')}}" method="post" >
+                        {{form_errors(form)}}
+                        <div>
+                            {{form_errors(form.name)}}
+                            {{form_label(form.name)}}
+                            {{form_widget(form.name)}}
+                        </div>
+                        {{ form_rest(form) }}
+                        <button type="submit">Guardar</button>
+                            </form>
+                        </div>  

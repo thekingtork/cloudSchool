@@ -1,0 +1,7 @@
+parameters:
+#    cloud.example.class: cloud\siteBundle\Example
+
+services:
+#    cloud.example:
+#        class: %cloud.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

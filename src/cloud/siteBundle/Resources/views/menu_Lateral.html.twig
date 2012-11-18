@@ -1,0 +1,26 @@
+{% block estilos %} 
+    <link rel="stylesheet" href="{{ asset('stylesheets/Mlateral/mLateral.css') }}"/> 
+{% endblock %}
+<div id="contenedorML">
+	<div id="menuL">
+		<ul>
+			<a href="{{ path('ma') }}" class="ajax" title="Administrador">
+				<li class="boxML rojo efecto"><img src="{{ asset('images/b_home.png') }}"></li>
+			</a>
+			<a href="{{ path('ma1') }}" class="ajax" title="Ajustes del sistema">
+				<li class="boxML azul efecto"><img src="{{ asset('images/b_confS.png') }}"></li>
+			</a>
+			<li class="boxML amarillo efecto"><img src="{{ asset('images/b_usua.png') }}"></li>
+			<li class="boxML rojo efecto"><img src="{{ asset('images/b_estad.png') }}"></li>
+			<li class="boxML lima efecto"><img src="{{ asset('images/b_pestud.png') }}"></li>
+			<li class="boxML fucsia efecto"><img src="{{ asset('images/b_admAcad.png') }}"></li>
+			<li class="boxML verdeLight efecto"><img src="{{ asset('images/b_aulaVirtual.png') }}"></li>
+			<li class="boxML verdeDark efecto"><img src="{{ asset('images/b_tutoriales.png') }}"></li>
+			<li class="boxML naranja efecto"><img src="{{ asset('images/b_observacion.png') }}"></li>
+			<li class="boxML morado efecto"><img src="{{ asset('images/b_organiz.png') }}"></li>
+			<a href="{{ path('logout') }}" title="Salir">
+				<li class="boxML gris efecto"><img src="{{ asset('images/b_salir.png') }}"></li>
+			</a>
+		</ul>
+	</div>
+</div>
