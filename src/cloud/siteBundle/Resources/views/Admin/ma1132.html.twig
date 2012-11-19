@@ -62,7 +62,7 @@ function iniciar(){
 </script>
 
 
-			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma11/ma11.css') }}"/> 
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma1132/ma1132.css') }}"/> 
 			<div id="bloqueCgenerales">
 				<div id="contenidoIzq">
 					<div class="botonRegresar">
@@ -70,50 +70,52 @@ function iniciar(){
 							<a href="{{ path('ma113') }}" class="ajax" ><img src="{{ asset('images/b_atras.png') }}"></a>
 						{% endblock %}
 					</div>
-						
-				</div>
-				<div>
-					 {% block mod_autenticacion %}
-              {% include "cloudBundle::mod_autenticion.html.twig" %}
-            {% endblock %}
+					<div id="tituloApAn">
+						<p>Apertura de Inscripciones</p>
+					</div>
+					<div id="conf">
+						<div id="form_user_validacion">
+							<div class="tituloitem">
+                                <p>Digite su usuario</p>
+                                <input type="text" name="user" id="user">
+                            </div>
+							<div class="tituloitem">
+                                <p for="password">Digite su contraseña</p>
+                                <input type="password" name="password" id="password">
+                            </div>
+                            <div class="tituloitem" id="boton_codigo">
+                                <p>Solicite su codigo de verificacion</p>
+                                <button class="lima">Generar Codigo</button>
+                            </div>
+                            <div class="tituloitem" id="input_codigo" style="display:none">
+                                <p>Digite su codigo de verificacion</p>
+                                <input type="text" name="codigo" id="codigo">
+                            </div>
+                            <div id="contBotones">
+	                            <div id="boton_enviar">
+	                                <button >Guardar</button>
+	                            </div>
+	                            <div id="contLinks">
+	                            	<a href="#" onclick="limpiaForm('#conf form'), limpiaForm('#form_Rangos')">Limpiar</a>
+	                            	<a href="#">Cancelar</a>
+	                            </div>
+                        	</div>
+						</div>
+					</div>	
 				</div>
 				<div id="contenidoDer">
 					<div class="breadcumbr"><a href="{{ path('ma113') }}" class="ajax" >Ajustes del Sistema</a></div>
-					<div id="menuAux">
-						<div id="form_user_validacion">
-							<div>
-								<label for="user">
-									Digite su usuario
-								</label>
-								<input type="text" name="user" id="user">
-							</div>
-							<div>
-								<label for="password">Digite su contraseña</label>
-								<input type="password" name="password" id="password">
-							</div>
-							<div id="boton_codigo">
-								<label>
-									solicite su codigo de verificacion
-								</label>
-								<button >Generar Codigo</button>
-							</div>
-							<div id="input_codigo" style="display:none">
-								<label for="codigo">
-									Digite su codigo de verificacion
-								</label>
-								<input type="text" name="codigo" id="codigo">
-							</div>
-							<div id="boton_enviar">
-								<button >Guardar</button>
-							</div>
-						</div>
-					</div>
+					<div id="modAut">
+                    	{% block mod_autenticacion %}
+                        	{% include "cloudBundle::mod_autenticion.html.twig" %}
+                    	{% endblock %}
+                    </div>
                     <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
 				</div>
 			</div>
 		</div>
-		 {% block notificaciones %}         
-                {% include "cloudBundle::layout_notificaciones.html.twig" %}
-             {% endblock notificaciones %}
+		{% block notificaciones %}         
+            {% include "cloudBundle::layout_notificaciones.html.twig" %}
+        {% endblock notificaciones %}
 	</div>
 {% endblock %}
