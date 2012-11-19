@@ -248,6 +248,7 @@ section{
 }
 /***************************** Ajax Ajustes Generales ***************************/
 .breadcumbr{
+    height: 40px;
     position: relative;
     text-align: center;
     top: 10px;
@@ -308,6 +309,7 @@ section{
 }
 #contenedorFront{
     margin: auto;
+    overflow: hidden;
     width: 80%;
 }
 #contenedorAut{
