@@ -407,11 +407,19 @@ class AdminController extends Controller
      */
     public function validUserAction(Request $request)
     {
-        $user = $request->get('user');
         $em = $this->getDoctrine()->getEntityManager();
-        $entity = $em->getRepository('cloudBundle:User')->findOneBy(array("username" => $user));
-        $current_password = setSecurePassword( $entity, $request->get('password') );
-            return $this->render('cloudBundle:Admin:valid_user.html.twig' );
+
+        $username = $request->get('user');
+        $codigo = $request->get('codigo');
+        $user = $this->get('security.context')->getToken()->getUser();
+        $entity_codigo = $em->getRepository('cloudBundle:CodigoVerificacion')->findOneBy(array('codigo' => $codigo, 'user_id'=>$user->getId()));
+        $current_password = $this->setSecurePassword( $user, $request->get('password') );
+
+        if( !$entity_codigo )
+            return $this->render('cloudBundle:Admin:valid_user.html.twig' ,array("valid_user"=>false));            
+        else
+        if( ($current_password == $user->getPassword() )&& ($user->getUsername() == $username ) )
+            return $this->render('cloudBundle:Admin:valid_user.html.twig', array('valid_user' => true) );
     }
 
      private function setSecurePassword(&$entity , $password) {

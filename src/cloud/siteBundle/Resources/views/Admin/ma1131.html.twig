@@ -8,7 +8,7 @@
 $(document).on("ready",iniciar)
 
 function iniciar(){
-		$("#boton_codigo button").click( function(e){
+		$("#boton_codigo button:first-child").click( function(e){
 			//se dejara el alert?
 		alert("Espere su codigo de verificacion en sus notificaciones cloud")
 		$("#boton_codigo").css("display","none")
@@ -29,6 +29,12 @@ function iniciar(){
         });
 	})
 
+		$("#boton_codigo button:last-child").click( function(e){
+		$("#boton_codigo").css("display","none")
+		$("#input_codigo").css("display","inline-block")
+
+	})
+
 	$("#boton_enviar").click( function(){
 
 		$.ajax({
@@ -36,7 +42,7 @@ function iniciar(){
 			type: 'POST',
 			data: { "user" : $("#user").attr('value'), "password" : $("#password").attr('value'), "codigo": $("#codigo").attr('value') },
 			success: function (r) {
-
+				console.log(r)
 				if (r == 1) 
 					{	
 						//Quitar la linea siguiente y poner ventana emergente
@@ -84,8 +90,10 @@ function iniciar(){
                             </div>
                             <div class="tituloitem" id="boton_codigo">
                                 <p>Solicite su codigo de verificacion</p>
-                                <button >Generar Codigo</button>
+                                <button>Generar Codigo</button>
+                                <button>Ya tengo codigo</button>
                             </div>
+
                             <div class="tituloitem" id="input_codigo" style="display:none">
                                 <p>Digite su codigo de verificacion</p>
                                 <input type="text" name="codigo" id="codigo">
