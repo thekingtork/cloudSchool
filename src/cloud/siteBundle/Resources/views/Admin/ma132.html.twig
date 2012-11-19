@@ -1,11 +1,29 @@
 {% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
 {% block title %}
-	MA113
+	MA132
 {% endblock %}
 {% block menu_principal %}
 	 <div class="cuerpoCentrado" id="contMetro">
 		<div id="ContAjax">
-			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma113/ma113.css') }}"/> 
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma113/ma113.css') }}"/>
+            <script type="text/javascript" src="{{asset('javascripts/jquery.js')}}"></script>
+            <script type="text/javascript">
+                var num="{{numero2|default('')}}";
+                console.log(num);
+                var niveles="<div><h1>Niveles Academicos</h1>";
+                for(var i=1; i<=num; i++){
+                    niveles+="<a href='{{path('addniveles')}}' class='ajax'>Agregar Nivel Academico</a><br/>"
+                }
+                niveles+="</div>";
+                $(document).on("ready",cargar);
+                
+                function cargar(){
+                    $('#nuevo').html(niveles);
+                console.log(niveles)    
+                }
+                
+                
+            </script> 
 			<div id="bloqueCgenerales">
 				<div id="contenidoIzq">
 					<div class="botonRegresar">
@@ -13,13 +31,16 @@
 							<a href="{{ path('ma11') }}" class="ajax" ><img src="{{ asset('images/b_atras.png') }}"/></a>
 						{% endblock %}
 					</div>
-                    
-                    
+                    <div id="nuevo">
+                        Hola Mundo
+                    </div>
+                    {%for nivel in niveles%}
+                        {{nivel.name}}
+                    {%endfor%}
 				</div>
 				<div id="contenidoDer">
 					<div class="breadcumbr"><a href="{{ path('ma11') }}" class="ajax" >Ajustes generales</a></div>
 					
-                    
                     
                     <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
 				</div>
@@ -29,5 +50,6 @@
                 {% include "cloudBundle::layout_notificaciones.html.twig" %}
              {% endblock notificaciones %}
 	</div>
+    
 {% endblock %}
 {#Recuerden no joder los css Si desean usar los css cambien la linea 8 #}

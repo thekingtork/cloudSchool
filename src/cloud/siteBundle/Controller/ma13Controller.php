@@ -9,6 +9,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use cloud\siteBundle\Entity\Periodo;
 use cloud\siteBundle\Form\PeriodoType;
+use cloud\siteBundle\Entity\NivelesAcademicos;
+use cloud\siteBundle\Form\NivelesAcademicosType;
 
 /**
  * Periodo controller.
@@ -23,8 +25,12 @@ class ma13Controller extends Controller
     * @Route("/", name="ma13")
     */
     public function ma13Action(){
-       
-        return $this->render('cloudBundle:Admin:ma13.html.twig');
+       $em=$this->getDoctrine()->getEntityManager();
+       $na=$em->getRepository('cloudBundle:NivelesAcademicos')->find(7);
+       if(!$na){
+            return $this->render('cloudBundle:Admin:ma13.html.twig', array('estado'=>'nulo'));
+       }
+       return $this->render('cloudBundle:Admin:ma13.html.twig', array());
     }
 
     /**
@@ -48,6 +54,45 @@ class ma13Controller extends Controller
             }
         }
     }
+    
+    /**
+     * 
+     * @Route("/niveles-grados", name="ma132")
+     */
+     public function ma132Action(){
+        $request=$this->getRequest();
+        $em=$this->getDoctrine()->getEntityManager();
+        $na=$em->getRepository('cloudBundle:NivelesAcademicos')->findAll();
+        if($request->getMethod()=='POST'){
+            $numero=$request->request->get('niveles');
+            return $this->render('cloudBundle:Admin:ma132.html.twig', array('numero2'=>$numero,'niveles'=>'','mje'=>''));
+        }
+        if(!$na){
+            return $this->render('cloudBundle:Admin:ma132.html.twig', array('mje'=>'No ha definido Niveles Academicos'));
+        }
+        return $this->render('cloudBundle:Admin:ma132.html.twig',array('niveles'=>$na));
+     }
+     
+     /**
+      * 
+      * @Route("/addniveles", name="addniveles")
+      */
+      public function addnivelesAction(){
+        $request=$this->getRequest();
+        $nivel=new NivelesAcademicos();
+        $form=$this->createForm(new NivelesAcademicosType(),$nivel);
+        if($request->getMethod()=='POST'){
+            $form->bindRequest($request);
+            if($form->isValid()){
+                $em=$this->getDoctrine()->getEntityManager();
+                $em->persist($nivel);
+                $em->flush();
+                return $this->redirect($this->generateUrl('ma13'));
+            }
+        }
+        return $this->render('cloudBundle:Admin:addniveles.html.twig', array('form'=>$form->createView()));
+      }
+     
     
     /**
      * Creates a new Periodo entity.

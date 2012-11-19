@@ -331,30 +331,6 @@ class AdminController extends Controller
         return $this->render('cloudBundle:Admin:prueba.html.twig', array('form'=>$form->createView()));
      }
 
-
-    
-    
-    /**
-     * 
-     * @Route("/sistema/criteriosacademicos/niveles-grados", name="ma132")
-     */
-     public function ma132Action(){
-        $request=$this->getRequest();
-        $nacademicos=new NivelesAcademicos();
-        $form=$this->createForm(new NivelesAcademicosType(), $nacademicos);
-        if($request->getMethod()=='POST'){
-            $form->bindRequest($request);
-            if($form->isValid()){
-                $dato=$request->request->get('name');
-                $nacademicos->setName($dato);
-                $em=$this->getDoctrine()->getEntityManager();
-                $em->persist($nacademicos);
-                $em->flush();
-            }
-        }
-        return $this->render('cloudBundle:Admin:ma132.html.twig',array('form'=>$form->createView()));
-     }
-
        /**
      * @Route("/codigo_verificacion", name="codigo_verificacion")
      *  

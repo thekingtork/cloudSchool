@@ -24,7 +24,7 @@
 						<p>Ajustes Generales</p>
 					</div>
 					<div id="lineas">
-						<img id="decoracionAjax" src="{{ asset('images/backgroudAjax.svg') }}">
+						<img id="decoracionAjax" src="{{ asset('images/backgroudAjax.svg') }}"/>
 					</div>
 				</div>
 				<div id="contenidoDer">
@@ -55,6 +55,8 @@
                 if(estado=='nulo'){
                     console.log('mostrar formulario')
                     $('#formulario').css('display','block')
+                }else{
+                    window.location="{{path('gestionsede')}}"
                 }
             })
         })

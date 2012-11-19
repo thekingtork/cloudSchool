@@ -63,16 +63,30 @@
 						<label>Administraci&oacute;n de Sedes</label>
 					</div>
 					<div id="content_1">
-                    {% if sedes %}
                     {%for sede in sedes%}
+                        {% if (sede.id==1) or(sede.id==4)or(sede.id==7) %}
 						<div class="contenedorSedes">
 							<div class="sedeI">
 								<p class="signoUp">+</p>
 								<p class="titulocajas">{{sede.name}}</p>
 							</div>
+						
+                        {%elseif(sede.id==2)or(sede.id==5)or(sede.id==8)%}
+                        
+							<div class="sedeII">
+								<p class="signoUp">+</p>
+								<p class="titulocajas">{{sede.name}}</p>
+							</div>
+						
+                        {%elseif (sede.id==3)or(sede.id==6)or(sede.id==9)%}
+                            
+							<div class="sedeIII">
+								<p class="signoUp">+</p>
+								<p class="titulocajas">{{sede.name}}</p>
+							</div>
 						</div>
+                        {% endif %}
                     {%endfor%}
-                    {%endif%}
                     
 						{#<div class="contenedorSedes">
 							<div class="sedeI">
