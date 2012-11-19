@@ -154,11 +154,16 @@ class AdminController extends Controller
     {
         $entity = new Anio();
         $form   = $this->createForm(new AnioType(), $entity);
+        $em = $this->getDoctrine()->getManager();
+        $entity_anio = $em->getRepository('cloudBundle:Anio')->findBy(array('active'=>'1'));
 
-        return $this->render('cloudBundle:Admin:ma1131.html.twig',
-        array(  
-            'form'   => $form->createView(),
-        ));
+        if(!$entity_anio)
+            return $this->render('cloudBundle:Admin:ma1131.html.twig', array(  'form'   => $form->createView() ));
+        else
+        {
+            $entity_anio = $em->getRepository('cloudBundle:Anio')->findAll();      
+            return $this->render('cloudBundle:Admin:ma11312.html.twig',array(  'entity_anio'   => $entity_anio ));
+        }
     }
 
      /**
