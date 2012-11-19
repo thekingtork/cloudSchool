@@ -5,45 +5,84 @@
 {% block menu_principal %}
 	 <div class="cuerpoCentrado" id="contMetro">
 		<div id="ContAjax">
-			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma1131/ma1131.css') }}"/> 
+		<!--	<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/ma112.css') }}"/>  -->
+		<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/contenido.css') }}"/>
+
+		<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/jquery.mCustomScrollbar.css') }}"/>
+
 			<div id="bloqueCgenerales" class="blanco">
 				<div id="contenidoIzq">
 					<div class="botonRegresar">
 						{% block back %}
-							<a href="{{ path('ma113') }}" class="ajax" ><img src="{{ asset('images/b_atras.png') }}"></a>
+							<a href="{{ path('ma113') }}" class="ajax" >
+								<img src="{{ asset('images/b_atras.png') }}">
+							</a>
 						{% endblock %}
-					</div>
-					<div id="tituloApAn">
-						<p>A&ntilde;os guardados</p>
-					</div>
-					<div id="conf">
-						<style type="text/css">
-						div.anio {
-							background: rgb(0,172,236);
-							width: 100px;
-							height: 100px;
-							display: inline-block;
-							vertical-align: top;
-							position: relative;
-						}
-						/*
-						div.anio:nth-child(3n+0)
-						{
-							background:rgb(0,172,236);
-						} */
-						</style>
-						{% for anio in entity_anio %}
-							<div class="anio">
-								{{ anio }}
-							</div>
-						{% endfor %}
 					</div>
 				</div>
 				<div id="contenidoDer">
 					<div class="breadcumbr">
 						<a href="{{ path('ma113') }}" class="ajax" >Ajustes del Sistema</a>
 					</div>
-					
+					<div id="tituloApAn">
+						<p>A&ntilde;os guardados</p>
+					</div>
+						<style type="text/css">
+						#content_1 {
+							max-height: 450px;
+						}
+						.anio {
+							background: rgb(0,172,236);
+							width: 150px;
+							height: 150px;
+							display: inline-block;
+							vertical-align: top;
+							position: relative;
+						}
+						.anio:nth-child(4n+2),.anio:nth-child(4n+3)
+						{
+							background:rgb(0,172,236);
+							width: 150px;
+							height: 70px;
+						}
+						
+						
+						.anio:nth-child(4n+3)
+						{
+							vertical-align: bottom;
+							margin-left: -153px;
+						} 
+						
+						</style>
+						<div id="content_1" class="mCustomScrollbar _mCS_1">
+							{% for anio in entity_anio %}
+								<div class="anio">{{ anio }}</div>
+							{% endfor %}
+						</div>
+						<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+			<script src="{{ asset('javascripts/scroll/jquery-ui-1.8.21.custom.min.js') }}"></script>
+			<!-- mousewheel plugin -->
+			<script src="{{ asset('javascripts/scroll/jquery.mousewheel.min.js') }}"></script>
+			<!-- custom scrollbars plugin -->
+			<script src="{{ asset('javascripts/scroll/jquery.mCustomScrollbar.js') }}"></script>
+					<script >
+				(function($){
+				$(window).load(function(){
+					$("#content_1").mCustomScrollbar({
+						horizontalScroll:true,
+						scrollButtons:{
+							enable:false,
+							scrollType:"continuous",
+							scrollSpeed:20,
+							scrollAmount:40
+						},
+						advanced:{
+							autoExpandHorizontalScroll:true,
+						},
+					});
+				});
+			})(jQuery);
+			</script>
                     <div class="Inicio" >
                     	<a href="{{ path('ma') }}" class="ajax" >Inicio</a>
                     </div>
