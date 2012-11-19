@@ -47,7 +47,7 @@ function iniciar(){
 					{	
 						//Quitar la linea siguiente y poner ventana emergente
 						$("#form_user_validacion").css("display","none")
-						$(".simple_overlay").css("display","inline-block")
+						$(".simple_overlay").css("display","block")
 					}
 					else
 					{
@@ -102,6 +102,18 @@ function iniciar(){
                                 <button >Guardar</button>
                             </div>
                         </div>
+                         <div class="simple_overlay" style="display:none">
+                            <form id="form_anio" action="{{path('ma1131_create')}}" method="post" >
+                        		{{form_errors(form)}}
+                        		<div>
+                            		{{form_errors(form.name)}}
+                            		{{form_label(form.name)}}
+                            		{{form_widget(form.name)}}
+                        		</div>
+                        		{{ form_rest(form) }}
+                        		<button type="submit">Guardar</button>
+                        	</form>
+                        </div>  
 					</div>
 				</div>
 				<div id="contenidoDer">
