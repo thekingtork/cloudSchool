@@ -32,7 +32,7 @@
 					<div id="menuAux">
 						<ul>
 							<li><a href="{{ path('ma131') }}" class="ajax" >Peridos academicos</a></li>
-							<li><a href="{{ path('ma13') }}" class="ajax">Niveles y grados</a></li>
+							<li><a href="{{ path('ma132') }}" class="iniciar">Niveles y grados</a></li>
 							<li><a href="{{ path('ma13') }}" class="ajax" >Configurar cursos</a></li>
 							<li><a href="{{ path('ma13') }}" class="ajax" >Gestion Asignatura</a></li>
 						</ul>
@@ -47,4 +47,17 @@
              {% endblock notificaciones %}
 	</div>
     <script type="text/javascript" src="{{asset('javascripts/jquery.js')}}"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            console.log('Soporte jQuey');
+            var estado="{{estado|default('si')}}";
+            $('.iniciar').click(function(e){
+                e.preventDefault();
+                if(estado=='nulo'){
+                    console.log('mostrar formulario')
+                    $('#formulario').css('display','block')
+                }
+            })
+        })
+    </script>
 {% endblock %}
