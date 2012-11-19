@@ -14,10 +14,21 @@ $(document).on("ready",iniciar)
 function iniciar(){
 		console.log("iniciar")
 		$("#boton_codigo button").click( function(e){
-		console.log("clik")
 		alert("Espere su codigo de verificacion en sus notificaciones cloud")
 		$("#boton_codigo").css("display","none")
 		$("#input_codigo").css("display","inline-block")
+		$.ajax({ 
+			url: "{{ path('codigo_verificacion') }}",
+			type: 'POST',
+			data: { "modulo":"2" } ,
+			success: function (r) {
+				$("#contenidoN").html(r + $("#contenidoN").html() );
+			},
+			error: function(e,error){
+				console.log("error")
+				console.log(error)
+			}
+        });
 	})
 
 	$("#boton_enviar").click( function(){

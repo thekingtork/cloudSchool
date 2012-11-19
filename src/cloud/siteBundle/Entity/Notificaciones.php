@@ -27,25 +27,25 @@ class Notificaciones
     protected $mensaje;
 
     /**
-     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="id")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     protected $user_id;
 
     /**
-     * @ORM\OneToOne(targetEntity="Curso")
+     * @ORM\ManyToOne(targetEntity="Curso", inversedBy="id")
      * @ORM\JoinColumn(name="curso_id", referencedColumnName="id")
      */
     protected $curso_id;
 
     /**
-     * @ORM\OneToOne(targetEntity="TipoNotificacion")
+     * @ORM\ManyToOne(targetEntity="TipoNotificacion", inversedBy="id")
      * @ORM\JoinColumn(name="tipo_id", referencedColumnName="id")
      */
     protected $tipo_id;
 
     /**
-     * @ORM\OneToOne(targetEntity="EstadoNotificacion")
+     * @ORM\ManyToOne(targetEntity="EstadoNotificacion", inversedBy="id")
      * @ORM\JoinColumn(name="estado_id", referencedColumnName="id")
      */
     protected $estado_id;
@@ -67,29 +67,6 @@ class Notificaciones
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Jornada
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
     }
 
   
@@ -165,28 +142,8 @@ class Notificaciones
 
     
 
-    /**
-     * Set estado_id
-     *
-     * @param cloud\siteBundle\Entity\EstadoNotificacion $estadoId
-     * @return Notificaciones
-     */
-    public function setEstadoId(\cloud\siteBundle\Entity\EstadoNotificacion $estadoId = null)
-    {
-        $this->estado_id = $estadoId;
     
-        return $this;
-    }
 
-    /**
-     * Get estado_id
-     *
-     * @return cloud\siteBundle\Entity\EstadoNotificacion 
-     */
-    public function getEstadoId()
-    {
-        return $this->estado_id;
-    }
 
     /**
      * Set user_id
@@ -255,5 +212,28 @@ class Notificaciones
     public function getTipoId()
     {
         return $this->tipo_id;
+    }
+
+    /**
+     * Set estado_id
+     *
+     * @param cloud\siteBundle\Entity\EstadoNotificacion $estadoId
+     * @return Notificaciones
+     */
+    public function setEstadoId(\cloud\siteBundle\Entity\EstadoNotificacion $estadoId = null)
+    {
+        $this->estado_id = $estadoId;
+    
+        return $this;
+    }
+
+    /**
+     * Get estado_id
+     *
+     * @return cloud\siteBundle\Entity\EstadoNotificacion 
+     */
+    public function getEstadoId()
+    {
+        return $this->estado_id;
     }
 }

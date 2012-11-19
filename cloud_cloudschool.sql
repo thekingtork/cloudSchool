@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 18-11-2012 a las 20:13:58
+-- Tiempo de generación: 19-11-2012 a las 01:51:52
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -26,7 +26,6 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `ajustesevaluacion`
 --
 
-DROP TABLE IF EXISTS `ajustesevaluacion`;
 CREATE TABLE IF NOT EXISTS `ajustesevaluacion` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `modelo_evaluacion` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -39,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `ajustesevaluacion` (
 -- Volcado de datos para la tabla `ajustesevaluacion`
 --
 
-INSERT IGNORE INTO `ajustesevaluacion` (`id`, `modelo_evaluacion`, `acumula`, `escala`) VALUES
+INSERT INTO `ajustesevaluacion` (`id`, `modelo_evaluacion`, `acumula`, `escala`) VALUES
 (1, 'Por Logros', 1, 'Escala Cualitativa');
 
 -- --------------------------------------------------------
@@ -48,7 +47,6 @@ INSERT IGNORE INTO `ajustesevaluacion` (`id`, `modelo_evaluacion`, `acumula`, `e
 -- Estructura de tabla para la tabla `anio`
 --
 
-DROP TABLE IF EXISTS `anio`;
 CREATE TABLE IF NOT EXISTS `anio` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -61,8 +59,36 @@ CREATE TABLE IF NOT EXISTS `anio` (
 -- Volcado de datos para la tabla `anio`
 --
 
-INSERT IGNORE INTO `anio` (`id`, `nombre`, `date_create`, `active`) VALUES
+INSERT INTO `anio` (`id`, `nombre`, `date_create`, `active`) VALUES
 (1, '2012', '2007-01-01 00:00:00', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `codigo_verificacion`
+--
+
+CREATE TABLE IF NOT EXISTS `codigo_verificacion` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `modulo_id` int(11) DEFAULT NULL,
+  `codigo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `date_create` datetime NOT NULL,
+  `expire` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_26D7B57AA76ED395` (`user_id`),
+  KEY `IDX_26D7B57AC07F55F5` (`modulo_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
+
+--
+-- Volcado de datos para la tabla `codigo_verificacion`
+--
+
+INSERT INTO `codigo_verificacion` (`id`, `user_id`, `modulo_id`, `codigo`, `date_create`, `expire`) VALUES
+(6, 3, 1, 'AXFXUKOAK', '2012-11-19 23:04:36', 0),
+(7, 3, 1, 'IXPJNTDHF', '2012-11-19 23:05:24', 0),
+(8, 3, 1, 'OKGCWVTLE', '2012-11-19 23:05:55', 0),
+(9, 3, 1, 'OKSTOLNHT', '2012-11-19 23:08:37', 0);
 
 -- --------------------------------------------------------
 
@@ -70,7 +96,6 @@ INSERT IGNORE INTO `anio` (`id`, `nombre`, `date_create`, `active`) VALUES
 -- Estructura de tabla para la tabla `curso`
 --
 
-DROP TABLE IF EXISTS `curso`;
 CREATE TABLE IF NOT EXISTS `curso` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `jornada_id` int(11) DEFAULT NULL,
@@ -90,7 +115,6 @@ CREATE TABLE IF NOT EXISTS `curso` (
 -- Estructura de tabla para la tabla `departamento`
 --
 
-DROP TABLE IF EXISTS `departamento`;
 CREATE TABLE IF NOT EXISTS `departamento` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -101,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `departamento` (
 -- Volcado de datos para la tabla `departamento`
 --
 
-INSERT IGNORE INTO `departamento` (`id`, `nombre`) VALUES
+INSERT INTO `departamento` (`id`, `nombre`) VALUES
 (1, 'Amazonas'),
 (2, 'Antioquia'),
 (3, 'Arauca'),
@@ -141,7 +165,6 @@ INSERT IGNORE INTO `departamento` (`id`, `nombre`) VALUES
 -- Estructura de tabla para la tabla `esccualitativa`
 --
 
-DROP TABLE IF EXISTS `esccualitativa`;
 CREATE TABLE IF NOT EXISTS `esccualitativa` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `valoracion` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -152,7 +175,7 @@ CREATE TABLE IF NOT EXISTS `esccualitativa` (
 -- Volcado de datos para la tabla `esccualitativa`
 --
 
-INSERT IGNORE INTO `esccualitativa` (`id`, `valoracion`) VALUES
+INSERT INTO `esccualitativa` (`id`, `valoracion`) VALUES
 (1, 'Insuficiente (I)'),
 (2, 'Aceptable (A)'),
 (3, 'Sobresaliente (S)'),
@@ -164,7 +187,6 @@ INSERT IGNORE INTO `esccualitativa` (`id`, `valoracion`) VALUES
 -- Estructura de tabla para la tabla `escnacional`
 --
 
-DROP TABLE IF EXISTS `escnacional`;
 CREATE TABLE IF NOT EXISTS `escnacional` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `valoracion` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -175,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `escnacional` (
 -- Volcado de datos para la tabla `escnacional`
 --
 
-INSERT IGNORE INTO `escnacional` (`id`, `valoracion`) VALUES
+INSERT INTO `escnacional` (`id`, `valoracion`) VALUES
 (1, 'Desempeño Bajo'),
 (2, 'Desempeño Básico'),
 (3, 'Desempeño Alto'),
@@ -187,7 +209,6 @@ INSERT IGNORE INTO `escnacional` (`id`, `valoracion`) VALUES
 -- Estructura de tabla para la tabla `estado_notificacion`
 --
 
-DROP TABLE IF EXISTS `estado_notificacion`;
 CREATE TABLE IF NOT EXISTS `estado_notificacion` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -198,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `estado_notificacion` (
 -- Volcado de datos para la tabla `estado_notificacion`
 --
 
-INSERT IGNORE INTO `estado_notificacion` (`id`, `nombre`) VALUES
+INSERT INTO `estado_notificacion` (`id`, `nombre`) VALUES
 (1, 'No Leido'),
 (2, 'Leido');
 
@@ -208,7 +229,6 @@ INSERT IGNORE INTO `estado_notificacion` (`id`, `nombre`) VALUES
 -- Estructura de tabla para la tabla `estado_periodo`
 --
 
-DROP TABLE IF EXISTS `estado_periodo`;
 CREATE TABLE IF NOT EXISTS `estado_periodo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -221,7 +241,6 @@ CREATE TABLE IF NOT EXISTS `estado_periodo` (
 -- Estructura de tabla para la tabla `grado`
 --
 
-DROP TABLE IF EXISTS `grado`;
 CREATE TABLE IF NOT EXISTS `grado` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nivel_id` int(11) DEFAULT NULL,
@@ -236,7 +255,6 @@ CREATE TABLE IF NOT EXISTS `grado` (
 -- Estructura de tabla para la tabla `grado_sede`
 --
 
-DROP TABLE IF EXISTS `grado_sede`;
 CREATE TABLE IF NOT EXISTS `grado_sede` (
   `sede_id` int(11) NOT NULL,
   `grado_id` int(11) NOT NULL,
@@ -251,7 +269,6 @@ CREATE TABLE IF NOT EXISTS `grado_sede` (
 -- Estructura de tabla para la tabla `institucion`
 --
 
-DROP TABLE IF EXISTS `institucion`;
 CREATE TABLE IF NOT EXISTS `institucion` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -275,7 +292,7 @@ CREATE TABLE IF NOT EXISTS `institucion` (
 -- Volcado de datos para la tabla `institucion`
 --
 
-INSERT IGNORE INTO `institucion` (`id`, `nombre`, `direccion`, `ciudad`, `telefono`, `fax`, `nit`, `dane`, `men`, `rector`, `secretario`, `email`, `distribucion_usuario`, `modelo_pedagogico`, `url_imagen`) VALUES
+INSERT INTO `institucion` (`id`, `nombre`, `direccion`, `ciudad`, `telefono`, `fax`, `nit`, `dane`, `men`, `rector`, `secretario`, `email`, `distribucion_usuario`, `modelo_pedagogico`, `url_imagen`) VALUES
 (1, 'IE ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1');
 
 -- --------------------------------------------------------
@@ -284,7 +301,6 @@ INSERT IGNORE INTO `institucion` (`id`, `nombre`, `direccion`, `ciudad`, `telefo
 -- Estructura de tabla para la tabla `jornada`
 --
 
-DROP TABLE IF EXISTS `jornada`;
 CREATE TABLE IF NOT EXISTS `jornada` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -295,7 +311,7 @@ CREATE TABLE IF NOT EXISTS `jornada` (
 -- Volcado de datos para la tabla `jornada`
 --
 
-INSERT IGNORE INTO `jornada` (`id`, `nombre`) VALUES
+INSERT INTO `jornada` (`id`, `nombre`) VALUES
 (1, 'Mañana'),
 (2, 'Tarde'),
 (3, 'Noche');
@@ -306,7 +322,6 @@ INSERT IGNORE INTO `jornada` (`id`, `nombre`) VALUES
 -- Estructura de tabla para la tabla `jornada_sede`
 --
 
-DROP TABLE IF EXISTS `jornada_sede`;
 CREATE TABLE IF NOT EXISTS `jornada_sede` (
   `sede_id` int(11) NOT NULL,
   `jornada_id` int(11) NOT NULL,
@@ -319,8 +334,28 @@ CREATE TABLE IF NOT EXISTS `jornada_sede` (
 -- Volcado de datos para la tabla `jornada_sede`
 --
 
-INSERT IGNORE INTO `jornada_sede` (`sede_id`, `jornada_id`) VALUES
+INSERT INTO `jornada_sede` (`sede_id`, `jornada_id`) VALUES
 (1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `mmodulo_codigo`
+--
+
+CREATE TABLE IF NOT EXISTS `mmodulo_codigo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+--
+-- Volcado de datos para la tabla `mmodulo_codigo`
+--
+
+INSERT INTO `mmodulo_codigo` (`id`, `nombre`) VALUES
+(1, 'apertura_año'),
+(2, 'apertura_inscripciones');
 
 -- --------------------------------------------------------
 
@@ -328,7 +363,6 @@ INSERT IGNORE INTO `jornada_sede` (`sede_id`, `jornada_id`) VALUES
 -- Estructura de tabla para la tabla `municipio`
 --
 
-DROP TABLE IF EXISTS `municipio`;
 CREATE TABLE IF NOT EXISTS `municipio` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `departamento_id` int(11) DEFAULT NULL,
@@ -341,7 +375,7 @@ CREATE TABLE IF NOT EXISTS `municipio` (
 -- Volcado de datos para la tabla `municipio`
 --
 
-INSERT IGNORE INTO `municipio` (`id`, `departamento_id`, `nombre`) VALUES
+INSERT INTO `municipio` (`id`, `departamento_id`, `nombre`) VALUES
 (1, 1, 'Leticia'),
 (2, 1, 'Puerto Nariño'),
 (3, 2, 'Abejorral'),
@@ -1451,7 +1485,6 @@ INSERT IGNORE INTO `municipio` (`id`, `departamento_id`, `nombre`) VALUES
 -- Estructura de tabla para la tabla `nivelesacademicos`
 --
 
-DROP TABLE IF EXISTS `nivelesacademicos`;
 CREATE TABLE IF NOT EXISTS `nivelesacademicos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -1462,7 +1495,7 @@ CREATE TABLE IF NOT EXISTS `nivelesacademicos` (
 -- Volcado de datos para la tabla `nivelesacademicos`
 --
 
-INSERT IGNORE INTO `nivelesacademicos` (`id`, `nombre`) VALUES
+INSERT INTO `nivelesacademicos` (`id`, `nombre`) VALUES
 (1, 'Pre-escolar'),
 (2, 'Primaria'),
 (3, 'Básica secundaria'),
@@ -1475,7 +1508,6 @@ INSERT IGNORE INTO `nivelesacademicos` (`id`, `nombre`) VALUES
 -- Estructura de tabla para la tabla `nivelesacademicos_sede`
 --
 
-DROP TABLE IF EXISTS `nivelesacademicos_sede`;
 CREATE TABLE IF NOT EXISTS `nivelesacademicos_sede` (
   `sede_id` int(11) NOT NULL,
   `nivel_id` int(11) NOT NULL,
@@ -1488,7 +1520,7 @@ CREATE TABLE IF NOT EXISTS `nivelesacademicos_sede` (
 -- Volcado de datos para la tabla `nivelesacademicos_sede`
 --
 
-INSERT IGNORE INTO `nivelesacademicos_sede` (`sede_id`, `nivel_id`) VALUES
+INSERT INTO `nivelesacademicos_sede` (`sede_id`, `nivel_id`) VALUES
 (1, 1),
 (1, 2),
 (1, 3);
@@ -1499,7 +1531,6 @@ INSERT IGNORE INTO `nivelesacademicos_sede` (`sede_id`, `nivel_id`) VALUES
 -- Estructura de tabla para la tabla `notificaciones`
 --
 
-DROP TABLE IF EXISTS `notificaciones`;
 CREATE TABLE IF NOT EXISTS `notificaciones` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tipo_id` int(11) DEFAULT NULL,
@@ -1510,18 +1541,22 @@ CREATE TABLE IF NOT EXISTS `notificaciones` (
   `user_id` int(11) DEFAULT NULL,
   `curso_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `UNIQ_6FFCB21A9276E6C` (`tipo_id`),
-  UNIQUE KEY `UNIQ_6FFCB219F5A440B` (`estado_id`),
-  UNIQUE KEY `UNIQ_6FFCB21A76ED395` (`user_id`),
-  UNIQUE KEY `UNIQ_6FFCB2187CB4A1F` (`curso_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+  KEY `IDX_6FFCB21A76ED395` (`user_id`),
+  KEY `IDX_6FFCB2187CB4A1F` (`curso_id`),
+  KEY `IDX_6FFCB21A9276E6C` (`tipo_id`),
+  KEY `IDX_6FFCB219F5A440B` (`estado_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=14 ;
 
 --
 -- Volcado de datos para la tabla `notificaciones`
 --
 
-INSERT IGNORE INTO `notificaciones` (`id`, `tipo_id`, `estado_id`, `asunto`, `mensaje`, `date_create`, `user_id`, `curso_id`) VALUES
-(1, 3, 1, 'Noti', 'exampl', '2012-11-18 10:14:30', 3, NULL);
+INSERT INTO `notificaciones` (`id`, `tipo_id`, `estado_id`, `asunto`, `mensaje`, `date_create`, `user_id`, `curso_id`) VALUES
+(1, 3, 1, 'Noti', 'exampl', '2012-11-18 10:14:30', 3, NULL),
+(10, 3, 1, 'Codigo', 'AXFXUKOAK', '2012-11-19 23:04:36', 3, NULL),
+(11, 3, 1, 'Codigo', 'IXPJNTDHF', '2012-11-19 23:05:24', 3, NULL),
+(12, 3, 1, 'Codigo', 'OKGCWVTLE', '2012-11-19 23:05:55', 3, NULL),
+(13, 3, 1, 'Codigo', 'OKSTOLNHT', '2012-11-19 23:08:37', 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -1529,7 +1564,6 @@ INSERT IGNORE INTO `notificaciones` (`id`, `tipo_id`, `estado_id`, `asunto`, `me
 -- Estructura de tabla para la tabla `periodo`
 --
 
-DROP TABLE IF EXISTS `periodo`;
 CREATE TABLE IF NOT EXISTS `periodo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `anio_id` int(11) DEFAULT NULL,
@@ -1550,7 +1584,6 @@ CREATE TABLE IF NOT EXISTS `periodo` (
 -- Estructura de tabla para la tabla `rangocuantitativo`
 --
 
-DROP TABLE IF EXISTS `rangocuantitativo`;
 CREATE TABLE IF NOT EXISTS `rangocuantitativo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `escalanacional_id` int(11) DEFAULT NULL,
@@ -1566,7 +1599,7 @@ CREATE TABLE IF NOT EXISTS `rangocuantitativo` (
 -- Volcado de datos para la tabla `rangocuantitativo`
 --
 
-INSERT IGNORE INTO `rangocuantitativo` (`id`, `escalanacional_id`, `limite1`, `limite2`, `limite3`, `limite4`) VALUES
+INSERT INTO `rangocuantitativo` (`id`, `escalanacional_id`, `limite1`, `limite2`, `limite3`, `limite4`) VALUES
 (1, NULL, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
@@ -1575,7 +1608,6 @@ INSERT IGNORE INTO `rangocuantitativo` (`id`, `escalanacional_id`, `limite1`, `l
 -- Estructura de tabla para la tabla `roles`
 --
 
-DROP TABLE IF EXISTS `roles`;
 CREATE TABLE IF NOT EXISTS `roles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -1586,7 +1618,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
 -- Volcado de datos para la tabla `roles`
 --
 
-INSERT IGNORE INTO `roles` (`id`, `nombre`) VALUES
+INSERT INTO `roles` (`id`, `nombre`) VALUES
 (1, 'ROLE_USER'),
 (2, 'ROLE_ADMIN'),
 (3, 'ROLE_SUPER_ADMIN'),
@@ -1598,7 +1630,6 @@ INSERT IGNORE INTO `roles` (`id`, `nombre`) VALUES
 -- Estructura de tabla para la tabla `sede`
 --
 
-DROP TABLE IF EXISTS `sede`;
 CREATE TABLE IF NOT EXISTS `sede` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -1618,7 +1649,7 @@ CREATE TABLE IF NOT EXISTS `sede` (
 -- Volcado de datos para la tabla `sede`
 --
 
-INSERT IGNORE INTO `sede` (`id`, `nombre`, `capacidad`, `direccion`, `telefono`, `fax`, `email`, `rector`, `secretaria`, `institucion_id`) VALUES
+INSERT INTO `sede` (`id`, `nombre`, `capacidad`, `direccion`, `telefono`, `fax`, `email`, `rector`, `secretaria`, `institucion_id`) VALUES
 (1, 'ejemplo', 123, 'ejemplo', 'ejemplo', 'ejemplo', 'ejemplo', 'ejemplo', 'ejemplo', 1);
 
 -- --------------------------------------------------------
@@ -1627,7 +1658,6 @@ INSERT IGNORE INTO `sede` (`id`, `nombre`, `capacidad`, `direccion`, `telefono`,
 -- Estructura de tabla para la tabla `tipo_documento`
 --
 
-DROP TABLE IF EXISTS `tipo_documento`;
 CREATE TABLE IF NOT EXISTS `tipo_documento` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -1638,7 +1668,7 @@ CREATE TABLE IF NOT EXISTS `tipo_documento` (
 -- Volcado de datos para la tabla `tipo_documento`
 --
 
-INSERT IGNORE INTO `tipo_documento` (`id`, `nombre`) VALUES
+INSERT INTO `tipo_documento` (`id`, `nombre`) VALUES
 (1, 'Cédula de Ciudadania'),
 (2, 'Tarjeta de Identidad');
 
@@ -1648,7 +1678,6 @@ INSERT IGNORE INTO `tipo_documento` (`id`, `nombre`) VALUES
 -- Estructura de tabla para la tabla `tipo_notificacion`
 --
 
-DROP TABLE IF EXISTS `tipo_notificacion`;
 CREATE TABLE IF NOT EXISTS `tipo_notificacion` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -1659,7 +1688,7 @@ CREATE TABLE IF NOT EXISTS `tipo_notificacion` (
 -- Volcado de datos para la tabla `tipo_notificacion`
 --
 
-INSERT IGNORE INTO `tipo_notificacion` (`id`, `nombre`) VALUES
+INSERT INTO `tipo_notificacion` (`id`, `nombre`) VALUES
 (1, 'Institucion'),
 (2, 'Grupo'),
 (3, 'Persona');
@@ -1670,7 +1699,6 @@ INSERT IGNORE INTO `tipo_notificacion` (`id`, `nombre`) VALUES
 -- Estructura de tabla para la tabla `user`
 --
 
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -1700,7 +1728,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT IGNORE INTO `user` (`id`, `username`, `password`, `salt`, `municipio_id`, `tipodocumento_id`, `nombre`, `apellido`, `apellido_materno`, `fecha_nacimiento`, `direccion`, `lugar_nacimiento`, `nmr_documento`, `sexo`, `email`, `avatar_url`, `institucion_id`) VALUES
+INSERT INTO `user` (`id`, `username`, `password`, `salt`, `municipio_id`, `tipodocumento_id`, `nombre`, `apellido`, `apellido_materno`, `fecha_nacimiento`, `direccion`, `lugar_nacimiento`, `nmr_documento`, `sexo`, `email`, `avatar_url`, `institucion_id`) VALUES
 (1, 'cloudadmin', 'y7q1ig71pslTX3iWrqgQv9SDGZYZFm6dJbajzTeYy26CM5BqPSzO2ZSdR19lwdkBW197/+J6YXWlCJQPskKiWQ==', '7eb3c4430aa57bdbd36710028e0089ef', NULL, NULL, '', '', '', '0000-00-00 00:00:00', '', '', '', '', '', '', NULL),
 (3, 'ZOCPKOZZLO', 'BrihVuMtkhSXuKioci4RuWwuCEgbrnZ+/AFnSEjuFdJgW//W3sxRRKO3XUXoLJ2WkjeBNGa5I0O2wRlu0Z0eIw==', '58ffa8a4694ac5ffc7fea4b1f8bd0350', 91, 1, 'Amado', 'Ramos', 'Arboleda', '2012-11-28 00:00:00', 'Cr 8 N 40 - 50', 'Monteria', '1067901140', 'm', 'amado0529@gmail.com', 'imagen.jpg', 1);
 
@@ -1710,7 +1738,6 @@ INSERT IGNORE INTO `user` (`id`, `username`, `password`, `salt`, `municipio_id`,
 -- Estructura de tabla para la tabla `user_role`
 --
 
-DROP TABLE IF EXISTS `user_role`;
 CREATE TABLE IF NOT EXISTS `user_role` (
   `user_id` int(11) NOT NULL,
   `role_id` int(11) NOT NULL,
@@ -1723,13 +1750,20 @@ CREATE TABLE IF NOT EXISTS `user_role` (
 -- Volcado de datos para la tabla `user_role`
 --
 
-INSERT IGNORE INTO `user_role` (`user_id`, `role_id`) VALUES
+INSERT INTO `user_role` (`user_id`, `role_id`) VALUES
 (1, 3),
 (3, 2);
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `codigo_verificacion`
+--
+ALTER TABLE `codigo_verificacion`
+  ADD CONSTRAINT `FK_26D7B57AA76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `FK_26D7B57AC07F55F5` FOREIGN KEY (`modulo_id`) REFERENCES `mmodulo_codigo` (`id`);
 
 --
 -- Filtros para la tabla `curso`

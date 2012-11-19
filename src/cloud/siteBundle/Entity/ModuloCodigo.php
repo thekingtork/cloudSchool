@@ -5,9 +5,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="tipo_documento")
+ * @ORM\Table(name="mmodulo_codigo")
  */
-class TipoDocumento
+class ModuloCodigo
 {
     /**
      * @ORM\Id

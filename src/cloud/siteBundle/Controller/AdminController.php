@@ -8,6 +8,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use cloud\siteBundle\Entity\Sede;
+use cloud\siteBundle\Entity\Notificaciones;
+use cloud\siteBundle\Entity\CodigoVerificacion;
 use cloud\siteBundle\Form\SedeType;
 use cloud\siteBundle\Entity\Institucion;
 use cloud\siteBundle\Entity\EscCualitativa;
@@ -322,38 +324,8 @@ class AdminController extends Controller
         return $this->render('cloudBundle:Admin:prueba.html.twig', array('form'=>$form->createView()));
      }
 
-      /**
-     * @Route("/valid_user", name="valid_user")
-     *  @Method("POST")
-     */
-    public function validUserAction(Request $request)
-    {
-        $user = $request->get('user');
-        $em = $this->getDoctrine()->getEntityManager();
-        $entity = $em->getRepository('cloudBundle:User')->findOneBy(array("username" => $user));
-        $current_password = setSecurePassword( $entity, $request->get('password') );
-            return $this->render('cloudBundle:Admin:valid_user.html.twig' );
-    }
 
-     private function setSecurePassword(&$entity , $password) {
-        $encoder = new \Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder('sha512', true, 10);
-        $password = $encoder->encodePassword($password, $entity->getSalt());
-        return $password;
-    }
-
-      /**
-     * @Route("/codigo_verificacion", name="codigo_verificacion")
-     *  
-     */
-    public function codVerificacionAction(){
-        $abc = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
-        $codigo = "";
-        mt_srand (time());
-        for ($i=0; $i <= 8; $i++) { 
-            $codigo .=  $abc[ mt_rand(0,28)];
-        }
-        return $this->render('cloudBundle:Admin:codigo_verificacion.html.twig', array('codigo'=>$codigo) );
-    }
+    
     
     /**
      * 
@@ -376,20 +348,76 @@ class AdminController extends Controller
         return $this->render('cloudBundle:Admin:ma132.html.twig',array('form'=>$form->createView()));
      }
 
-    public function crearNotificacionAction($codigo)
+       /**
+     * @Route("/codigo_verificacion", name="codigo_verificacion")
+     *  
+     *  @Method("POST")
+     */
+    public function codVerificacionAction(Request $request){
+        $abc = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
+        $codigo = "";
+        mt_srand (time());
+        for ($i=0; $i <= 8; $i++) { 
+            $codigo .=  $abc[ mt_rand(0,26) ];
+        }
+        $modulo = $request->get('modulo');
+        $tiempo = new \DateTime();
+        
+        $tiempo->modify('+1 days');
+        $this->crearCodigoAction($codigo,$tiempo,$modulo);
+        $this->crearNotificacionAction($codigo, $tiempo);
+        return $this->render('cloudBundle:Admin:codigo_verificacion.html.twig', array('codigo'=>$codigo, 'expire'=>$tiempo,'modulo'=>$modulo) );
+    }
+
+    public function crearCodigoAction($codigo,$tiempo,$modulo)
+    {
+        $entity  = new CodigoVerificacion();
+        $em = $this->getDoctrine()->getManager();
+
+        $entity->setCodigo($codigo);
+        $entity->setDateCreate($tiempo);
+        $entity->setUserId( $this->get('security.context')->getToken()->getUser() );
+
+        $entity_modulo = $em->getRepository('cloudBundle:ModuloCodigo')->find($modulo);
+        $entity->setModuloId($entity_modulo);
+        $entity->setExpire(false);
+
+        $em->persist($entity);
+        $em->flush();
+    }
+
+    public function crearNotificacionAction($codigo,$tiempo)
     {
         $entity  = new Notificaciones();
         $em = $this->getDoctrine()->getManager();
         $entity_estado = $em->getRepository('cloudBundle:EstadoNotificacion')->find(1);
-
-        $entity->setAsunto("Codigo de Verificacion");
-        $entity->setMensaje("");
-
+        $entity_tipo = $em->getRepository('cloudBundle:TipoNotificacion')->find(3);
+        $entity->setAsunto("Codigo");
+        $entity->setMensaje($codigo);
+        $entity->setDateCreate($tiempo);
         $entity->setEstadoId($entity_estado);
-        $entity->setDateCreate(new \DateTime());
+        $entity->setUserId( $this->get('security.context')->getToken()->getUser() );
+        $entity->setTipoId( $entity_tipo );
         $em->persist($entity);
         $em->flush();
-            return $this->render('cloudBundle:Admin:codigo_verificacion.html.twig', array('codigo'=>$codigo) );
-
     }
+      /**
+     * @Route("/valid_user", name="valid_user")
+     *  @Method("POST")
+     */
+    public function validUserAction(Request $request)
+    {
+        $user = $request->get('user');
+        $em = $this->getDoctrine()->getEntityManager();
+        $entity = $em->getRepository('cloudBundle:User')->findOneBy(array("username" => $user));
+        $current_password = setSecurePassword( $entity, $request->get('password') );
+            return $this->render('cloudBundle:Admin:valid_user.html.twig' );
+    }
+
+     private function setSecurePassword(&$entity , $password) {
+        $encoder = new \Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder('sha512', true, 10);
+        $password = $encoder->encodePassword($password, $entity->getSalt());
+        return $password;
+    }
+    //$query="SELECT UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(mifecha) FROM mitabla";
 }

@@ -113,9 +113,14 @@ class User implements UserInterface
      * @ORM\JoinColumn(name="institucion_id", referencedColumnName="id")
      */
     protected $institucion_id;
+
+     /**
+     * @ORM\OneToMany(targetEntity="Notificaciones", mappedBy="id")
+     */
+    protected $notificacion_id;
    
    public function __toString() {
-        return $this->getApellido() . " " . $this->getNombre();
+        return  $this->getNombre();
     }
 
     /**
@@ -568,5 +573,38 @@ class User implements UserInterface
     public function getInstitucionId()
     {
         return $this->institucion_id;
+    }
+
+    /**
+     * Add notificacion_id
+     *
+     * @param cloud\siteBundle\Entity\Notificaciones $notificacionId
+     * @return User
+     */
+    public function addNotificacionId(\cloud\siteBundle\Entity\Notificaciones $notificacionId)
+    {
+        $this->notificacion_id[] = $notificacionId;
+    
+        return $this;
+    }
+
+    /**
+     * Remove notificacion_id
+     *
+     * @param cloud\siteBundle\Entity\Notificaciones $notificacionId
+     */
+    public function removeNotificacionId(\cloud\siteBundle\Entity\Notificaciones $notificacionId)
+    {
+        $this->notificacion_id->removeElement($notificacionId);
+    }
+
+    /**
+     * Get notificacion_id
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getNotificacionId()
+    {
+        return $this->notificacion_id;
     }
 }

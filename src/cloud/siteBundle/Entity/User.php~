@@ -113,9 +113,14 @@ class User implements UserInterface
      * @ORM\JoinColumn(name="institucion_id", referencedColumnName="id")
      */
     protected $institucion_id;
+
+     /**
+     * @ORM\OneToMany(targetEntity="Notificaciones", mappedBy="id")
+     */
+    protected $notificacion_id;
    
    public function __toString() {
-        return $this->getApellido() . " " . $this->getNombre();
+        return  $this->getNombre();
     }
 
     /**

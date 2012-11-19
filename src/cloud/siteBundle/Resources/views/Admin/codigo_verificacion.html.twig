@@ -1,1 +1,17 @@
-{{ codigo }}
+<div class="itemN">
+    <div class="iconoN lima"><label>T</label></div>
+    <div class="ContenidoN">
+       <div class="tituloN limaFc">
+            <p>Codigo</p>
+       </div>
+       <div class="noticiaN">
+            <p>
+            	"{{ codigo }}" usar entes de {{ expire|date("m/d/Y") }} para abrir {% if modulo == 1 %}
+            		año escolar.
+            		{% elseif modulo == 2 %}
+            		incripciones.
+            	{% endif %}
+            </p>
+        </div> 
+    </div>
+</div>
