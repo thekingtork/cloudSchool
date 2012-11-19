@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 19-11-2012 a las 01:51:52
+-- Tiempo de generación: 19-11-2012 a las 21:11:22
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -53,14 +53,19 @@ CREATE TABLE IF NOT EXISTS `anio` (
   `date_create` datetime NOT NULL,
   `active` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
 -- Volcado de datos para la tabla `anio`
 --
 
 INSERT INTO `anio` (`id`, `nombre`, `date_create`, `active`) VALUES
-(1, '2012', '2007-01-01 00:00:00', 1);
+(2, '2012', '2012-11-19 02:45:43', 1),
+(3, '2011', '2011-01-01 11:25:39', 0),
+(4, '2010', '2010-02-01 13:19:28', 0),
+(5, '2009', '2009-02-02 07:16:16', 0),
+(6, '2008', '2008-02-04 08:16:00', 0),
+(7, '2007', '2007-11-05 09:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -85,9 +90,6 @@ CREATE TABLE IF NOT EXISTS `codigo_verificacion` (
 --
 
 INSERT INTO `codigo_verificacion` (`id`, `user_id`, `modulo_id`, `codigo`, `date_create`, `expire`) VALUES
-(6, 3, 1, 'AXFXUKOAK', '2012-11-19 23:04:36', 0),
-(7, 3, 1, 'IXPJNTDHF', '2012-11-19 23:05:24', 0),
-(8, 3, 1, 'OKGCWVTLE', '2012-11-19 23:05:55', 0),
 (9, 3, 1, 'OKSTOLNHT', '2012-11-19 23:08:37', 0);
 
 -- --------------------------------------------------------
@@ -1553,9 +1555,6 @@ CREATE TABLE IF NOT EXISTS `notificaciones` (
 
 INSERT INTO `notificaciones` (`id`, `tipo_id`, `estado_id`, `asunto`, `mensaje`, `date_create`, `user_id`, `curso_id`) VALUES
 (1, 3, 1, 'Noti', 'exampl', '2012-11-18 10:14:30', 3, NULL),
-(10, 3, 1, 'Codigo', 'AXFXUKOAK', '2012-11-19 23:04:36', 3, NULL),
-(11, 3, 1, 'Codigo', 'IXPJNTDHF', '2012-11-19 23:05:24', 3, NULL),
-(12, 3, 1, 'Codigo', 'OKGCWVTLE', '2012-11-19 23:05:55', 3, NULL),
 (13, 3, 1, 'Codigo', 'OKSTOLNHT', '2012-11-19 23:08:37', 3, NULL);
 
 -- --------------------------------------------------------
