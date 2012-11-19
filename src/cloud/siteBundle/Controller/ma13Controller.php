@@ -32,8 +32,18 @@ class ma13Controller extends Controller
     * @Route("/periodos", name="ma131")
     */
     public function ma131Action(){
-       
-        return $this->render('cloudBundle:Admin:ma131.html.twig');
+        $em=$this->getDoctrine()->getEntityManager();
+        $entity = $em->getRepository('cloudBundle:Anio')->findOneBy(array('active'=>'1'));
+        if(!$entity)
+            return $this->render('cloudBundle:Admin:ma131.html.twig');
+        else
+        {
+            $entity = $em->getRepository('cloudBundle:Periodo')->find(1);
+            if (!$entity) 
+                return $this->render('cloudBundle:Admin:ma131.html.twig',array('requeriment'=>true));
+            else
+                return $this->render('cloudBundle:Admin:ma131.html.twig',array('requeriment'=>true,"periodo"=>$entity));
+        }
     }
     
     /**

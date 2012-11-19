@@ -14,15 +14,25 @@
 							<a href="{{ path('ma13') }}" class="ajax"><img src="{{ asset('images/b_atras.png') }}"></a>
 						{% endblock %}
 					</div>
-                    <div id="form_num_periodo">
-                        <div>
-                        	<label>Numero de periodos</label>
-                            <input type="text" name="numperidos" id="numperidos" />
-                            <button type="submit">Ingresar</button>
+                    {% if requeriment is defined %}
+                        {% if periodo is defined %}
+                            <div>
+                                Con periodos
+                            </div>
+                            {% else %}
+                            <div id="form_num_periodo">
+                                <div>
+                                    <label>Numero de periodos</label>
+                                    <input type="text" name="numperidos" id="numperidos" />
+                                    <button type="submit">Ingresar</button>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% else %}
+                        <div class="simple_overlay">
+                            Para poder realizar esta accion necesita iniciar el año escolar!
                         </div>
-                    </div>
-
-					
+                    {% endif %}
 				</div>
 				<div id="contenidoDer">
 					<div class="breadcumbr"><a href="{{ path('ma1') }}" class="ajax">Ajustes del sistema</a></div>
@@ -47,9 +57,6 @@
     	function iniciar(){
     		$("#form_num_periodo button").click( function(){
     			$("#form_num_periodo").css("display","none");
-<<<<<<< HEAD
-
-=======
     			 $.ajax(
                    {
                      url: "{{ path('ma1311') }}",
@@ -59,7 +66,6 @@
                     } 
         
                   });
->>>>>>> origin/Amado
     		})
     	}
     </script>
