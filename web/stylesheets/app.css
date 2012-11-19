@@ -320,6 +320,9 @@ section{
     width: 80%;
 }
 /************** Clase Colores fondo ***********/
+.blanco{
+    background-color: rgb(255,255,255);
+}
 .azul{
     background-color: rgb(0,172,237);
 }
