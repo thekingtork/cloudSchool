@@ -175,6 +175,8 @@ class AdminController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $entity->setDateCreate(new \DateTime());
+            $entity->setActive(true);
             $em->persist($entity);
             $em->flush();
 
