@@ -42,7 +42,10 @@ class ma13Controller extends Controller
             if (!$entity) 
                 return $this->render('cloudBundle:Admin:ma131.html.twig',array('requeriment'=>true));
             else
+            {
+                
                 return $this->render('cloudBundle:Admin:ma131.html.twig',array('requeriment'=>true,"periodo"=>$entity));
+            }
         }
     }
     
