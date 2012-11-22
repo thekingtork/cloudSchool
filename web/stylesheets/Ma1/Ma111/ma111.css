@@ -102,15 +102,10 @@ form{
     width: 47%;
 }
 #departamentos select{
-    appearance:none;
-    background: #fff url('../../../images/b_selec.png') 0 0 no-repeat;
+    background: #fff!important;
     border: solid 1px rgb(0,174,239);
     height: 22px;
     width: 53.1%;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    -o-appearance: none;
 }
 #nit p{
     width: 6%;
@@ -136,19 +131,14 @@ form{
     -ms-border-radius: 0;
     -o-border-radius: 0;
     -webkit-appearance: none;
-    -moz-appearance: none;
+    -moz-appearance: none !important;
     -ms-appearance: none;
     -o-appearance: none; 
 }
 .desplegable select{
-    appearance:none;
-    background: #fff url('../../../images/b_selec.png') 0 0 no-repeat;
+    background: #fff!important;
     border: solid 1px rgb(0,174,239);
     height: 22px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    -o-appearance: none;
 }
 #ciudad{
     float: left;
@@ -273,13 +263,11 @@ form{
 }
 #pantalla1{
     float: left;
-    height: 230px;
-    width: 577px;
+    width: 650px;
 }
 #pantalla2{
     float: left;
-    height: 230px;
-    width: 567px;
+    width: 650px;
 }
 #botonesDow{
     margin: auto;
@@ -301,6 +289,5 @@ form{
     border: none;
 }
 #content_1{
-    max-height: 230px;
     overflow: hidden;
 }

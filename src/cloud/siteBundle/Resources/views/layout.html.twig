@@ -20,12 +20,16 @@
       <link rel="stylesheet" href="{{ asset('stylesheets/foundation.min.css') }}"/>
       <link rel="stylesheet" href="{{ asset('stylesheets/app.css') }}"/> 
       <link rel="stylesheet" href="{{ asset('stylesheets/normalize.css') }}"/> 
-
+      <link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma111/jquery.mCustomScrollbar.css') }}"/>
       {% block estilos %} 
       {% endblock %}
-      <script src="{{ asset('javascripts/modernizr.foundation.js') }}"></script>
       <script src="{{ asset('javascripts/jquery.js') }}"></script>
-      <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+      <script src="{{ asset('javascripts/jquery-ui.min.js') }}"></script>
+      <!-- mousewheel plugin -->
+      <script src="{{ asset('javascripts/scroll/jquery.mousewheel.min.js') }}"></script>
+      <!-- custom scrollbars plugin -->
+      <script src="{{ asset('javascripts/scroll/jquery.mCustomScrollbar.js') }}"></script>
+      <script src="{{ asset('javascripts/modernizr.foundation.js') }}"></script>
       <!--     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> -->
       <script>
     var objeto_ajax;
@@ -140,6 +144,7 @@ setTimeout("actualizaReloj()",30000)
 </head>
 <body>
   <header>
+    <div class="textura">
     <div class="cuerpoCentrado">
         <div class="columns twelve">
             <div class="columns nine reset_padding">
@@ -147,6 +152,7 @@ setTimeout("actualizaReloj()",30000)
                 <label class="nombre">{% if app is defined %}  {{  app.user.apellido  }} {{  app.user.apellidoMaterno  }} {{ app.user.nombre }}{% endif %}</label>
             </div>
         </div>
+    </div>
     </div>
   </header>
         {% block menu_lateral %}

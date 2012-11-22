@@ -5,8 +5,6 @@
 {% block menu_principal %}
  	<div class="cuerpoCentrado" id="contMetro">
 		<div id="ContAjax">
-			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma111/jquery.mCustomScrollbar.css') }}"/>
-			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma111/contenido.css') }}"/>
 			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma111/ma111.css') }}"/>
 			<div id="bloqueCgenerales">
 				<div id="contenidoIzq">
@@ -121,15 +119,9 @@
 					</div>
 	            </div>
 			</div>
-			<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-			<script src="{{ asset('javascripts/scroll/jquery-ui-1.8.21.custom.min.js') }}"></script>
-			<!-- mousewheel plugin -->
-			<script src="{{ asset('javascripts/scroll/jquery.mousewheel.min.js') }}"></script>
-			<!-- custom scrollbars plugin -->
-			<script src="{{ asset('javascripts/scroll/jquery.mCustomScrollbar.js') }}"></script>
 			<script >
 				(function($){
-				$(window).load(function(){
+				$(document).ready(function(){
 					$("#content_1").mCustomScrollbar({
 						horizontalScroll:true,
 						scrollButtons:{

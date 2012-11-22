@@ -6,7 +6,7 @@
 	 <div class="cuerpoCentrado" id="contMetro">
 		<div id="ContAjax">
 			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/ma1.css') }}"/> 
-			<div id="bloqueCgenerales">
+			<div id="bloqueCgenerales" class="azul">
 				<div id="contenidoIzq">
 					<div class="botonRegresar">
 						{% block back %}
@@ -15,9 +15,6 @@
 					</div>
 					<div id="ContTitulo">
 						<p>Ajustes del sistema</p>
-					</div>
-					<div id="lineas">
-						<img id="decoracionAjax" src="{{ asset('images/backgroudAjax.svg') }}">
 					</div>
 				</div>
 				<div id="contenidoDer">
@@ -28,15 +25,19 @@
 							<li><a href="{{ path('ma13') }}" class="ajax" >Criterios Academicos</a></li>
 						</ul>
 					</div>
-                    <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax">Inicio</a></div>
+					<div class="Inicio" ><a href="{{ path('ma') }}" class="ajax">Inicio</a></div>
 				</div>
 			</div>
 		</div>		
              {% block notificaciones %}         
                 {% include "cloudBundle::layout_notificaciones.html.twig" %}
              {% endblock notificaciones %}
-        
-		</div>
+        </div>
+        <div class="cuerpoCentrado" id="footer">
+        	{% block menu_colores %}
+          		{% include "cloudBundle::menuColores.html.twig" %}
+        	{% endblock %}
+    	</div>
 	</div>
 {% endblock %}
 

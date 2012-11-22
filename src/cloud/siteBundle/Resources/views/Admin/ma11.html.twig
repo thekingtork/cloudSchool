@@ -6,15 +6,14 @@
 	 <div class="cuerpoCentrado" id="contMetro">
 		<div id="ContAjax">
 			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma11/ma11.css') }}"/> 
-            
-			<div id="bloqueCgenerales">
+			<div id="bloqueCgenerales" class="azul">
 				<div id="contenidoIzq">
 					<div class="botonRegresar">
 						{% block back %}
 							<a href="{{ path('ma1') }}" class="ajax"><img src="{{ asset('images/b_atras.png') }}"></a>
 						{% endblock %}
 					</div>
-                    <div id="formulario" style="display: none;">
+                    <div id="formulario">
                         <form action="{{path('gestionsede')}}" method="post">
                             <input type="text" name="numsede" id="numsede" />
                             <button type="submit">Ingresar</button>
@@ -23,15 +22,12 @@
 					<div id="ContTitulo">
 						<p>Ajustes Generales</p>
 					</div>
-					<div id="lineas">
-						<img id="decoracionAjax" src="{{ asset('images/backgroudAjax.svg') }}"/>
-					</div>
 				</div>
 				<div id="contenidoDer">
 					<div class="breadcumbr"><a href="{{ path('ma1') }}" class="ajax">Ajustes del sistema</a></div>
 					<div id="menuAux">
 						<ul>
-							<li><a href="{{ path('ma111') }}" class="ajax" >Infomaci&oacute;n General</a></li>
+							<li><a href="{{ path('ma111') }}">Infomaci&oacute;n General</a></li>
 							<li><a href="{{ path('gestionsede')}}" class="iniciar" id="gestion">Gesti&oacute;n de Sedes</a></li>
 							<li><a href="{{ path('ma113') }}" class="ajax" >Otros Ajustes</a></li>
 						</ul>
@@ -40,11 +36,15 @@
 				</div>
 			</div>
 		</div>
-        
-		 {% block notificaciones %}         
+        	{% block notificaciones %}         
                 {% include "cloudBundle::layout_notificaciones.html.twig" %}
              {% endblock notificaciones %}
-	</div>
+		</div>
+		<div class="cuerpoCentrado" id="footer">
+        	{% block menu_colores %}
+          		{% include "cloudBundle::menuColores.html.twig" %}
+        	{% endblock %}
+    	</div>
     <script type="text/javascript" src="{{asset('javascripts/jquery.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function(){

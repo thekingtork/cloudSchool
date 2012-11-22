@@ -88,10 +88,12 @@ form p input{
 }
 header{
     border-bottom: solid 4px #b1cd49;
-    background: #41763c url('../images/headerTork.jpg') center 0 no-repeat fixed;
+    background: #41763c url('../images/fondo_header.jpg') center 0 no-repeat fixed;
     max-height: 200px;
 }
-
+.textura{
+    background: url('../images/pattern.png');
+}
 section{
     display: inline;
 }
@@ -248,10 +250,14 @@ section{
 }
 /***************************** Ajax Ajustes Generales ***************************/
 .breadcumbr{
-    height: 10px;
+    float: right;
+    height: 28px;
+    margin-right: 10px;
+    overflow: hidden;
     position: relative;
     text-align: center;
     top: 10px;
+    width: 30%;
 }
 .breadcumbr a{
     color: rgb(255,255,255);
