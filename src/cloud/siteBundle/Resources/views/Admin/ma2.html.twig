@@ -5,8 +5,8 @@
  	{% block menu_principal %}
 	 <div class="cuerpoCentrado" id="contMetro">
 		<div id="ContAjax">
-			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/ma1.css') }}"/> 
-			<div id="bloqueCgenerales">
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma2/ma2.css') }}"/> 
+			<div id="bloqueCgenerales" class="amarillo">
 				<div id="contenidoIzq">
 					<div class="botonRegresar">
 						{% block back %}
@@ -15,9 +15,6 @@
 					</div>
 					<div id="ContTitulo">
 						<p>Aministración de personas</p>
-					</div>
-					<div id="lineas">
-						<img id="decoracionAjax" src="{{ asset('images/backgroudAjax.svg') }}">
 					</div>
 				</div>
 				<div id="contenidoDer">
@@ -38,6 +35,10 @@
              {% endblock notificaciones %}
         
 		</div>
-	</div>
+	<div class="cuerpoCentrado" id="footer">
+        	{% block menu_colores %}
+          		{% include "cloudBundle::menuColores.html.twig" %}
+        	{% endblock %}
+    </div>
 {% endblock %}
 

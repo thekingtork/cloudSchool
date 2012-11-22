@@ -85,7 +85,7 @@
   margin: auto;
   position: relative;
   overflow: hidden;
-  top: 40px;
+  top: 18px;
   width: 90%;
 }
 #conf{
@@ -130,7 +130,7 @@
     margin-bottom:6px; 
 }
 .Inicio{    
-    top: 37px;
+    top: 17px;
 }
 button,
 .button {

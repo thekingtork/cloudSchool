@@ -1,0 +1,72 @@
+#bloqueCgenerales{
+    height: 100%;
+    vertical-align: top;
+    overflow: hidden;
+    width: 100%;
+}
+#buscador{
+    float: right;
+    position: relative;
+    right: 25px;
+    top: 12px;
+    width: 60%;
+}
+#buscador input{
+    height:24px;
+    width: 100%;
+}
+.contEneDor{
+    height: 33%;
+    float:left;
+    overflow: hidden; 
+    position: relative;
+    width: 100%;
+}
+#contDerecho{
+    float: right;
+    width: 45%;
+}
+#ContTitulo{
+    float: left;
+    margin: 5%;
+}
+#ContTitulo p {
+    color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 32px;
+    line-height: 1;
+    text-align: center;
+}
+#leyenda{
+    margin: 25px auto;
+    width: 75%;
+}
+#leyenda p {
+    color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 28px;
+    line-height: 1;
+    text-align: left;
+}
+.Inicio{
+    top: 54px;
+}
+#botonAgregar{
+    margin: auto;
+    width: 200px;
+}
+.circulo{
+    border: solid 3px #ffffff;
+    border-radius: 50px 50px;
+    -webkit-border-radius: 50px 50px;
+    -moz-border-radius: 50px 50px;
+    -o-border-radius: 50px 50px;
+    width: 45px;
+}
+.circulo p{
+    color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 28px;
+    line-height: 1;
+    text-align: left;
+}

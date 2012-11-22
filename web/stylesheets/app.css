@@ -257,7 +257,6 @@ section{
     position: relative;
     text-align: center;
     top: 10px;
-    width: 30%;
 }
 .breadcumbr a{
     color: rgb(255,255,255);
@@ -333,7 +332,7 @@ section{
     background-color: rgb(0,172,237);
 }
 .amarillo{
-    background-color: rgb(242,201,47);
+    background-color: rgb(239,200,37);
 }
 .rojo{
     background-color: rgb(204,33,40);

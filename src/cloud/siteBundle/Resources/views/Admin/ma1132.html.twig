@@ -1,6 +1,6 @@
 {% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
 {% block title %}
-	MA1131
+	MA1132
 {% endblock %}
 {% block menu_principal %}
 	 <div class="cuerpoCentrado" id="contMetro">
@@ -118,4 +118,9 @@ function iniciar(){
             {% include "cloudBundle::layout_notificaciones.html.twig" %}
         {% endblock notificaciones %}
 	</div>
+	<div class="cuerpoCentrado" id="footer">
+        	{% block menu_colores %}
+          		{% include "cloudBundle::menuColores.html.twig" %}
+        	{% endblock %}
+    </div>
 {% endblock %}
