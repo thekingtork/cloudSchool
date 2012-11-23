@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 19-11-2012 a las 21:11:22
+-- Tiempo de generación: 23-11-2012 a las 22:32:53
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -349,7 +349,7 @@ CREATE TABLE IF NOT EXISTS `mmodulo_codigo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `mmodulo_codigo`
@@ -1560,6 +1560,57 @@ INSERT INTO `notificaciones` (`id`, `tipo_id`, `estado_id`, `asunto`, `mensaje`,
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `perfil_estudiante`
+--
+
+CREATE TABLE IF NOT EXISTS `perfil_estudiante` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `municipio_id` int(11) DEFAULT NULL,
+  `tipodocumento_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `apellido` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `fecha_nacimiento` datetime NOT NULL,
+  `direccion` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `lugar_nacimiento` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `nmr_documento` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `de` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sexo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `barrio` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `estrato` int(11) NOT NULL,
+  `telefono` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `celular` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `salud` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `observaciones_personal` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `colegio_procedencia` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sede_procedencia` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `jornada_procedencia` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `nivel_procedencia` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `curso_procedencia` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `observaciones_academica` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `nmrPersonas` int(11) NOT NULL,
+  `casa_direccion` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `telefono_familia` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `vive_con` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `nmr_hermanos` int(11) NOT NULL,
+  `celular_familia` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `datos_madre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `cc_madre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `datos_padre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `cc_padre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `datos_acudiente` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `cc_acudiente` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `direccion_familia` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_A34B4FFBA76ED395` (`user_id`),
+  KEY `IDX_A34B4FFB58BC1BE0` (`municipio_id`),
+  KEY `IDX_A34B4FFB2E595373` (`tipodocumento_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `periodo`
 --
 
@@ -1703,23 +1754,12 @@ CREATE TABLE IF NOT EXISTS `user` (
   `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `salt` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `municipio_id` int(11) DEFAULT NULL,
-  `tipodocumento_id` int(11) DEFAULT NULL,
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `apellido` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `apellido_materno` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `fecha_nacimiento` datetime NOT NULL,
-  `direccion` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `lugar_nacimiento` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `nmr_documento` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `sexo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `avatar_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `institucion_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_8D93D649F85E0677` (`username`),
-  KEY `IDX_8D93D64958BC1BE0` (`municipio_id`),
-  KEY `IDX_8D93D6492E595373` (`tipodocumento_id`),
   KEY `IDX_8D93D649B239FBC6` (`institucion_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
@@ -1727,9 +1767,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `salt`, `municipio_id`, `tipodocumento_id`, `nombre`, `apellido`, `apellido_materno`, `fecha_nacimiento`, `direccion`, `lugar_nacimiento`, `nmr_documento`, `sexo`, `email`, `avatar_url`, `institucion_id`) VALUES
-(1, 'cloudadmin', 'y7q1ig71pslTX3iWrqgQv9SDGZYZFm6dJbajzTeYy26CM5BqPSzO2ZSdR19lwdkBW197/+J6YXWlCJQPskKiWQ==', '7eb3c4430aa57bdbd36710028e0089ef', NULL, NULL, '', '', '', '0000-00-00 00:00:00', '', '', '', '', '', '', NULL),
-(3, 'ZOCPKOZZLO', 'BrihVuMtkhSXuKioci4RuWwuCEgbrnZ+/AFnSEjuFdJgW//W3sxRRKO3XUXoLJ2WkjeBNGa5I0O2wRlu0Z0eIw==', '58ffa8a4694ac5ffc7fea4b1f8bd0350', 91, 1, 'Amado', 'Ramos', 'Arboleda', '2012-11-28 00:00:00', 'Cr 8 N 40 - 50', 'Monteria', '1067901140', 'm', 'amado0529@gmail.com', 'imagen.jpg', 1);
+INSERT INTO `user` (`id`, `username`, `password`, `salt`, `nombre`, `apellido`, `avatar_url`, `institucion_id`) VALUES
+(1, 'cloudadmin', 'y7q1ig71pslTX3iWrqgQv9SDGZYZFm6dJbajzTeYy26CM5BqPSzO2ZSdR19lwdkBW197/+J6YXWlCJQPskKiWQ==', '7eb3c4430aa57bdbd36710028e0089ef', '', '', '', NULL),
+(3, 'ZOCPKOZZLO', 'BrihVuMtkhSXuKioci4RuWwuCEgbrnZ+/AFnSEjuFdJgW//W3sxRRKO3XUXoLJ2WkjeBNGa5I0O2wRlu0Z0eIw==', '58ffa8a4694ac5ffc7fea4b1f8bd0350', 'Amado', 'Ramos', 'imagen.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -1815,6 +1855,14 @@ ALTER TABLE `notificaciones`
   ADD CONSTRAINT `FK_6FFCB21A9276E6C` FOREIGN KEY (`tipo_id`) REFERENCES `tipo_notificacion` (`id`);
 
 --
+-- Filtros para la tabla `perfil_estudiante`
+--
+ALTER TABLE `perfil_estudiante`
+  ADD CONSTRAINT `FK_A34B4FFBA76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `FK_A34B4FFB2E595373` FOREIGN KEY (`tipodocumento_id`) REFERENCES `tipo_documento` (`id`),
+  ADD CONSTRAINT `FK_A34B4FFB58BC1BE0` FOREIGN KEY (`municipio_id`) REFERENCES `municipio` (`id`);
+
+--
 -- Filtros para la tabla `periodo`
 --
 ALTER TABLE `periodo`
@@ -1837,8 +1885,6 @@ ALTER TABLE `sede`
 -- Filtros para la tabla `user`
 --
 ALTER TABLE `user`
-  ADD CONSTRAINT `FK_8D93D6492E595373` FOREIGN KEY (`tipodocumento_id`) REFERENCES `tipo_documento` (`id`),
-  ADD CONSTRAINT `FK_8D93D64958BC1BE0` FOREIGN KEY (`municipio_id`) REFERENCES `municipio` (`id`),
   ADD CONSTRAINT `FK_8D93D649B239FBC6` FOREIGN KEY (`institucion_id`) REFERENCES `institucion` (`id`);
 
 --

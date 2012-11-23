@@ -149,7 +149,7 @@ setTimeout("actualizaReloj()",30000)
         <div class="columns twelve">
             <div class="columns nine reset_padding">
                 <label class="bienvenida">Bienvenido </label><br />
-                <label class="nombre">{% if app is defined %}  {{  app.user.apellido  }} {{  app.user.apellidoMaterno  }} {{ app.user.nombre }}{% endif %}</label>
+                <label class="nombre">{% if app is defined %} {{ app.user.nombre }}  {{  app.user.apellido  }}{% endif %}</label>
             </div>
         </div>
     </div>

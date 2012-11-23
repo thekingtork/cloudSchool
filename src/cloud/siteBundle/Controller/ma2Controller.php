@@ -7,9 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use cloud\siteBundle\Entity\Periodo;
-use cloud\siteBundle\Form\PeriodoType;
-
+use cloud\siteBundle\Entity\PerfilEstudiante;
+use cloud\siteBundle\Form\PerfilEstudianteType;
 /**
  * Periodo controller.
  *
@@ -34,6 +33,16 @@ class ma2Controller extends Controller
     public function ma21Action(){
        
         return $this->render('cloudBundle:Admin:ma21.html.twig');
+    }
+
+     /**
+    *
+    * @Route("/estudiantes/crear", name="ma211")
+    */
+    public function ma211Action(){
+       $entity = new PerfilEstudiante();
+        $form   = $this->createForm(new PerfilEstudianteType(), $entity);
+        return $this->render('cloudBundle:Admin:ma211.html.twig', array( 'form'   => $form->createView() ));
     }
 
 }

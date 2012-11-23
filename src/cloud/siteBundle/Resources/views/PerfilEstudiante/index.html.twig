@@ -1,0 +1,103 @@
+<h1>PerfilEstudiante list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Fecha_nacimiento</th>
+            <th>Direccion</th>
+            <th>Lugar_nacimiento</th>
+            <th>Nmr_documento</th>
+            <th>De</th>
+            <th>Sexo</th>
+            <th>Email</th>
+            <th>Barrio</th>
+            <th>Estrato</th>
+            <th>Telefono</th>
+            <th>Celular</th>
+            <th>Salud</th>
+            <th>Observaciones_personal</th>
+            <th>Colegio_procedencia</th>
+            <th>Sede_procedencia</th>
+            <th>Jornada_procedencia</th>
+            <th>Nivel_procedencia</th>
+            <th>Curso_procedencia</th>
+            <th>Observaciones_academica</th>
+            <th>Nmrpersonas</th>
+            <th>Casa_direccion</th>
+            <th>Telefono_familia</th>
+            <th>Vive_con</th>
+            <th>Nmr_hermanos</th>
+            <th>Celular_familia</th>
+            <th>Datos_madre</th>
+            <th>Cc_madre</th>
+            <th>Datos_padre</th>
+            <th>Cc_padre</th>
+            <th>Datos_acudiente</th>
+            <th>Cc_acudiente</th>
+            <th>Direccion_familia</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('admincloud_perfilestudiante_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.nombre }}</td>
+            <td>{{ entity.apellido }}</td>
+            <td>{% if entity.fechanacimiento %}{{ entity.fechanacimiento|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{{ entity.direccion }}</td>
+            <td>{{ entity.lugarnacimiento }}</td>
+            <td>{{ entity.nmrdocumento }}</td>
+            <td>{{ entity.de }}</td>
+            <td>{{ entity.sexo }}</td>
+            <td>{{ entity.email }}</td>
+            <td>{{ entity.barrio }}</td>
+            <td>{{ entity.estrato }}</td>
+            <td>{{ entity.telefono }}</td>
+            <td>{{ entity.celular }}</td>
+            <td>{{ entity.salud }}</td>
+            <td>{{ entity.observacionespersonal }}</td>
+            <td>{{ entity.colegioprocedencia }}</td>
+            <td>{{ entity.sedeprocedencia }}</td>
+            <td>{{ entity.jornadaprocedencia }}</td>
+            <td>{{ entity.nivelprocedencia }}</td>
+            <td>{{ entity.cursoprocedencia }}</td>
+            <td>{{ entity.observacionesacademica }}</td>
+            <td>{{ entity.nmrPersonas }}</td>
+            <td>{{ entity.casadireccion }}</td>
+            <td>{{ entity.telefonofamilia }}</td>
+            <td>{{ entity.vivecon }}</td>
+            <td>{{ entity.nmrhermanos }}</td>
+            <td>{{ entity.celularfamilia }}</td>
+            <td>{{ entity.datosmadre }}</td>
+            <td>{{ entity.ccmadre }}</td>
+            <td>{{ entity.datospadre }}</td>
+            <td>{{ entity.ccpadre }}</td>
+            <td>{{ entity.datosacudiente }}</td>
+            <td>{{ entity.ccacudiente }}</td>
+            <td>{{ entity.direccionfamilia }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('admincloud_perfilestudiante_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admincloud_perfilestudiante_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('admincloud_perfilestudiante_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>

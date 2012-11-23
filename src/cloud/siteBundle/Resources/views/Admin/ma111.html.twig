@@ -137,14 +137,14 @@
 				});
 			})(jQuery);
 			</script>
-	    {% block notificaciones %}         
-                {% include "cloudBundle::layout_notificaciones.html.twig" %}
-             {% endblock notificaciones %}
 		</div>
+			{% block notificaciones %}         
+                {% include "cloudBundle::layout_notificaciones.html.twig" %}
+             {% endblock notificaciones %} 
 		<div class="cuerpoCentrado" id="footer">
-        	{% block menu_colores %}
+    		{% block menu_colores %}
           		{% include "cloudBundle::menuColores.html.twig" %}
-        	{% endblock %}
+        	{% endblock %} 
     	</div>       	
     </div>
 {% endblock %}

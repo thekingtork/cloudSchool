@@ -10,7 +10,7 @@
 				<div class="contEneDor">
 					<div class="botonRegresar">
 						{% block back %}
-							<a href="{{ path('ma') }}" class="ajax"><img src="{{ asset('images/b_atras.png') }}"></a>
+							<a href="{{ path('ma2') }}" class="ajax"><img src="{{ asset('images/b_atras.png') }}"></a>
 						{% endblock %}
 					</div>
 					<div id="ContTitulo">
@@ -21,13 +21,14 @@
 						    <a href="{{ path('ma1') }}" class="ajax">Administración de personas</a>
 						</div>
 						<div id="buscador">
-							<input type="search" name="search_user" id="search_user" value="Buscar">
+							<input type="search" name="search_user" id="search_user" placeholder="Buscar">
 						</div>
 					</div>
 				</div>
 				<div class="contEneDor">
 					<div id="leyenda">
 						<p>Usted no ha ingresado ningun estudiante al sistema de clic en ingresar...</p>
+					<a href="{{ path('ma211') }}" class="ajax">Crear</a>
 					</div>
 				</div>
 				<div class="contEneDor">

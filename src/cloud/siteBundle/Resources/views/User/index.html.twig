@@ -17,13 +17,7 @@
             <th>Salt</th>
             <th>Nombre</th>
             <th>Apellido</th>
-            <th>Apellido_materno</th>
-            <th>Fecha_nacimiento</th>
-            <th>Direccion</th>
-            <th>Lugar_nacimiento</th>
-            <th>Nmr_documento</th>
-            <th>Sexo</th>
-            <th>Email</th>
+             <th>Email</th>
             <th>Avatar_url</th>
             <th>Actions</th>
         </tr>
@@ -37,13 +31,6 @@
             <td>{{ entity.salt }}</td>
             <td>{{ entity.nombre }}</td>
             <td>{{ entity.apellido }}</td>
-            <td>{{ entity.apellidomaterno }}</td>
-            <td>{% if entity.fechanacimiento %}{{ entity.fechanacimiento|date('Y-m-d H:i:s') }}{% endif %}</td>
-            <td>{{ entity.direccion }}</td>
-            <td>{{ entity.lugarnacimiento }}</td>
-            <td>{{ entity.nmrdocumento }}</td>
-            <td>{{ entity.sexo }}</td>
-            <td>{{ entity.email }}</td>
             <td>{{ entity.avatarurl }}</td>
             <td>
                 <ul>

@@ -1,0 +1,1101 @@
+<?php
+namespace cloud\siteBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="perfil_estudiante")
+ */
+class PerfilEstudiante
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+
+    /*:::::::::::::::::::::::INFO PERSONAL ::::::::::::::::::::::::::::::::::::::::*/
+
+     /**
+     * @ORM\Column(name="nombre", type="string", length=255)
+     */
+    protected $nombre;
+
+    /**
+     * @ORM\Column(name="apellido", type="string", length=255)
+     */
+    protected $apellido;
+
+    /**
+     * @ORM\Column(name="fecha_nacimiento", type="datetime")
+     */
+    protected $fecha_nacimiento;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Municipio", inversedBy="id")
+     * @ORM\JoinColumn(name="municipio_id", referencedColumnName="id")
+     */
+    protected $municipio_id;
+
+    /**
+     * @ORM\Column(name="direccion", type="string", length=255)
+     */
+    protected $direccion;
+
+    /**
+     * @ORM\Column(name="lugar_nacimiento", type="string", length=255)
+     */
+    protected $lugar_nacimiento;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="TipoDocumento")
+     * @ORM\JoinColumn(name="tipodocumento_id", referencedColumnName="id")
+     */
+    private $tipodocumento_id;
+
+    /**
+     * @ORM\Column(name="nmr_documento", type="string", length=255)
+     */
+    protected $nmr_documento;
+     /**
+     * @ORM\Column(name="de", type="string", length=255)
+     */
+    protected $de;
+
+
+
+    /**
+     * @ORM\Column(name="sexo", type="string", length=255)
+     */
+    protected $sexo;
+
+     /**
+     * @ORM\Column(name="email", type="string", length=255)
+     */
+    protected $email;
+
+     /**
+     * @ORM\Column(name="barrio", type="string", length=255)
+     */
+    protected $barrio;
+
+     /**
+     * @ORM\Column(name="estrato", type="integer")
+     */
+    protected $estrato;
+
+     /**
+     * @ORM\Column(name="telefono", type="string", length=255)
+     */
+    protected $telefono;
+
+     /**
+     * @ORM\Column(name="celular", type="string", length=255)
+     */
+    protected $celular;
+
+     /**
+     * @ORM\Column(name="salud", type="string", length=255)
+     */
+    protected $salud;
+
+     /**
+     * @ORM\Column(name="observaciones_personal", type="text")
+     */
+    protected $observaciones_personal;
+
+    /**
+     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    protected $user_id;
+
+    /*:::::::::::::::::::::::::::::::INFO ACADEMICA::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+     /**
+     * @ORM\Column(name="colegio_procedencia", type="string", length=255)
+     */
+    protected $colegio_procedencia;
+
+     /**
+     * @ORM\Column(name="sede_procedencia", type="string", length=255)
+     */
+    protected $sede_procedencia;
+
+     /**
+     * @ORM\Column(name="jornada_procedencia", type="string", length=255)
+     */
+    protected $jornada_procedencia;
+
+     /**
+     * @ORM\Column(name="nivel_procedencia", type="string", length=255)
+     */
+    protected $nivel_procedencia;
+
+     /**
+     * @ORM\Column(name="curso_procedencia", type="string", length=255)
+     */
+    protected $curso_procedencia;
+
+     /**
+     * @ORM\Column(name="observaciones_academica", type="text")
+     */
+    protected $observaciones_academica;
+
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /*::::::::::::::::::::::::::::::::::::::::INFO FAMILIAR ::::::::::::::::::::::::::::::::::::::::::*/
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    /**
+     * @ORM\Column(name="nmrPersonas", type="integer")
+     */
+    protected $nmrPersonas;
+
+    /**
+     * @ORM\Column(name="casa_direccion", type="string", length=255)
+     */
+    protected $casa_direccion;
+
+    /**
+     * @ORM\Column(name="telefono_familia", type="string", length=255)
+     */
+    protected $telefono_familia;
+
+    /**
+     * @ORM\Column(name="vive_con", type="string", length=255)
+     */
+    protected $vive_con;
+
+    /**
+     * @ORM\Column(name="nmr_hermanos", type="integer")
+     */
+    protected $nmr_hermanos;
+
+    /**
+     * @ORM\Column(name="celular_familia", type="string", length=255)
+     */
+    protected $celular_familia;
+
+    /**
+     * @ORM\Column(name="datos_madre", type="string", length=255)
+     */
+    protected $datos_madre;
+
+    /**
+     * @ORM\Column(name="cc_madre", type="string", length=255)
+     */
+    protected $cc_madre;
+
+    
+    /**
+     * @ORM\Column(name="datos_padre", type="string", length=255)
+     */
+    protected $datos_padre;
+
+    /**
+     * @ORM\Column(name="cc_padre", type="string", length=255)
+     */
+    protected $cc_padre;
+
+    /**
+     * @ORM\Column(name="datos_acudiente", type="string", length=255)
+     */
+    protected $datos_acudiente;
+
+    /**
+     * @ORM\Column(name="cc_acudiente", type="string", length=255)
+     */
+    protected $cc_acudiente;    
+
+    /**
+     * @ORM\Column(name="direccion_familia", type="string", length=255)
+     */
+    protected $direccion_familia;  
+
+
+    public function __toString() {
+        return $this->getNombre();
+    }
+   
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /*:::::::::::::::::::::::INFO PERSONAL :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    /**
+     * Set nombre
+     *
+     * @param string $nombre
+     * @return PerfilEstudiante
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+    
+        return $this;
+    }
+
+    /**
+     * Get nombre
+     *
+     * @return string 
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * Set apellido
+     *
+     * @param string $apellido
+     * @return PerfilEstudiante
+     */
+    public function setApellido($apellido)
+    {
+        $this->apellido = $apellido;
+    
+        return $this;
+    }
+
+    /**
+     * Get apellido
+     *
+     * @return string 
+     */
+    public function getApellido()
+    {
+        return $this->apellido;
+    }
+
+    /**
+     * Set fecha_nacimiento
+     *
+     * @param \DateTime $fechaNacimiento
+     * @return PerfilEstudiante
+     */
+    public function setFechaNacimiento($fechaNacimiento)
+    {
+        $this->fecha_nacimiento = $fechaNacimiento;
+    
+        return $this;
+    }
+
+    /**
+     * Get fecha_nacimiento
+     *
+     * @return \DateTime 
+     */
+    public function getFechaNacimiento()
+    {
+        return $this->fecha_nacimiento;
+    }
+
+    /**
+     * Set direccion
+     *
+     * @param string $direccion
+     * @return PerfilEstudiante
+     */
+    public function setDireccion($direccion)
+    {
+        $this->direccion = $direccion;
+    
+        return $this;
+    }
+
+    /**
+     * Get direccion
+     *
+     * @return string 
+     */
+    public function getDireccion()
+    {
+        return $this->direccion;
+    }
+
+    /**
+     * Set lugar_nacimiento
+     *
+     * @param string $lugarNacimiento
+     * @return PerfilEstudiante
+     */
+    public function setLugarNacimiento($lugarNacimiento)
+    {
+        $this->lugar_nacimiento = $lugarNacimiento;
+    
+        return $this;
+    }
+
+    /**
+     * Get lugar_nacimiento
+     *
+     * @return string 
+     */
+    public function getLugarNacimiento()
+    {
+        return $this->lugar_nacimiento;
+    }
+
+    /**
+     * Set nmr_documento
+     *
+     * @param string $nmrDocumento
+     * @return PerfilEstudiante
+     */
+    public function setNmrDocumento($nmrDocumento)
+    {
+        $this->nmr_documento = $nmrDocumento;
+    
+        return $this;
+    }
+
+    /**
+     * Get nmr_documento
+     *
+     * @return string 
+     */
+    public function getNmrDocumento()
+    {
+        return $this->nmr_documento;
+    }
+
+    /**
+     * Set de
+     *
+     * @param string $de
+     * @return PerfilEstudiante
+     */
+    public function setDe($de)
+    {
+        $this->de = $de;
+    
+        return $this;
+    }
+
+    /**
+     * Get de
+     *
+     * @return string 
+     */
+    public function getDe()
+    {
+        return $this->de;
+    }
+
+    /**
+     * Set sexo
+     *
+     * @param string $sexo
+     * @return PerfilEstudiante
+     */
+    public function setSexo($sexo)
+    {
+        $this->sexo = $sexo;
+    
+        return $this;
+    }
+
+    /**
+     * Get sexo
+     *
+     * @return string 
+     */
+    public function getSexo()
+    {
+        return $this->sexo;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return PerfilEstudiante
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set barrio
+     *
+     * @param string $barrio
+     * @return PerfilEstudiante
+     */
+    public function setBarrio($barrio)
+    {
+        $this->barrio = $barrio;
+    
+        return $this;
+    }
+
+    /**
+     * Get barrio
+     *
+     * @return string 
+     */
+    public function getBarrio()
+    {
+        return $this->barrio;
+    }
+
+    /**
+     * Set estrato
+     *
+     * @param integer $estrato
+     * @return PerfilEstudiante
+     */
+    public function setEstrato($estrato)
+    {
+        $this->estrato = $estrato;
+    
+        return $this;
+    }
+
+    /**
+     * Get estrato
+     *
+     * @return integer 
+     */
+    public function getEstrato()
+    {
+        return $this->estrato;
+    }
+
+    /**
+     * Set telefono
+     *
+     * @param string $telefono
+     * @return PerfilEstudiante
+     */
+    public function setTelefono($telefono)
+    {
+        $this->telefono = $telefono;
+    
+        return $this;
+    }
+
+    /**
+     * Get telefono
+     *
+     * @return string 
+     */
+    public function getTelefono()
+    {
+        return $this->telefono;
+    }
+
+    /**
+     * Set celular
+     *
+     * @param string $celular
+     * @return PerfilEstudiante
+     */
+    public function setCelular($celular)
+    {
+        $this->celular = $celular;
+    
+        return $this;
+    }
+
+    /**
+     * Get celular
+     *
+     * @return string 
+     */
+    public function getCelular()
+    {
+        return $this->celular;
+    }
+
+    /**
+     * Set salud
+     *
+     * @param string $salud
+     * @return PerfilEstudiante
+     */
+    public function setSalud($salud)
+    {
+        $this->salud = $salud;
+    
+        return $this;
+    }
+
+    /**
+     * Get salud
+     *
+     * @return string 
+     */
+    public function getSalud()
+    {
+        return $this->salud;
+    }
+
+
+    /**
+     * Set municipio_id
+     *
+     * @param cloud\siteBundle\Entity\Municipio $municipioId
+     * @return PerfilEstudiante
+     */
+    public function setMunicipioId(\cloud\siteBundle\Entity\Municipio $municipioId = null)
+    {
+        $this->municipio_id = $municipioId;
+    
+        return $this;
+    }
+
+    /**
+     * Get municipio_id
+     *
+     * @return cloud\siteBundle\Entity\Municipio 
+     */
+    public function getMunicipioId()
+    {
+        return $this->municipio_id;
+    }
+
+    /**
+     * Set tipodocumento_id
+     *
+     * @param cloud\siteBundle\Entity\TipoDocumento $tipodocumentoId
+     * @return PerfilEstudiante
+     */
+    public function setTipodocumentoId(\cloud\siteBundle\Entity\TipoDocumento $tipodocumentoId = null)
+    {
+        $this->tipodocumento_id = $tipodocumentoId;
+    
+        return $this;
+    }
+
+    /**
+     * Get tipodocumento_id
+     *
+     * @return cloud\siteBundle\Entity\TipoDocumento 
+     */
+    public function getTipodocumentoId()
+    {
+        return $this->tipodocumento_id;
+    }
+
+    /**
+     * Set user_id
+     *
+     * @param cloud\siteBundle\Entity\User $userId
+     * @return PerfilEstudiante
+     */
+    public function setUserId(\cloud\siteBundle\Entity\User $userId = null)
+    {
+        $this->user_id = $userId;
+    
+        return $this;
+    }
+
+    /**
+     * Get user_id
+     *
+     * @return cloud\siteBundle\Entity\User 
+     */
+    public function getUserId()
+    {
+        return $this->user_id;
+    }
+
+    /**
+     * Set observaciones_personal
+     *
+     * @param string $observacionesPersonal
+     * @return PerfilEstudiante
+     */
+    public function setObservacionesPersonal($observacionesPersonal)
+    {
+        $this->observaciones_personal = $observacionesPersonal;
+    
+        return $this;
+    }
+
+    /**
+     * Get observaciones_personal
+     *
+     * @return string 
+     */
+    public function getObservacionesPersonal()
+    {
+        return $this->observaciones_personal;
+    }
+
+    
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /*:::::::::::::::::::::::::::::::INFO ACADEMICA::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+
+    /**
+     * Set colegio_procedencia
+     *
+     * @param string $colegioProcedencia
+     * @return PerfilEstudiante
+     */
+    public function setColegioProcedencia($colegioProcedencia)
+    {
+        $this->colegio_procedencia = $colegioProcedencia;
+    
+        return $this;
+    }
+
+    /**
+     * Get colegio_procedencia
+     *
+     * @return string 
+     */
+    public function getColegioProcedencia()
+    {
+        return $this->colegio_procedencia;
+    }
+
+    /**
+     * Set sede_procedencia
+     *
+     * @param string $sedeProcedencia
+     * @return PerfilEstudiante
+     */
+    public function setSedeProcedencia($sedeProcedencia)
+    {
+        $this->sede_procedencia = $sedeProcedencia;
+    
+        return $this;
+    }
+
+    /**
+     * Get sede_procedencia
+     *
+     * @return string 
+     */
+    public function getSedeProcedencia()
+    {
+        return $this->sede_procedencia;
+    }
+
+    /**
+     * Set jornada_procedencia
+     *
+     * @param string $jornadaProcedencia
+     * @return PerfilEstudiante
+     */
+    public function setJornadaProcedencia($jornadaProcedencia)
+    {
+        $this->jornada_procedencia = $jornadaProcedencia;
+    
+        return $this;
+    }
+
+    /**
+     * Get jornada_procedencia
+     *
+     * @return string 
+     */
+    public function getJornadaProcedencia()
+    {
+        return $this->jornada_procedencia;
+    }
+
+    /**
+     * Set nivel_procedencia
+     *
+     * @param string $nivelProcedencia
+     * @return PerfilEstudiante
+     */
+    public function setNivelProcedencia($nivelProcedencia)
+    {
+        $this->nivel_procedencia = $nivelProcedencia;
+    
+        return $this;
+    }
+
+    /**
+     * Get nivel_procedencia
+     *
+     * @return string 
+     */
+    public function getNivelProcedencia()
+    {
+        return $this->nivel_procedencia;
+    }
+
+    /**
+     * Set curso_procedencia
+     *
+     * @param string $cursoProcedencia
+     * @return PerfilEstudiante
+     */
+    public function setCursoProcedencia($cursoProcedencia)
+    {
+        $this->curso_procedencia = $cursoProcedencia;
+    
+        return $this;
+    }
+
+    /**
+     * Get curso_procedencia
+     *
+     * @return string 
+     */
+    public function getCursoProcedencia()
+    {
+        return $this->curso_procedencia;
+    }
+
+    /**
+     * Set observaciones_academica
+     *
+     * @param string $observacionesAcademica
+     * @return PerfilEstudiante
+     */
+    public function setObservacionesAcademica($observacionesAcademica)
+    {
+        $this->observaciones_academica = $observacionesAcademica;
+    
+        return $this;
+    }
+
+    /**
+     * Get observaciones_academica
+     *
+     * @return string 
+     */
+    public function getObservacionesAcademica()
+    {
+        return $this->observaciones_academica;
+    }
+
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /*:::::::::::::::::::::::::::::::INFO FAMiLIAR::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+
+    /**
+     * Set nmrPersonas
+     *
+     * @param integer $nmrPersonas
+     * @return PerfilEstudiante
+     */
+    public function setNmrPersonas($nmrPersonas)
+    {
+        $this->nmrPersonas = $nmrPersonas;
+    
+        return $this;
+    }
+
+    /**
+     * Get nmrPersonas
+     *
+     * @return integer 
+     */
+    public function getNmrPersonas()
+    {
+        return $this->nmrPersonas;
+    }
+
+    /**
+     * Set casa_direccion
+     *
+     * @param string $casaDireccion
+     * @return PerfilEstudiante
+     */
+    public function setCasaDireccion($casaDireccion)
+    {
+        $this->casa_direccion = $casaDireccion;
+    
+        return $this;
+    }
+
+    /**
+     * Get casa_direccion
+     *
+     * @return string 
+     */
+    public function getCasaDireccion()
+    {
+        return $this->casa_direccion;
+    }
+
+    /**
+     * Set telefono_familia
+     *
+     * @param string $telefonoFamilia
+     * @return PerfilEstudiante
+     */
+    public function setTelefonoFamilia($telefonoFamilia)
+    {
+        $this->telefono_familia = $telefonoFamilia;
+    
+        return $this;
+    }
+
+    /**
+     * Get telefono_familia
+     *
+     * @return string 
+     */
+    public function getTelefonoFamilia()
+    {
+        return $this->telefono_familia;
+    }
+
+    /**
+     * Set vive_con
+     *
+     * @param string $viveCon
+     * @return PerfilEstudiante
+     */
+    public function setViveCon($viveCon)
+    {
+        $this->vive_con = $viveCon;
+    
+        return $this;
+    }
+
+    /**
+     * Get vive_con
+     *
+     * @return string 
+     */
+    public function getViveCon()
+    {
+        return $this->vive_con;
+    }
+
+    /**
+     * Set nmr_hermanos
+     *
+     * @param integer $nmrHermanos
+     * @return PerfilEstudiante
+     */
+    public function setNmrHermanos($nmrHermanos)
+    {
+        $this->nmr_hermanos = $nmrHermanos;
+    
+        return $this;
+    }
+
+    /**
+     * Get nmr_hermanos
+     *
+     * @return integer 
+     */
+    public function getNmrHermanos()
+    {
+        return $this->nmr_hermanos;
+    }
+
+    /**
+     * Set celular_familia
+     *
+     * @param string $celularFamilia
+     * @return PerfilEstudiante
+     */
+    public function setCelularFamilia($celularFamilia)
+    {
+        $this->celular_familia = $celularFamilia;
+    
+        return $this;
+    }
+
+    /**
+     * Get celular_familia
+     *
+     * @return string 
+     */
+    public function getCelularFamilia()
+    {
+        return $this->celular_familia;
+    }
+
+    /**
+     * Set datos_madre
+     *
+     * @param string $datosMadre
+     * @return PerfilEstudiante
+     */
+    public function setDatosMadre($datosMadre)
+    {
+        $this->datos_madre = $datosMadre;
+    
+        return $this;
+    }
+
+    /**
+     * Get datos_madre
+     *
+     * @return string 
+     */
+    public function getDatosMadre()
+    {
+        return $this->datos_madre;
+    }
+
+    /**
+     * Set cc_madre
+     *
+     * @param string $ccMadre
+     * @return PerfilEstudiante
+     */
+    public function setCcMadre($ccMadre)
+    {
+        $this->cc_madre = $ccMadre;
+    
+        return $this;
+    }
+
+    /**
+     * Get cc_madre
+     *
+     * @return string 
+     */
+    public function getCcMadre()
+    {
+        return $this->cc_madre;
+    }
+
+    /**
+     * Set datos_padre
+     *
+     * @param string $datosPadre
+     * @return PerfilEstudiante
+     */
+    public function setDatosPadre($datosPadre)
+    {
+        $this->datos_padre = $datosPadre;
+    
+        return $this;
+    }
+
+    /**
+     * Get datos_padre
+     *
+     * @return string 
+     */
+    public function getDatosPadre()
+    {
+        return $this->datos_padre;
+    }
+
+    /**
+     * Set cc_padre
+     *
+     * @param string $ccPadre
+     * @return PerfilEstudiante
+     */
+    public function setCcPadre($ccPadre)
+    {
+        $this->cc_padre = $ccPadre;
+    
+        return $this;
+    }
+
+    /**
+     * Get cc_padre
+     *
+     * @return string 
+     */
+    public function getCcPadre()
+    {
+        return $this->cc_padre;
+    }
+
+    /**
+     * Set datos_acudiente
+     *
+     * @param string $datosAcudiente
+     * @return PerfilEstudiante
+     */
+    public function setDatosAcudiente($datosAcudiente)
+    {
+        $this->datos_acudiente = $datosAcudiente;
+    
+        return $this;
+    }
+
+    /**
+     * Get datos_acudiente
+     *
+     * @return string 
+     */
+    public function getDatosAcudiente()
+    {
+        return $this->datos_acudiente;
+    }
+
+    /**
+     * Set cc_acudiente
+     *
+     * @param string $ccAcudiente
+     * @return PerfilEstudiante
+     */
+    public function setCcAcudiente($ccAcudiente)
+    {
+        $this->cc_acudiente = $ccAcudiente;
+    
+        return $this;
+    }
+
+    /**
+     * Get cc_acudiente
+     *
+     * @return string 
+     */
+    public function getCcAcudiente()
+    {
+        return $this->cc_acudiente;
+    }
+
+    /**
+     * Set direccion_familia
+     *
+     * @param string $direccionFamilia
+     * @return PerfilEstudiante
+     */
+    public function setDireccionFamilia($direccionFamilia)
+    {
+        $this->direccion_familia = $direccionFamilia;
+    
+        return $this;
+    }
+
+    /**
+     * Get direccion_familia
+     *
+     * @return string 
+     */
+    public function getDireccionFamilia()
+    {
+        return $this->direccion_familia;
+    }
+}

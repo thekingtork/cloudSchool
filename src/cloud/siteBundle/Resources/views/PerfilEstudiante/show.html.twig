@@ -1,0 +1,165 @@
+<h1>PerfilEstudiante</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Nombre</th>
+            <td>{{ entity.nombre }}</td>
+        </tr>
+        <tr>
+            <th>Apellido</th>
+            <td>{{ entity.apellido }}</td>
+        </tr>
+        <tr>
+            <th>Fecha_nacimiento</th>
+            <td>{{ entity.fechanacimiento|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>Direccion</th>
+            <td>{{ entity.direccion }}</td>
+        </tr>
+        <tr>
+            <th>Lugar_nacimiento</th>
+            <td>{{ entity.lugarnacimiento }}</td>
+        </tr>
+        <tr>
+            <th>Nmr_documento</th>
+            <td>{{ entity.nmrdocumento }}</td>
+        </tr>
+        <tr>
+            <th>De</th>
+            <td>{{ entity.de }}</td>
+        </tr>
+        <tr>
+            <th>Sexo</th>
+            <td>{{ entity.sexo }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ entity.email }}</td>
+        </tr>
+        <tr>
+            <th>Barrio</th>
+            <td>{{ entity.barrio }}</td>
+        </tr>
+        <tr>
+            <th>Estrato</th>
+            <td>{{ entity.estrato }}</td>
+        </tr>
+        <tr>
+            <th>Telefono</th>
+            <td>{{ entity.telefono }}</td>
+        </tr>
+        <tr>
+            <th>Celular</th>
+            <td>{{ entity.celular }}</td>
+        </tr>
+        <tr>
+            <th>Salud</th>
+            <td>{{ entity.salud }}</td>
+        </tr>
+        <tr>
+            <th>Observaciones_personal</th>
+            <td>{{ entity.observacionespersonal }}</td>
+        </tr>
+        <tr>
+            <th>Colegio_procedencia</th>
+            <td>{{ entity.colegioprocedencia }}</td>
+        </tr>
+        <tr>
+            <th>Sede_procedencia</th>
+            <td>{{ entity.sedeprocedencia }}</td>
+        </tr>
+        <tr>
+            <th>Jornada_procedencia</th>
+            <td>{{ entity.jornadaprocedencia }}</td>
+        </tr>
+        <tr>
+            <th>Nivel_procedencia</th>
+            <td>{{ entity.nivelprocedencia }}</td>
+        </tr>
+        <tr>
+            <th>Curso_procedencia</th>
+            <td>{{ entity.cursoprocedencia }}</td>
+        </tr>
+        <tr>
+            <th>Observaciones_academica</th>
+            <td>{{ entity.observacionesacademica }}</td>
+        </tr>
+        <tr>
+            <th>Nmrpersonas</th>
+            <td>{{ entity.nmrPersonas }}</td>
+        </tr>
+        <tr>
+            <th>Casa_direccion</th>
+            <td>{{ entity.casadireccion }}</td>
+        </tr>
+        <tr>
+            <th>Telefono_familia</th>
+            <td>{{ entity.telefonofamilia }}</td>
+        </tr>
+        <tr>
+            <th>Vive_con</th>
+            <td>{{ entity.vivecon }}</td>
+        </tr>
+        <tr>
+            <th>Nmr_hermanos</th>
+            <td>{{ entity.nmrhermanos }}</td>
+        </tr>
+        <tr>
+            <th>Celular_familia</th>
+            <td>{{ entity.celularfamilia }}</td>
+        </tr>
+        <tr>
+            <th>Datos_madre</th>
+            <td>{{ entity.datosmadre }}</td>
+        </tr>
+        <tr>
+            <th>Cc_madre</th>
+            <td>{{ entity.ccmadre }}</td>
+        </tr>
+        <tr>
+            <th>Datos_padre</th>
+            <td>{{ entity.datospadre }}</td>
+        </tr>
+        <tr>
+            <th>Cc_padre</th>
+            <td>{{ entity.ccpadre }}</td>
+        </tr>
+        <tr>
+            <th>Datos_acudiente</th>
+            <td>{{ entity.datosacudiente }}</td>
+        </tr>
+        <tr>
+            <th>Cc_acudiente</th>
+            <td>{{ entity.ccacudiente }}</td>
+        </tr>
+        <tr>
+            <th>Direccion_familia</th>
+            <td>{{ entity.direccionfamilia }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('admincloud_perfilestudiante') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('admincloud_perfilestudiante_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('admincloud_perfilestudiante_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
