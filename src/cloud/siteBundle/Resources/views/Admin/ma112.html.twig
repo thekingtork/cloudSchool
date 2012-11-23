@@ -49,10 +49,12 @@
 							<a href="{{ path('ma11') }}" class="ajax"><img src="{{ asset('images/b_atras_blue.png') }}"></a>
 						{% endblock %}
 					</div>
-					<div id="addSede">
-						<img src="{{ asset('images/b_agregar.png') }}" alt=""/>
-						<p>agregar Sede</p>
-					</div>				
+					<a href="{{ path('ma112_new') }}">
+						<div id="addSede">
+							<img src="{{ asset('images/b_agregar.png') }}" alt=""/>
+							<p>agregar Sede</p>
+						</div>				
+					</a>
 					<div class="InicioBlue" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
 				</div>
 				<div id="contenidoDer">
