@@ -66,10 +66,14 @@
 .sede{
     border: solid 4px white;
     cursor: pointer;
+    display: inline-block;
     float: left;
-    max-height: 213px;
+    height: 200px;
+    margin: 10px 0;
     padding: 10px;
-    width: 33.33%;
+    position: relative;
+    vertical-align: top;
+    width: 200px;
 }
 
 .sede:nth-child(3n+1){
