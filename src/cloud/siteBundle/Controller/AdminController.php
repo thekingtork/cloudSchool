@@ -93,7 +93,10 @@ class AdminController extends Controller
         $user = $this->get('security.context')->getToken()->getUser();
         $em = $this->getDoctrine()->getEntityManager();
         $sedes = $em->getRepository('cloudBundle:Sede')->findAll(); 
-        return $this->render('cloudBundle:Admin:ma112.html.twig',array('sedes'=>$sedes));
+        if(!$sedes)
+            return $this->render('cloudBundle:Admin:ma112.html.twig',array('mje'=>'No tiene tiene sedes asociadas' ) );
+
+        return $this->render('cloudBundle:Admin:ma112.html.twig',array('sedes'=>$sedes) );
     }
 
     /**
@@ -155,7 +158,7 @@ class AdminController extends Controller
         $editForm = $this->createForm(new SedeType(), $entity);
 
         return $this->render('cloudBundle:Admin:ma112_edit.html.twig',array(
-            'edit_form'   => $editForm->createView(),
+            'form'   => $editForm->createView(),
         ));
     }
 
@@ -318,15 +321,37 @@ class AdminController extends Controller
       */
      public function GestionSedeAction(){
         $request=$this->getRequest();
+
+
         $em=$this->getDoctrine()->getEntityManager();
-        $sede=$em->getRepository('cloudBundle:Sede')->findAll();
-        if($request->getMethod()=='POST'){
+        if($request->getMethod()=='POST')
+        {
+
+            
             $numero=$request->request->get('numsede');
-            return $this->render('cloudBundle:Admin:ma112.html.twig', array('numero'=>$numero,'sedes'=>'','mje'=>''));
+
+            for ($i=1; $i <= $numero; $i++) { 
+                $entity  = new Sede();
+                $entity->setName("Sede ".$i);
+                $entity->setDireccion($i);
+                $entity->setTelefono("03X 7XX XXX XXX");
+                $entity->setFax("XXX XXX XXX");
+                $entity->setEmail("sede$i@institucion.com");
+                $entity->setRector("Coordinador ".$i);
+                $entity->setSecretaria("Secretaria ".$i);
+
+                
+                $em->persist($entity);
+                $em->flush();
+            }
+            $sedes = $em->getRepository('cloudBundle:Sede')->findAll();
+
+            return $this->render('cloudBundle:Admin:ma112.html.twig', array('sedes'=>$sedes));
         }
-        if(!$sede){
+        
+        $sede=$em->getRepository('cloudBundle:Sede')->findAll();
+        if(!$sede)
             return $this->render('cloudBundle:Admin:ma112.html.twig', array('mje'=>'No tiene tiene sedes asociadas'));
-        }
         return $this->render('cloudBundle:Admin:ma112.html.twig', array('sedes'=>$sede));
      }
      

@@ -4,43 +4,9 @@
 {% endblock %}
 {% block menu_principal %}
 	<div class="cuerpoCentrado" id="contMetro">
-		<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/jquery.mCustomScrollbar.css') }}"/>
-		<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/contenido.css') }}"/>
-		<script>
-            $(document).ready(function(){
-                var nsede=$('#enlace').attr('data-num');
-                var cuadros="<div class='contenedorSedes'>";
-                for(var i=1; i<=nsede; i++){
-                    if(i>10){
-                        break;
-                    }
-                    if((i==1)||(i==4)||(i==7)){
-                        cuadros+="<a href='{{path('ma112_new')}}' class='ajax'><div class='sedeI'><p class='signoUp'>+</p><p class='titulocajas'>agregar sede</p></div></a>"
-                    }
-                    if((i!=4)&&(i!=10)&&(i%2==0)){
-                        cuadros+="<a href='{{path('ma112_new')}}' class='ajax'><div class='sedeII'><p class='signoUp'>+</p><p class='titulocajas'>agregar sede</p></div></a>"
-                        if(i==6){
-                            cuadros+="</div><div class='contenedorSedes'>"
-                        }
-                    }if(((i!=1)&&(i!=7)) && (i%2!=0)){
-                        cuadros+="<a href='{{path('ma112_new')}}' class='ajax'><div class='sedeIII'><p class='signoUp'>+</p><p class='titulocajas'>agregar sede</p></div></a>"
-                        if(i==3){
-                            cuadros+="</div><div class='contenedorSedes'>"
-                        }
-                    }
-                    
-                }
-                if(nsede>=4){
-                    cuadros+="</div>"
-                }
-                if(nsede>9){
-                    cuadros+="<div class='contenedorSedes'><a href='{{path('ma112_new')}}' class='ajax'><div class='sedeI adsede'><p class='signoUp'>+</p><p class='titulocajas'>Mas sedes</p></div></a></div>"
-                }
-                $('#content_1').append(cuadros);
-                
-            })
-		</script>
 		<div id="ContAjax">
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/jquery.mCustomScrollbar.css') }}"/>
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/contenido.css') }}"/>
 			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/ma112.css') }}"/>
 			<div id="bloqueCgenerales">
 			  	<div id="contenidoIzq">
@@ -64,51 +30,22 @@
 					<div id="TituloSecction">
 						<label>Administraci&oacute;n de Sedes</label>
 					</div>
-					<div id="content_1">
-                    {%for sede in sedes%}
-                        {% if (sede.id==1) or(sede.id==4)or(sede.id==7) %}
-						<a href="{{ path('ma112_edit',{'id' : sede.id }) }}">
-						<div class="contenedorSedes">
-							<div class="sedeI">
-								<p class="signoUp">+</p>
-								<p class="titulocajas">{{sede.name}}</p>
-							</div>
-						</a>
-						
-                        {%elseif(sede.id==2)or(sede.id==5)or(sede.id==8)%}
-						<a href="{{ path('ma112_edit',{'id' : sede.id }) }}">
-							<div class="sedeII">
-								<p class="signoUp">+</p>
-								<p class="titulocajas">{{sede.name}}</p>
-							</div>
-						</a>
-						
-                        {%elseif (sede.id==3)or(sede.id==6)or(sede.id==9)%}
-						<a href="{{ path('ma112_edit',{'id' : sede.id }) }}">
-							<div class="sedeIII">
-								<p class="signoUp">+</p>
-								<p class="titulocajas">{{sede.name}}</p>
-							</div>
-						</a>
+					{% if mje is defined %}
+						<div>
+							<p>{{ mje }}</p>
 						</div>
-                        {% endif %}
-                    {%endfor%}
-                    
-						{#<div class="contenedorSedes">
-							<div class="sedeI">
-								<p class="signoUp">+</p>
-								<p class="titulocajas">agregar sede</p>
-							</div>
-							<div class="sedeII">
-								<p class="titulocajas">agregar sede</p>
-								<p class="signoUp">+</p>
-							</div>
-							<div class="sedeIII">
-								<p class="signoUp">+</p>
-								<p class="titulocajas">agregar sede</p>
-							</div>
-						</div>#}
-					</div>
+					{% else %}
+						<div id="content_1" class="mCustomScrollbar _mCS_1">
+							    {% for sede in sedes %}
+										<div class="sede">
+			                        <a href="{{ path('ma112_edit',{'id' : sede.id }) }}" class="ajax">
+											<p class="signoUp">+</p>
+											<p class="titulocajas">{{sede.name}}</p>
+									</a>
+										</div>
+			                    {% endfor %}
+						</div>
+		            {% endif %}
 				</div>
 			</div>
 			<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>

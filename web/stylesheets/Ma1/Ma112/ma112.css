@@ -63,33 +63,31 @@
     font-family: "Segoe UI light";
     font-size: 30px;
 }
-.sedeI{
+.sede{
+    border: solid 4px white;
+    cursor: pointer;
+    float: left;
+    max-height: 213px;
+    padding: 10px;
+    width: 33.33%;
+}
+
+.sede:nth-child(3n+1){
     background-color:rgb(0,172,236);
-    border: solid 4px white;
-    cursor: pointer;
-    float: left;
-    max-height: 213px;
-    padding: 10px;
-    width: 33.33%;
+    
 }
-.sedeII{
-    background-color:rgb(129,196,206);
-    border: solid 4px white;
-    cursor: pointer;
-    float: left;
-    max-height: 213px;
-    padding: 10px;
-    width: 33.33%;
+
+.sede:nth-child(3n+2){
+    background: red;
+   background-color:rgb(129,196,206);
+
 }
-.sedeIII{
-    background-color:rgb(166,215,246);
-    border: solid 4px white;
-    cursor: pointer;
-    float: left;
-    max-height: 213px;
-    padding: 10px;
-    width: 33.33%;
+.sede:nth-child(3n){
+    background: green;
+   background-color:rgb(166,215,246);
+
 }
+   
 .signoUp{
     color: white;
     font-family: "Segoe UI bold";

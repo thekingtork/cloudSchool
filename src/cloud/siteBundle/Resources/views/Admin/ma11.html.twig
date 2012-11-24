@@ -38,7 +38,7 @@
                             </div>
                             <div class="linea">
                                 <div class="entrada">
-                                    <input type="text" name="numsede" id="numsede" />
+                                    <input type="text" name="numsede" id="numsede" required/>
                                 </div>
                             </div>
                             <div class="linea">
@@ -51,7 +51,7 @@
                                             <input  class="botonesDw blanco" type="button" value="Limpiar" onClick="limpiaForm('#formularioInst form')">
                                         </li>
                                         <li>
-                                            <input  class="botonesDw blanco" type="button" value="Cancelar">
+                                            <input  class="botonesDw blanco ocultarOverlay" type="button" value="Cancelar">
                                         </li>
                                     </ul>
                                 </div>
@@ -76,17 +76,17 @@
             console.log('Soporte jQuey');
             var estado="{{estado|default('si')}}";
             $('.iniciar').click(function(e){
-                e.preventDefault();
-                    $('.overlay').css('display','block')
-
-                /*
                 if(estado=='nulo'){
+                    e.preventDefault();
                     console.log('mostrar formulario')
                     $('.overlay').css('display','block')
-                }else{
-                    window.location="{{path('gestionsede')}}"
-                }*/
+                }
             })
+
+        $(".ocultarOverlay").click( function(){
+          $(".overlay").css("display","none")
+          console.log("ocultarOverlay")
+        })
         })
     </script>
 {% endblock %}

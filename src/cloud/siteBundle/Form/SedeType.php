@@ -12,7 +12,6 @@ class SedeType extends AbstractType
     {
         $builder
             ->add('name',null,array('label'=>'Nombre sede'))
-            ->add('capacidad')
             ->add('direccion')
             ->add('telefono')
             ->add('fax')

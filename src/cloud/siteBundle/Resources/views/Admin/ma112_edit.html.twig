@@ -1,11 +1,11 @@
 {% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
 {% block title %}
-	MA111
+	MA1121
 {% endblock %}
 {% block menu_principal %}
- 	<div class="cuerpoCentrado" id="contMetro">
-		<div id="ContAjax">
-			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma111/ma111.css') }}"/>
+	 <div class="cuerpoCentrado" id="contMetro">
+	 	<div id="ContAjax">
+	 		<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma1121/ma1121.css') }}"/> 
 			<div id="bloqueCgenerales">
 				<div id="contenidoIzq">
 					<div class="botonRegresar">
@@ -24,98 +24,80 @@
 					<div class="InicioBlue" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
 				</div>
 				<div id="contenidoDer">
-					<div class="breadcumbrBlue">
-						<a href="{{ path('ma1') }}" class="ajax">Ajustes del sistema</a>
-					</div>
+	                <div class="breadcumbrBlue ">
+	                	<a href="{{ path('ma1') }}" class="ajax ">Ajustes del sistema</a>
+	                </div>
 					<div id="TituloSecction">
-						<label>Informaci&oacute;n General</label>
-					</div>
+						<label>Informaci&oacute;n de Sede</label>
+					</div>  
 					<div id="formularioInst">
-						<form action="#" method="post" {{ form_enctype(edit_form) }}>
-							{{form_errors(edit_form)}}
-							<div id="content_1">
-								<div id="pantalla1">	
-		    						<div id="nombreInst" class="entradaTexto">
-		    							<p class="textoEtq">Nombre Intituci&oacute;n</p>
-		    							{{form_errors(edit_form.name)}}
-		    							{{form_widget(edit_form.name)}}
-		    						</div>
-	    							<div class="entradaTexto ">
-	    								<p class="textoEtq">Capacidad</p>
-	    								{{form_errors(edit_form.capacidad)}}
-	    								{{form_widget(edit_form.capacidad)}}
-	    							</div>
-	    							<div id="direccion" class="entradaTexto">
-	    								<p class="textoEtq">Direcci&oacute;n</p>
-	    								{{form_errors(edit_form.direccion)}}
-	    								{{form_widget(edit_form.direccion)}}
-	    							</div>
-	    							<div id="telefono" class="entradaTexto">
-	    								<p class="textoEtq">Telefono</p>
-	    								{{form_errors(edit_form.telefono)}}
-	    								{{form_widget(edit_form.telefono)}}
-	    							</div>
-	    							<div id="fax" class="entradaTexto">
-	    								<p class="textoEtq">Fax</p>
-	    								{{form_errors(edit_form.fax)}}
-	    								{{form_widget(edit_form.fax)}}
-	    							</div>
-	    							<div id="email" class="entradaTexto">
-	    								<p class="textoEtq">E-mail</p>
-	    								{{form_errors(edit_form.email)}}
-	    								{{form_widget(edit_form.email)}}
-	    							</div>		
-								</div>
-									<div id="pantalla2">
-										<div id="rector" class="entradaTexto">
-		    								<p class="textoEtq">Coordinador(a)</p>
-		    								{{form_errors(edit_form.rector)}}
-		    								{{form_widget(edit_form.rector)}}
-	    								</div>
-		    							<div id="Secretario" class="entradaTexto">
-		                                    <p class="textoEtq">Secretario(a)</p>
-		                                    {{form_errors(edit_form.secretaria)}}
-		                                    {{form_widget(edit_form.secretaria)}}
-		                            	</div>		
+						<div id="content_1">
+							<form action="#" method="post" {{ form_enctype(form) }}>
+								<div class="pantalla">
+									<div class="linea">
+										<p class="textoEtq">Nombre</p>
+										{{form_errors(form.name)}}
+				    					{{form_widget(form.name)}}
 									</div>
-							</div>
-							<div id="botonesDow">
-								<ul>
-									<li><button class="botonesDw" type="submit">Guardar</button></li>
-									<li><input  class="botonesDw" type="button" value="Limpiar" onClick="limpiaForm('#formularioInst form')"></li>
-									<li><input  class="botonesDw" type="button" value="Eliminar"></li>
-								</ul>
-							</div>
-						</form>
+									<div class="linea">
+										<p class="textoEtq">Direcci&oacute;n</p>
+										{{form_errors(form.direccion)}}
+				    					{{form_widget(form.direccion)}}
+									</div>
+									<div class="lineaMultiItem">
+										<div class="item">
+											<p class="textoEtq">Telefono</p>
+											{{form_errors(form.telefono)}}
+					    					{{form_widget(form.telefono)}}
+										</div>
+										<div class="item">
+											<p id="fax"class="textoEtq">Fax</p>
+											{{form_errors(form.fax)}}
+					    					{{form_widget(form.fax)}}
+										</div>
+										<div class="item" id="email">
+											<p class="textoEtq">E-mail</p>
+											{{form_errors(form.email)}}
+					    					{{form_widget(form.email)}}
+										</div>
+									</div>
+									<div class="linea">
+										<p class="textoEtq">Coordinador(a)</p>
+										{{form_errors(form.rector)}}
+				    					{{form_widget(form.rector)}}
+									</div>
+									<div class="linea">
+										<p class="textoEtq">Secretario(a)</p>
+										{{form_errors(form.secretaria)}}
+				    					{{form_widget(form.secretaria)}}
+									</div>
+								</div>
+								<div id="botonesDow">
+									<ul>
+										<li>
+											<button class="botonesDw" type="submit">Guardar</button>
+										</li>
+										<li>
+											<input  class="botonesDw" type="button" value="Limpiar" onClick="limpiaForm('#formularioInst form')">
+										</li>
+										<li>
+											<input  class="botonesDw" type="button" value="Eliminar">
+										</li>
+									</ul>
+								</div>
+							</form>
+						</div>
 					</div>
-	            </div>
+				</div>
 			</div>
-			<script >
-				(function($){
-				$(document).ready(function(){
-					$("#content_1").mCustomScrollbar({
-						horizontalScroll:true,
-						scrollButtons:{
-							enable:false,
-							scrollType:"continuous",
-							scrollSpeed:20,
-							scrollAmount:40
-						},
-						advanced:{
-							autoExpandHorizontalScroll:true,
-						},
-					});
-				});
-			})(jQuery);
-			</script>
 		</div>
-			{% block notificaciones %}         
+		 {% block notificaciones %}         
                 {% include "cloudBundle::layout_notificaciones.html.twig" %}
-             {% endblock notificaciones %} 
-		<div class="cuerpoCentrado" id="footer">
-    		{% block menu_colores %}
+         {% endblock notificaciones %}
+		</div>
+        <div class="cuerpoCentrado" id="footer">
+        	{% block menu_colores %}
           		{% include "cloudBundle::menuColores.html.twig" %}
-        	{% endblock %} 
-    	</div>       	
-    </div>
+        	{% endblock %}
+    	</div>
 {% endblock %}

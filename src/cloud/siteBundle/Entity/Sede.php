@@ -23,11 +23,6 @@ class Sede
     
 
     /**
-     * @ORM\Column(name="capacidad", type="integer")
-     */
-    protected $capacidad;
-
-    /**
      * 
      * @ORM\ManyToMany(targetEntity="NivelesAcademicos")
      * @ORM\JoinTable(name="nivelesacademicos_sede",
@@ -98,7 +93,7 @@ class Sede
     protected $institucion;
 
     public function __toString() {
-        return $this->getName();
+        return $this->getName(); 
     }
 
     /**
@@ -140,29 +135,6 @@ class Sede
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set capacidad
-     *
-     * @param integer $capacidad
-     * @return Sede
-     */
-    public function setCapacidad($capacidad)
-    {
-        $this->capacidad = $capacidad;
-    
-        return $this;
-    }
-
-    /**
-     * Get capacidad
-     *
-     * @return integer 
-     */
-    public function getCapacidad()
-    {
-        return $this->capacidad;
     }
 
     /**
