@@ -14,12 +14,6 @@
 							<a href="{{ path('ma1') }}" class="ajax"><img src="{{ asset('images/b_atras.png') }}"/></a>
 						{% endblock %}
 					</div>
-                    <div id="formulario" style="display: none;">
-                        <form action="{{path('ma132')}}" method="post" id="form">
-                            <input type="text" name="niveles" id="niveles" />
-                            <button type="submit">Ingresar</button>
-                        </form>
-                    </div>
 					<div id="ContTitulo">
 						<p>Criterios academicos</p>
 					</div>
@@ -47,25 +41,6 @@
          {% endblock notificaciones %}
 	</div>
     <script type="text/javascript" src="{{asset('javascripts/jquery.js')}}"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            console.log('Soporte jQuey');
-            var estado="{{estado|default('si')}}";
-            $('.iniciar').click(function(e){
-                e.preventDefault();
-                if(estado=='nulo'){
-                    console.log('mostrar formulario')
-                    $('#formulario').css('display','block')
-                }else{
-                    window.location="{{path('ma132')}}"
-                }
-            })
-            /*$('#form').submit(function(e){
-                e.preventDefault();
-                var ok=$('#form').serialize();
-                alert(ok);
-            })*/
-        })
-    </script>
+   
     
 {% endblock %}

@@ -32,7 +32,7 @@
 					</div>  
 					<div id="formularioInst">
 						<div id="content_1">
-							<form action="#" method="post" {{ form_enctype(form) }}>
+							<form action="{{ path('ma112_update',{ 'id' : entity.id }) }}" method="post" {{ form_enctype(form) }}>
 								<div class="pantalla">
 									<div class="linea">
 										<p class="textoEtq">Nombre</p>
@@ -71,6 +71,7 @@
 										{{form_errors(form.secretaria)}}
 				    					{{form_widget(form.secretaria)}}
 									</div>
+									{{ form_rest(form) }}
 								</div>
 								<div id="botonesDow">
 									<ul>

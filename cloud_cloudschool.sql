@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 23-11-2012 a las 22:32:53
+-- Tiempo de generación: 25-11-2012 a las 00:47:42
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -83,14 +83,21 @@ CREATE TABLE IF NOT EXISTS `codigo_verificacion` (
   PRIMARY KEY (`id`),
   KEY `IDX_26D7B57AA76ED395` (`user_id`),
   KEY `IDX_26D7B57AC07F55F5` (`modulo_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=17 ;
 
 --
 -- Volcado de datos para la tabla `codigo_verificacion`
 --
 
 INSERT INTO `codigo_verificacion` (`id`, `user_id`, `modulo_id`, `codigo`, `date_create`, `expire`) VALUES
-(9, 3, 1, 'OKSTOLNHT', '2012-11-19 23:08:37', 0);
+(9, 3, 1, 'OKSTOLNHT', '2012-11-19 23:08:00', 1),
+(10, 3, 1, 'CMCOLURRK', '2012-11-25 16:03:00', 1),
+(11, 3, 1, 'PUAAMWVTI', '2012-11-25 16:10:00', 1),
+(12, 3, 1, 'XZUVWRYUP', '2012-11-25 16:12:00', 1),
+(13, 3, 1, 'WGCNJSVZG', '2012-11-25 16:19:33', 1),
+(14, 3, 2, 'CMMCGAUGQ', '2012-11-25 21:10:49', 0),
+(15, 3, 2, 'ZRBCRBWKL', '2012-11-25 21:21:02', 0),
+(16, 3, 2, 'XSNKSNTDW', '2012-11-25 21:42:57', 0);
 
 -- --------------------------------------------------------
 
@@ -268,6 +275,29 @@ CREATE TABLE IF NOT EXISTS `grado_sede` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `inscripcion`
+--
+
+CREATE TABLE IF NOT EXISTS `inscripcion` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `anio_id` int(11) DEFAULT NULL,
+  `inscripcion_inicio` datetime NOT NULL,
+  `primer_periodo_final` datetime NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_935E99F0EC34184E` (`anio_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+
+--
+-- Volcado de datos para la tabla `inscripcion`
+--
+
+INSERT INTO `inscripcion` (`id`, `anio_id`, `inscripcion_inicio`, `primer_periodo_final`, `active`) VALUES
+(5, 2, '2013-02-24 00:00:00', '2013-05-24 00:00:00', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `institucion`
 --
 
@@ -331,13 +361,6 @@ CREATE TABLE IF NOT EXISTS `jornada_sede` (
   KEY `IDX_D0D5E90E19F41BF` (`sede_id`),
   KEY `IDX_D0D5E9026E992D9` (`jornada_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `jornada_sede`
---
-
-INSERT INTO `jornada_sede` (`sede_id`, `jornada_id`) VALUES
-(1, 1);
 
 -- --------------------------------------------------------
 
@@ -1518,15 +1541,6 @@ CREATE TABLE IF NOT EXISTS `nivelesacademicos_sede` (
   KEY `IDX_75D92101DA3426AE` (`nivel_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Volcado de datos para la tabla `nivelesacademicos_sede`
---
-
-INSERT INTO `nivelesacademicos_sede` (`sede_id`, `nivel_id`) VALUES
-(1, 1),
-(1, 2),
-(1, 3);
-
 -- --------------------------------------------------------
 
 --
@@ -1547,7 +1561,7 @@ CREATE TABLE IF NOT EXISTS `notificaciones` (
   KEY `IDX_6FFCB2187CB4A1F` (`curso_id`),
   KEY `IDX_6FFCB21A9276E6C` (`tipo_id`),
   KEY `IDX_6FFCB219F5A440B` (`estado_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=21 ;
 
 --
 -- Volcado de datos para la tabla `notificaciones`
@@ -1555,7 +1569,14 @@ CREATE TABLE IF NOT EXISTS `notificaciones` (
 
 INSERT INTO `notificaciones` (`id`, `tipo_id`, `estado_id`, `asunto`, `mensaje`, `date_create`, `user_id`, `curso_id`) VALUES
 (1, 3, 1, 'Noti', 'exampl', '2012-11-18 10:14:30', 3, NULL),
-(13, 3, 1, 'Codigo', 'OKSTOLNHT', '2012-11-19 23:08:37', 3, NULL);
+(13, 3, 1, 'Codigo', 'OKSTOLNHT', '2012-11-19 23:08:37', 3, NULL),
+(14, 3, 1, 'Codigo', 'CMCOLURRK', '2012-11-25 16:03:51', 3, NULL),
+(15, 3, 1, 'Codigo', 'PUAAMWVTI', '2012-11-25 16:10:22', 3, NULL),
+(16, 3, 1, 'Codigo', 'XZUVWRYUP', '2012-11-25 16:12:06', 3, NULL),
+(17, 3, 1, 'Codigo', 'WGCNJSVZG', '2012-11-25 16:19:33', 3, NULL),
+(18, 3, 1, 'Codigo', 'CMMCGAUGQ', '2012-11-25 21:10:49', 3, NULL),
+(19, 3, 1, 'Codigo', 'ZRBCRBWKL', '2012-11-25 21:21:02', 3, NULL),
+(20, 3, 1, 'Codigo', 'XSNKSNTDW', '2012-11-25 21:42:57', 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -1683,7 +1704,6 @@ INSERT INTO `roles` (`id`, `nombre`) VALUES
 CREATE TABLE IF NOT EXISTS `sede` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `capacidad` int(11) NOT NULL,
   `direccion` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `telefono` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `fax` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -1693,14 +1713,16 @@ CREATE TABLE IF NOT EXISTS `sede` (
   `institucion_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_2A9BE2D1B239FBC6` (`institucion_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
 
 --
 -- Volcado de datos para la tabla `sede`
 --
 
-INSERT INTO `sede` (`id`, `nombre`, `capacidad`, `direccion`, `telefono`, `fax`, `email`, `rector`, `secretaria`, `institucion_id`) VALUES
-(1, 'ejemplo', 123, 'ejemplo', 'ejemplo', 'ejemplo', 'ejemplo', 'ejemplo', 'ejemplo', 1);
+INSERT INTO `sede` (`id`, `nombre`, `direccion`, `telefono`, `fax`, `email`, `rector`, `secretaria`, `institucion_id`) VALUES
+(8, 'Sede 1', '1', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede1@institucion.com', 'Coordinador 1', 'Secretaria 1', NULL),
+(9, 'Sede 2', '2', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede2@institucion.com', 'Coordinador 2', 'Secretaria 2', NULL),
+(10, 'Sede 3', '3', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede3@institucion.com', 'Coordinador 3', 'Secretaria 3', NULL);
 
 -- --------------------------------------------------------
 
@@ -1824,6 +1846,12 @@ ALTER TABLE `grado`
 ALTER TABLE `grado_sede`
   ADD CONSTRAINT `FK_25628CA791A441CC` FOREIGN KEY (`grado_id`) REFERENCES `grado` (`id`),
   ADD CONSTRAINT `FK_25628CA7E19F41BF` FOREIGN KEY (`sede_id`) REFERENCES `sede` (`id`);
+
+--
+-- Filtros para la tabla `inscripcion`
+--
+ALTER TABLE `inscripcion`
+  ADD CONSTRAINT `FK_935E99F0EC34184E` FOREIGN KEY (`anio_id`) REFERENCES `anio` (`id`);
 
 --
 -- Filtros para la tabla `jornada_sede`

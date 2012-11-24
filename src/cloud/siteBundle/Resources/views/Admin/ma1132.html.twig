@@ -8,8 +8,6 @@
 <script type="text/javascript" src="{{ asset('javascripts/jquery.overlay.js') }}"></script>
 <script>
 $(document).on("ready",iniciar)
-		 var altoDocumento = $(document).height();
-		  var anchoDocumento = $(document).width();
 
 function iniciar(){
 		console.log("iniciar")
@@ -29,21 +27,34 @@ function iniciar(){
 				console.log(error)
 			}
         });
-	})
+	}) 
 
 	$("#boton_enviar").click( function(){
 
 		$.ajax({
 			url: "{{ path('valid_user') }}",
 			type: 'POST',
-			data: { "user" : $("#user").attr('value'), "password" : $("#password").attr('value')  },
+			data: { "user" : $("#user").attr('value'),
+					 "password" : $("#password").attr('value'),
+					 'codigo' :  $("#codigo").attr('value') 
+				},
 			success: function (r) {
 
 				console.log(r)
-				//Quitar la linea siguiente y poner el overlay
 				if (r == 1) 
 					{	
-						alert("Inscripciones abiertas")
+						//Quitar la linea siguiente y poner la ventana emergente
+						console.log("Inscripciones abiertas");
+						$.ajax({
+							url: "{{ path('crear_inscripcion') }}",
+							type: 'POST',
+							success: function (r) {
+								if (r == 1) 
+								{
+									window.location.href = "{{ path('ma11321') }}"
+								}
+							}
+						});
 					}
 					else
 					{

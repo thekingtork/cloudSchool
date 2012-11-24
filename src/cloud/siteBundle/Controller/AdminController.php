@@ -7,21 +7,24 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+
 use cloud\siteBundle\Entity\Sede;
 use cloud\siteBundle\Entity\Notificaciones;
 use cloud\siteBundle\Entity\CodigoVerificacion;
-use cloud\siteBundle\Form\SedeType;
 use cloud\siteBundle\Entity\Institucion;
 use cloud\siteBundle\Entity\EscCualitativa;
-use cloud\siteBundle\Form\InstitucionType;
 use cloud\siteBundle\Entity\AjustesEvaluacion;
-use cloud\siteBundle\Form\AjustesEvaluacionType;
-use cloud\siteBundle\Form\RangosType;
 use cloud\siteBundle\Entity\RangoCuantitativo;
-use cloud\siteBundle\Form\AnioType;
 use cloud\siteBundle\Entity\Anio;
-use cloud\siteBundle\Form\NivelesAcademicosType;
 use cloud\siteBundle\Entity\NivelesAcademicos;
+use cloud\siteBundle\Entity\Inscripcion;
+
+use cloud\siteBundle\Form\SedeType;
+use cloud\siteBundle\Form\InstitucionType;
+use cloud\siteBundle\Form\AnioType;
+use cloud\siteBundle\Form\AjustesEvaluacionType;
+use cloud\siteBundle\Form\InscripcionType;
+use cloud\siteBundle\Form\RangosType;
 
 
 
@@ -147,6 +150,32 @@ class AdminController extends Controller
      */
     public function ma112editAction($id)
     { 
+         $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('cloudBundle:Sede')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Sede entity.');
+        }
+
+        //$deleteForm = $this->createDeleteForm($id);
+        $editForm = $this->createForm(new SedeType(), $entity);
+
+        return $this->render('cloudBundle:Admin:ma112_edit.html.twig',array(
+            'entity' => $entity,
+            'form'   => $editForm->createView(),
+          //  'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+     /**
+     * Edits an existing Sede entity.
+     *
+     * @Route("/sistema/ajustesgenerales/sedes/{id}/update", name="ma112_update")
+     * @Method("POST")
+     */
+    public function ma112updateAction(Request $request, $id)
+    {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('cloudBundle:Sede')->find($id);
@@ -155,10 +184,21 @@ class AdminController extends Controller
             throw $this->createNotFoundException('Unable to find Sede entity.');
         }
 
+        //$deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createForm(new SedeType(), $entity);
+        $editForm->bind($request);
 
-        return $this->render('cloudBundle:Admin:ma112_edit.html.twig',array(
+        if ($editForm->isValid()) {
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('ma112_edit', array('id' => $id)));
+        }
+
+         return $this->render('cloudBundle:Admin:ma112_edit.html.twig',array(
+            'entity' => $entity,
             'form'   => $editForm->createView(),
+            //'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -226,13 +266,80 @@ class AdminController extends Controller
      */
     public function ma1132Action()
     {
-        $entity = new Anio();
-        $form   = $this->createForm(new AnioType(), $entity);
+        return $this->render('cloudBundle:Admin:ma1132.html.twig');
+    }
 
-        return $this->render('cloudBundle:Admin:ma1132.html.twig',
-        array(  
-            'form'   => $form->createView(),
+    /**
+     *
+     * @Route("/sistema/otrosajustes/apertinscripcion/abrir/{id}", name="ma11321")
+     */
+    public function ma11321Action($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+
+        $entity = $em->getRepository('cloudBundle:Inscripcion')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Inscripcion entity.');
+        }
+
+        $editForm = $this->createForm(new InscripcionType(), $entity);
+        return $this->render('cloudBundle:Admin:ma11321.html.twig', array(
+            'form' => $editForm->createView() ,
+            'entity' => $entity
         ));
+    }
+
+     /**
+     *
+     * @Route("/sistema/otrosajustes/apertinscripcion/abrir/{id}/update", name="ma11321_update")
+     * @Method("POST")
+     */
+    public function ma11321updateAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('cloudBundle:Inscripcion')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Inscripcion entity.');
+        }
+
+        $editForm = $this->createForm(new InscripcionType(), $entity);
+        $editForm->bind($request);
+
+        if ($editForm->isValid()) {
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('ma11321', array('id' => $id)));
+        }
+
+        return $this->render('cloudBundle:Admin:ma11321.html.twig', array(
+            'form' => $editForm->createView() ,
+            'entity' => $entity
+        ));
+    }
+
+    /**
+     * @Route("/sistema/otrosajustes/apertinscripcion/crear", name="crear_inscripcion")
+     * @Method("POST")
+     */
+    public function ma1132_crearInscripcion_Action()
+    {
+        $entity  = new Inscripcion();
+        $em = $this->getDoctrine()->getManager();
+        
+        $entity->setInscripcionInicio(new \DateTime());
+        $tiempo = new \DateTime();
+        $tiempo->modify('+3 months');
+        $entity->setInscripcionFinal($tiempo);
+        $entity->setActive(true);
+        $em->persist($entity);
+        $em->flush();
+
+            return $this->render('cloudBundle:Admin:valid_user.html.twig' ,array("valid_user"=>true));            
     }
 
     /**
