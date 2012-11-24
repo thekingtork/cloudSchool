@@ -20,6 +20,7 @@ function iniciar(){
 			data: { 'modulo' : '1'},
 			success: function (r) {
 				console.log(r)
+				$("#contenidoN").html(r + $("#contenidoN").html() );
 			},
 			error: function(e,_error,otroobj){
 				console.log("error")
@@ -28,19 +29,26 @@ function iniciar(){
         });
 	})
 
+		$(".ocultarOverlay").click( function(){
+          $(".overlay").css("display","none")
+          console.log("ocultarOverlay")
+        })
+
 	$("#boton_enviar").click( function(){
 
 		$.ajax({
 			url: "{{ path('valid_user') }}",
 			type: 'POST',
-			data: { "user" : $("#user").attr('value'), "password" : $("#password").attr('value')  },
+			data: { "user" : $("#user").attr('value'),
+					 "password" : $("#password").attr('value'),
+					  'codigo': $("#codigo").attr('value')  },
 			success: function (r) {
 
 				if (r == 1) 
 					{	
 						//Quitar la linea siguiente y poner ventana emergente
-						$("#form_user_validacion").css("display","none")
-						$(".simple_overlay").css("display","inline-block")
+						//$("#form_user_validacion").css("display","none")
+						$(".overlay").css("display","inline-block")
 					}
 					else
 					{
@@ -69,6 +77,45 @@ function iniciar(){
 					<div id="tituloApAn">
 						<p>Apertura de A&ntilde;os</p>
 					</div>
+					<!-- 
+						Ventana emergente 
+								-->
+						 <div class="overlay">
+			                    <div class="formOverlay lima">
+			                        <form action="{{path('ma1131_create')}}" method="post">
+			                            <div class="linea">
+			                                <div class="titulo">
+			                                    <p>Ingresar nombre del año</p>
+			                                </div>
+			                            </div>
+			                            <div class="linea">
+			                                <div class="entrada">
+			                                   {{form_errors(form.name)}}
+				    							{{form_widget(form.name)}}
+			                                </div>
+			                            </div>
+			                            <div class="linea">
+			                                <div id="botonesDow">
+			                                    <ul>
+			                                        <li>
+			                                            <button class="botonesDw blanco" type="submit">Guardar</button>
+			                                        </li>
+			                                        <li>
+			                                            <input  class="botonesDw blanco" type="button" value="Limpiar" onClick="limpiaForm('#formularioInst form')">
+			                                        </li>
+			                                        <li>
+			                                            <input  class="botonesDw blanco ocultarOverlay" type="button" value="Cancelar">
+			                                        </li>
+			                                    </ul>
+			                                </div>
+			                            </div>
+			                        </form>
+			                    </div>
+			                </div>
+			        <!-- 
+						Ventana emergente 
+								-->
+
 					<div id="conf">
 						<div id="form_user_validacion">
                             <div class="tituloitem">

@@ -443,7 +443,7 @@ class AdminController extends Controller
         $username = $request->get('user');
         $codigo = $request->get('codigo');
         $user = $this->get('security.context')->getToken()->getUser();
-        $entity_codigo = $em->getRepository('cloudBundle:CodigoVerificacion')->findOneBy(array('codigo' => $codigo, 'user_id'=>$user->getId()));
+        $entity_codigo = $em->getRepository('cloudBundle:CodigoVerificacion')->findOneBy(array('codigo' => $codigo, 'expire' => 0, 'user_id'=>$user->getId()));
         $current_password = $this->setSecurePassword( $user, $request->get('password') );
 
         if( !$entity_codigo )
