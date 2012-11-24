@@ -19,6 +19,7 @@
     overflow: hidden; 
     position: relative;
     width: 50%;
+    z-index: 1;
 }
 #contenidoIzq{
     float: left;
@@ -26,6 +27,7 @@
     overflow: hidden;
     position: relative;
     width: 50%;
+    z-index: 1;
 }
 #contenidoIzq  label{
     color: rgb(255,255,255);
@@ -201,4 +203,26 @@ button.big,
   min-height: 48px;
   height: 48px;
   font-size: 1.2em;
+}
+#botonesDow{
+    margin: auto;
+    overflow: hidden;
+    width: 100%;
+}
+#botonesDow ul{
+    list-style: none;
+    margin: auto;
+    overflow: hidden;
+    width: 95%;
+}
+#botonesDow ul li{
+    float: left;
+    margin: 0 10px;
+}
+.botonesDw{
+    cursor: pointer;
+    font-family: "Segoe UI light";
+    font-size: 1.8em;
+    background-color: transparent;
+    border: none;
 }
