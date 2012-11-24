@@ -28,47 +28,66 @@
 	                	<a href="{{ path('ma1') }}" class="ajax ">Ajustes del sistema</a>
 	                </div>
 					<div id="TituloSecction">
-						<label>Informaci&oacute;n General</label>
+						<label>Informaci&oacute;n de Sede</label>
 					</div>  
 					<div id="formularioInst">
-						<form action="#" method="post" {{ form_enctype(form) }}>
-							<div>
-								<p class="textoEtq">Nombre</p>
-								{{form_errors(form.name)}}
-		    					{{form_widget(form.name)}}
-							</div>
-							<div>
-								<p class="textoEtq">Direccion</p>
-								{{form_errors(form.direccion)}}
-		    					{{form_widget(form.direccion)}}
-							</div>
-							<div>
-								<p class="textoEtq">Telefono</p>
-								{{form_errors(form.telefono)}}
-		    					{{form_widget(form.telefono)}}
-							</div>
-							<div>
-								<p class="textoEtq">Fax</p>
-								{{form_errors(form.fax)}}
-		    					{{form_widget(form.fax)}}
-							</div>
-							<div>
-								<p class="textoEtq">E-mail</p>
-								{{form_errors(form.email)}}
-		    					{{form_widget(form.email)}}
-							</div>
-							<div>
-								<p class="textoEtq">Coordinador(a)</p>
-								{{form_errors(form.rector)}}
-		    					{{form_widget(form.rector)}}
-							</div>
-							<div>
-								<p class="textoEtq">Secretario(a)</p>
-								{{form_errors(form.secretaria)}}
-		    					{{form_widget(form.secretaria)}}
-							</div>
-						</form>
-					</div> 
+						<div id="content_1">
+							<form action="#" method="post" {{ form_enctype(form) }}>
+								<div class="pantalla">
+									<div class="linea">
+										<p class="textoEtq">Nombre</p>
+										{{form_errors(form.name)}}
+				    					{{form_widget(form.name)}}
+									</div>
+									<div class="linea">
+										<p class="textoEtq">Direcci&oacute;n</p>
+										{{form_errors(form.direccion)}}
+				    					{{form_widget(form.direccion)}}
+									</div>
+									<div class="lineaMultiItem">
+										<div class="item">
+											<p class="textoEtq">Telefono</p>
+											{{form_errors(form.telefono)}}
+					    					{{form_widget(form.telefono)}}
+										</div>
+										<div class="item">
+											<p id="fax"class="textoEtq">Fax</p>
+											{{form_errors(form.fax)}}
+					    					{{form_widget(form.fax)}}
+										</div>
+										<div class="item" id="email">
+											<p class="textoEtq">E-mail</p>
+											{{form_errors(form.email)}}
+					    					{{form_widget(form.email)}}
+										</div>
+									</div>
+									<div class="linea">
+										<p class="textoEtq">Coordinador(a)</p>
+										{{form_errors(form.rector)}}
+				    					{{form_widget(form.rector)}}
+									</div>
+									<div class="linea">
+										<p class="textoEtq">Secretario(a)</p>
+										{{form_errors(form.secretaria)}}
+				    					{{form_widget(form.secretaria)}}
+									</div>
+								</div>
+								<div id="botonesDow">
+									<ul>
+										<li>
+											<button class="botonesDw" type="submit">Guardar</button>
+										</li>
+										<li>
+											<input  class="botonesDw" type="button" value="Limpiar" onClick="limpiaForm('#formularioInst form')">
+										</li>
+										<li>
+											<input  class="botonesDw" type="button" value="Eliminar">
+										</li>
+									</ul>
+								</div>
+							</form>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

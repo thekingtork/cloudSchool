@@ -1,5 +1,66 @@
+.botonesDw{
+    color: rgb(0,174,239);
+    cursor: pointer;
+    font-family: "Segoe UI light";
+    font-size: 2em;
+    background-color: transparent;
+    border: none;
+}
 .InicioBlue{
-	padding: 0 10px;
+    padding: 0 10px;
+}
+.pantalla{
+    float: left;
+    height: 215px;
+    width: 650px;
+}
+.linea{
+    float: left;
+    margin-top: 10px;
+    width: 100%;
+}
+.linea p{
+    float: left;
+    font-family: "Segoe Ui Light";
+    font-size: 16px;
+    margin: 0 10px 0px 0px;
+    padding-left: 5px;
+    text-align: left;
+    width: 16%;
+}
+.linea input{
+    border: solid 1px rgb(0,172,237);
+    float: left;
+    height: 24px;
+    margin: 0px;
+    outline-color: rgb(0,172,237);
+    width: 80%;
+}
+.lineaMultiItem{
+    float: left;
+    margin-top: 10px;
+    width: 100%;
+}
+.lineaMultiItem .item{
+    float: left;
+    width: 33%;
+}
+.lineaMultiItem .item p{
+    float: left;
+    font-family: "Segoe Ui Light";
+    font-size: 16px;
+    margin-bottom: 0px;
+    padding: 0 5px;
+    text-align: left;
+    width: 33%;
+}
+.lineaMultiItem .item input{
+    border: solid 1px rgb(0,172,237);
+    float: left;
+    height: 24px;
+    margin: 0px;
+    outline-color: rgb(0,172,237);
+    width: 67%;
 }
 #avatarInst{
     float: left;
@@ -10,6 +71,18 @@
     vertical-align: top;
     overflow: hidden;
     width: 100%;
+}
+#botonesDow{
+    margin: auto;
+    overflow: hidden;
+    width: 70%;
+}
+#botonesDow ul{
+    list-style: none;
+}
+#botonesDow ul li{
+    float: left;
+    margin: 0 20px;
 }
 #cargador{
     overflow: hidden;
@@ -49,6 +122,9 @@
     font-family: "Segoe UI light";
     font-size: 32px;
 }
+#content_1{
+    overflow: hidden;
+}
 #ContTitulo{
     float: left;
     margin: 68% 10px 0 10px;
@@ -58,6 +134,15 @@
     font-family: "Segoe UI light";
     font-size: 32px;
     line-height: 1;
+    text-align: center;
+}
+#email p{
+    text-align: center;
+}
+#email input{
+    width: 63%;
+}
+#fax{
     text-align: center;
 }
 #menuAux{
