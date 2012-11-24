@@ -16,13 +16,14 @@ function iniciar(){
 
 		$.ajax({
 			url: "{{ path('codigo_verificacion') }}",
-			type: 'get',
+			type: 'POST',
+			data: { 'modulo' : '1'},
 			success: function (r) {
 				console.log(r)
 			},
-			error: function(e,error){
+			error: function(e,_error,otroobj){
 				console.log("error")
-				console.log(error)
+				console.log(_error)
 			}
         });
 	})
