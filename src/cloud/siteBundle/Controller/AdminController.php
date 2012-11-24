@@ -90,10 +90,10 @@ class AdminController extends Controller
     public function ma112Action()
     {
 
-        //$user = $this->get('security.context')->getToken()->getUser();
-        //$em = $this->getDoctrine()->getEntityManager();
-        //$sedes = $em->getRepository('cloudBundle:Sede')->findBy( array( 'id' => $user->getInstitucionId())); 
-        return $this->render('cloudBundle:Admin:ma112.html.twig');
+        $user = $this->get('security.context')->getToken()->getUser();
+        $em = $this->getDoctrine()->getEntityManager();
+        $sedes = $em->getRepository('cloudBundle:Sede')->findAll(); 
+        return $this->render('cloudBundle:Admin:ma112.html.twig',array('sedes'=>$sedes));
     }
 
     /**
