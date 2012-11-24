@@ -24,9 +24,9 @@
 					<div class="InicioBlue" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
 				</div>
 				<div id="contenidoDer">
-					    <div class="breadcumbr">
-						    <a href="{{ path('ma1') }}" class="ajax">Administración de personas</a>
-						</div>
+					<div class="breadcumbrBlue">
+						<a href="{{ path('ma1') }}" class="ajax">Ajustes del sistema</a>
+					</div>
 					<div id="TituloSecction">
 						<label>Informaci&oacute;n General</label>
 					</div>
@@ -141,10 +141,10 @@
 			{% block notificaciones %}         
                 {% include "cloudBundle::layout_notificaciones.html.twig" %}
              {% endblock notificaciones %} 
+    </div>
 		<div class="cuerpoCentrado" id="footer">
     		{% block menu_colores %}
           		{% include "cloudBundle::menuColores.html.twig" %}
         	{% endblock %} 
     	</div>       	
-    </div>
 {% endblock %}

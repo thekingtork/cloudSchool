@@ -136,7 +136,15 @@
 			})(jQuery);
 			</script>
 		</div>
-		{% include "cloudBundle::layout_notificaciones.html.twig" %}
 	</div>
+		{% block notificaciones %}         
+            {% include "cloudBundle::layout_notificaciones.html.twig" %}
+         {% endblock notificaciones %}
+    </div>
     <span style="display: none;" id="enlace" data-num="{{numero|default('')}}"></span>
+		<div class="cuerpoCentrado" id="footer">
+        	{% block menu_colores %}
+          		{% include "cloudBundle::menuColores.html.twig" %}
+        	{% endblock %}
+    	</div>
 {% endblock %}

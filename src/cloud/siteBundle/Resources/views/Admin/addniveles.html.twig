@@ -27,7 +27,12 @@
 		</div>
 		 {% block notificaciones %}         
                 {% include "cloudBundle::layout_notificaciones.html.twig" %}
-             {% endblock notificaciones %}
+         {% endblock notificaciones %}
+                 <div class="cuerpoCentrado" id="footer">
+        	{% block menu_colores %}
+          		{% include "cloudBundle::menuColores.html.twig" %}
+        	{% endblock %}
+    	</div>
 	</div>
 {% endblock %}
 {#Recuerden no joder los css Si desean usar los css cambien la linea 8 #}

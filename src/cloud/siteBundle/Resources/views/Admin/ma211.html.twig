@@ -145,8 +145,11 @@
              {% block notificaciones %}         
                 {% include "cloudBundle::layout_notificaciones.html.twig" %}
              {% endblock notificaciones %}
-        
-		</div>
-	</div>
+        </div>
+        <div class="cuerpoCentrado" id="footer">
+        	{% block menu_colores %}
+          		{% include "cloudBundle::menuColores.html.twig" %}
+        	{% endblock %}
+    	</div>
 {% endblock %}
 

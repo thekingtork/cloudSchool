@@ -1,9 +1,9 @@
 {% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
 {% block title %}
-	MA12
+    MA12
 {% endblock %}
- 	{% block menu_principal %}
-	 <div class="cuerpoCentrado" id="contMetro">
+    {% block menu_principal %}
+     <div class="cuerpoCentrado" id="contMetro">
         <div id="ContAjax">
             <link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma12/ma12.css') }}"/> 
             <div id="bloqueCgenerales">
@@ -99,10 +99,15 @@
         </div>
          {% block notificaciones %}         
                 {% include "cloudBundle::layout_notificaciones.html.twig" %}
-             {% endblock notificaciones %}
+        {% endblock notificaciones %}
     </div>
         <span style="display: none;" data-url={{url('formrango')}} id="enlace"></span>
-	</div>
+    </div>
+    <div class="cuerpoCentrado" id="footer">
+            {% block menu_colores %}
+                {% include "cloudBundle::menuColores.html.twig" %}
+            {% endblock %}
+    </div>
     <script src="{{ asset('javascripts/jquery.js') }}"></script>
         <script>
             $(document).ready(function(){
@@ -129,5 +134,3 @@
             })
         </script>
 {% endblock %}
-
-

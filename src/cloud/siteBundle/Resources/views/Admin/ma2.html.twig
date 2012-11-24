@@ -3,7 +3,7 @@
 	MA2
 {% endblock %}
  	{% block menu_principal %}
-	 <div class="cuerpoCentrado" id="contMetro">
+	<div class="cuerpoCentrado" id="contMetro">
 		<div id="ContAjax">
 			<link rel="stylesheet" href="{{ asset('stylesheets/Ma2/ma2.css') }}"/> 
 			<div id="bloqueCgenerales" class="amarillo">
@@ -33,8 +33,7 @@
              {% block notificaciones %}         
                 {% include "cloudBundle::layout_notificaciones.html.twig" %}
              {% endblock notificaciones %}
-        
-		</div>
+    </div>
 	<div class="cuerpoCentrado" id="footer">
         	{% block menu_colores %}
           		{% include "cloudBundle::menuColores.html.twig" %}
