@@ -5,93 +5,67 @@
 {% block menu_principal %}
 	 <div class="cuerpoCentrado" id="contMetro">
 		<div id="ContAjax">
-		<!--	<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/ma112.css') }}"/>  -->
-		<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/contenido.css') }}"/>
-
-		<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/jquery.mCustomScrollbar.css') }}"/>
-
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma11312/ma11312.css') }}"/>
 			<div id="bloqueCgenerales" class="blanco">
 				<div id="contenidoIzq">
 					<div class="botonRegresar">
 						{% block back %}
 							<a href="{{ path('ma113') }}" class="ajax" >
-								<img src="{{ asset('images/b_atras.png') }}">
+								<img src="{{ asset('images/b_atras_blue.png') }}">
 							</a>
 						{% endblock %}
 					</div>
+					<div class="InicioBlue" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
 				</div>
 				<div id="contenidoDer">
-					<div class="breadcumbr">
-						<a href="{{ path('ma113') }}" class="ajax" >Ajustes del Sistema</a>
+					<div class="breadcumbrBlue">
+						<a href="{{ path('ma1') }}" class="ajax">Ajustes del sistema</a>
 					</div>
-					<div id="tituloApAn">
-						<p>A&ntilde;os guardados</p>
+					<div id="TituloSecction">
+						<label>A&ntilde;os guardados</label>
 					</div>
-						<style type="text/css">
-						#content_1 {
-							max-height: 450px;
-						}
-						.anio {
-							background: rgb(0,172,236);
-							width: 150px;
-							height: 150px;
-							display: inline-block;
-							vertical-align: top;
-							position: relative;
-						}
-						.anio:nth-child(4n+2),.anio:nth-child(4n+3)
-						{
-							background:rgb(0,172,236);
-							width: 150px;
-							height: 70px;
-						}
-						
-						
-						.anio:nth-child(4n+3)
-						{
-							vertical-align: bottom;
-							margin-left: -153px;
-						} 
-						
-						</style>
-						<div id="content_1" class="mCustomScrollbar _mCS_1">
+					<div id="content_1">
 							{% for anio in entity_anio %}
-								<div class="anio">{{ anio }}</div>
+								<div class="anio"><p>{{ anio }}</p></div>
 							{% endfor %}
-						</div>
-						<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-			<script src="{{ asset('javascripts/scroll/jquery-ui-1.8.21.custom.min.js') }}"></script>
-			<!-- mousewheel plugin -->
-			<script src="{{ asset('javascripts/scroll/jquery.mousewheel.min.js') }}"></script>
-			<!-- custom scrollbars plugin -->
-			<script src="{{ asset('javascripts/scroll/jquery.mCustomScrollbar.js') }}"></script>
-					<script >
-				(function($){
-				$(window).load(function(){
-					$("#content_1").mCustomScrollbar({
-						horizontalScroll:true,
-						scrollButtons:{
-							enable:false,
-							scrollType:"continuous",
-							scrollSpeed:20,
-							scrollAmount:40
-						},
-						advanced:{
-							autoExpandHorizontalScroll:true,
-						},
-					});
-				});
-			})(jQuery);
-			</script>
-                    <div class="Inicio" >
-                    	<a href="{{ path('ma') }}" class="ajax" >Inicio</a>
-                    </div>
+					</div>
+					<div id="botonesDow">
+						<ul>
+							<li>
+								<button class="botonesDw" type="submit">Guardar</button>
+							</li>
+							<li>
+								<input  class="botonesDw" type="button" value="Limpiar" onClick="limpiaForm('#formularioInst form')">
+							</li>
+							<li>
+								<input  class="botonesDw" type="button" value="Eliminar">
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
 		 {% block notificaciones %}         
                 {% include "cloudBundle::layout_notificaciones.html.twig" %}
          {% endblock notificaciones %}
+         <script >
+				(function($){
+					$(window).load(function(){
+						$("#content_1").mCustomScrollbar({
+							horizontalScroll:true,
+							scrollButtons:{
+								enable:false,
+								scrollType:"continuous",
+								scrollSpeed:20,
+								scrollAmount:40
+							},
+							advanced:{
+								autoExpandHorizontalScroll:true,
+							},
+						});
+					});
+				})(jQuery);
+			</script>
 		</div>
 		<div class="cuerpoCentrado" id="footer">
         	{% block menu_colores %}

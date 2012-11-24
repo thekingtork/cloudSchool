@@ -1,0 +1,103 @@
+.InicioBlue {
+	top: 190px;
+}
+.botonesDw{
+    color: rgb(0,174,239);
+    cursor: pointer;
+    font-family: "Segoe UI light";
+    font-size: 2em;
+    background-color: transparent;
+    border: none;
+}
+#botonesDow{
+    margin: auto;
+    overflow: hidden;
+    width: 70%;
+}
+#botonesDow ul{
+    list-style: none;
+}
+#botonesDow ul li{
+    float: left;
+    margin: 0 20px;
+}
+#bloqueCgenerales{
+    height: 100%;
+    vertical-align: top;
+    width: 100%;
+}
+#contenidoDer{
+    display: inline;
+    float:right; 
+    position: relative;
+    width: 80%;
+}
+#contenidoIzq{
+    max-width: 460px;
+    position: absolute;
+    width: 10%;
+}
+#contenidoIzq  label{
+    color: rgb(255,255,255);
+    display: inline;
+    font-family: "Segoe UI light";
+    font-size: 32px;
+}
+#content_1{
+    height: 220px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+.anio {
+	background: rgb(0,172,236);
+	width: 200px;
+	height: 200px;
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+}
+.anio p{
+	color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 5em;
+	margin: auto;
+	position: relative;
+	text-align: center;
+	top: 40%;
+	vertical-align: bottom;
+	width: 80%;
+}
+.anio:nth-child(4n+4){
+	background-color:rgb(166,215,246);
+}
+.anio:nth-child(4n+4) p{
+	top: 0;
+}
+.anio:nth-child(4n+2),.anio:nth-child(4n+3){
+	background:rgb(129,196,206);
+	width: 200px;
+	height: 98px;
+}
+.anio:nth-child(4n+2) p{
+	font-size: 3em;
+	text-align: left;
+	top: 0;
+}
+.anio:nth-child(4n+3) p{
+	font-size: 3em;
+	text-align: right;
+	top: 38%;
+}
+.anio:nth-child(4n+3){
+	vertical-align: bottom;
+	margin-left: -204px;
+} 
+#TituloSecction{
+    position: relative;
+    width: 56%;
+}
+#TituloSecction label{
+    color: rgb(0,174,239);
+    font-family: "Segoe UI light";
+    font-size: 30px;
+}
