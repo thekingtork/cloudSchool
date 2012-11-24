@@ -365,6 +365,9 @@ section{
 .amarilloFc{
     color: rgb(242,201,47);
 }
+.blanco{
+    color: rgb(255,255,255);
+}
 .rojoFc{
     color: rgb(204,33,40);
 }
@@ -394,4 +397,46 @@ section{
     margin: auto;
     overflow: hidden;
     width: 80%;
+}
+/************** Ventana emergente ***********/
+.overlay{
+    background-color: rgba(0,0,0,.5);
+    display: none;
+    height: 52.3%;
+    position: absolute;
+    z-index: 500;
+    width: 58.6%;
+}
+
+.formOverlay{
+    height: 180px;
+    margin: auto;
+    position: relative;
+    top: 25%;
+    width: 50%;
+}
+.formOverlay .linea{
+    float: left;
+    width: 100%;
+}
+.formOverlay .linea .titulo{
+    margin: 10px auto;
+    width: 50%;
+}
+.formOverlay .linea .titulo p{
+    color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 20px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+.formOverlay .linea .entrada{
+    margin: 10px auto;
+    width: 50%;
+}
+.formOverlay .linea .entrada input{
+    font-family: "Segoe UI light";
+    font-size: 20px;
+    line-height: 1;
+    text-align: center;
 }
