@@ -5,6 +5,7 @@
  	{% block menu_principal %}
 	 <div class="cuerpoCentrado" id="contMetro">
 		<div id="ContAjax">
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/jquery.mCustomScrollbar.css') }}"/>
 			<link rel="stylesheet" href="{{ asset('stylesheets/Ma2/Ma21/ma21.css') }}"/> 
 			<div id="bloqueCgenerales" class="amarillo">
 				<div class="contEneDor">
@@ -26,7 +27,6 @@
 					</div>
 				</div>
 				<div class="contEneDor">
-					<div id="leyenda">
 						<form action="#" method="post" {{ form_enctype(form) }}>
 							<div id="content_1">
 								<div id="pantalla1">
@@ -109,8 +109,33 @@
 		    							{{form_widget(form.email)}}
 									</div>
 								</div>
+							</div>
 						</form>
-					</div>
+						<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+					<script src="{{ asset('javascripts/scroll/jquery-ui-1.8.21.custom.min.js') }}"></script>
+					<!-- mousewheel plugin -->
+					<script src="{{ asset('javascripts/scroll/jquery.mousewheel.min.js') }}"></script>
+					<!-- custom scrollbars plugin -->
+					<script src="{{ asset('javascripts/scroll/jquery.mCustomScrollbar.js') }}"></script>
+					
+								<script >
+						(function($){
+						$(document).ready(function(){
+							$("#content_1").mCustomScrollbar({
+								horizontalScroll:true,
+								scrollButtons:{
+									enable:false,
+									scrollType:"continuous",
+									scrollSpeed:20,
+									scrollAmount:40
+								},
+								advanced:{
+									autoExpandHorizontalScroll:true,
+								},
+							});
+						});
+					})(jQuery);
+					</script>
 				</div>
 				<div class="contEneDor">
 					<div class="Inicio" ><a href="{{ path('ma') }}" class="ajax">Inicio</a></div>

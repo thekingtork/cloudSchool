@@ -67,25 +67,29 @@
 					<div id="content_1">
                     {%for sede in sedes%}
                         {% if (sede.id==1) or(sede.id==4)or(sede.id==7) %}
+						<a href="{{ path('ma112_edit',{'id' : sede.id }) }}">
 						<div class="contenedorSedes">
 							<div class="sedeI">
 								<p class="signoUp">+</p>
 								<p class="titulocajas">{{sede.name}}</p>
 							</div>
+						</a>
 						
                         {%elseif(sede.id==2)or(sede.id==5)or(sede.id==8)%}
-                        
+						<a href="{{ path('ma112_edit',{'id' : sede.id }) }}">
 							<div class="sedeII">
 								<p class="signoUp">+</p>
 								<p class="titulocajas">{{sede.name}}</p>
 							</div>
+						</a>
 						
                         {%elseif (sede.id==3)or(sede.id==6)or(sede.id==9)%}
-                            
+						<a href="{{ path('ma112_edit',{'id' : sede.id }) }}">
 							<div class="sedeIII">
 								<p class="signoUp">+</p>
 								<p class="titulocajas">{{sede.name}}</p>
 							</div>
+						</a>
 						</div>
                         {% endif %}
                     {%endfor%}

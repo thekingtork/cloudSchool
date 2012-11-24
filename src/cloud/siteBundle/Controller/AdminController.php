@@ -24,6 +24,7 @@ use cloud\siteBundle\Form\NivelesAcademicosType;
 use cloud\siteBundle\Entity\NivelesAcademicos;
 
 
+
 /**
      *
      * @Route("/admin")
@@ -88,6 +89,7 @@ class AdminController extends Controller
      */
     public function ma112Action()
     {
+
         //$user = $this->get('security.context')->getToken()->getUser();
         //$em = $this->getDoctrine()->getEntityManager();
         //$sedes = $em->getRepository('cloudBundle:Sede')->findBy( array( 'id' => $user->getInstitucionId())); 
@@ -114,7 +116,7 @@ class AdminController extends Controller
      * @Route("/sistema/ajustesgenerales/sedes/create", name="ma112_create")
      * @Method("POST")
      */
-    public function createAction(Request $request)
+    public function ma112createAction(Request $request)
     {
         $entity  = new Sede();
         $form = $this->createForm(new SedeType(), $entity);
@@ -133,6 +135,27 @@ class AdminController extends Controller
         return $this->render('cloudBundle:Admin:ma112_new.html.twig',array(
             'entity' => $entity,
             'form'   => $form->createView(),
+        ));
+    }
+
+
+     /**
+     * @Route("/sistema/ajustesgenerales/sedes/{id}/edit", name="ma112_edit")
+     */
+    public function ma112editAction($id)
+    { 
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('cloudBundle:Sede')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Sede entity.');
+        }
+
+        $editForm = $this->createForm(new SedeType(), $entity);
+
+        return $this->render('cloudBundle:Admin:ma112_edit.html.twig',array(
+            'edit_form'   => $editForm->createView(),
         ));
     }
 
