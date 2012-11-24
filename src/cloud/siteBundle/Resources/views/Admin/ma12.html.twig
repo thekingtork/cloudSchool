@@ -100,13 +100,13 @@
          {% block notificaciones %}         
                 {% include "cloudBundle::layout_notificaciones.html.twig" %}
         {% endblock notificaciones %}
+        <div class="cuerpoCentrado" id="footer">
+                {% block menu_colores %}
+                    {% include "cloudBundle::menuColores.html.twig" %}
+                {% endblock %}
+        </div>
     </div>
         <span style="display: none;" data-url={{url('formrango')}} id="enlace"></span>
-    </div>
-    <div class="cuerpoCentrado" id="footer">
-            {% block menu_colores %}
-                {% include "cloudBundle::menuColores.html.twig" %}
-            {% endblock %}
     </div>
     <script src="{{ asset('javascripts/jquery.js') }}"></script>
         <script>
