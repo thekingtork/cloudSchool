@@ -1,28 +1,35 @@
 {% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
 {% block title %}
-	MA112
+	MA1121
 {% endblock %}
 {% block menu_principal %}
 	 <div class="cuerpoCentrado" id="contMetro">
 	 	<div id="ContAjax">
+	 		<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma1121/ma1121.css') }}"/> 
 			<div id="bloqueCgenerales">
 				<div id="contenidoIzq">
 					<div class="botonRegresar">
 						{% block back %}
-						<a href="{{ path('ma1') }}" class="ajax"><img src="{{ asset('images/b_atras.png') }}"></a>
+							<a href="{{ path('ma112') }}" class="ajax"><img src="{{ asset('images/b_atras_blue.png') }}"></a>
 						{% endblock %}
 					</div>
+					<div id="avatarInst">
+						<div id="contAvatar">
+							<img src="{{ asset('images/Examinar.png') }}" alt="">
+						</div>
+						<div id="cargador">
+							<img src="{{ asset('images/b_examinar.png') }}">
+						</div>
+					</div>
+					<div class="InicioBlue" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
 				</div>
-				<h2>Administracion sedes</h2>
 				<div id="contenidoDer">
-	                <div id="breadcumbr">Ajustes del Sistema</div>
-						<form action="{{ path('ma112_create') }}" method="post" {{ form_enctype(form) }}>
-					    {{ form_widget(form) }}
-					    <p>
-					        <button type="submit">Crear</button>
-					    </p>
-					</form>
-	                <div id="Inicio">Inicio</div>    
+	                <div class="breadcumbrBlue ">
+	                	<a href="{{ path('ma1') }}" class="ajax ">Ajustes del sistema</a>
+	                </div>
+					<div id="TituloSecction">
+						<label>Informaci&oacute;n General</label>
+					</div>   
 				</div>
 			</div>
 		</div>

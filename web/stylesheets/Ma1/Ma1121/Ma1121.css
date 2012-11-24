@@ -1,0 +1,89 @@
+.InicioBlue{
+	padding: 0 10px;
+}
+#avatarInst{
+    float: left;
+    width: 100%;
+}
+#bloqueCgenerales{
+    height: 100%;
+    vertical-align: top;
+    overflow: hidden;
+    width: 100%;
+}
+#cargador{
+    overflow: hidden;
+    position: relative;
+    top: 10px;
+    width: 100%;
+}
+#contAvatar{
+    float: left;
+    overflow: hidden;
+    padding: 5px;
+    position: relative;
+    text-align: center;
+    top: 10px;
+    width: 100%;
+}
+#contAvatar img{
+    width: 80%;
+}
+#contenidoDer{
+    height: 100%;
+    float:left;
+    overflow: hidden; 
+    position: relative;
+    width: 80%;
+}
+#contenidoIzq{
+    float: left;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 20%;
+}
+#contenidoIzq  label{
+    color: rgb(255,255,255);
+    display: inline;
+    font-family: "Segoe UI light";
+    font-size: 32px;
+}
+#ContTitulo{
+    float: left;
+    margin: 68% 10px 0 10px;
+}
+#ContTitulo p {
+    color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 32px;
+    line-height: 1;
+    text-align: center;
+}
+#menuAux{
+    position: relative;
+    left: 170px;
+    top: 100px;
+    width: 100%;
+}
+#menuAux ul{
+    display: block;
+    list-style: none;   
+}
+#menuAux li{
+    margin-bottom: 20px;
+}
+#menuAux li a{
+    color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 28px;
+}
+#TituloSecction{
+    position: relative;
+    width: 48%;
+}
+#TituloSecction label{
+    color: rgb(0,174,239);
+    font-family: "Segoe UI light";
+    font-size: 30px;
+}
