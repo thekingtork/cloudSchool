@@ -29,7 +29,46 @@
 	                </div>
 					<div id="TituloSecction">
 						<label>Informaci&oacute;n General</label>
-					</div>   
+					</div>  
+					<div id="formularioInst">
+						<form action="#" method="post" {{ form_enctype(form) }}>
+							<div>
+								<p class="textoEtq">Nombre</p>
+								{{form_errors(form.name)}}
+		    					{{form_widget(form.name)}}
+							</div>
+							<div>
+								<p class="textoEtq">Direccion</p>
+								{{form_errors(form.direccion)}}
+		    					{{form_widget(form.direccion)}}
+							</div>
+							<div>
+								<p class="textoEtq">Telefono</p>
+								{{form_errors(form.telefono)}}
+		    					{{form_widget(form.telefono)}}
+							</div>
+							<div>
+								<p class="textoEtq">Fax</p>
+								{{form_errors(form.fax)}}
+		    					{{form_widget(form.fax)}}
+							</div>
+							<div>
+								<p class="textoEtq">E-mail</p>
+								{{form_errors(form.email)}}
+		    					{{form_widget(form.email)}}
+							</div>
+							<div>
+								<p class="textoEtq">Coordinador(a)</p>
+								{{form_errors(form.rector)}}
+		    					{{form_widget(form.rector)}}
+							</div>
+							<div>
+								<p class="textoEtq">Secretario(a)</p>
+								{{form_errors(form.secretaria)}}
+		    					{{form_widget(form.secretaria)}}
+							</div>
+						</form>
+					</div> 
 				</div>
 			</div>
 		</div>
