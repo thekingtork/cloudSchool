@@ -50,6 +50,10 @@
                             border: solid 4px white;
                             cursor: pointer;
                             display: inline-block;
+                            
+                            font-size: 34px;
+                            text-align: center;
+
                             float: left;
                             height: 200px;
                             margin: 10px 0;
@@ -58,19 +62,43 @@
                             vertical-align: top;
                             width: 200px;
                         }
+
+                        #content_1 .letra:nth-child(5n){
+                            background: rgb(0,148,214);
+                        }
+
+                        #content_1 .letra:nth-child(5n+1){
+                            background: rgb(166,215,246);
+                        }
+
+                        #content_1 .letra:nth-child(5n+2){
+                            background: rgb(172,210,174);
+                        }
+
+                        #content_1 .letra:nth-child(5n+3){
+                            background: rgb(129,196,206);
+                        }
+                        #content_1 .letra:nth-child(5n+4){
+                            background: rgb(50,51,142);
+                        }
                     </style>
                         <div id="content_1" class="mCustomScrollbar _mCS_1">
                                 {% for nivel in niveles %}
                                     {% if nivel.name == "Nivel" %}
                                         <div class="nivel">
-                                        {% else %}
-                                        <div class="nivel letra">
-                                    {% endif %}
                                             <a href="#">
                                                     <p class="signoUp">+</p>
                                                     <p class="titulocajas">{{nivel.name}}</p>
                                             </a>
                                         </div>
+                                        {% else %}
+                                            <div class="nivel letra">
+                                                <a href="#">
+                                                    <p class="titulocajas">{{nivel.name}}</p>
+                                                    <p class="signoUp">{{nivel.name}}</p>
+                                            </a>
+                                        </div>
+                                    {% endif %}
                                 {% endfor %}
                                 <script type="text/javascript">
                                     $(document).on("ready",iniciar);

@@ -32,7 +32,6 @@
                     </div>
                     <script>
                         $(document).ready(function(){
-                            console.log('Soporte jQuey');
                             var estado="{{ estado|default('si')}}";
                             $('.iniciar').click(function(e){
                                 e.preventDefault();
@@ -44,7 +43,6 @@
 
                         $(".ocultarOverlay").click( function(){
                           $(".overlay").css("display","none")
-                          console.log("ocultarOverlay")
                         })
                         })
                     </script>
