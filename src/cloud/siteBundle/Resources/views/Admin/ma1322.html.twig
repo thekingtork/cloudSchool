@@ -18,7 +18,7 @@
                             scrollAmount:40
                         },
                         advanced:{
-                            autoExpandHorizontalScroll:true,
+                            autoExpandHorizontalScroll:true, 
                         },
                     });
                 });
@@ -49,27 +49,60 @@
                             position: relative;
                             vertical-align: top;
                             width: 200px;
+
+                            text-align: center;
+
                         }
+
+                        #content_1 .letra:nth-child(5n){
+                            background: rgb(0,148,214);
+                        }
+
+                        #content_1 .letra:nth-child(5n+1){
+                            background: rgb(166,215,246);
+                        }
+
+                        #content_1 .letra:nth-child(5n+2){
+                            background: rgb(172,210,174);
+                        }
+
+                        #content_1 .letra:nth-child(5n+3){
+                            background: rgb(129,196,206);
+                        }
+                        #content_1 .letra:nth-child(5n+4){
+                            background: rgb(50,51,142);
+                        }
+
                     </style>
                         <div id="content_1" class="mCustomScrollbar _mCS_1">
                                 {% for nivel in niveles %}
-                                    {% if nivel.name == "nivel" %}
-                                        <div class="nivel">
-                                            <a href="#">
-                                                    <p class="signoUp">+</p>
-                                                    <p class="titulocajas">{{nivel.name}}</p>
-                                            </a>
-                                        </div>
-                                        {% else %}
-                                        <div class="nivel">
-                                            <a href="#">
-                                                    <p class="signoUp">+</p>
-                                                    <p class="titulocajas">{{nivel.name[0]}}</p>
-                                            </a>
-                                        </div>
+                                   {% if nivel.name != "Nivel" %}
+                                            <div class="nivel letra">
+                                                <a href="{{ path('ma13221',{ 'id':nivel.id }) }}">
+                                                    <p class="titulocajas primera">{{nivel.name}}</p>
+                                                    <p class="signoUp">{{nivel.name}}</p>
+                                                </a>
+                                            </div>
                                     {% endif %}
                                 {% endfor %}
                         </div>
+                         <script type="text/javascript">
+                                    $(document).on("ready",iniciar);
+
+                                    function iniciar(){
+
+                                       $(".letra .primera").each( function(index){
+                                            var nombre = $(this).text();
+                                            $(this).html( nombre[0] )
+                                       })
+
+                                       $(".nivel a").click( function(e){
+                                            e.preventDefault();
+                                            $(".overlay").css("display","block")
+                                            $(".overlay form").attr("action", $(this).attr("href") );
+                                       })
+                                    }
+                                </script>
                     {% endif %}
 				</div>
 				<div id="contenidoDer">
@@ -79,6 +112,51 @@
                     <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
 				</div>
                 <div class="overlay">
+                    <div class="formOverlay lima">
+                        <form action="#" method="post">
+                            <div class="linea">
+                                <div class="titulo">
+                                    <p>Ingresar el numero de grados</p>
+                                </div>
+                            </div>
+                            <div class="linea">
+                                <div class="entrada">
+                                   <input type="text" name="numsede">
+                                </div>
+                            </div>
+                            <div class="linea">
+                                <div id="botonesDow">
+                                    <ul>
+                                        <li>
+                                            <button class="botonesDw blanco" type="submit">Guardar</button>
+                                        </li>
+                                        <li>
+                                            <input  class="botonesDw blanco" type="button" value="Limpiar" onClick="limpiaForm('#formularioInst form')">
+                                        </li>
+                                        <li>
+                                            <input  class="botonesDw blanco ocultarOverlay" type="button" value="Cancelar">
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <script>
+                        $(document).ready(function(){
+                            var estado="{{ estado|default('si')}}";
+                            $('.iniciar').click(function(e){
+                                e.preventDefault();
+                                if(estado=='nulo'){
+                                    console.log('mostrar formulario')
+                                    $('.overlay').css('display','block')
+                                }
+                            })
+
+                        $(".ocultarOverlay").click( function(){
+                          $(".overlay").css("display","none")
+                        })
+                        })
+                    </script>
                 </div>
 			</div>
 		</div>

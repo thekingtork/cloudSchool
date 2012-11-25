@@ -1,6 +1,6 @@
 {% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
 {% block title %}
-	MA1321
+	MA1322
 {% endblock %}
 {% block menu_principal %}
 	 <div class="cuerpoCentrado" id="contMetro">
@@ -18,7 +18,7 @@
                             scrollAmount:40
                         },
                         advanced:{
-                            autoExpandHorizontalScroll:true,
+                            autoExpandHorizontalScroll:true, 
                         },
                     });
                 });
@@ -42,7 +42,6 @@
                             border: solid 4px white;
                             cursor: pointer;
                             display: inline-block;
-
                             float: left;
                             height: 200px;
                             margin: 10px 0;
@@ -50,8 +49,9 @@
                             position: relative;
                             vertical-align: top;
                             width: 200px;
-                            
+
                             text-align: center;
+
                         }
 
                         #content_1 .letra:nth-child(5n){
@@ -72,26 +72,27 @@
                         #content_1 .letra:nth-child(5n+4){
                             background: rgb(50,51,142);
                         }
+
                     </style>
                         <div id="content_1" class="mCustomScrollbar _mCS_1">
-                                {% for nivel in niveles %}
-                                    {% if nivel.name == "Nivel" %}
-                                        <div class="nivel">
-                                            <a href="{{ path('ma13211', {'id': nivel.id }) }}">
+                                {% for grado in grados %}
+                                   {% if grado.name != "Grado" %}
+                                         <div class="nivel letra">
+                                                <a href="{{ path('ma13222',{ 'id':grado.id }) }}">
+                                                    <p class="titulocajas primera">{{grado.name}}</p>
+                                                    <p class="signoUp">{{grado.name}}</p>
+                                                </a>
+                                            </div>    
+                                    {% else %}
+                                            <div class="nivel">
+                                                <a href="{{ path('ma13222',{ 'id':grado.id }) }}">
                                                     <p class="signoUp">+</p>
-                                                    <p class="titulocajas">{{nivel.name}}</p>
-                                            </a>
-                                        </div>
-                                        {% else %}
-                                            <div class="nivel letra">
-                                                <a href="{{ path('ma13211', {'id': nivel.id }) }}">
-                                                    <p class="titulocajas primera">{{nivel.name}}</p>
-                                                    <p class="signoUp">{{nivel.name}}</p>
-                                            </a>
-                                        </div>
+                                                    <p class="titulocajas primera">{{grado.name}}</p>
+                                                </a>
+                                            </div>
                                     {% endif %}
                                 {% endfor %}
-                                <script type="text/javascript">
+                                 <script type="text/javascript">
                                     $(document).on("ready",iniciar);
 
                                     function iniciar(){
@@ -101,10 +102,9 @@
                                             $(this).html( nombre[0] )
                                        })
 
-                                        $(".nivel a").click( function(e){
+                                       $(".nivel a").click( function(e){
                                             e.preventDefault();
-                                             $.ajax(
-                                                   {
+                                             $.ajax({
                                                      url: $(this).attr("href"),
                                                       type: 'POST',
                                                       success: function (r) {

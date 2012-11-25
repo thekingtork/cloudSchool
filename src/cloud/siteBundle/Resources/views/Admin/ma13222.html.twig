@@ -1,0 +1,39 @@
+
+                    <div class="formOverlay lima">
+                        <form action="{{ path('ma13223', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+                            <div class="linea">
+                                <div class="titulo">
+                                    <p>Ingresar Nombre del nivel</p>
+                                </div>
+                            </div>
+                            <div class="linea">
+                                <div class="entrada">
+                                   {{form_errors(edit_form.name)}}
+                                    {{form_widget(edit_form.name)}}
+                                </div>
+                                {{ form_rest(edit_form) }}
+                            </div>
+                            <div class="linea">
+                                <div id="botonesDow">
+                                    <ul>
+                                        <li>
+                                            <button class="botonesDw blanco" type="submit">Guardar</button>
+                                        </li>
+                                        <li>
+                                            <input  class="botonesDw blanco" type="button" value="Limpiar" onClick="limpiaForm('#formularioInst form')">
+                                        </li>
+                                        <li>
+                                            <input  class="botonesDw blanco ocultarOverlay" type="button" value="Cancelar">
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <script>
+                        $(document).ready(function(){
+                        $(".ocultarOverlay").click( function(){
+                          $(".overlay").css("display","none")
+                        })
+                        })
+                    </script>
