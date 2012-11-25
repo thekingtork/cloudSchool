@@ -1,0 +1,90 @@
+{% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
+{% block title %}
+	MA132
+{% endblock %}
+{% block menu_principal %}
+	 <div class="cuerpoCentrado" id="contMetro">
+		<div id="ContAjax">
+            <link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/jquery.mCustomScrollbar.css') }}"/>
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma113/ma113.css') }}"/>
+            <script type="text/javascript" src="{{asset('javascripts/jquery.js')}}"></script>
+            <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+            <script src="{{ asset('javascripts/scroll/jquery-ui-1.8.21.custom.min.js') }}"></script>
+            <!-- mousewheel plugin -->
+            <script src="{{ asset('javascripts/scroll/jquery.mousewheel.min.js') }}"></script>
+            <!-- custom scrollbars plugin -->
+            <script src="{{ asset('javascripts/scroll/jquery.mCustomScrollbar.js') }}"></script>
+            <script >
+                (function($){
+                $(window).load(function(){
+                    $("#content_1").mCustomScrollbar({
+                        horizontalScroll:true,
+                        scrollButtons:{
+                            enable:false,
+                            scrollType:"continuous",
+                            scrollSpeed:20,
+                            scrollAmount:40
+                        },
+                        advanced:{
+                            autoExpandHorizontalScroll:true,
+                        },
+                    });
+                });
+            })(jQuery);
+            </script>
+			<div id="bloqueCgenerales">
+				<div id="contenidoIzq">
+					<div class="botonRegresar">
+						{% block back %}
+							<a href="{{ path('ma11') }}" class="ajax" ><img src="{{ asset('images/b_atras.png') }}"/></a>
+						{% endblock %}
+					</div>
+                    {% if mje is defined %}
+                        <div>
+                            <p>{{ mje }}</p>
+                        </div>
+                    {% else %}
+                    <style type="text/css">
+                        .nivel{
+                            background: lightblue;
+                            border: solid 4px white;
+                            cursor: pointer;
+                            display: inline-block;
+                            float: left;
+                            height: 200px;
+                            margin: 10px 0;
+                            padding: 10px;
+                            position: relative;
+                            vertical-align: top;
+                            width: 200px;
+                        }
+                    </style>
+                        <div id="content_1" class="mCustomScrollbar _mCS_1">
+                                {% for nivel in niveles %}
+                                        <div class="nivel">
+                                    <a href="#">
+                                            <p class="signoUp">+</p>
+                                            <p class="titulocajas">{{nivel.name}}</p>
+                                    </a>
+                                        </div>
+                                {% endfor %}
+                        </div>
+                    {% endif %}
+				</div>
+				<div id="contenidoDer">
+					<div class="breadcumbr"><a href="{{ path('ma11') }}" class="ajax" >Ajustes generales</a></div>
+					
+                    
+                    <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
+				</div>
+                <div class="overlay">
+                </div>
+			</div>
+		</div>
+		 {% block notificaciones %}         
+                {% include "cloudBundle::layout_notificaciones.html.twig" %}
+             {% endblock notificaciones %}
+	</div>
+    
+{% endblock %}
+{#Recuerden no joder los css Si desean usar los css cambien la linea 8 #}

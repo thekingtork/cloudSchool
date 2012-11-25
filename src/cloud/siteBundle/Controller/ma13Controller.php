@@ -71,25 +71,6 @@ class ma13Controller extends Controller
        return $this->render('cloudBundle:Admin:ma132.html.twig',array("estado"=>$estado));
      }
      
-     /**
-      * 
-      * @Route("/addniveles", name="addniveles")
-      */
-      public function addnivelesAction(){
-        $request=$this->getRequest();
-        $nivel=new NivelesAcademicos();
-        $form=$this->createForm(new NivelesAcademicosType(),$nivel);
-        if($request->getMethod()=='POST'){
-            $form->bindRequest($request);
-            if($form->isValid()){
-                $em=$this->getDoctrine()->getEntityManager();
-                $em->persist($nivel);
-                $em->flush();
-                return $this->redirect($this->generateUrl('ma13'));
-            }
-        }
-        return $this->render('cloudBundle:Admin:addniveles.html.twig', array('form'=>$form->createView()));
-      }
      
     
     /**
@@ -108,7 +89,16 @@ class ma13Controller extends Controller
 
 
 
-
+     /** 
+      * @Route("/niveles-grados/grados", name="ma1322")
+      */
+     public function ma1322Action(){
+        $em=$this->getDoctrine()->getEntityManager();
+        $niveles=$em->getRepository('cloudBundle:NivelesAcademicos')->findAll();
+        if(!$niveles)
+            return $this->render('cloudBundle:Admin:ma1322.html.twig', array('mje'=>'No tiene tiene niveles academicos asociadas'));
+        return $this->render('cloudBundle:Admin:ma1322.html.twig', array('niveles'=>$niveles));
+     }
 
 
 
