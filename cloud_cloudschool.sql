@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 25-11-2012 a las 02:31:34
+-- Tiempo de generación: 25-11-2012 a las 23:58:17
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -256,7 +256,15 @@ CREATE TABLE IF NOT EXISTS `grado` (
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_B98F472ADA3426AE` (`nivel_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `grado`
+--
+
+INSERT INTO `grado` (`id`, `nivel_id`, `nombre`) VALUES
+(1, 11, 'MATERNAL1'),
+(2, 11, 'TRANSICION1');
 
 -- --------------------------------------------------------
 
@@ -1514,17 +1522,17 @@ CREATE TABLE IF NOT EXISTS `nivelesacademicos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=15 ;
 
 --
 -- Volcado de datos para la tabla `nivelesacademicos`
 --
 
 INSERT INTO `nivelesacademicos` (`id`, `nombre`) VALUES
-(6, 'Nivel 1'),
-(7, 'Nivel 2'),
-(8, 'Nivel 3'),
-(9, 'Nivel 4');
+(11, 'PREESCOLAR'),
+(12, 'Nivel'),
+(13, 'Nivel'),
+(14, 'Nivel');
 
 -- --------------------------------------------------------
 
