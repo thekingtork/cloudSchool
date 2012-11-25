@@ -258,7 +258,7 @@ class AdminController extends Controller
         array(  
             'form'   => $form->createView(),
         ));
-    }
+    } 
 
     /**
      *
@@ -266,7 +266,16 @@ class AdminController extends Controller
      */
     public function ma1132Action()
     {
-        return $this->render('cloudBundle:Admin:ma1132.html.twig');
+         $em = $this->getDoctrine()->getManager();
+        
+
+        $entity = $em->getRepository('cloudBundle:Inscripcion')->findBy(array('active'=>1));
+
+        if(!$entity)
+            return $this->render('cloudBundle:Admin:ma1132.html.twig', array('entity'=>$entity));
+        
+        return $this->redirect($this->generateUrl('ma11321', array('id' => $entity[0]->getId() )));
+
     }
 
     /**
