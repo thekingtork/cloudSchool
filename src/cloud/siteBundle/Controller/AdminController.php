@@ -352,6 +352,16 @@ class AdminController extends Controller
     }
 
     /**
+     *
+     * @Route("/sistema/otrosajustes/carnet", name="ma1133")
+     */
+    public function ma1133Action()
+    {
+
+        return $this->render('cloudBundle:Admin:ma1133.html.twig');
+    }
+
+    /**
     *
     * @Route("/sistema/ajustedeevaluacion", name="ma12")
     */

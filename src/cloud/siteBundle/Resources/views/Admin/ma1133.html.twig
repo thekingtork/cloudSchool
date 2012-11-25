@@ -1,0 +1,200 @@
+{% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
+{% block title %}
+	MA1133
+{% endblock %}
+{% block menu_principal %}
+	 <div class="cuerpoCentrado" id="contMetro">
+		<div id="ContAjax">
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma1133/ma1133.css') }}"/> 
+			<div id="bloqueCgenerales" class="blanco">
+				<div id="contenidoIzq">
+					<div class="botonRegresar">
+						{% block back %}
+							<a href="{{ path('ma113') }}" class="ajax" ><img src="{{ asset('images/b_atras_blue.png') }}"></a>
+						{% endblock %}
+					</div>
+					<div id="tituloApAn">
+						<p class="azulFc">Seleccionar un modelo de carnet para generar</p>
+					</div>
+					<div class="InicioBlue" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
+				</div>
+				<div id="contenidoDer">
+					<div class="breadcumbrBlue">
+						<a href="{{ path('ma113') }}" class="ajax" >Ajustes del Sistema</a>
+					</div>
+					<div id="TituloSecction">
+						<label>Generaci&oacute;n de Carnets</label>
+					</div>
+					<div id="content_1">
+						<div class="cajaCarnet carnetTipo1">
+							<div class="contIzq">
+								<img src="{{ asset('images/carnet.jpg') }}" alt="foto">
+								<div class="nombreEst">
+									<p class="texto"><span>Diana P.</span></br>Espa&ntilde;a Gonzalez</p>
+								</div>
+							</div>
+							<div class="contDer">
+								<div class="filaNew">
+									<p class="texto">Instituci&oacute;n educativa las Mercedes</p>
+								</div>
+								<div class="grado">
+									<p class="texto">8</p>
+								</div>
+								<div class="cInf">
+									<div class="filaNew">
+										<div class="curso">
+											<p class="texto">1</p>
+										</div>
+										<div class="jornada">
+											<p class="texto">Jornada ma&ntilde;ana</p>
+										</div>
+									</div>
+									<div class="filaNew">
+										<div class="codigo">
+											<img src="{{ asset('images/qr.png') }}" alt="Codigo">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="cajaCarnet carnetTipo2">
+							<div class="filaNew">
+								<p class="texto" id="TituloInst">Instituci&oacute;n educativa las Mercedes</p>
+							</div>
+							<div class="filaNew">
+								<div class="contIzq">
+									<div class="codigo">
+										<img src="{{ asset('images/qr.png') }}" alt="Codigo">
+									</div>
+									<div class="infUser">
+										<img src="{{ asset('images/carnet2.jpg') }}" alt="foto">
+										<div class="nombreEst">
+											<p class="texto"><span>Diana P.</span></br>Espa&ntilde;a Gonzalez</p>
+										</div>
+									</div>
+								</div>
+								<div class="contDer">
+									<div class="columnaInf">
+										<div class="grado">
+											<p class="texto">8</p>
+										</div>
+									</div>
+									<div class="columnaInf">
+										<div class="curso">
+											<p class="texto">1</p>
+										</div>
+										<div class="jornada">
+											<p class="texto">Jornada ma&ntilde;ana</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="cajaCarnet carnetTipo3">
+							<div class="filaNew">
+								<p class="texto" id="TituloInst">
+									Instituci&oacute;n educativa las Mercedes
+								</p>
+							</div>
+							<div class="contIzq">
+								<div class="columnaInf2">
+									<div class="jornada rotar">
+										<p class="texto">Jornada ma&ntilde;ana</p>
+									</div>
+								</div>
+								<div class="grado">
+									<p class="texto">8</p>
+								</div>
+							</div>
+							<div class="contDer">
+								<div class="curso">
+									<p class="texto">1</p>
+								</div>
+								<div class="infUser">
+										<img src="{{ asset('images/carnet2.jpg') }}" alt="foto">
+									<div class="nombreEst">
+										<p class="texto">
+											<span>Diana P.</span></br>Espa&ntilde;a Gonzalez
+										</p>
+									</div>
+								</div>
+								<div class="codigo">
+									<img src="{{ asset('images/qr.png') }}" alt="Codigo">
+								</div>
+							</div>
+						</div>
+						<div class="cajaCarnet carnetTipo4">
+							<div class="filaNew">
+								<p class="texto" id="TituloInst">
+									Instituci&oacute;n educativa las Mercedes
+								</p>
+							</div>
+							<div class="columnaInf">
+								<div class="infUser">
+									<img src="{{ asset('images/carnet.jpg') }}" alt="foto">
+									<div class="nombreEst">
+										<p class="texto">
+											<span>Diana</span></br>Espa&ntilde;a G..
+										</p>
+									</div>
+									<div class="jornada">
+										<p class="texto">Jornada ma&ntilde;ana</p>
+									</div>
+								</div>
+							</div>
+							<div class="columnaInf">
+								<div class="contIzq">
+									<div class="grado">
+										<p class="texto">8</p>
+									</div>
+									<div class="curso">
+										<p class="texto">1</p>
+									</div>
+								</div>
+								<div class="codigo">
+									<img src="{{ asset('images/qr.png') }}" alt="Codigo">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="botonesDow">
+						<ul>
+							<li>
+								<button class="botonesDw azulFc" type="submit">Seleccionar</button>
+							</li>
+							<li>
+								<input  class="botonesDw azulFc" type="button" value="Cancelar">
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% block notificaciones %}         
+            {% include "cloudBundle::layout_notificaciones.html.twig" %}
+        {% endblock notificaciones %}
+        <script >
+				(function($){
+					$(window).load(function(){
+						$("#content_1").mCustomScrollbar({
+							horizontalScroll:true,
+							scrollButtons:{
+								enable:false,
+								scrollType:"continuous",
+								scrollSpeed:20,
+								scrollAmount:40
+							},
+							advanced:{
+								autoExpandHorizontalScroll:true,
+							},
+						});
+					});
+				})(jQuery);
+			</script>
+	</div>
+	<div class="cuerpoCentrado" id="footer">
+        	{% block menu_colores %}
+          		{% include "cloudBundle::menuColores.html.twig" %}
+        	{% endblock %}
+    </div>
+{% endblock %}

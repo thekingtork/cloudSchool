@@ -1,0 +1,429 @@
+.botonesDw{
+    cursor: pointer;
+    font-family: "Segoe UI light";
+    font-size: 1.96em;
+    background-color: transparent;
+    border: none;
+}
+.cajaCarnet {
+    background: rgb(0,172,236);
+    cursor: pointer;
+    width: 350px;
+    height: 225px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+.cajaCarnet:nth-child(4n+4){
+    background:rgb(129,196,206);
+    width: 160px;
+}
+.cajaCarnet:nth-child(4n+2),.cajaCarnet:nth-child(4n+3){
+    background-color:rgb(166,215,246);
+    width: 300px;
+    height: 110px;
+}
+.cajaCarnet:nth-child(4n+3){
+    vertical-align: bottom;
+    margin-left: -304px;
+}
+
+/**************** Carnet tipo ******************/
+.carnetTipo1{
+    padding: 10px 4px 10px 10px;
+}
+.carnetTipo1 .contDer{
+    float: left;
+    width: 60%;
+}
+.carnetTipo1 .contIzq{
+    float: left;
+    width: 40%;
+}    
+.carnetTipo1 .contIzq img{
+    max-height: 140px;
+    max-width: 120px;
+    width: 100%;
+}
+.carnetTipo1 .contIzq .nombreEst{
+    width: 100%;
+}
+.carnetTipo1 .contIzq .nombreEst p{
+    font-size: 1em;
+    line-height: 1;
+    width: 100%;
+}
+.carnetTipo1 .contIzq .nombreEst p span{
+    font-size: 2em;
+    width: 100%;
+}
+.carnetTipo1 .contDer .filaNew p {
+    font-size: 16px;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+}
+.carnetTipo1 .contDer .grado{
+    float: left;
+    width: 50%;
+}
+.carnetTipo1 .contDer .grado p{
+    font-size: 15.2em;
+    line-height: .6;
+    text-align: center;
+}
+.carnetTipo1 .contDer .cInf{
+    float: left;
+    width: 50%;
+}
+.carnetTipo1 .contDer .cInf .filaNew .curso{
+    float: left;
+    width: 30%;
+}
+.carnetTipo1 .contDer .cInf .filaNew .curso p{
+    font-size: 4em;
+    line-height: 1;
+    text-align: left;
+}
+.carnetTipo1 .contDer .cInf .filaNew .jornada{
+    float: left;
+    width: 70%;
+}
+.carnetTipo1 .contDer .cInf .filaNew .jornada p{
+    line-height: 1.2;
+    margin-top: 10px;
+    text-align: justify;
+}
+.carnetTipo1 .contDer .cInf .filaNew .codigo{
+    margin: auto;
+    width: 80%;
+}
+.carnetTipo1 .contDer .cInf .filaNew .codigo img{
+    max-height: 81px;
+    width: 100%;
+}
+/****************** Carnet tipo2 ***********************/
+.carnetTipo2{
+     padding: 8px 2px 8px 8px;
+}
+.carnetTipo2 #TituloInst{
+    font-size: 16px;
+    line-height: 1.2;
+    margin-bottom: 5px;
+    text-align: left;
+    text-transform: uppercase;
+}
+.carnetTipo2 .contDer{
+    float: left;
+    width: 40%;
+}
+.carnetTipo2 .contIzq{
+    float: left;
+    max-width: 164px;
+    width: 60%;
+}
+.carnetTipo2 .contIzq .codigo{
+    float: left;
+    margin-right: 3%;
+    width: 45%;
+}
+.carnetTipo2 .contIzq .codigo img{
+    max-height: 68px;
+    width: 100%;
+} 
+.carnetTipo2 .contIzq .infUser{
+    float: left;
+    padding:0 4px;
+    width: 50%;
+}
+.carnetTipo2 .contIzq .infUser img{
+    max-height: 35px;
+    max-width: 60px;
+    width: 100%;
+} 
+.carnetTipo2 .contIzq .infUser .nombreEst p{
+    font-size: 0.74em;
+    line-height: 1;
+    width: 100%;
+}
+.carnetTipo2 .contIzq .infUser .nombreEst p span{
+    font-size: 2em;
+    width: 100%;
+}
+.carnetTipo2 .contDer .columnaInf .grado p{
+    font-size: 7.2em;
+    line-height: .6;
+    text-align: center;
+}
+.carnetTipo2 .contDer .columnaInf .curso{
+    float: left;
+    width: 100%;
+}
+.carnetTipo2 .contDer .columnaInf .curso p{
+    font-size: 2.2em;
+    line-height: .73;
+    text-align: left;
+}
+.carnetTipo2 .contDer .columnaInf .jornada{
+    float: left;
+    width: 100%;
+}
+.carnetTipo2 .contDer .columnaInf .jornada p{
+    font-size: 1em;
+    line-height: 1;
+    margin: 10px 0 0 0;
+    text-align: left;
+    text-transform: uppercase;
+}
+/********************* Carnet tipo 3 ************************/
+    
+.carnetTipo3 .contDer .infUser{
+    float: left;
+    padding:0 4px;
+    width: 50%;
+}
+.carnetTipo3 .contDer .infUser img{
+    max-height: 35px;
+    max-width: 60px;
+    width: 100%;
+} 
+.carnetTipo3 .contDer .infUser .nombreEst p{
+    font-size: 0.74em;
+    line-height: 1;
+    width: 100%;
+}
+.carnetTipo3 .contDer .infUser .nombreEst p span{
+    font-size: 2em;
+    width: 100%;
+}
+.carnetTipo3 .contDer .codigo{
+    float: left;
+    margin-right: 3%;
+    width: 34.5%;
+}
+.carnetTipo3 .contDer .codigo img{
+    max-height: 68px;
+    width: 100%;
+}
+.carnetTipo3{
+     padding: 8px 2px 8px 8px;
+}
+.carnetTipo3 #TituloInst{
+    font-size: 16px;
+    line-height: 1.2;
+    margin-bottom: 5px;
+    text-align: left;
+    text-transform: uppercase;
+}
+.carnetTipo3 .contDer{
+    float: left;
+    width: 70%;
+}
+.carnetTipo3 .contIzq{
+    float: left;
+    max-width: 164px;
+    width: 30%;
+}
+.carnetTipo3 .contIzq .columnaInf2 .jornada{
+    float: left;
+    position: relative;
+    top: 25px;
+    width: 100%;
+}
+.carnetTipo3 .contIzq .columnaInf2 .jornada p{
+    font-size: 1em;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: top;
+}
+.carnetTipo3 .contIzq .grado{
+    float: left;
+    width: 60%;
+}
+.carnetTipo3 .contIzq .grado p{
+    font-size: 7.2em;
+    line-height: .6;
+    text-align: center;
+}
+.carnetTipo3 .contDer .curso{
+    float: left;
+    width: 12%;
+}
+.carnetTipo3 .contDer .curso p{
+    font-size: 2.2em;
+    line-height: .73;
+    text-align: left;
+}
+/************* Carnet tipo 4 ***************/
+.carnetTipo4{
+     padding: 10px;
+}
+.carnetTipo4 #TituloInst{
+    font-size: 12px;
+    line-height: 1.2;
+    margin-bottom: 5px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.carnetTipo4 .columnaInf .infUser{
+    float: left;
+    padding:0 4px;
+    width: 100%;
+}
+.carnetTipo4 .columnaInf .infUser img{
+    width: 100%;
+} 
+.carnetTipo4 .columnaInf .infUser .nombreEst p{
+    font-size: 0.9em;
+    line-height: 1;
+    width: 100%;
+}
+.carnetTipo4 .columnaInf .infUser .nombreEst p span{
+    font-size: 2em;
+    width: 100%;
+}
+.carnetTipo4 .columnaInf .jornada{
+    float: left;
+    width: 100%;
+}
+.carnetTipo4 .columnaInf .jornada p{
+    font-size: 1em;
+    line-height: 1.5;
+    text-align: left;
+    text-transform: uppercase;
+}
+.carnetTipo4 .columnaInf .contIzq{
+    float: left;
+    height: 90px;
+    width: 100%;
+}
+.carnetTipo4 .columnaInf .contIzq .grado {
+    float: left;
+    width: 80%;
+}
+.carnetTipo4 .columnaInf .contIzq .grado p{
+    font-size: 8.2em;
+    line-height: .6;
+    text-align: center;
+}
+.carnetTipo4 .columnaInf .contIzq .curso{
+    float: left;
+    width: 12%;
+}
+.carnetTipo4 .columnaInf .contIzq .curso p{
+    font-size: 2.2em;
+    line-height: .73;
+    text-align: left;
+}
+.carnetTipo4 .columnaInf .codigo{
+    float: left;
+    margin-right: 3%;
+    width: 100%;
+}
+.carnetTipo4 .columnaInf .codigo img{
+    max-height: 68px;
+    width: 100%;
+}
+.rotar{
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);     
+}
+.columnaInf{
+    float: left;
+    width: 50%;
+}
+.columnaInf2{
+    float: left;
+    width: 40%;
+}
+.texto{
+    color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+}
+.filaNew{
+    float: left;
+    width: 100%;
+}
+#bloqueCgenerales{
+    height: 100%;
+    vertical-align: top;
+    overflow: hidden;
+    width: 100%;
+}
+#contenidoDer{
+    background: url('../../../images/backgroudAjax.svg') no-repeat ;
+    background-position: 0 50%;
+    height: 100%;
+    float:left;
+    overflow: hidden; 
+    position: relative;
+    width: 70%;
+}
+#contenidoIzq{
+    float: left;
+    height: 100%;
+    margin-right: 5%;
+    overflow: hidden;
+    position: relative;
+    width: 14%;
+}
+#contenidoIzq  label{
+    color: rgb(255,255,255);
+    display: inline;
+    font-family: "Segoe UI light";
+    font-size: 32px;
+}
+#ContTitulo{
+    float: left;
+    margin: 68% 10px 0 10px;
+}
+#ContTitulo p {
+    color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 32px;
+    line-height: 1;
+    text-align: center;
+}
+#content_1{
+    height: 245px;
+    overflow: hidden;
+}
+#botonesDow{
+    margin: auto;
+    overflow: hidden;
+    width: 100%;
+}
+#botonesDow ul{
+    list-style: none;
+    margin: auto;
+    overflow: hidden;
+    width: 70%;
+}
+#botonesDow ul li{
+    float: left;
+    margin: 0 30px;
+}
+#tituloApAn{
+    float: left;
+    margin: 20px 0;
+    width: 100%;
+}
+#tituloApAn p{
+    font-family: "Segoe UI light";
+    font-size: 1.6em;
+    line-height: 1.3;
+    text-align: center;
+}
+#TituloSecction{
+    position: relative;
+    width: 56%;
+}
+#TituloSecction label{
+    color: rgb(0,174,239);
+    font-family: "Segoe UI light";
+    font-size: 30px;
+}
