@@ -8,8 +8,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use cloud\siteBundle\Entity\Periodo;
-use cloud\siteBundle\Form\PeriodoType;
 use cloud\siteBundle\Entity\NivelesAcademicos;
+
+use cloud\siteBundle\Form\PeriodoType;
 use cloud\siteBundle\Form\NivelesAcademicosType;
 
 /**
@@ -60,17 +61,14 @@ class ma13Controller extends Controller
      * @Route("/niveles-grados", name="ma132")
      */
      public function ma132Action(){
-        $request=$this->getRequest();
         $em=$this->getDoctrine()->getEntityManager();
+        
         $na=$em->getRepository('cloudBundle:NivelesAcademicos')->findAll();
-        if($request->getMethod()=='POST'){
-            $numero=$request->request->get('niveles');
-            return $this->render('cloudBundle:Admin:ma132.html.twig', array('numero2'=>$numero,'niveles'=>'','mje'=>''));
-        }
-        if(!$na){
-            return $this->render('cloudBundle:Admin:ma132.html.twig', array('mje'=>'No ha definido Niveles Academicos'));
-        }
-        return $this->render('cloudBundle:Admin:ma132.html.twig',array('niveles'=>$na));
+        if (!$na)
+          $estado = "nulo";
+        else
+          $estado = "no-nulo";
+       return $this->render('cloudBundle:Admin:ma132.html.twig',array("estado"=>$estado));
      }
      
      /**
@@ -95,9 +93,8 @@ class ma13Controller extends Controller
      
     
     /**
-     * Creates a new Periodo entity.
-     *
      * @Route("/peridos/create", name="ma1311")
+     *  @Method("POST")
      */
     public function ma1311Action()
     {
@@ -106,6 +103,69 @@ class ma13Controller extends Controller
         
         return $this->render('cloudBundle:Admin:ma1311.html.twig', array(
             'form'   => $form->createView(),
+        ));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     /** 
+      * @Route("/niveles-grados/niveles", name="ma1321")
+      */
+     public function ma1321Action(){
+        $request=$this->getRequest();
+        $em=$this->getDoctrine()->getEntityManager();
+        if($request->getMethod()=='POST')
+        {
+            $numero=$request->request->get('numsede');
+            for ($i=1; $i <= $numero; $i++) { 
+                $entity  = new NivelesAcademicos();
+                $entity->setName("Nivel ".$i);
+                $em->persist($entity);
+                $em->flush();
+            }
+            $niveles = $em->getRepository('cloudBundle:NivelesAcademicos')->findAll();
+
+            return $this->render('cloudBundle:Admin:ma1321.html.twig', array('niveles'=>$niveles));
+        }
+        
+        $niveles=$em->getRepository('cloudBundle:NivelesAcademicos')->findAll();
+        if(!$niveles)
+            return $this->render('cloudBundle:Admin:ma1321.html.twig', array('mje'=>'No tiene tiene niveles academicos asociadas'));
+        return $this->render('cloudBundle:Admin:ma1321.html.twig', array('niveles'=>$niveles));
+     }
+
+     /**
+     *
+     * @Route("/niveles-grados/niveles/{id}/edit", name="ma13211")
+     */
+    public function ma13211Action($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('cloudBundle:NivelesAcademicos')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Niveles Academicos entity.');
+        }
+
+        $editForm = $this->createForm(new NivelesAcademicosType(), $entity);
+
+        return $this->render('cloudBundle:Admin:ma13211.html.twig', array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
         ));
     }
 

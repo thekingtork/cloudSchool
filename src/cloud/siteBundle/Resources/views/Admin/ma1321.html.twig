@@ -5,25 +5,33 @@
 {% block menu_principal %}
 	 <div class="cuerpoCentrado" id="contMetro">
 		<div id="ContAjax">
+            <link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/jquery.mCustomScrollbar.css') }}"/>
 			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma113/ma113.css') }}"/>
             <script type="text/javascript" src="{{asset('javascripts/jquery.js')}}"></script>
-            <script type="text/javascript">
-                var num="{{numero2|default('')}}";
-                console.log(num);
-                var niveles="<div><h1>Niveles Academicos</h1>";
-                for(var i=1; i<=num; i++){
-                    niveles+="<a href='{{path('addniveles')}}' class='ajax'>Agregar Nivel Academico</a><br/>"
-                }
-                niveles+="</div>";
-                $(document).on("ready",cargar);
-                
-                function cargar(){
-                    $('#nuevo').html(niveles);
-                console.log(niveles)    
-                }
-                
-                
-            </script> 
+            <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+            <script src="{{ asset('javascripts/scroll/jquery-ui-1.8.21.custom.min.js') }}"></script>
+            <!-- mousewheel plugin -->
+            <script src="{{ asset('javascripts/scroll/jquery.mousewheel.min.js') }}"></script>
+            <!-- custom scrollbars plugin -->
+            <script src="{{ asset('javascripts/scroll/jquery.mCustomScrollbar.js') }}"></script>
+            <script >
+                (function($){
+                $(window).load(function(){
+                    $("#content_1").mCustomScrollbar({
+                        horizontalScroll:true,
+                        scrollButtons:{
+                            enable:false,
+                            scrollType:"continuous",
+                            scrollSpeed:20,
+                            scrollAmount:40
+                        },
+                        advanced:{
+                            autoExpandHorizontalScroll:true,
+                        },
+                    });
+                });
+            })(jQuery);
+            </script>
 			<div id="bloqueCgenerales">
 				<div id="contenidoIzq">
 					<div class="botonRegresar">
@@ -31,12 +39,56 @@
 							<a href="{{ path('ma11') }}" class="ajax" ><img src="{{ asset('images/b_atras.png') }}"/></a>
 						{% endblock %}
 					</div>
-                    <div id="nuevo">
-                        Hola Mundo
-                    </div>
-                    {%for nivel in niveles%}
-                        {{nivel.name}}
-                    {%endfor%}
+                    {% if mje is defined %}
+                        <div>
+                            <p>{{ mje }}</p>
+                        </div>
+                    {% else %}
+                    <style type="text/css">
+                        .nivel{
+                            background: lightblue;
+                            border: solid 4px white;
+                            cursor: pointer;
+                            display: inline-block;
+                            float: left;
+                            height: 200px;
+                            margin: 10px 0;
+                            padding: 10px;
+                            position: relative;
+                            vertical-align: top;
+                            width: 200px;
+                        }
+                    </style>
+                        <div id="content_1" class="mCustomScrollbar _mCS_1">
+                                {% for nivel in niveles %}
+                                        <div class="nivel">
+                                    <a href="{{ path('ma13211',{'id' : nivel.id }) }}">
+                                            <p class="signoUp">+</p>
+                                            <p class="titulocajas">{{nivel.name}}</p>
+                                    </a>
+                                        </div>
+                                {% endfor %}
+                                <script type="text/javascript">
+                                    $(document).on("ready",iniciar);
+
+                                    function iniciar(){
+                                        $(".nivel a").click( function(e){
+                                            e.preventDefault();
+                                             $.ajax(
+                                                   {
+                                                     url: $(this).attr("href"),
+                                                      type: 'POST',
+                                                      success: function (r) {
+                                                        $(".overlay").html(r);
+                                                         $('.overlay').css('display','block');
+                                                    } 
+                                        
+                                                  });
+                                        })
+                                    }
+                                </script>
+                        </div>
+                    {% endif %}
 				</div>
 				<div id="contenidoDer">
 					<div class="breadcumbr"><a href="{{ path('ma11') }}" class="ajax" >Ajustes generales</a></div>
@@ -44,6 +96,8 @@
                     
                     <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
 				</div>
+                <div class="overlay">
+                </div>
 			</div>
 		</div>
 		 {% block notificaciones %}         
@@ -53,35 +107,3 @@
     
 {% endblock %}
 {#Recuerden no joder los css Si desean usar los css cambien la linea 8 #}
-
-
-{#
-    <div id="formulario" style="display: none;">
-                        <form action="{{path('ma132')}}" method="post" id="form">
-                            <input type="text" name="niveles" id="niveles" />
-                            <button type="submit">Ingresar</button>
-                        </form>
-                    </div>
-
-     <script type="text/javascript">
-        $(document).ready(function(){
-            console.log('Soporte jQuey');
-            var estado="{{estado|default('si')}}";
-            $('.iniciar').click(function(e){
-                e.preventDefault();
-                if(estado=='nulo'){
-                    console.log('mostrar formulario')
-                    $('#formulario').css('display','block')
-                }else{
-                    window.location="{{path('ma132')}}"
-                }
-            })
-            /*$('#form').submit(function(e){
-                e.preventDefault();
-                var ok=$('#form').serialize();
-                alert(ok);
-            })*/
-        })
-    </script>
-
-    #}

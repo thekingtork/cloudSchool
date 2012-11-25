@@ -1,87 +1,93 @@
 {% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
 {% block title %}
-	MA132
+    MA132
 {% endblock %}
 {% block menu_principal %}
-	 <div class="cuerpoCentrado" id="contMetro">
-		<div id="ContAjax">
-			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma113/ma113.css') }}"/>
-            <script type="text/javascript" src="{{asset('javascripts/jquery.js')}}"></script>
-            <script type="text/javascript">
-                var num="{{numero2|default('')}}";
-                console.log(num);
-                var niveles="<div><h1>Niveles Academicos</h1>";
-                for(var i=1; i<=num; i++){
-                    niveles+="<a href='{{path('addniveles')}}' class='ajax'>Agregar Nivel Academico</a><br/>"
-                }
-                niveles+="</div>";
-                $(document).on("ready",cargar);
-                
-                function cargar(){
-                    $('#nuevo').html(niveles);
-                console.log(niveles)    
-                }
-                
-                
-            </script> 
-			<div id="bloqueCgenerales">
-				<div id="contenidoIzq">
-					<div class="botonRegresar">
-						{% block back %}
-							<a href="{{ path('ma11') }}" class="ajax" ><img src="{{ asset('images/b_atras.png') }}"/></a>
-						{% endblock %}
-					</div>
-                    <div id="nuevo">
-                        Hola Mundo
+     <div class="cuerpoCentrado" id="contMetro">
+        <div id="ContAjax">
+            <link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma13/ma13.css') }}"/> 
+            
+            <div id="bloqueCgenerales" class="azul">
+                <div id="contenidoIzq">
+                    <div class="botonRegresar">
+                        {% block back %}
+                            <a href="{{ path('ma1') }}" class="ajax"><img src="{{ asset('images/b_atras.png') }}"/></a>
+                        {% endblock %}
                     </div>
-                    {%for nivel in niveles%}
-                        {{nivel.name}}
-                    {%endfor%}
-				</div>
-				<div id="contenidoDer">
-					<div class="breadcumbr"><a href="{{ path('ma11') }}" class="ajax" >Ajustes generales</a></div>
-					
-                    
+                    <div id="ContTitulo">
+                        <p>Criterios academicos</p>
+                    </div>
+                    <div id="lineas">
+                        <img id="decoracionAjax" src="{{ asset('images/backgroudAjax.svg') }}"/>
+                    </div>
+                </div>
+                <div id="contenidoDer">
+                    <div class="breadcumbr"><a href="{{ path('ma1') }}" class="ajax">Ajustes del sistema</a></div>
+                    <div id="menuAux">
+                        <ul>
+                            <li><a href="{{ path('ma132') }}" class="iniciar" >Crear Niveles</a></li>
+                            <li><a href="{{ path('ma132') }}" class="ajax" >Asignar Grados</a></li>
+                        </ul>
+                    </div>
                     <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
-				</div>
-			</div>
-		</div>
-		 {% block notificaciones %}         
-                {% include "cloudBundle::layout_notificaciones.html.twig" %}
-             {% endblock notificaciones %}
-	</div>
-    
-{% endblock %}
-{#Recuerden no joder los css Si desean usar los css cambien la linea 8 #}
-
-
-{#
-    <div id="formulario" style="display: none;">
-                        <form action="{{path('ma132')}}" method="post" id="form">
-                            <input type="text" name="niveles" id="niveles" />
-                            <button type="submit">Ingresar</button>
+                </div>
+                <div class="overlay">
+                    <div class="formOverlay lima">
+                        <form action="{{path('ma1321')}}" method="post">
+                            <div class="linea">
+                                <div class="titulo">
+                                    <p>Ingresar N&uacute;mero de niveles</p>
+                                </div>
+                            </div>
+                            <div class="linea">
+                                <div class="entrada">
+                                    <input type="text" name="numsede" id="numsede" required/>
+                                </div>
+                            </div>
+                            <div class="linea">
+                                <div id="botonesDow">
+                                    <ul>
+                                        <li>
+                                            <button class="botonesDw blanco" type="submit">Guardar</button>
+                                        </li>
+                                        <li>
+                                            <input  class="botonesDw blanco" type="button" value="Limpiar" onClick="limpiaForm('#formularioInst form')">
+                                        </li>
+                                        <li>
+                                            <input  class="botonesDw blanco ocultarOverlay" type="button" value="Cancelar">
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </form>
                     </div>
+                    <script>
+                        $(document).ready(function(){
+                            console.log('Soporte jQuey');
+                            var estado="{{ estado|default('si')}}";
+                            $('.iniciar').click(function(e){
+                                e.preventDefault();
+                                if(estado=='nulo'){
+                                    console.log('mostrar formulario')
+                                    $('.overlay').css('display','block')
+                                }
+                            })
 
-     <script type="text/javascript">
-        $(document).ready(function(){
-            console.log('Soporte jQuey');
-            var estado="{{estado|default('si')}}";
-            $('.iniciar').click(function(e){
-                e.preventDefault();
-                if(estado=='nulo'){
-                    console.log('mostrar formulario')
-                    $('#formulario').css('display','block')
-                }else{
-                    window.location="{{path('ma132')}}"
-                }
-            })
-            /*$('#form').submit(function(e){
-                e.preventDefault();
-                var ok=$('#form').serialize();
-                alert(ok);
-            })*/
-        })
-    </script>
-
-    #}
+                        $(".ocultarOverlay").click( function(){
+                          $(".overlay").css("display","none")
+                          console.log("ocultarOverlay")
+                        })
+                        })
+                    </script>
+                </div>
+            </div>
+        </div>
+        
+         {% block notificaciones %}         
+            {% include "cloudBundle::layout_notificaciones.html.twig" %}
+         {% endblock notificaciones %}
+    </div>
+    <script type="text/javascript" src="{{asset('javascripts/jquery.js')}}"></script>
+   
+    
+{% endblock %}
