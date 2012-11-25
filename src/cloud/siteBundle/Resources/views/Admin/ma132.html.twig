@@ -71,6 +71,10 @@
                                     console.log('mostrar formulario')
                                     $('.overlay').css('display','block')
                                 }
+                                else
+                                {
+                                    window.location.href = $(this).attr("href");
+                                }
                             })
 
                         $(".ocultarOverlay").click( function(){

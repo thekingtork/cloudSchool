@@ -122,7 +122,7 @@ class ma13Controller extends Controller
             $numero=$request->request->get('numsede');
             for ($i=1; $i <= $numero; $i++) { 
                 $entity  = new NivelesAcademicos();
-                $entity->setName("Nivel ".$i);
+                $entity->setName("Nivel");
                 $em->persist($entity);
                 $em->flush();
             }
@@ -157,6 +157,36 @@ class ma13Controller extends Controller
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
         ));
+    }
+
+    /**
+     * Edits an existing Notificaciones entity.
+     *
+     * @Route("/niveles-grados/niveles/{id}/update", name="ma13212")
+     * @Method("POST")
+     */
+    public function ma13212Action(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('cloudBundle:NivelesAcademicos')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find NivelesAcademicos entity.');
+        }
+
+        
+        $editForm = $this->createForm(new NivelesAcademicosType(), $entity);
+        $editForm->bind($request);
+
+        if ($editForm->isValid()) {
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('ma1321') );
+        }
+
+        return $this->render('cloudBundle:Admin:ma1321.html.twig', array('niveles'=>$niveles));
     }
 
 }

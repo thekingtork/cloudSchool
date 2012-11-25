@@ -1,6 +1,6 @@
 {% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
 {% block title %}
-	MA132
+	MA1321
 {% endblock %}
 {% block menu_principal %}
 	 <div class="cuerpoCentrado" id="contMetro">
@@ -61,17 +61,27 @@
                     </style>
                         <div id="content_1" class="mCustomScrollbar _mCS_1">
                                 {% for nivel in niveles %}
+                                    {% if nivel.name == "Nivel" %}
                                         <div class="nivel">
-                                    <a href="{{ path('ma13211',{'id' : nivel.id }) }}">
-                                            <p class="signoUp">+</p>
-                                            <p class="titulocajas">{{nivel.name}}</p>
-                                    </a>
+                                        {% else %}
+                                        <div class="nivel letra">
+                                    {% endif %}
+                                            <a href="#">
+                                                    <p class="signoUp">+</p>
+                                                    <p class="titulocajas">{{nivel.name}}</p>
+                                            </a>
                                         </div>
                                 {% endfor %}
                                 <script type="text/javascript">
                                     $(document).on("ready",iniciar);
 
                                     function iniciar(){
+
+                                       $(".letra .titulocajas").each( function(index){
+                                            var nombre = $(this).text();
+                                            $(this).html( nombre[0] )
+                                       })
+
                                         $(".nivel a").click( function(e){
                                             e.preventDefault();
                                              $.ajax(

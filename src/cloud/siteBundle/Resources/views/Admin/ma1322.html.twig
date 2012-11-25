@@ -1,19 +1,11 @@
 {% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
 {% block title %}
-	MA132
+	MA1322
 {% endblock %}
 {% block menu_principal %}
 	 <div class="cuerpoCentrado" id="contMetro">
 		<div id="ContAjax">
-            <link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/jquery.mCustomScrollbar.css') }}"/>
-			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma113/ma113.css') }}"/>
-            <script type="text/javascript" src="{{asset('javascripts/jquery.js')}}"></script>
-            <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-            <script src="{{ asset('javascripts/scroll/jquery-ui-1.8.21.custom.min.js') }}"></script>
-            <!-- mousewheel plugin -->
-            <script src="{{ asset('javascripts/scroll/jquery.mousewheel.min.js') }}"></script>
-            <!-- custom scrollbars plugin -->
-            <script src="{{ asset('javascripts/scroll/jquery.mCustomScrollbar.js') }}"></script>
+           <link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma113/ma113.css') }}"/>
             <script >
                 (function($){
                 $(window).load(function(){
@@ -36,7 +28,7 @@
 				<div id="contenidoIzq">
 					<div class="botonRegresar">
 						{% block back %}
-							<a href="{{ path('ma11') }}" class="ajax" ><img src="{{ asset('images/b_atras.png') }}"/></a>
+							<a href="{{ path('ma132') }}" class="ajax" ><img src="{{ asset('images/b_atras.png') }}"/></a>
 						{% endblock %}
 					</div>
                     {% if mje is defined %}
@@ -61,12 +53,21 @@
                     </style>
                         <div id="content_1" class="mCustomScrollbar _mCS_1">
                                 {% for nivel in niveles %}
+                                    {% if nivel.name == "nivel" %}
                                         <div class="nivel">
-                                    <a href="#">
-                                            <p class="signoUp">+</p>
-                                            <p class="titulocajas">{{nivel.name}}</p>
-                                    </a>
+                                            <a href="#">
+                                                    <p class="signoUp">+</p>
+                                                    <p class="titulocajas">{{nivel.name}}</p>
+                                            </a>
                                         </div>
+                                        {% else %}
+                                        <div class="nivel">
+                                            <a href="#">
+                                                    <p class="signoUp">+</p>
+                                                    <p class="titulocajas">{{nivel.name[0]}}</p>
+                                            </a>
+                                        </div>
+                                    {% endif %}
                                 {% endfor %}
                         </div>
                     {% endif %}
