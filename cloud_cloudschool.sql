@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 25-11-2012 a las 00:47:42
+-- Tiempo de generación: 25-11-2012 a las 02:31:34
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -1514,18 +1514,17 @@ CREATE TABLE IF NOT EXISTS `nivelesacademicos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 --
 -- Volcado de datos para la tabla `nivelesacademicos`
 --
 
 INSERT INTO `nivelesacademicos` (`id`, `nombre`) VALUES
-(1, 'Pre-escolar'),
-(2, 'Primaria'),
-(3, 'Básica secundaria'),
-(4, 'Media académica'),
-(5, 'Nocturno');
+(6, 'Nivel 1'),
+(7, 'Nivel 2'),
+(8, 'Nivel 3'),
+(9, 'Nivel 4');
 
 -- --------------------------------------------------------
 
@@ -1713,7 +1712,7 @@ CREATE TABLE IF NOT EXISTS `sede` (
   `institucion_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_2A9BE2D1B239FBC6` (`institucion_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=14 ;
 
 --
 -- Volcado de datos para la tabla `sede`
@@ -1722,7 +1721,10 @@ CREATE TABLE IF NOT EXISTS `sede` (
 INSERT INTO `sede` (`id`, `nombre`, `direccion`, `telefono`, `fax`, `email`, `rector`, `secretaria`, `institucion_id`) VALUES
 (8, 'Sede 1', '1', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede1@institucion.com', 'Coordinador 1', 'Secretaria 1', NULL),
 (9, 'Sede 2', '2', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede2@institucion.com', 'Coordinador 2', 'Secretaria 2', NULL),
-(10, 'Sede 3', '3', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede3@institucion.com', 'Coordinador 3', 'Secretaria 3', NULL);
+(10, 'Sede 3', '3', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede3@institucion.com', 'Coordinador 3', 'Secretaria 3', NULL),
+(11, 'Sede 1', '1', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede1@institucion.com', 'Coordinador 1', 'Secretaria 1', NULL),
+(12, 'Sede 2', '2', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede2@institucion.com', 'Coordinador 2', 'Secretaria 2', NULL),
+(13, 'Sede 3', '3', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede3@institucion.com', 'Coordinador 3', 'Secretaria 3', NULL);
 
 -- --------------------------------------------------------
 
