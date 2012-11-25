@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 25-11-2012 a las 23:58:17
+-- Tiempo de generación: 26-11-2012 a las 00:35:06
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -1530,7 +1530,7 @@ CREATE TABLE IF NOT EXISTS `nivelesacademicos` (
 
 INSERT INTO `nivelesacademicos` (`id`, `nombre`) VALUES
 (11, 'PREESCOLAR'),
-(12, 'Nivel'),
+(12, 'PRIMARIA'),
 (13, 'Nivel'),
 (14, 'Nivel');
 
