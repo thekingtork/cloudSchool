@@ -78,7 +78,8 @@
                                 {% for nivel in niveles %}
                                    {% if nivel.name != "Nivel" %}
                                             <div class="nivel letra">
-                                                <a href="{{ path('ma13221',{ 'id':nivel.id }) }}">
+                                                <a href="{{ path('ma13221',{ 'id':nivel.id }) }}" data-grado="{% if nivel.nivelId|length > 0 %}1{% else %}0{% endif %}
+                                                ">
                                                     <p class="titulocajas primera">{{nivel.name}}</p>
                                                     <p class="signoUp">{{nivel.name}}</p>
                                                 </a>
@@ -98,8 +99,16 @@
 
                                        $(".nivel a").click( function(e){
                                             e.preventDefault();
-                                            $(".overlay").css("display","block")
-                                            $(".overlay form").attr("action", $(this).attr("href") );
+                                            console.log($(this).attr("data-grado"))
+                                            if($(this).attr("data-grado") == 1)
+                                            {
+                                                window.location.href = $(this).attr("href");
+                                            }
+                                            else
+                                            {
+                                                $(".overlay").css("display","block")
+                                                $(".overlay form").attr("action", $(this).attr("href") );
+                                            }
                                        })
                                     }
                                 </script>
@@ -143,15 +152,7 @@
                     </div>
                     <script>
                         $(document).ready(function(){
-                            var estado="{{ estado|default('si')}}";
-                            $('.iniciar').click(function(e){
-                                e.preventDefault();
-                                if(estado=='nulo'){
-                                    console.log('mostrar formulario')
-                                    $('.overlay').css('display','block')
-                                }
-                            })
-
+                           
                         $(".ocultarOverlay").click( function(){
                           $(".overlay").css("display","none")
                         })

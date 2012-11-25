@@ -62,44 +62,4 @@ class NivelesAcademicos
     {
         return $this->name;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->nivel_id = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
-    /**
-     * Add nivel_id
-     *
-     * @param cloud\siteBundle\Entity\Grado $nivelId
-     * @return NivelesAcademicos
-     */
-    public function addNivelId(\cloud\siteBundle\Entity\Grado $nivelId)
-    {
-        $this->nivel_id[] = $nivelId;
-    
-        return $this;
-    }
-
-    /**
-     * Remove nivel_id
-     *
-     * @param cloud\siteBundle\Entity\Grado $nivelId
-     */
-    public function removeNivelId(\cloud\siteBundle\Entity\Grado $nivelId)
-    {
-        $this->nivel_id->removeElement($nivelId);
-    }
-
-    /**
-     * Get nivel_id
-     *
-     * @return Doctrine\Common\Collections\Collection 
-     */
-    public function getNivelId()
-    {
-        return $this->nivel_id;
-    }
 }
