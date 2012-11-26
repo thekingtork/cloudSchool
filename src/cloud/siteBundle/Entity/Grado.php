@@ -2,6 +2,7 @@
 namespace cloud\siteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -18,11 +19,14 @@ class Grado
 
     /**
      * @ORM\Column(name="nombre", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * 
      */
     protected $name;
     /**
      * @ORM\ManyToOne(targetEntity="NivelesAcademicos", inversedBy="id")
      * @ORM\JoinColumn(name="nivel_id", referencedColumnName="id")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $nivel_id;
 

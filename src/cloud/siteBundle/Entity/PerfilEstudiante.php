@@ -2,6 +2,7 @@
 namespace cloud\siteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -21,47 +22,57 @@ class PerfilEstudiante
 
      /**
      * @ORM\Column(name="nombre", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $nombre;
 
     /**
      * @ORM\Column(name="apellido", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $apellido;
 
     /**
      * @ORM\Column(name="fecha_nacimiento", type="datetime")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\DateTime(message = "Campo de Fecha")
      */
     protected $fecha_nacimiento;
 
     /**
      * @ORM\ManyToOne(targetEntity="Municipio", inversedBy="id")
      * @ORM\JoinColumn(name="municipio_id", referencedColumnName="id")
+     * @Assert\NotNull(message = "Campo Obligatorio")
      */
     protected $municipio_id;
 
     /**
      * @ORM\Column(name="direccion", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $direccion;
 
     /**
      * @ORM\Column(name="lugar_nacimiento", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $lugar_nacimiento;
 
     /**
      * @ORM\ManyToOne(targetEntity="TipoDocumento")
      * @ORM\JoinColumn(name="tipodocumento_id", referencedColumnName="id")
+     * @Assert\NotNull(message = "Campo Obligatorio")
      */
     private $tipodocumento_id;
 
     /**
      * @ORM\Column(name="nmr_documento", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $nmr_documento;
      /**
      * @ORM\Column(name="de", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $de;
 
@@ -69,47 +80,57 @@ class PerfilEstudiante
 
     /**
      * @ORM\Column(name="sexo", type="string", length=255)
+     * @Assert\NotNull(message = "Campo Obligatorio")
      */
     protected $sexo;
 
      /**
      * @ORM\Column(name="email", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\Email(message = "Correo incorrecto")
      */
     protected $email;
 
      /**
      * @ORM\Column(name="barrio", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $barrio;
 
      /**
      * @ORM\Column(name="estrato", type="integer")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $estrato;
 
      /**
      * @ORM\Column(name="telefono", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $telefono;
 
      /**
      * @ORM\Column(name="celular", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $celular;
 
      /**
      * @ORM\Column(name="salud", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $salud;
 
      /**
      * @ORM\Column(name="observaciones_personal", type="text")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $observaciones_personal;
 
     /**
      * @ORM\OneToOne(targetEntity="User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @Assert\NotNull(message = "Campo Obligatorio")
      */
     protected $user_id;
 
@@ -117,31 +138,37 @@ class PerfilEstudiante
 
      /**
      * @ORM\Column(name="colegio_procedencia", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $colegio_procedencia;
 
      /**
      * @ORM\Column(name="sede_procedencia", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $sede_procedencia;
 
      /**
      * @ORM\Column(name="jornada_procedencia", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $jornada_procedencia;
 
      /**
      * @ORM\Column(name="nivel_procedencia", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $nivel_procedencia;
 
      /**
      * @ORM\Column(name="curso_procedencia", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $curso_procedencia;
 
      /**
      * @ORM\Column(name="observaciones_academica", type="text")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $observaciones_academica;
 
@@ -151,67 +178,80 @@ class PerfilEstudiante
 
     /**
      * @ORM\Column(name="nmrPersonas", type="integer")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $nmrPersonas;
 
     /**
      * @ORM\Column(name="casa_direccion", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $casa_direccion;
 
     /**
      * @ORM\Column(name="telefono_familia", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $telefono_familia;
 
     /**
      * @ORM\Column(name="vive_con", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $vive_con;
 
     /**
      * @ORM\Column(name="nmr_hermanos", type="integer")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $nmr_hermanos;
 
     /**
      * @ORM\Column(name="celular_familia", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $celular_familia;
 
     /**
      * @ORM\Column(name="datos_madre", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $datos_madre;
 
     /**
      * @ORM\Column(name="cc_madre", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $cc_madre;
 
     
     /**
      * @ORM\Column(name="datos_padre", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $datos_padre;
 
     /**
      * @ORM\Column(name="cc_padre", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $cc_padre;
 
     /**
      * @ORM\Column(name="datos_acudiente", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $datos_acudiente;
 
     /**
      * @ORM\Column(name="cc_acudiente", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $cc_acudiente;    
 
     /**
      * @ORM\Column(name="direccion_familia", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $direccion_familia;  
 

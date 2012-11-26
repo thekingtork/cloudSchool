@@ -2,6 +2,7 @@
 namespace cloud\siteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -18,10 +19,12 @@ class Departamento
 
     /**
      * @ORM\Column(name="nombre", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $name;
      /**
      * @ORM\OneToMany(targetEntity="Municipio", mappedBy="id")
+     * @Assert\NotNull(message = "Campo obligatorio")
      */
     protected $municipio_id;
     

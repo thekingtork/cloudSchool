@@ -2,6 +2,7 @@
 namespace cloud\siteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -18,28 +19,34 @@ class CodigoVerificacion
 
     /**
      * @ORM\Column(name="codigo", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $codigo;
 
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="id")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $user_id;
 
     /**
      * @ORM\ManyToOne(targetEntity="ModuloCodigo", inversedBy="id")
      * @ORM\JoinColumn(name="modulo_id", referencedColumnName="id")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $modulo_id;
     
      /**
      * @ORM\Column(name="date_create", type="datetime")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\DateTime(message = "Campo de Fecha")
      */
     protected $date_create;
 
      /**
      * @ORM\Column(name="expire", type="boolean")
+     * @Assert\NotNull(message = "Campo Obligatorio")
      */
     protected $expire;
 

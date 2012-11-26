@@ -2,6 +2,7 @@
 namespace cloud\siteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -18,16 +19,20 @@ class Anio
 
     /**
      * @ORM\Column(name="nombre", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $name;
     
      /**
      * @ORM\Column(name="date_create", type="datetime")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\DateTime(message = "Campo de Fecha")
      */
     protected $date_create;
 
      /**
-     * @ORM\Column(name="active", type="boolean", nullable=false) 
+     * @ORM\Column(name="active", type="boolean", nullable=false)
+     * @Assert\NotNull(message = "Campo Obligatorio") 
      */
     protected $active;
 

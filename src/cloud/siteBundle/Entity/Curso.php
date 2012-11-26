@@ -2,6 +2,7 @@
 namespace cloud\siteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -18,12 +19,14 @@ class Curso
 
     /**
      * @ORM\Column(name="nombre", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $name;
 
 
     /**
      * @ORM\Column(name="cupo", type="integer")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $cupo;
 
@@ -31,18 +34,21 @@ class Curso
     /**
      * @ORM\ManyToOne(targetEntity="Jornada", inversedBy="id")
      * @ORM\JoinColumn(name="jornada_id", referencedColumnName="id")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $jornada_id;
 
      /**
      * @ORM\ManyToOne(targetEntity="Sede", inversedBy="id")
      * @ORM\JoinColumn(name="sede_id", referencedColumnName="id")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $sede_id;
 
     /**
      * @ORM\ManyToOne(targetEntity="NivelesAcademicos", inversedBy="id")
      * @ORM\JoinColumn(name="nivel_id", referencedColumnName="id")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $nivel_id;
 

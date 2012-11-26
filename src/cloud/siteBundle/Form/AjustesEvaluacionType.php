@@ -20,8 +20,7 @@ class AjustesEvaluacionType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'cloud\siteBundle\Entity\AjustesEvaluacion'
-        ));
+            'data_class' => 'cloud\siteBundle\Entity\AjustesEvaluacion'));
     }
 
     public function getName()

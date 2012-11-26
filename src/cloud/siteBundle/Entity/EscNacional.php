@@ -25,6 +25,7 @@ class EscNacional
      * @var string $valoracion
      *
      * @ORM\Column(name="valoracion", type="string", length=255)
+     * 
      */
     private $valoracion;
     

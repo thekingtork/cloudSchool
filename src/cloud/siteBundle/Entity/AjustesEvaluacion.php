@@ -3,6 +3,7 @@
 namespace cloud\siteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * cloud\siteBundle\Entity\AjustesEvaluacion
@@ -25,12 +26,14 @@ class AjustesEvaluacion
      * @var string $modelo_evaluacion
      *
      * @ORM\Column(name="modelo_evaluacion", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     private $modelo_evaluacion;
 
     /**
      *
      * @ORM\Column(name="escala",type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     private $escala;
 
@@ -38,6 +41,7 @@ class AjustesEvaluacion
      * @var boolean $acumula
      *
      * @ORM\Column(name="acumula", type="boolean")
+     * @Assert\NotNull(message = "Campo Obligatorio")
      */
     private $acumula;
 

@@ -3,6 +3,7 @@
 namespace cloud\siteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * cloud\siteBundle\Entity\EscCualitativa
@@ -25,6 +26,7 @@ class EscCualitativa
      * @var string $valoracion
      *
      * @ORM\Column(name="valoracion", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     private $valoracion;
 

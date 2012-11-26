@@ -3,6 +3,7 @@ namespace cloud\siteBundle\Entity;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 /**
   * @ORM\Entity
   * @ORM\Table(name="user")
@@ -20,16 +21,19 @@ class User implements UserInterface
 
     /**
     * @ORM\Column(type="string", length=255, unique=true)
+    * @Assert\NotBlank(message = "Campo Obligatorio")
     */
     protected $username;
 
     /**
      * @ORM\Column(name="password", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $password;
 
     /**
      * @ORM\Column(name="salt", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $salt;
 
@@ -46,11 +50,13 @@ class User implements UserInterface
 
      /**
      * @ORM\Column(name="nombre", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $nombre;
 
     /**
      * @ORM\Column(name="apellido", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $apellido;
 
@@ -62,11 +68,13 @@ class User implements UserInterface
     /**
      * @ORM\ManyToOne(targetEntity="Institucion")
      * @ORM\JoinColumn(name="institucion_id", referencedColumnName="id")
+     * @Assert\NotNull(message = "Campo Obligatorio")
      */
     protected $institucion_id;
 
      /**
      * @ORM\OneToMany(targetEntity="Notificaciones", mappedBy="id")
+     * @Assert\NotNull(message = "Campo Obligatorio")
      */
     protected $notificacion_id;
    

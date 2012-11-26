@@ -2,6 +2,7 @@
 namespace cloud\siteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -18,66 +19,80 @@ class Institucion
 
     /**
      * @ORM\Column(name="nombre", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $name;
 
     /**
      * @ORM\Column(name="direccion", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $direccion;
 
     /**
      * @ORM\Column(name="ciudad", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $ciudad;
 
      /**
      * @ORM\Column(name="telefono", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $telefono;
 
      /**
      * @ORM\Column(name="fax", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $fax;
     
     /**
      * @ORM\Column(name="nit", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $nit;
 
     /**
      * @ORM\Column(name="dane", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $dane;
 
     /**
      * @ORM\Column(name="men", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $men;
 
      /**
      * @ORM\Column(name="rector", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $rector;
     
      /**
      * @ORM\Column(name="secretario", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $secretario;
 
      /**
      * @ORM\Column(name="email", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\Email(message = "Correo incorrecto")
      */
     protected $email;
 
      /**
      * @ORM\Column(name="distribucion_usuario", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $distribucion_usuario;
 
      /**
      * @ORM\Column(name="modelo_pedagogico", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $modelo_pedagogico;
 

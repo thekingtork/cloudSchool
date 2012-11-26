@@ -2,6 +2,7 @@
 namespace cloud\siteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -20,38 +21,47 @@ class Periodo
 
     /**
      * @ORM\Column(name="periodo_inicio", type="datetime")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\DateTime(message = "Campo de Fecha")
      */
     protected $periodo_inicio;
 
 
     /**
      * @ORM\Column(name="primer_periodo_final", type="datetime")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\DateTime(message = "Campo de Fecha")
      */
     protected $periodo_final;
     /**
      * @ORM\OneToOne(targetEntity="EstadoPeriodo")
      * @ORM\JoinColumn(name="estado_id", referencedColumnName="id")
+     * @Assert\NotNull(message = "Campo Obligatorio")
      */
     protected $estado_id;
 
      /**
      * @ORM\Column(name="porcentaje", type="float")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $porcentaje;
 
      /**
      * @ORM\Column(name="actividades_min", type="integer")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $actividades_min;
 
     /**
      * @ORM\Column(name="actividades_max", type="integer")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $actividades_max;
 
      /**
      * @ORM\ManyToOne(targetEntity="Anio", inversedBy="id")
      * @ORM\JoinColumn(name="anio_id", referencedColumnName="id")
+     * @Assert\NotNull(message = "Campo Obligatorio")
      */
     protected $anio_id;
 

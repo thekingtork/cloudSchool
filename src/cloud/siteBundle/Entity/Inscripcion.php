@@ -2,6 +2,7 @@
 namespace cloud\siteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -24,17 +25,22 @@ class Inscripcion
 
     /**
      * @ORM\Column(name="inscripcion_inicio", type="datetime")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\DateTime(message = "Campo de fecha")
      */
     protected $inscripcion_inicio;
 
 
     /**
      * @ORM\Column(name="primer_periodo_final", type="datetime")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\DateTime(message = "Campo de fecha")
      */
     protected $inscripcion_final;
     
      /**
-     * @ORM\Column(name="active", type="boolean", nullable=false) 
+     * @ORM\Column(name="active", type="boolean", nullable=false)
+     * @Assert\NotNull(message = "Campo de fecha") 
      */
     protected $active;
 

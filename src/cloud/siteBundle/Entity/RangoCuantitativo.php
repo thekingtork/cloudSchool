@@ -3,6 +3,7 @@
 namespace cloud\siteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * cloud\siteBundle\Entity\RangoCuantitativo
@@ -32,6 +33,7 @@ class RangoCuantitativo
      * @var float $limite2
      *
      * @ORM\Column(name="limite2", type="float")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     private $limite2;
     
@@ -39,6 +41,7 @@ class RangoCuantitativo
      * @var float $limite3
      *
      * @ORM\Column(name="limite3", type="float")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     private $limite3;
     
@@ -46,6 +49,7 @@ class RangoCuantitativo
      * @var float $limite4
      *
      * @ORM\Column(name="limite4", type="float")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     private $limite4;
     
