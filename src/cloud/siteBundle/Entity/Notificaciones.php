@@ -2,7 +2,7 @@
 namespace cloud\siteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity
@@ -19,48 +19,48 @@ class Notificaciones
 
     /**
      * @ORM\Column(name="asunto", type="string", length=255)
-     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * 
      */
     protected $asunto;
 
     /**
      * @ORM\Column(name="mensaje", type="text")
-     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * 
      */
     protected $mensaje;
 
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="id")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     * @Assert\NotNull(message = "Campo Obligatorio")
+     * 
      */
     protected $user_id;
 
     /**
      * @ORM\ManyToOne(targetEntity="Curso", inversedBy="id")
      * @ORM\JoinColumn(name="curso_id", referencedColumnName="id")
-     * @Assert\NotNull(message = "Campo Obligatorio")
+     * 
      */
     protected $curso_id;
 
     /**
      * @ORM\ManyToOne(targetEntity="TipoNotificacion", inversedBy="id")
      * @ORM\JoinColumn(name="tipo_id", referencedColumnName="id")
-     * @Assert\NotNull(message = "Campo Obligatorio")
+     * 
      */
     protected $tipo_id;
 
     /**
      * @ORM\ManyToOne(targetEntity="EstadoNotificacion", inversedBy="id")
      * @ORM\JoinColumn(name="estado_id", referencedColumnName="id")
-     * @Assert\NotNull(message = "Campo Obligatorio")
+     * 
      */
     protected $estado_id;
     
      /**
      * @ORM\Column(name="date_create", type="datetime")
-     * @Assert\NotBlank(message = "Campo Obligatorio")
-     * @Assert\NotDateTime(message = "Campo de fecha")
+     * 
+     * 
      */
     protected $date_create;
 
