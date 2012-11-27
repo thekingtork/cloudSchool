@@ -1,13 +1,12 @@
 {% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
 {% block title %}
-	MA1132
+	MA11321
 {% endblock %}
 {% block menu_principal %}
 	 <div class="cuerpoCentrado" id="contMetro">
 		<div id="ContAjax">
-<script type="text/javascript" src="{{ asset('javascripts/jquery.overlay.js') }}"></script>
-			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma1132/ma1132.css') }}"/> 
-			<div id="bloqueCgenerales">
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma11321/ma11321.css') }}"/> 
+			<div id="bloqueCgenerales" class="azul">
 				<div id="contenidoIzq">
 					<div class="botonRegresar">
 						{% block back %}
@@ -15,45 +14,46 @@
 						{% endblock %}
 					</div>
 					<div id="tituloApAn">
-						<p>Apertura de Inscripciones</p>
+						<p class="blancoFc">Apertura de Inscripciones</p>
+					</div>
+					<div id="contForm">
+						 <form action="{{ path('ma11321_update',{ 'id' : entity.id }) }}" method="post" {{ form_enctype(form) }}>
+						 	<div class="fila" id="anio">
+                                <p class="blancoFc textoEtq">Año</p>
+                                {{form_errors(form.anio_id)}}
+                                {{form_widget(form.anio_id)}}
+                            </div>
+                            <div class="fila" id="fechas">
+                                <p class="blancoFc textoEtq">Fecha de inicio</p>
+                                {{form_errors(form.inscripcion_inicio)}}
+                                {{form_widget(form.inscripcion_inicio)}}
+                            </div>
+                            <div class="fila" id="fechas">
+                                <p class="blancoFc textoEtq">Fecha de cierre</p>
+                                {{form_errors(form.inscripcion_final)}}
+                                {{form_widget(form.inscripcion_final)}}
+                            </div>
+                            {{ form_rest(form) }}
+                            <div id="botonesDow">
+                                <ul>
+                                    <li>
+                                        <button class="blancoFc botonesDw" type="submit">Guardar</button>
+                                    </li>
+                                    <li>
+                                        <input  class="blancoFc botonesDw" type="button" value="Limpiar" onClick="limpiaForm('#formularioInst form')">
+                                    </li>
+                                    <li>
+                                        <input  class="blancoFc botonesDw" type="button" value="Eliminar">
+                                    </li>
+                                </ul>
+                            </div>
+						</form>
 					</div>
 					
 				</div>
 				<div id="contenidoDer">
 					<div class="breadcumbr"><a href="{{ path('ma113') }}" class="ajax" >Ajustes del Sistema</a></div>
-					<div id="modAut">
-                    	<form action="{{ path('ma11321_update',{ 'id' : entity.id }) }}" method="post" {{ form_enctype(form) }}>
-                    		<div>
-                    			<p class="textoEtq">Año</p>
-                    			{{form_errors(form.anio_id)}}
-				    			{{form_widget(form.anio_id)}}
-                    		</div>
-                    		<div>
-                    			<p class="textoEtq">Fecha de inicio</p>
-                    			{{form_errors(form.inscripcion_inicio)}}
-				    			{{form_widget(form.inscripcion_inicio)}}
-                    		</div>
-                    		<div>
-                    			<p class="textoEtq">Fecha de cierre</p>
-                    			{{form_errors(form.inscripcion_final)}}
-				    			{{form_widget(form.inscripcion_final)}}
-                    		</div>
-                    		{{ form_rest(form) }}
-                    		<div id="botonesDow">
-									<ul>
-										<li>
-											<button class="botonesDw" type="submit">Guardar</button>
-										</li>
-										<li>
-											<input  class="botonesDw" type="button" value="Limpiar" onClick="limpiaForm('#formularioInst form')">
-										</li>
-										<li>
-											<input  class="botonesDw" type="button" value="Eliminar">
-										</li>
-									</ul>
-								</div>
-                    	</form>
-                    </div>
+					
                     <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
 				</div>
 			</div>
