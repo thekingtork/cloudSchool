@@ -18,6 +18,7 @@ use cloud\siteBundle\Entity\RangoCuantitativo;
 use cloud\siteBundle\Entity\Anio;
 use cloud\siteBundle\Entity\NivelesAcademicos;
 use cloud\siteBundle\Entity\Inscripcion;
+use cloud\siteBundle\Entity\ModeloCarnet;
 
 use cloud\siteBundle\Form\SedeType;
 use cloud\siteBundle\Form\InstitucionType;
@@ -199,7 +200,7 @@ class AdminController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('ma112_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('ma112'));
         }
 
          return $this->render('cloudBundle:Admin:ma112_edit.html.twig',array(
@@ -362,8 +363,24 @@ class AdminController extends Controller
      *
      * @Route("/sistema/otrosajustes/carnet", name="ma1133")
      */
-    public function ma1133Action()
-    {
+    public function ma1133Action() {
+        $request=$this->getRequest();
+        $modCarnet=new ModeloCarnet();
+        $em=$this->getDoctrine()->getEntityManager();
+        if($request->getMethod()=='POST'){
+            $modCarnet=$em->getRepository('cloudBundle:ModeloCarnet')->find(1);
+            /*if(!$modCarnet){
+                $modelo=$request->request->get('modelo');
+                $modCarnet->setModelo($modelo);
+                $em->persist($modCarnet);
+                $em->flush();
+            }*/
+            $modelo=$request->request->get('modelo');
+            $modCarnet->setModelo($modelo);
+            $em->persist($modCarnet);
+            $em->flush();
+            return new RedirectResponse($this->generateUrl('ma113'));
+        }
 
         return $this->render('cloudBundle:Admin:ma1133.html.twig');
     }

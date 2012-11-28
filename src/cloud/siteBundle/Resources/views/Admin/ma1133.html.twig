@@ -5,7 +5,14 @@
 {% block menu_principal %}
 	 <div class="cuerpoCentrado" id="contMetro">
 		<div id="ContAjax">
-			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma1133/ma1133.css') }}"/> 
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma1133/ma1133.css') }}"/>
+            
+            <style type="text/css">
+                .seleccion{
+                    border: dashed 2px white;
+                }
+            </style>
+             
 			<div id="bloqueCgenerales" class="blanco">
 				<div id="contenidoIzq">
 					<div class="botonRegresar">
@@ -26,11 +33,12 @@
 						<label>Generaci&oacute;n de Carnets</label>
 					</div>
 					<div id="content_1">
-						<div class="cajaCarnet carnetTipo1">
+						<div class="cajaCarnet carnetTipo1 modelo">
 							<div class="contIzq">
-								<img src="{{ asset('images/carnet.jpg') }}" alt="foto">
+                                <span style="display: none;">modelo1</span>
+								<img src="{{ asset('images/carnet.jpg') }}" alt="foto"/>
 								<div class="nombreEst">
-									<p class="texto"><span>Diana P.</span></br>Espa&ntilde;a Gonzalez</p>
+									<p class="texto"><span>Diana P.</span><br/>Espa&ntilde;a Gonzalez</p>
 								</div>
 							</div>
 							<div class="contDer">
@@ -51,25 +59,27 @@
 									</div>
 									<div class="filaNew">
 										<div class="codigo">
-											<img src="{{ asset('images/qr.png') }}" alt="Codigo">
+											<img src="{{ asset('images/qr.png') }}" alt="Codigo"/>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="cajaCarnet carnetTipo2">
+                        </span>
+						<div class="cajaCarnet carnetTipo2 modelo">
 							<div class="filaNew">
+                            <span style="display: none;">modelo2</span>
 								<p class="texto" id="TituloInst">Instituci&oacute;n educativa las Mercedes</p>
 							</div>
 							<div class="filaNew">
 								<div class="contIzq">
 									<div class="codigo">
-										<img src="{{ asset('images/qr.png') }}" alt="Codigo">
+										<img src="{{ asset('images/qr.png') }}" alt="Codigo"/>
 									</div>
 									<div class="infUser">
-										<img src="{{ asset('images/carnet2.jpg') }}" alt="foto">
+										<img src="{{ asset('images/carnet2.jpg') }}" alt="foto"/>
 										<div class="nombreEst">
-											<p class="texto"><span>Diana P.</span></br>Espa&ntilde;a Gonzalez</p>
+											<p class="texto"><span>Diana P.</span><br/>Espa&ntilde;a Gonzalez</p>
 										</div>
 									</div>
 								</div>
@@ -90,8 +100,9 @@
 								</div>
 							</div>
 						</div>
-						<div class="cajaCarnet carnetTipo3">
+						<div class="cajaCarnet carnetTipo3 modelo">
 							<div class="filaNew">
+                            <span style="display: none;">modelo3</span>
 								<p class="texto" id="TituloInst">
 									Instituci&oacute;n educativa las Mercedes
 								</p>
@@ -111,30 +122,31 @@
 									<p class="texto">1</p>
 								</div>
 								<div class="infUser">
-										<img src="{{ asset('images/carnet2.jpg') }}" alt="foto">
+										<img src="{{ asset('images/carnet2.jpg') }}" alt="foto"/>
 									<div class="nombreEst">
 										<p class="texto">
-											<span>Diana P.</span></br>Espa&ntilde;a Gonzalez
+											<span>Diana P.</span><br/>Espa&ntilde;a Gonzalez
 										</p>
 									</div>
 								</div>
 								<div class="codigo">
-									<img src="{{ asset('images/qr.png') }}" alt="Codigo">
+									<img src="{{ asset('images/qr.png') }}" alt="Codigo"/>
 								</div>
 							</div>
 						</div>
-						<div class="cajaCarnet carnetTipo4">
+						<div class="cajaCarnet carnetTipo4 modelo">
 							<div class="filaNew">
+                            <span style="display: none;">modelo4</span>
 								<p class="texto" id="TituloInst">
 									Instituci&oacute;n educativa las Mercedes
 								</p>
 							</div>
 							<div class="columnaInf">
 								<div class="infUser">
-									<img src="{{ asset('images/carnet.jpg') }}" alt="foto">
+									<img src="{{ asset('images/carnet.jpg') }}" alt="foto"/>
 									<div class="nombreEst">
 										<p class="texto">
-											<span>Diana</span></br>Espa&ntilde;a G..
+											<span>Diana</span><br/>Espa&ntilde;a G..
 										</p>
 									</div>
 									<div class="jornada">
@@ -152,7 +164,7 @@
 									</div>
 								</div>
 								<div class="codigo">
-									<img src="{{ asset('images/qr.png') }}" alt="Codigo">
+									<img src="{{ asset('images/qr.png') }}" alt="Codigo"/>
 								</div>
 							</div>
 						</div>
@@ -160,10 +172,10 @@
 					<div id="botonesDow">
 						<ul>
 							<li>
-								<button class="botonesDw azulFc" type="submit">Seleccionar</button>
+								<button class="botonesDw azulFc" type="submit" id="accionseleccionar">Seleccionar</button>
 							</li>
 							<li>
-								<input  class="botonesDw azulFc" type="button" value="Cancelar">
+								<input  class="botonesDw azulFc" type="button" value="Cancelar"/>
 							</li>
 						</ul>
 					</div>
@@ -190,6 +202,34 @@
 						});
 					});
 				})(jQuery);
+                $(document).ready(function(){
+                    $('#content_1').on('click','.modelo', function(){
+                        $('.modelo').removeClass('seleccion');
+                        $(this).addClass('seleccion');
+                                                                    
+                    })
+                    $('#botonesDow').on('click','#accionseleccionar',function(){
+                        var carnetSeleccionado=$('#content_1').find('.seleccion span').html();
+                        console.log(carnetSeleccionado);
+                        if(carnetSeleccionado==null){
+                            alert('Debe escoger un modelo');
+                        }else{
+                                $.ajax({
+                                url:"{{path('ma1133')}}",
+                                type:'POST',
+                                data:{modelo:carnetSeleccionado},
+                                success:function(){
+                                    //console.log('Exito en la peticion')
+                                    window.location="{{path('ma113')}}"
+                                    },
+                                error:function(){
+                                    alert('Error Ajax...')
+                                    }
+                                })
+                        }
+                        
+                    })
+                })
 			</script>
 	</div>
 	<div class="cuerpoCentrado" id="footer">

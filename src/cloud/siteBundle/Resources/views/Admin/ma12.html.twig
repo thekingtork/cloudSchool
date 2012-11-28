@@ -92,7 +92,9 @@
                 </div>
                 <div id="contenidoDer">
                     <div class="breadcumbr"><a href="{{ path('ma113') }}" class="ajax" >Ajustes del Sistema</a></div>
+                    
                     {% render "cloudBundle:Admin:formRangos" %}
+                    
                     <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
                 </div>
             </div>
@@ -111,17 +113,18 @@
     <script src="{{ asset('javascripts/jquery.js') }}"></script>
         <script>
             $(document).ready(function(){
-                $('#brang').submit(function(e){
-                    e.preventDefault();
-                    console.log("Inicio")
+                $('#brang').submit(function(){
+                    //e.preventDefault();
+                    var datos=$('#form_Rangos').serialize();
+                    console.log(datos);
                      $.ajax({
                         url:"{{ path('formrango_update') }}",
                         type:'POST',
-                        data: $(this).serialize(),
+                        data:datos,
                         success:function(){
                             //$('#rang input, #brang').attr('disabled','disabled');
                            console.log("success")
-                           alert('ok');
+                           
                            // alert("success")
                            // console.log($('#form_Rangos').serialize())
                         },
@@ -130,7 +133,7 @@
                             //alert("Error"+ e)
                         }
                     })
-                     //return false;
+                     return false;
                 })
             })
         </script>
