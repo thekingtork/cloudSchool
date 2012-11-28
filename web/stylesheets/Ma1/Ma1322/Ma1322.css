@@ -1,0 +1,92 @@
+#botonesDow{
+    margin: auto;
+    overflow: hidden;
+    width: 70%;
+}
+#botonesDow ul{
+    list-style: none;
+}
+#botonesDow ul li{
+    float: left;
+    margin: 0 20px;
+}
+.botonesDw{
+    color: rgb(0,174,239);
+    cursor: pointer;
+    font-family: "Segoe UI light";
+    font-size: 2em;
+    background-color: transparent;
+    border: none;
+}
+.fila{
+	float: left;
+	width: 100%;
+}
+.Inicio{
+	top: -10px;
+} 
+.nivel{
+    background: lightblue;
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    height: 180px;
+    margin: 10px 5px;
+    padding: 10px;
+    position: relative;
+    vertical-align: top;
+    width: 180px;
+	text-align: center;
+}
+.primera{
+	color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 8em;
+    line-height: 1;
+    text-align: center;
+}
+.textoBlanco{
+	color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 1.5em;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+}
+#content_1 .letra:nth-child(5n){
+    background: rgb(0,148,214);
+}
+#content_1 .letra:nth-child(5n+1){
+   background: rgb(166,215,246);
+}
+#content_1 .letra:nth-child(5n+2){
+    background: rgb(172,210,174);
+}
+#content_1 .letra:nth-child(5n+3){
+    background: rgb(129,196,206);
+}
+#content_1 .letra:nth-child(5n+4){
+    background: rgb(50,51,142);
+}
+#bloqueCgenerales{
+    height: 100%;
+    vertical-align: top;
+    overflow: hidden;
+    width: 100%;
+}
+#ContTitulo{
+    float: left;
+    margin: 42px 10px 0 35px;
+}
+#ContTitulo p {
+    color: rgb(255,255,255);
+    font-family: "Segoe UI light";
+    font-size: 32px;
+    line-height: 1;
+    text-align: center;
+}
+#content_1{
+    max-height: 244px;
+    overflow: hidden;
+    padding: 0 30px;
+}

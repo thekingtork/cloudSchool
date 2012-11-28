@@ -6,7 +6,24 @@
 	 <div class="cuerpoCentrado" id="contMetro">
 		<div id="ContAjax">
            <link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma1322/ma1322.css') }}"/>
-
+           <script >
+                (function($){
+                $(window).load(function(){
+                    $("#content_1").mCustomScrollbar({
+                        horizontalScroll:true,
+                        scrollButtons:{
+                            enable:false,
+                            scrollType:"continuous",
+                            scrollSpeed:20,
+                            scrollAmount:40
+                        },
+                        advanced:{
+                            autoExpandHorizontalScroll:true, 
+                        },
+                    });
+                });
+            })(jQuery);
+            </script>
 			<div id="bloqueCgenerales" class="azul">
                 <div class="fila">
 					<div class="botonRegresar">
@@ -37,7 +54,7 @@
                                 <div class="nivel letra">
                                     <a href="{{ path('ma13221',{ 'id':nivel.id }) }}" data-grado="{% if nivel.nivelId|length > 0 %}1{% else %}0{% endif %}">
                                         <p class="titulocajas primera">{{nivel.name}}</p>
-                                        <p class="signoUp textoBlanco">{{nivel.name}}</p>
+                                        <p class="signoUp">{{nivel.name}}</p>
                                     </a>
                                 </div>
                             {% endif %}
@@ -65,11 +82,6 @@
                             }
                     </script>
                     {% endif %}
-                </div>
-                <div class="fila">
-                    <div class="Inicio" >
-                        <a href="{{ path('ma') }}" class="ajax" >Inicio</a>
-                    </div>
                 </div>
                 <div class="overlay">
                     <div class="formOverlay lima">
@@ -111,9 +123,9 @@
                 </div>
 			</div>
 		</div>
-		    {% block notificaciones %}         
+		 {% block notificaciones %}         
                 {% include "cloudBundle::layout_notificaciones.html.twig" %}
-            {% endblock notificaciones %}
+             {% endblock notificaciones %}
 	</div>
     <div class="cuerpoCentrado" id="footer">
         {% block menu_colores %}
@@ -122,3 +134,4 @@
     </div>
     
 {% endblock %}
+{#Recuerden no joder los css Si desean usar los css cambien la linea 8 #}
