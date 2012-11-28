@@ -85,7 +85,7 @@
                         </div>
                         <div id="contBotones">
                             <button type="submit">Guardar</button>
-                            <a href="#" onclick="limpiaForm('#conf form'), limpiaForm('#form_Rangos')">Limpiar</a>
+                            <a href="javascript:void(0)" onclick="limpiaForm('#conf form'), limpiaForm('#form_Rangos')">Limpiar</a>
                             <a href="#">Cancelar</a>
                         </div>  
                     </form>
@@ -112,15 +112,16 @@
         <script>
             $(document).ready(function(){
                 $('#brang').submit(function(e){
-                    //e.preventDefault();
+                    e.preventDefault();
                     console.log("Inicio")
                      $.ajax({
                         url:"{{ path('formrango_update') }}",
                         type:'POST',
-                        data: $('#form_Rangos').serialize() ,
+                        data: $(this).serialize(),
                         success:function(){
                             //$('#rang input, #brang').attr('disabled','disabled');
                            console.log("success")
+                           alert('ok');
                            // alert("success")
                            // console.log($('#form_Rangos').serialize())
                         },
@@ -129,7 +130,7 @@
                             //alert("Error"+ e)
                         }
                     })
-                     return false;
+                     //return false;
                 })
             })
         </script>

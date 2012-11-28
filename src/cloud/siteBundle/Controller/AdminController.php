@@ -71,18 +71,25 @@ class AdminController extends Controller
      *
      * @Route("/sistema/ajustesgenerales/informacion", name="ma111")
      */
-    public function ma111Action()
-    {
+    public function ma111Action() {
+        $request=$this->getRequest();
         $em = $this->getDoctrine()->getManager();
         $user = $this->get('security.context')->getToken()->getUser();
-        $institucion = $em->getRepository('cloudBundle:Institucion')->find($user->getInstitucionId()); 
+        $institucion = $em->getRepository('cloudBundle:Institucion')->find($user->getInstitucionId());
+        $editForm = $this->createForm(new InstitucionType(), $institucion); 
 
         if (!$institucion) {
             throw $this->createNotFoundException('Unable to find Institucion institucion.');
         }
-
-        $editForm = $this->createForm(new InstitucionType(), $institucion);   
-
+        if($request->getMethod()=='POST'){
+            $editForm->bindRequest($request);
+            
+            if($editForm->isValid()){
+                $em->persist($institucion);
+                $em->flush();
+                return $this->redirect($this->generateUrl('ma11'));
+            }
+        }
         return $this->render('cloudBundle:Admin:ma111.html.twig', array('institucion'=>$institucion, 'edit_form'   => $editForm->createView()));
     }
 
