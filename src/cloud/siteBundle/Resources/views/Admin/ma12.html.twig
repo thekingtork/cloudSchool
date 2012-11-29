@@ -112,28 +112,45 @@
     </div>
     <script src="{{ asset('javascripts/jquery.js') }}"></script>
         <script>
+        
             $(document).ready(function(){
-                $('#brang').submit(function(){
-                    //e.preventDefault();
+                $('#Rangos_limite1,#Rangos_limite2,#Rangos_limite3,#Rangos_limite5').click(function(){
+                    if($('#cloud_sitebundle_ajustesevaluacion_escala option:selected').val()=='Escala Cuantitativa'){
+                    $('#btnEnviaRangos').css('display','block')
+                }
+                })
+                
+                $('#editar').click(function(){
+                    $(this).css('display','none')
+                    $('#btnEnviaRangos').css('display','block')
+                })
+                    
+                $('#cloud_sitebundle_ajustesevaluacion_escala').change(function(){
+                    var valor=$('#cloud_sitebundle_ajustesevaluacion_escala option:selected').val();
+                    if(valor=='Escala Cuantitativa'){
+                        $('#btnEnviaRangos').css('display','block')
+                    }else{
+                        $('#btnEnviaRangos').css('display','none')
+
+                    }
+                })
+                $('#form_Rangos').submit(function(e){
+                    e.preventDefault();
                     var datos=$('#form_Rangos').serialize();
-                    console.log(datos);
+                    //console.log(datos);
                      $.ajax({
                         url:"{{ path('formrango_update') }}",
                         type:'POST',
                         data:datos,
                         success:function(){
-                            //$('#rang input, #brang').attr('disabled','disabled');
-                           console.log("success")
-                           
-                           // alert("success")
-                           // console.log($('#form_Rangos').serialize())
+                           $('#btnEnviaRangos').css('display','none')
                         },
                         error:function(e){
                             console.log("Error"+ e)
                             //alert("Error"+ e)
                         }
                     })
-                     return false;
+                     //return false;
                 })
             })
         </script>

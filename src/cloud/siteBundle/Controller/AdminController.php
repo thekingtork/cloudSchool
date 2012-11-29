@@ -404,6 +404,7 @@ class AdminController extends Controller
                 $ae->setAcumula($form->get('acumula')->getData());
                 $em->persist($ae);
                 $em->flush();
+                return $this->redirect($this->generateUrl('ma1'));
             }
         }
         return $this->render('cloudBundle:Admin:ma12.html.twig', array('form'=>$form->createView()));
