@@ -5,7 +5,7 @@
 	width: 2.6%;
 }
 #menuL{
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 #menuL ul{
 	list-style: none;

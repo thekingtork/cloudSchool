@@ -11,26 +11,19 @@
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="content-type" content="text/html" />
     <meta name="author" content="Torker" />
-    <!-- Included CSS Files (Uncompressed) -->
-      <!--
-      <link rel="stylesheet" href="{{ asset('stylesheets/foundation.css') }}">
-      -->
-      
-      <!-- Included CSS Files (Compressed) -->
-      <link rel="stylesheet" href="{{ asset('stylesheets/foundation.min.css') }}"/>
-      <link rel="stylesheet" href="{{ asset('stylesheets/app.css') }}"/> 
-      <link rel="stylesheet" href="{{ asset('stylesheets/normalize.css') }}"/> 
-      <link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma111/jquery.mCustomScrollbar.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('stylesheets/foundation.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('stylesheets/app.css') }}"/> 
+    <link rel="stylesheet" href="{{ asset('stylesheets/normalize.css') }}"/> 
+    <link rel="stylesheet" type="text/css" href="{{ asset('stylesheets/ipad_horizontal.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('stylesheets/ipad_vertical.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma111/jquery.mCustomScrollbar.css') }}"/>
       {% block estilos %} 
       {% endblock %}
-      <script src="{{ asset('javascripts/jquery.js') }}"></script>
-      <script src="{{ asset('javascripts/jquery-ui.min.js') }}"></script>
-      <!-- mousewheel plugin -->
-      <script src="{{ asset('javascripts/scroll/jquery.mousewheel.min.js') }}"></script>
-      <!-- custom scrollbars plugin -->
-      <script src="{{ asset('javascripts/scroll/jquery.mCustomScrollbar.js') }}"></script>
-      <script src="{{ asset('javascripts/modernizr.foundation.js') }}"></script>
-      <!--     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> -->
+    <script src="{{ asset('javascripts/jquery.js') }}"></script>
+    <script src="{{ asset('javascripts/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('javascripts/scroll/jquery.mousewheel.min.js') }}"></script>
+    <script src="{{ asset('javascripts/scroll/jquery.mCustomScrollbar.js') }}"></script>
+    <script src="{{ asset('javascripts/modernizr.foundation.js') }}"></script>
       <script>
     var objeto_ajax;
         $(window).load( function(){

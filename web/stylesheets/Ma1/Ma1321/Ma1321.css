@@ -24,7 +24,10 @@
 }
 .Inicio{
 	top: 0px;
-} 
+}
+.overlay { 
+	height:58.3%;
+}
 .nivel{
     background: lightblue;
     cursor: pointer;

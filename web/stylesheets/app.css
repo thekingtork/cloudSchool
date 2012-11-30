@@ -88,7 +88,8 @@ form p input{
 }
 header{
     border-bottom: solid 4px #b1cd49;
-    background: #41763c url('../images/fondo_header.jpg') center 0 no-repeat fixed;
+    background: #41763c;
+   /* background: #41763c url('../images/fondo_header.jpg') center 0 no-repeat fixed;*/
     max-height: 200px;
 }
 .textura{

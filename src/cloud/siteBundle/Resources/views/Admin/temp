@@ -1,6 +1,6 @@
 {% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
 {% block title %}
-    MA1322
+    MA1321-Tork
 {% endblock %}
 {% block menu_principal %}
      <div class="cuerpoCentrado" id="contMetro">
@@ -18,7 +18,7 @@
                             scrollAmount:40
                         },
                         advanced:{
-                            autoExpandHorizontalScroll:true, 
+                            autoExpandHorizontalScroll:true,
                         },
                     });
                 });
@@ -42,6 +42,7 @@
                             border: solid 4px white;
                             cursor: pointer;
                             display: inline-block;
+
                             float: left;
                             height: 200px;
                             margin: 10px 0;
@@ -49,9 +50,8 @@
                             position: relative;
                             vertical-align: top;
                             width: 200px;
-
+                            
                             text-align: center;
-
                         }
 
                         #content_1 .letra:nth-child(5n){
@@ -72,22 +72,26 @@
                         #content_1 .letra:nth-child(5n+4){
                             background: rgb(50,51,142);
                         }
-
                     </style>
                         <div id="content_1" class="mCustomScrollbar _mCS_1">
                                 {% for nivel in niveles %}
-                                   {% if nivel.name != "Nivel" %}
+                                    {% if nivel.name == "Nivel" %}
+                                        <div class="nivel">
+                                            <a href="{{ path('ma13211', {'id': nivel.id }) }}">
+                                                    <p class="signoUp">+</p>
+                                                    <p class="titulocajas">{{nivel.name}}</p>
+                                            </a>
+                                        </div>
+                                        {% else %}
                                             <div class="nivel letra">
-                                                <a href="{{ path('ma13221',{ 'id':nivel.id }) }}" data-grado="{% if nivel.nivelId|length > 0 %}1{% else %}0{% endif %}
-                                                ">
+                                                <a href="{{ path('ma13211', {'id': nivel.id }) }}">
                                                     <p class="titulocajas primera">{{nivel.name}}</p>
                                                     <p class="signoUp">{{nivel.name}}</p>
-                                                </a>
-                                            </div>
+                                            </a>
+                                        </div>
                                     {% endif %}
                                 {% endfor %}
-                        </div>
-                         <script type="text/javascript">
+                                <script type="text/javascript">
                                     $(document).on("ready",iniciar);
 
                                     function iniciar(){
@@ -97,21 +101,22 @@
                                             $(this).html( nombre[0] )
                                        })
 
-                                       $(".nivel a").click( function(e){
+                                        $(".nivel a").click( function(e){
                                             e.preventDefault();
-                                            console.log($(this).attr("data-grado"))
-                                            if($(this).attr("data-grado") == 1)
-                                            {
-                                                window.location.href = $(this).attr("href");
-                                            }
-                                            else
-                                            {
-                                                $(".overlay").css("display","block")
-                                                $(".overlay form").attr("action", $(this).attr("href") );
-                                            }
-                                       })
+                                             $.ajax(
+                                                   {
+                                                     url: $(this).attr("href"),
+                                                      type: 'POST',
+                                                      success: function (r) {
+                                                        $(".overlay").html(r);
+                                                         $('.overlay').css('display','block');
+                                                    } 
+                                        
+                                                  });
+                                        })
                                     }
                                 </script>
+                        </div>
                     {% endif %}
                 </div>
                 <div id="contenidoDer">
@@ -121,30 +126,6 @@
                     <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
                 </div>
                 <div class="overlay">
-                    <div class="formOverlay lima">
-                        <form action="#" method="post">
-                            <div class="linea">
-                                <div class="titulo">
-                                    <p>Ingresar el numero de grados</p>
-                                </div>
-                            </div>
-                            <div class="linea">
-                                <div class="entrada">
-                                   <input type="text" name="numsede">
-                                </div>
-                            </div>
-                            <div class="linea">
-                            </div>
-                        </form>
-                    </div>
-                    <script>
-                        $(document).ready(function(){
-                           
-                        $(".ocultarOverlay").click( function(){
-                          $(".overlay").css("display","none")
-                        })
-                        })
-                    </script>
                 </div>
             </div>
         </div>
@@ -154,4 +135,3 @@
     </div>
     
 {% endblock %}
-{#Recuerden no joder los css Si desean usar los css cambien la linea 8 #}
