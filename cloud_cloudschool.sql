@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 26-11-2012 a las 00:35:06
+-- Tiempo de generación: 01-12-2012 a las 14:15:21
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -1634,7 +1634,15 @@ CREATE TABLE IF NOT EXISTS `perfil_estudiante` (
   UNIQUE KEY `UNIQ_A34B4FFBA76ED395` (`user_id`),
   KEY `IDX_A34B4FFB58BC1BE0` (`municipio_id`),
   KEY `IDX_A34B4FFB2E595373` (`tipodocumento_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+
+--
+-- Volcado de datos para la tabla `perfil_estudiante`
+--
+
+INSERT INTO `perfil_estudiante` (`id`, `municipio_id`, `tipodocumento_id`, `user_id`, `nombre`, `apellido`, `fecha_nacimiento`, `direccion`, `lugar_nacimiento`, `nmr_documento`, `de`, `sexo`, `email`, `barrio`, `estrato`, `telefono`, `celular`, `salud`, `observaciones_personal`, `colegio_procedencia`, `sede_procedencia`, `jornada_procedencia`, `nivel_procedencia`, `curso_procedencia`, `observaciones_academica`, `nmrPersonas`, `casa_direccion`, `telefono_familia`, `vive_con`, `nmr_hermanos`, `celular_familia`, `datos_madre`, `cc_madre`, `datos_padre`, `cc_padre`, `datos_acudiente`, `cc_acudiente`, `direccion_familia`) VALUES
+(4, 1, 1, 7, 'example', 'example', '2012-11-30 00:00:00', 'example', 'example', '123', 'example', 'f', 'example@example.example', 'example', 1, 'example', '123456', 'example', 'example', 'example', 'example', 'example', 'example', 'example', 'example', 2, 'example', 'example', 'example', 1, 'example', 'example', 'example', 'example', 'example', 'example', 'example', 'example'),
+(5, 1, 1, 8, 'Docente', 'Docente', '2012-11-30 00:00:00', 'Docente', 'Docente', '12345', 'Docente', 'm', 'Docente@Docente.Docente', 'Docente', 2, 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 2, 'Docente', 'Docente', 'Docente', 2, 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente');
 
 -- --------------------------------------------------------
 
@@ -1793,7 +1801,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_8D93D649F85E0677` (`username`),
   KEY `IDX_8D93D649B239FBC6` (`institucion_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
 
 --
 -- Volcado de datos para la tabla `user`
@@ -1801,7 +1809,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`id`, `username`, `password`, `salt`, `nombre`, `apellido`, `avatar_url`, `institucion_id`) VALUES
 (1, 'cloudadmin', 'y7q1ig71pslTX3iWrqgQv9SDGZYZFm6dJbajzTeYy26CM5BqPSzO2ZSdR19lwdkBW197/+J6YXWlCJQPskKiWQ==', '7eb3c4430aa57bdbd36710028e0089ef', '', '', '', NULL),
-(3, 'ZOCPKOZZLO', 'BrihVuMtkhSXuKioci4RuWwuCEgbrnZ+/AFnSEjuFdJgW//W3sxRRKO3XUXoLJ2WkjeBNGa5I0O2wRlu0Z0eIw==', '58ffa8a4694ac5ffc7fea4b1f8bd0350', 'Amado', 'Ramos', 'imagen.jpg', 1);
+(3, 'ZOCPKOZZLO', 'BrihVuMtkhSXuKioci4RuWwuCEgbrnZ+/AFnSEjuFdJgW//W3sxRRKO3XUXoLJ2WkjeBNGa5I0O2wRlu0Z0eIw==', '58ffa8a4694ac5ffc7fea4b1f8bd0350', 'Amado', 'Ramos', 'imagen.jpg', 1),
+(7, 'MDO', 'KKx8inoGUZ4uWst1QCZDY65h12TGr3ZF9l+JoCNzdD1BPrWvm/oVGk0WEXWc28YmzrVMXMAP3vEb48qc4eXpqA==', '2baa5cbec08b336b1ddfa00ac12b0a0a', 'example', 'example', 'images.png', 1),
+(8, 'MDOJC', 'lispP26i4ncLGV2bMSn4pVJdu8f6LZ6ot7q8truXJLOMKZYK1erVxytROG4U+SA22uG4fw/GqBmJxvTmi0iygA==', 'c47313b2eec1aec1dd1599beab02ff87', 'Docente', 'Docente', 'images.png', 1);
 
 -- --------------------------------------------------------
 
@@ -1823,7 +1833,9 @@ CREATE TABLE IF NOT EXISTS `user_role` (
 
 INSERT INTO `user_role` (`user_id`, `role_id`) VALUES
 (1, 3),
-(3, 2);
+(3, 2),
+(7, 1),
+(8, 4);
 
 --
 -- Restricciones para tablas volcadas
@@ -1896,9 +1908,9 @@ ALTER TABLE `notificaciones`
 -- Filtros para la tabla `perfil_estudiante`
 --
 ALTER TABLE `perfil_estudiante`
-  ADD CONSTRAINT `FK_A34B4FFBA76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `FK_A34B4FFB2E595373` FOREIGN KEY (`tipodocumento_id`) REFERENCES `tipo_documento` (`id`),
-  ADD CONSTRAINT `FK_A34B4FFB58BC1BE0` FOREIGN KEY (`municipio_id`) REFERENCES `municipio` (`id`);
+  ADD CONSTRAINT `FK_A34B4FFB58BC1BE0` FOREIGN KEY (`municipio_id`) REFERENCES `municipio` (`id`),
+  ADD CONSTRAINT `FK_A34B4FFBA76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
 -- Filtros para la tabla `periodo`
