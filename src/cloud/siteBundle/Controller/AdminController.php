@@ -376,13 +376,27 @@ class AdminController extends Controller
                 $em->flush();
             }*/
             $modelo=$request->request->get('modelo');
+            $codigo=$request->request->get('codigo');
             $modCarnet->setModelo($modelo);
+            $modCarnet->setDismodelo($codigo);
             $em->persist($modCarnet);
             $em->flush();
-            return new RedirectResponse($this->generateUrl('ma113'));
+            return new RedirectResponse($this->generateUrl('ma11331'));
         }
 
         return $this->render('cloudBundle:Admin:ma1133.html.twig');
+    }
+    
+    /**
+     * 
+     * @Route("/sistema/otrosajustes/generarcarnet", name="ma11331")
+     * 
+     */
+    public function ma11331Action(){
+        $em=$this->getDoctrine()->getEntityManager();
+        $modCarnet=$em->getRepository('cloudBundle:ModeloCarnet')->find(1);
+        
+        return $this->render('cloudBundle:Admin:ma11331.html.twig', array('modCarnet'=>$modCarnet));
     }
 
     /**

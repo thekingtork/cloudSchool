@@ -10,8 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class ModeloCarnet
-{
+class ModeloCarnet{
     /**
      * @var integer $id
      *
@@ -27,6 +26,13 @@ class ModeloCarnet
      * @ORM\Column(name="modelo", type="string", length=50)
      */
     private $modelo;
+    
+    /**
+     * @var string $modelo
+     *
+     * @ORM\Column(name="dismodelo", type="text")
+     */
+    private $dismodelo;
 
 
     /**
@@ -60,5 +66,28 @@ class ModeloCarnet
     public function getModelo()
     {
         return $this->modelo;
+    }
+
+    /**
+     * Set dismodelo
+     *
+     * @param string $dismodelo
+     * @return ModeloCarnet
+     */
+    public function setDismodelo($dismodelo)
+    {
+        $this->dismodelo = $dismodelo;
+    
+        return $this;
+    }
+
+    /**
+     * Get dismodelo
+     *
+     * @return string 
+     */
+    public function getDismodelo()
+    {
+        return $this->dismodelo;
     }
 }

@@ -1,6 +1,6 @@
 {% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
 {% block title %}
-	MA1133
+	MA11331
 {% endblock %}
 {% block menu_principal %}
 	 <div class="cuerpoCentrado" id="contMetro">
@@ -22,6 +22,7 @@
 					</div>
 					<div id="tituloApAn">
 						<p class="azulFc">Seleccionar un modelo de carnet para generar</p>
+                        {{modCarnet.modelo}}
 					</div>
 					<div class="InicioBlue" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
 				</div>
@@ -33,6 +34,7 @@
 						<label>Generaci&oacute;n de Carnets</label>
 					</div>
 					<div id="content_1">
+                        {%if modCarnet.modelo =='modelo1'%}
 						<div class="cajaCarnet carnetTipo1 modelo">
 							<div class="contIzq">
                                 <span style="display: none;">modelo1</span>
@@ -65,7 +67,9 @@
 								</div>
 							</div>
 						</div>
-                        </span>
+                        {% endif %}
+                        
+                        {%if modCarnet.modelo =='modelo2'%}
 						<div class="cajaCarnet carnetTipo2 modelo">
 							<div class="filaNew">
                             <span style="display: none;">modelo2</span>
@@ -100,6 +104,8 @@
 								</div>
 							</div>
 						</div>
+                        {%endif%}
+                        {%if modCarnet.modelo =='modelo3'%}
 						<div class="cajaCarnet carnetTipo3 modelo">
 							<div class="filaNew">
                             <span style="display: none;">modelo3</span>
@@ -134,6 +140,8 @@
 								</div>
 							</div>
 						</div>
+                        {%endif%}
+                        {%if modCarnet.modelo =='modelo4'%}
 						<div class="cajaCarnet carnetTipo4 modelo">
 							<div class="filaNew">
                             <span style="display: none;">modelo4</span>
@@ -168,11 +176,12 @@
 								</div>
 							</div>
 						</div>
+                        {%endif%}
 					</div>
 					<div id="botonesDow">
 						<ul>
 							<li>
-								<button class="botonesDw azulFc" type="submit" id="accionseleccionar">Seleccionar</button>
+								<button class="botonesDw azulFc" type="submit" id="">Seleccionar</button>
 							</li>
 							<li>
 								<input  class="botonesDw azulFc" type="button" value="Cancelar"/>

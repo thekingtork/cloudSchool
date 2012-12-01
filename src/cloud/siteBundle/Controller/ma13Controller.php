@@ -273,8 +273,6 @@ class ma13Controller extends Controller
         return $this->render('cloudBundle:Admin:ma1321.html.twig', array('niveles'=>$niveles));
     }
     
-    public function ma11331Action(){
-        return $this->render('cloudBundle:Admin:ma11331.html.twig', array());
-    }
+    
 
 }
