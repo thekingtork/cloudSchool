@@ -7,8 +7,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+
 use cloud\siteBundle\Entity\PerfilEstudiante;
+use cloud\siteBundle\Entity\User;
+
 use cloud\siteBundle\Form\PerfilEstudianteType;
+use cloud\siteBundle\Form\UserType;
 
 /**
  * PerfilEstudiante controller.
@@ -85,13 +89,45 @@ class PerfilEstudianteController extends Controller
     public function createAction(Request $request)
     {
         $entity  = new PerfilEstudiante();
+        $entity_user  = new User();
         $form = $this->createForm(new PerfilEstudianteType(), $entity);
         $form->bind($request);
 
         if ($form->isValid()) {
+            
             $em = $this->getDoctrine()->getManager();
+            
+            $ti = $form->get('nmr_documento')->getData();
+            $cod = array('A','M','D','O','J','C','E','L','F','B');
+            $username = "";
+            for ($i=0; $i < strlen($ti); $i++)  
+                $username .= $cod[$ti[$i]];
+
+            $encoder = new \Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder('sha512', true, 10);
+
+            $entity_user->setNombre($form->get('nombre')->getData());
+            $entity_user->setApellido($form->get('apellido')->getData());
+            $entity_user->setAvatarUrl("images.png");
+            $entity_user->setUsername($username);
+            $entity_user->setSalt(md5(time()));
+            
+            $password = $encoder->encodePassword($ti, $entity_user->getSalt());
+            
+            $entity_user->setPassword($password);
+            $entity_role = $em->getRepository('cloudBundle:Role')->find(1);
+            $entity_user->addUserRole( $entity_role );
+            $entity_user->setInstitucionId($em->getRepository('cloudBundle:Institucion')->find(1));
+            
+
+            $em->persist($entity_user);
+            $em->flush();
+
+            $entity->setUserId($entity_user);
+
             $em->persist($entity);
             $em->flush();
+
+
 
             return $this->redirect($this->generateUrl('admincloud_perfilestudiante_show', array('id' => $entity->getId())));
         }

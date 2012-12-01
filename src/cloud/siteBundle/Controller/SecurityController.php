@@ -52,10 +52,10 @@ class SecurityController extends Controller
             return $this->redirect($this->generateUrl('ma'));
         else
         if( true === $this->get('security.context')->isGranted('ROLE_DOCENTE')) 
-            return $this->redirect($this->generateUrl('admin'));
+            return $this->redirect($this->generateUrl('md'));
         else
         if( true === $this->get('security.context')->isGranted('ROLE_USER')) 
-            return $this->redirect($this->generateUrl('admin'));
+            return $this->redirect($this->generateUrl('me'));
         
         return $this->redirect($this->generateUrl('login'));
     }

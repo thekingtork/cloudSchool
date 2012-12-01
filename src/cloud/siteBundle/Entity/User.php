@@ -21,19 +21,18 @@ class User implements UserInterface
 
     /**
     * @ORM\Column(type="string", length=255, unique=true)
-    * @Assert\NotBlank(message = "Campo Obligatorio")
+    * @Assert\NotBlank(message = "Username Campo Obligatorio")
     */
     protected $username;
 
     /**
      * @ORM\Column(name="password", type="string", length=255)
-     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\NotBlank(message = "Pass Campo Obligatorio")
      */
     protected $password;
 
     /**
      * @ORM\Column(name="salt", type="string", length=255)
-     * @Assert\NotBlank(message = "Campo Obligatorio")
      */
     protected $salt;
 
@@ -50,13 +49,13 @@ class User implements UserInterface
 
      /**
      * @ORM\Column(name="nombre", type="string", length=255)
-     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\NotBlank(message = "Nombre Campo Obligatorio")
      */
     protected $nombre;
 
     /**
      * @ORM\Column(name="apellido", type="string", length=255)
-     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\NotBlank(message = "Apellido Campo Obligatorio")
      */
     protected $apellido;
 
@@ -68,13 +67,12 @@ class User implements UserInterface
     /**
      * @ORM\ManyToOne(targetEntity="Institucion")
      * @ORM\JoinColumn(name="institucion_id", referencedColumnName="id")
-     * @Assert\NotNull(message = "Campo Obligatorio")
+     * @Assert\NotNull(message = "Institucion Campo Obligatorio")
      */
     protected $institucion_id;
 
      /**
      * @ORM\OneToMany(targetEntity="Notificaciones", mappedBy="id")
-     * @Assert\NotNull(message = "Campo Obligatorio")
      */
     protected $notificacion_id;
    
@@ -88,7 +86,7 @@ class User implements UserInterface
      * @param string $nombre
      * @return Perfil
      */
-    public function setNombre($nombre)
+    public function setNombre($nombre) 
     {
         $this->nombre = $nombre;
     

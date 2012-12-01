@@ -13,12 +13,12 @@ class PerfilEstudianteType extends AbstractType
         $builder
             ->add('nombre')
             ->add('apellido')
-            ->add('fecha_nacimiento')
+            ->add('fecha_nacimiento', 'date', array(    'widget' => 'single_text',    'format' => 'yyyy-MM-dd'))
             ->add('direccion')
             ->add('lugar_nacimiento')
             ->add('nmr_documento')
             ->add('de')
-            ->add('sexo')
+            ->add('sexo','choice',array('label'=>'Sexo: ','choices'=>array('f'=>'Femenino','m'=>'Masculino')))
             ->add('email')
             ->add('barrio')
             ->add('estrato')
@@ -47,7 +47,6 @@ class PerfilEstudianteType extends AbstractType
             ->add('direccion_familia')
             ->add('municipio_id')
             ->add('tipodocumento_id')
-            ->add('user_id')
         ;
     }
 

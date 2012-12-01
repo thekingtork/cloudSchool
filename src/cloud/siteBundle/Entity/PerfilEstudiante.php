@@ -22,19 +22,19 @@ class PerfilEstudiante
 
      /**
      * @ORM\Column(name="nombre", type="string", length=255)
-     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\NotBlank(message = "nombre Campo Obligatorio")
      */
     protected $nombre;
 
     /**
      * @ORM\Column(name="apellido", type="string", length=255)
-     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\NotBlank(message = "apellido Campo Obligatorio")
      */
     protected $apellido;
 
     /**
      * @ORM\Column(name="fecha_nacimiento", type="datetime")
-     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\NotBlank(message = "fecha Campo Obligatorio")
      * @Assert\DateTime(message = "Campo de Fecha")
      */
     protected $fecha_nacimiento;
@@ -42,37 +42,37 @@ class PerfilEstudiante
     /**
      * @ORM\ManyToOne(targetEntity="Municipio", inversedBy="id")
      * @ORM\JoinColumn(name="municipio_id", referencedColumnName="id")
-     * @Assert\NotNull(message = "Campo Obligatorio")
+     * @Assert\NotNull(message = "municipio Campo Obligatorio")
      */
     protected $municipio_id;
 
     /**
      * @ORM\Column(name="direccion", type="string", length=255)
-     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\NotBlank(message = "direccion Campo Obligatorio")
      */
     protected $direccion;
 
     /**
      * @ORM\Column(name="lugar_nacimiento", type="string", length=255)
-     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\NotBlank(message = "lugar nacimiento Campo Obligatorio")
      */
     protected $lugar_nacimiento;
 
     /**
      * @ORM\ManyToOne(targetEntity="TipoDocumento")
      * @ORM\JoinColumn(name="tipodocumento_id", referencedColumnName="id")
-     * @Assert\NotNull(message = "Campo Obligatorio")
+     * @Assert\NotNull(message = "tipo documento Campo Obligatorio")
      */
     private $tipodocumento_id;
 
     /**
      * @ORM\Column(name="nmr_documento", type="string", length=255)
-     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\NotBlank(message = "nmr documento Campo Obligatorio")
      */
     protected $nmr_documento;
      /**
      * @ORM\Column(name="de", type="string", length=255)
-     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\NotBlank(message = " de Campo Obligatorio")
      */
     protected $de;
 
@@ -80,57 +80,56 @@ class PerfilEstudiante
 
     /**
      * @ORM\Column(name="sexo", type="string", length=255)
-     * @Assert\NotNull(message = "Campo Obligatorio")
+     * @Assert\NotNull(message = "sexo Campo Obligatorio")
      */
     protected $sexo;
 
      /**
      * @ORM\Column(name="email", type="string", length=255)
-     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\NotBlank(message = "email Campo Obligatorio")
      * @Assert\Email(message = "Correo incorrecto")
      */
     protected $email;
 
      /**
      * @ORM\Column(name="barrio", type="string", length=255)
-     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\NotBlank(message = "barrio Campo Obligatorio")
      */
     protected $barrio;
 
      /**
      * @ORM\Column(name="estrato", type="integer")
-     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\NotBlank(message = "estrato Campo Obligatorio")
      */
     protected $estrato;
 
      /**
      * @ORM\Column(name="telefono", type="string", length=255)
-     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\NotBlank(message = "telefono Campo Obligatorio")
      */
     protected $telefono;
 
      /**
      * @ORM\Column(name="celular", type="string", length=255)
-     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\NotBlank(message = "celular Campo Obligatorio")
      */
     protected $celular;
 
      /**
      * @ORM\Column(name="salud", type="string", length=255)
-     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\NotBlank(message = "salud Campo Obligatorio")
      */
     protected $salud;
 
      /**
      * @ORM\Column(name="observaciones_personal", type="text")
-     * @Assert\NotBlank(message = "Campo Obligatorio")
+     * @Assert\NotBlank(message = "salud Campo Obligatorio")
      */
     protected $observaciones_personal;
 
     /**
      * @ORM\OneToOne(targetEntity="User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     * @Assert\NotNull(message = "Campo Obligatorio")
      */
     protected $user_id;
 
