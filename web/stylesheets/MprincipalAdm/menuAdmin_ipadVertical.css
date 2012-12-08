@@ -1,27 +1,119 @@
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+	#confSitema{
+		height: 270px;
+		width: 394px;
+	}
+	.ContenidoPrincipal{
+		width: 90%;
+	}
+	.boxMPA{
+		margin: 0;
+	}
+	.caja2MPA:nth-child(3n+2){
+		height: 130px;
+		margin-left: 10px;
+		width: 200px;
+	}
+	.caja2MPA:nth-child(3n+3){
+		height: 130px;
+		margin: 10px 0 0 10px;
+		width: 200px;
+	}
 	#confSitema  p{
-	   font-size: 1.5em;
+	   font-size: 3em;
 	   margin-top: 0;
 	   position: relative;
 	   top: 143px;
 	}
 	#Estaditicas a p{
-	   font-size: 1.5em;
+	   font-size: 2.5em;
 	   margin-top: 0;
 	   position: relative;
 	   top: 50px;
 	}
 	#planEstudios a p{
-	    font-size: 1.5em;
-	    top: 37px;
+	    font-size: 2.4em;
+	    top: 20px;
+	}
+	#admPersonas{
+		margin-right: 10px;
+		height: 135px;
+		width: 194px;
+	}
+	#admPersonas a p{
+		font-size: 1.81em;
+	}
+	#admacademica{
+		margin: 10px 10px 0 0;
+		height: 135px;
+		width: 194px;
 	}
 	#admacademica a p{
-	   font-size: 2.2em;
-	   margin: 56px auto;
+	   font-size: 1.81em;
+	   margin: 30px auto;
+	}
+	#obsevaciones {
+		margin: 10px 10px 0 0;
+		height: 135px;
+		width: 190px;
 	}
 	#obsevaciones a p{
-	   font-size: 1.4em;
-	   margin-top: 0;
+	   font-size: 1.81em;
+	   margin-top: 2px;
 	   top: 28px;
+	}
+	#organizador{
+		height: 135px;
+		margin-top: 10px;
+		width: 200px;
+	}
+	#organizador p{
+		font-size: 1.81em;
+	  	margin-top: 2px;
+	}
+	#tutoriales{
+		margin-right: 10px;
+		width: 297px;
+	}
+	#aulaVirtual{
+		width: 297px;
+	}
+	#perfil{
+		height: 135px;
+		width: 400px;
+	}
+	#perfil a p{
+		margin-top: 15px;
+		font-size: 5em;
+	}
+	#CsuperiorDer{
+		float: left;
+		height: 135px;
+		width: 100%;
+	}
+	#CinferiorIzq {
+		float: left;
+		height: 135px;
+		margin-top: 10px;
+		width: 100%;
+	}
+	#CinferiorDer {
+		float: left;
+		height: 135px;
+		margin-top: 10px;
+		width: 100%;
+	}
+	#CsuperiorIzq{
+		float: left;
+		height: 270px;
+		width: 100%;
+	}
+	#tutoriales a p{
+		font-size: 3.5em;
+		margin-top: 20px;
+	}
+	#aulaVirtual a p{
+		font-size: 3em;
+		margin-top: 20px;
 	}
 }

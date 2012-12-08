@@ -1,11 +1,9 @@
 {% block menu_principal %}
-    {% block estilos %} 
-
-    {% endblock %}
 	<div class="cuerpoCentrado" id="contMetro">
     <div id="ContAjax">
         <link rel="stylesheet" href="{{ asset('stylesheets/MprincipalAdm/menuAdmin.css') }}"/> 
-        <link rel="stylesheet" href="{{ asset('stylesheets/MprincipalAdm/menuAdmin_ipadVertical.css') }}"/> 
+        <link rel="stylesheet" type="text/css" media="all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait)" href="{{ asset('stylesheets/MprincipalAdm/menuAdmin_ipadVertical.css') }}"/> 
+        <link rel="stylesheet" type="text/css" media="all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape)" href="{{ asset('stylesheets/MprincipalAdm/menuAdmin_ipadHorizontal.css') }}"/> 
     	<div id="CsuperiorIzq">
     	  	<a href="{{ path('ma1') }}" class="ajax">
                 <div id="confSitema" class="boxMPA caja1MPA azul">

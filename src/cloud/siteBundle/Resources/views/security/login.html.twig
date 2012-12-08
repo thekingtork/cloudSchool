@@ -19,10 +19,8 @@
       <!-- Included CSS Files (Compressed) --> 
       <link rel="stylesheet" href="{{ asset('stylesheets/foundation.min.css') }}"/>
       <link rel="stylesheet" href="{{ asset('stylesheets/app.css') }}"/> 
-      <link rel="stylesheet" href="{{ asset('stylesheets/767px.css') }}"/>
-      <link rel="stylesheet" href="{{ asset('stylesheets/ipad.css') }}"/>
-      <link rel="stylesheet" href="{{ asset('stylesheets/mobilG.css') }}"/>
-      <link rel="stylesheet" href="{{ asset('stylesheets/mobilS.css') }}"/>
+      <link rel="stylesheet" href="{{ asset('stylesheets/ipad_horizontal.css') }}"/>
+      <link rel="stylesheet" href="{{ asset('stylesheets/ipad_vertical.css') }}"/>
       <script src="{{ asset('javascripts/modernizr.foundation.js') }}"></script>
     
       <!-- IE Fix for HTML5 Tags -->
@@ -40,15 +38,11 @@
             </div>
        </div>
        <div id="contenedorFront">
-            {% block mod_autenticacion %}
-              {% include "cloudBundle::mod_autenticion.html.twig" %}
-            {% endblock %}
          <div id="bloqueLogin">
             {% if error %}
             <div>
                 {{ error.message }}
             </div>{% endif %}
-
             <form action="{{ path('login_check') }}" method="post">
                 <ol>
                     <li><label for="username">Usuario:</label><input id="username" type="text" name="_username" value="{{ last_username }}"/> </li>
@@ -56,7 +50,12 @@
                 </ol>
                  <p><input type="submit" name="login" value="Ingresar"/><input type="button" value="Limpiar" /></p>                
             </form>
-       </div>
+        </div>
+        <div id="generadorCode">
+            {% block mod_autenticacion %}
+              {% include "cloudBundle::mod_autenticion.html.twig" %}
+            {% endblock %}
+        </div>
        </div>
 </body>
 </html>

@@ -21,7 +21,7 @@ class PeriodoController extends Controller
      * Lists all Periodo entities.
      *
      * @Route("/", name="admincloud_periodo")
-     * @Template() 
+     * @Template()
      */
     public function indexAction()
     {

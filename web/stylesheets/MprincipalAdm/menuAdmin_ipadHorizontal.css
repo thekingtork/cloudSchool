@@ -1,0 +1,95 @@
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+	#admacademica{
+		height: 185px;
+		margin: 0 5px 0 0;
+	}
+	#admacademica a p{
+	   font-size: 1.8em;
+	   margin: 50px 7px;
+	}
+	#admPersonas{
+		margin: 0 5px 0 0;
+		width: 150px;
+	}
+	#CsuperiorIzq{
+		float: left;
+		height: 185px;
+		width: 280px;
+	}
+	#CsuperiorDer{
+		float: left;
+		height: 185px;
+		width: 323px;
+	}
+	#CinferiorIzq {
+		margin-top: 5px;
+		float: left;
+		width: 280px;
+	}
+	#CinferiorDer {
+		width: 323px;
+	}
+	#confSitema{
+		height: 185px;
+		margin: 0 5px 0 0;
+		width: 150px;
+	}
+	#confSitema  p{
+	   font-size: 1.8em;
+	   margin-top: 0;
+	   position: relative;
+	   top: 107px;
+	}
+	#Estaditicas{
+		margin-bottom: 5.2px;
+	}
+	#Estaditicas a p{
+	   font-size: 1.5em;
+	   margin-top: 0;
+	   position: relative;
+	   top: 30px;
+	}
+	#planEstudios a p{
+	    font-size: 1.5em;
+	    top: 20px;
+	}
+	#obsevaciones{
+		margin-bottom: 5px;
+	}
+	#obsevaciones a p{
+	   font-size: 1.2em;
+	   margin-top: 2px;
+	   top: 28px;
+	}
+	#organizador a p{
+		font-size: 1.2em;
+	  	margin-top: 28px;
+	}
+	#perfil{
+		width: 120px;
+	}
+	#tutoriales{
+		width: 120px;
+	}
+	#ContAjax{
+		height: 320px;
+	}
+	#tutoriales a p{
+		font-size: 1.8em;
+		margin-top: 30px;
+	}
+	#aulaVirtual a p{
+		font-size: 2.2em;
+		margin-top: 30px;
+	}
+	.caja2MPA {
+		margin: 0;
+		height: 90px;
+		width: 120px;
+	}
+	.caja4MPA{
+		margin: 0;
+		height: 90px;
+		width: 120px;
+	}
+}

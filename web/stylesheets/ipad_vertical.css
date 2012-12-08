@@ -1,27 +1,65 @@
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
     header{
-    	max-height: 238px;
+        height: 130px;
+        max-height: 250px;
+    }
+    .bienvenida label{
+        font-size: 3em;
+    }
+    .textura {
+        height: 126px;
+    }
+    #bloqueLogin form{
+        margin: 20px;
     }
     .nombre{
-    	font-size: 3em;
+        font-size: 3.5em;
+        margin-top: 0px;
     }
-    #ContAvatar{
-    	width: 221px;
-    } 
-    #Fecha label p{
-    	font-size: 19px;
-    	margin: 0 10px;
-    }
-    #Fecha label span{
-    	font-size: 26px;
-    }
-    #contenedorML{
-    	left: 95.4%;
+    #bloquelogin{
+        float: left;
+        padding: 5px;
+        margin: 50px 55px;
+        max-width: 380px;
+        width: 54%;
     }
     #ContAjax{
-    	width: 100%;
+        height: 700px;
+        width: 100%;
     }
+    #ContAvatar{
+        top: 1%;
+        width: 25%;
+    } 
     #contMetro {
-    	max-height: 768px;
+        margin-top: 7px;
+        max-height: 728px;
     }
-}   
+    #contenedorML{
+        left: 95.4%;
+        top: 33%;
+    }
+    #Fecha{
+        height: 30px;
+    }
+    #Fecha label p{
+        font-size: 19px;
+        margin: 0 10px;
+        top: 0;
+    }
+    #Fecha label span{
+        font-size: 26px;
+    }
+    #loginheader{
+        height: 40%;
+    } 
+    #generadorCode{
+        float: left;
+        margin: auto;
+        overflow: hidden;
+        width: 100%;
+    }
+    form p input {
+        font-size: 22px;
+    }
+}    

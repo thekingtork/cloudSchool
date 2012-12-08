@@ -1,7 +1,10 @@
 
     {% block estilos %} 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="{{ asset('stylesheets/Mnotificacion/notificacion.css') }}"/>
-        <link rel="stylesheet" href="{{ asset('stylesheets/Mnotificacion/notificacion_ipadVertical.css') }}"/>  
+        <link rel="stylesheet" media="all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape)" href="{{ asset('stylesheets/Mnotificacion/notificacion_ipadHorizontal.css') }}"/>
+        <link rel="stylesheet" media="all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait)" href="{{ asset('stylesheets/Mnotificacion/notificacion_ipadVertical.css') }}"/>  
+        
     {% endblock %}
      <div id="notificaciones">
         <div id="tituloN">

@@ -1,6 +1,68 @@
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
-    #Fecha{
-      color: blue;
-      background-color: black;
+    header{
+        height: 120px;
+        width: 100%;
     }
+    .bienvenida{
+        margin-top: 0;
+    }
+    .bienvenida label{
+        font-size: 3em;
+    }
+    .nombre{
+        font-size: 3.5em;
+        margin-top: 0px;
+    }
+    .textura {
+        height: 116px;
+    }
+    #ContAvatar {
+        top: 5%;
+        width: 20%;
+    }
+    #ContAjax{
+        height: 320px;
+        width: 100%;
+    }
+    #contMetro {
+        height: 320px;
+    }
+     #Fecha{
+        height: 30px;
+    }
+    #Fecha label p{
+        font-size: 19px;
+        margin: 0 10px;
+        top: 0;
+    }
+    #Fecha label span{
+        font-size: 26px;
+    }
+    /***** Login **********************/
+    #bloquelogin{
+        float: left;
+        padding: 5px;
+        margin: auto;
+        max-width: 380px;
+        width: 50%;
+    }
+    #generadorCode{
+        float: left;
+        padding-left: 10px;
+        overflow: hidden;
+        width: 50%;
+    }
+    #bloqueLogin form{
+        margin: 20px;
+    }
+    form p input {
+        font-size: 22px;
+    }
+    #contenedorfront{
+    	width: 90%;
+    }
+    #loginheader{
+        height: 46%;
+    } 
+    /**********************************************/
 }     
