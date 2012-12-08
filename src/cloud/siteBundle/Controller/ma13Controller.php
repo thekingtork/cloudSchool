@@ -9,11 +9,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use cloud\siteBundle\Entity\Periodo;
 use cloud\siteBundle\Entity\Grado;
+use cloud\siteBundle\Entity\Curso;
 use cloud\siteBundle\Entity\NivelesAcademicos;
 
 use cloud\siteBundle\Form\PeriodoType;
 use cloud\siteBundle\Form\NivelesAcademicosType;
 use cloud\siteBundle\Form\GradoType;
+use cloud\siteBundle\Form\CursoType;
 
 /**
  * Periodo controller.
@@ -278,7 +280,7 @@ class ma13Controller extends Controller
 
      /**
      *
-     * @Route("/curso", name="ma133")
+     * @Route("/cursos", name="ma133")
      */
     public function ma133Action()
     {
@@ -291,4 +293,87 @@ class ma13Controller extends Controller
         return $this->render('cloudBundle:Admin:ma133.html.twig', array('grados'=>$entity));
     }
 
+    /** 
+      * @Route("/cursos/{id}/crear", name="ma1331")
+      */
+     public function ma1331Action($id){
+        $request=$this->getRequest();
+        $em=$this->getDoctrine()->getEntityManager();
+        $grado = $em->getRepository('cloudBundle:Grado')->find($id);
+
+        if($request->getMethod()=='POST')
+        {
+            $numero=$request->request->get('numsede');
+            for ($i=1; $i <= $numero; $i++) { 
+                $entity  = new Curso();
+                $entity->setName("Curso");
+                $entity->setGradoId($grado);
+                $entity->setCupo(35);
+                $em->persist($entity);
+                $em->flush();
+            }
+            $cursos = $em->getRepository('cloudBundle:Curso')->findBy(array('grado_id'=>$id));
+
+            return $this->render('cloudBundle:Admin:ma1331.html.twig', array('curso'=>$cursos));
+        }
+        
+        $cursos = $em->getRepository('cloudBundle:Curso')->findBy(array('grado_id'=>$id));
+        if(!$cursos)
+            return $this->render('cloudBundle:Admin:ma1331.html.twig', array('mje'=>'No tiene tiene cursos asociados'));
+        return $this->render('cloudBundle:Admin:ma1331.html.twig', array('cursos'=>$cursos));
+     }
+
+      /**
+     *
+     * @Route("/cursos/{id}/edit", name="ma13311")
+     */
+    public function ma13311Action($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('cloudBundle:Curso')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Curso entity.');
+        }
+
+        $editForm = $this->createForm(new CursoType(), $entity);
+
+        return $this->render('cloudBundle:Admin:ma13311.html.twig', array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
+        ));
+    }
+
+    /**
+     * Edits an existing Notificaciones entity.
+     *
+     * @Route("/cursos/{id}/update", name="ma13312")
+     * @Method("POST")
+     */
+    public function ma13312Action(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('cloudBundle:Curso')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Curso entity.');
+        }
+
+        
+        $editForm = $this->createForm(new CursoType(), $entity);
+        $editForm->bind($request);
+
+        if ($editForm->isValid()) {
+            $em->persist($entity);
+            $em->flush();
+
+            $grado = $entity->getGradoId();
+            return $this->redirect($this->generateUrl('ma1331', array('id'=>$grado->getId())) );
+        }
+
+        $niveles = $em->getRepository('cloudBundle:Curso')->findAll();
+        return $this->render('cloudBundle:Admin:ma1331.html.twig', array('cursos'=>$niveles));
+    }
 }

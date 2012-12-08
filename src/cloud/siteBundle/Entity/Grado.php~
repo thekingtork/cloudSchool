@@ -95,44 +95,4 @@ class Grado
     {
         return $this->nivel_id;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->curso_id = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
-    /**
-     * Add curso_id
-     *
-     * @param cloud\siteBundle\Entity\Curso $cursoId
-     * @return Grado
-     */
-    public function addCursoId(\cloud\siteBundle\Entity\Curso $cursoId)
-    {
-        $this->curso_id[] = $cursoId;
-    
-        return $this;
-    }
-
-    /**
-     * Remove curso_id
-     *
-     * @param cloud\siteBundle\Entity\Curso $cursoId
-     */
-    public function removeCursoId(\cloud\siteBundle\Entity\Curso $cursoId)
-    {
-        $this->curso_id->removeElement($cursoId);
-    }
-
-    /**
-     * Get curso_id
-     *
-     * @return Doctrine\Common\Collections\Collection 
-     */
-    public function getCursoId()
-    {
-        return $this->curso_id;
-    }
 }

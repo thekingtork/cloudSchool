@@ -1,6 +1,6 @@
 {% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
 {% block title %}
-	MA1321-Tork
+	MA1331
 {% endblock %}
 {% block menu_principal %}
 	 <div class="cuerpoCentrado" id="contMetro">
@@ -28,7 +28,7 @@
                 <div class="fila">
 					<div class="botonRegresar">
 						{% block back %}
-							<a href="{{ path('ma13') }}" class="ajax" >
+							<a href="{{ path('ma133') }}" class="ajax" >
                                 <img src="{{ asset('images/b_atras.png') }}"/>
                             </a>
 						{% endblock %}
@@ -47,19 +47,19 @@
                 </div>
                 <div class="fila">
                     <div id="content_1" class="mCustomScrollbar _mCS_1">
-                                {% for grado in grados %}
-                                    {% if grado.name == "Grado" %}
+                                {% for curso in cursos %}
+                                    {% if curso.name == "Curso" %}
                                         <div class="nivel">
-                                            <a href="{{ path('ma1331', {'id': grado.id }) }}"  data-grado="{% if grado.cursoId|length > 0 %}1{% else %}0{% endif %}">
+                                            <a href="{{ path('ma13311', {'id': curso.id }) }}">
                                                     <p class="signoUp">+</p>
-                                                    <p class="titulocajas">{{grado.name}}</p>
+                                                    <p class="titulocajas">{{curso.name}}</p>
                                             </a>
                                         </div>
                                         {% else %}
                                             <div class="nivel letra">
-                                                <a href="{{ path('ma1331', {'id': grado.id }) }}" data-grado="{% if grado.cursoId|length > 0 %}1{% else %}0{% endif %}">
-                                                    <p class="titulocajas primera">{{grado.name}}</p>
-                                                    <p class="signoUp textoBlanco">{{grado.name}}</p>
+                                                <a href="{{ path('ma13311', {'id': curso.id }) }}">
+                                                    <p class="titulocajas primera">{{curso.name}}</p>
+                                                    <p class="signoUp textoBlanco">{{curso.name}}</p>
                                             </a>
                                         </div>
                                     {% endif %}
@@ -75,16 +75,17 @@
                                        })
 
                                         $(".nivel a").click( function(e){
-                                            e.preventDefault();
-                                            console.log($(this).attr("data-grado"))
-                                            if($(this).attr("data-grado") == 1){
-                                                window.location.href = $(this).attr("href");
-                                            }
-                                            else
-                                            {
-                                                $(".overlay").css("display","block")
-                                                $(".overlay form").attr("action", $(this).attr("href") );
-                                            }
+                                           e.preventDefault();
+                                             $.ajax(
+                                                   {
+                                                     url: $(this).attr("href"),
+                                                      type: 'POST',
+                                                      success: function (r) {
+                                                        $(".overlay").html(r);
+                                                         $('.overlay').css('display','block');
+                                                    } 
+                                        
+                                                  });
                                         })
                                     }
                                 </script>
@@ -93,34 +94,7 @@
                     
                 </div>
                 <div class="overlay">
-                    <div class="formOverlay lima">
-                        <form action="#" method="post">
-                            <div class="linea">
-                                <div class="titulo">
-                                    <p>Ingresar el numero de grados</p>
-                                </div>
-                            </div>
-                            <div class="linea">
-                                <div class="entrada">
-                                   <input type="text" name="numsede">
-                                </div>
-                            </div>
-                            <div class="linea">
-                                <div id="botonesDow">
-                                    <ul>
-                                        <li>
-                                            <button class="botonesDw blanco" type="submit">Guardar</button>
-                                        </li>
-                                        <li>
-                                            <input  class="botonesDw blanco" type="button" value="Limpiar" onClick="limpiaForm('#formularioInst form')">
-                                        </li>
-                                        <li>
-                                            <input  class="botonesDw blanco ocultarOverlay" type="button" value="Cancelar">
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </form>
+                   
                 </div>
                 <script>
                         $(document).ready(function(){  
