@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 01-12-2012 a las 14:15:21
+-- Tiempo de generación: 09-12-2012 a las 00:50:59
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -107,16 +107,21 @@ INSERT INTO `codigo_verificacion` (`id`, `user_id`, `modulo_id`, `codigo`, `date
 
 CREATE TABLE IF NOT EXISTS `curso` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `jornada_id` int(11) DEFAULT NULL,
-  `sede_id` int(11) DEFAULT NULL,
-  `nivel_id` int(11) DEFAULT NULL,
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `cupo` int(11) NOT NULL,
+  `grado_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `IDX_BFA6FE826E992D9` (`jornada_id`),
-  KEY `IDX_BFA6FE8E19F41BF` (`sede_id`),
-  KEY `IDX_BFA6FE8DA3426AE` (`nivel_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+  KEY `IDX_BFA6FE891A441CC` (`grado_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+--
+-- Volcado de datos para la tabla `curso`
+--
+
+INSERT INTO `curso` (`id`, `nombre`, `cupo`, `grado_id`) VALUES
+(1, 'A', 3, 1),
+(2, 'Curso', 35, 1),
+(3, 'Curso', 35, 1);
 
 -- --------------------------------------------------------
 
@@ -389,6 +394,19 @@ CREATE TABLE IF NOT EXISTS `mmodulo_codigo` (
 INSERT INTO `mmodulo_codigo` (`id`, `nombre`) VALUES
 (1, 'apertura_año'),
 (2, 'apertura_inscripciones');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `modelocarnet`
+--
+
+CREATE TABLE IF NOT EXISTS `modelocarnet` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `modelo` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `dismodelo` longtext COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -1852,9 +1870,7 @@ ALTER TABLE `codigo_verificacion`
 -- Filtros para la tabla `curso`
 --
 ALTER TABLE `curso`
-  ADD CONSTRAINT `FK_BFA6FE826E992D9` FOREIGN KEY (`jornada_id`) REFERENCES `jornada` (`id`),
-  ADD CONSTRAINT `FK_BFA6FE8DA3426AE` FOREIGN KEY (`nivel_id`) REFERENCES `nivelesacademicos` (`id`),
-  ADD CONSTRAINT `FK_BFA6FE8E19F41BF` FOREIGN KEY (`sede_id`) REFERENCES `sede` (`id`);
+  ADD CONSTRAINT `FK_BFA6FE891A441CC` FOREIGN KEY (`grado_id`) REFERENCES `grado` (`id`);
 
 --
 -- Filtros para la tabla `grado`
