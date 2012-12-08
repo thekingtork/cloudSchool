@@ -69,27 +69,4 @@ class Asignatura
         return $this->name;
     }
 
-
-    /**
-     * Set area_id
-     *
-     * @param cloud\siteBundle\Entity\Area $areaId
-     * @return Asignatura
-     */
-    public function setAreaId(\cloud\siteBundle\Entity\Area $areaId = null)
-    {
-        $this->area_id = $areaId;
-    
-        return $this;
-    }
-
-    /**
-     * Get area_id
-     *
-     * @return cloud\siteBundle\Entity\Area 
-     */
-    public function getAreaId()
-    {
-        return $this->area_id;
-    }
 }

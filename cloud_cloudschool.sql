@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 09-12-2012 a las 00:50:59
+-- Tiempo de generación: 09-12-2012 a las 00:57:26
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -66,6 +66,32 @@ INSERT INTO `anio` (`id`, `nombre`, `date_create`, `active`) VALUES
 (5, '2009', '2009-02-02 07:16:16', 0),
 (6, '2008', '2008-02-04 08:16:00', 0),
 (7, '2007', '2007-11-05 09:00:00', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `area`
+--
+
+CREATE TABLE IF NOT EXISTS `area` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `asignatura`
+--
+
+CREATE TABLE IF NOT EXISTS `asignatura` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `area_id` int(11) DEFAULT NULL,
+  `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_DD1ED51EBD0F409C` (`area_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -1858,6 +1884,12 @@ INSERT INTO `user_role` (`user_id`, `role_id`) VALUES
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `asignatura`
+--
+ALTER TABLE `asignatura`
+  ADD CONSTRAINT `FK_DD1ED51EBD0F409C` FOREIGN KEY (`area_id`) REFERENCES `area` (`id`);
 
 --
 -- Filtros para la tabla `codigo_verificacion`

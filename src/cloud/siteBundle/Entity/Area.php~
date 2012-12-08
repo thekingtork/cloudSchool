@@ -6,9 +6,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="Asignatura")
+ * @ORM\Table(name="area")
  */
-class Asignatura
+class Area
 {
     /**
      * @ORM\Id
@@ -20,21 +20,15 @@ class Asignatura
     /**
      * @ORM\Column(name="nombre", type="string", length=255)
      * @Assert\NotBlank(message = "Campo Obligatorio")
+     * 
      */
     protected $name;
+    
 
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Area", inversedBy="id")
-     * @ORM\JoinColumn(name="area_id", referencedColumnName="id")
-     * @Assert\NotBlank(message = "Campo Obligatorio")
-     */
-    protected $area_id;
 
     public function __toString() {
         return $this->getName();
     }
-
 
     /**
      * Get id
@@ -50,7 +44,7 @@ class Asignatura
      * Set name
      *
      * @param string $name
-     * @return Curso
+     * @return Jornada
      */
     public function setName($name)
     {
@@ -69,27 +63,4 @@ class Asignatura
         return $this->name;
     }
 
-
-    /**
-     * Set area_id
-     *
-     * @param cloud\siteBundle\Entity\Area $areaId
-     * @return Asignatura
-     */
-    public function setAreaId(\cloud\siteBundle\Entity\Area $areaId = null)
-    {
-        $this->area_id = $areaId;
-    
-        return $this;
-    }
-
-    /**
-     * Get area_id
-     *
-     * @return cloud\siteBundle\Entity\Area 
-     */
-    public function getAreaId()
-    {
-        return $this->area_id;
-    }
 }
