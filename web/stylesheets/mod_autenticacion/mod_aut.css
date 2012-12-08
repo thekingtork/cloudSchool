@@ -1,0 +1,100 @@
+.alinear,
+#contenedorAut,
+#contDow,
+#contLeft,
+#contRight,
+#contUp {
+  display: inline-block;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  vertical-align: top;
+}
+#contenedorAut {
+  max-width: 100%;
+  min-width: 320px;
+}
+#contDow {
+  left: 0;
+  width: 100%;
+}
+#contLeft {
+  width: 30%;
+}
+#contRight {
+  margin-left: -1%;
+  width: 69%;
+}
+#contUp {
+  left: 0;
+  width: 100%;
+}
+#m {
+  width: 100%;
+}
+#m label {
+  font-size: 8em;
+}
+#d label {
+  font-size: 6em;
+}
+#o label {
+  font-size: 6em;
+}
+#f label {
+  font-size: 4em;
+}
+#a label {
+  font-size: 6em;
+}
+#e label {
+  font-size: 6em;
+}
+#c label {
+  font-size: 4em;
+}
+#l label {
+  font-size: 4em;
+}
+#i label {
+  font-size: 4em;
+}
+#t label {
+  font-size: 4em;
+}
+.color1 {
+  background-color: #b1cd49;
+}
+.color2 {
+  background-color: #ccd949;
+}
+.color3 {
+  background-color: #32a457;
+}
+.color4 {
+  background-color: #d6e28c;
+}
+.cajaTipo1 {
+  float: left;
+  width: 100%;
+}
+.cajaTipo2 {
+  float: left;
+  width: 50%;
+}
+.cajaTipo3 {
+  float: left;
+  width: 40%;
+}
+.cajaTipo4 {
+  float: left;
+  width: 30%;
+}
+.Fl {
+  float: left;
+}
+.textoItem {
+  color: #fff;
+  font-family: "Segoe UI light";
+  text-align: center;
+}

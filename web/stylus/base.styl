@@ -1,0 +1,157 @@
+/* Colores */
+
+Azul = rgb(0,172,237)
+Amarillo = rgb(239,200,37)
+Rojo = rgb(204,33,40)
+Lima = rgb(177,205,73)
+Fucsia = rgb(202,0,136)
+VerdeLight = rgb(140,152,119)
+VerdeDark = rgb(50,164,86)
+Naranja = rgb(219,129,45)
+Morado = rgb(139,39,139)
+Gris = rgb(138,155,168)
+Negro = rgb(0,0,0)
+Blanco = rgb(255,255,255)
+body
+	font-size 16px
+	font-family "Segoe UI light"
+h1
+	color Blanco
+	font-family	"Champagne"
+	font-size 3em
+h2
+	color Blanco
+	font-size 2em
+h3
+	color Blanco
+	font-size 1.5em
+h4
+	color Blanco
+	font-size .8em
+h1,h2,h3,h4,h5,h6,label,p,
+	margin 0
+	padding 0
+@css{
+	@font-face {
+    font-family: 'Champagne';
+    src: url('../font/Champagne_Limousines.eot');
+    src: url('../font/Champagne_Limousines.eot?#iefix') format('embedded-opentype'),
+        url('../font/Champagne_Limousines.woff') format('woff'),
+        url('../font/Champagne_Limousines.ttf') format('truetype'),
+        url('../font/Champagne_Limousines.svg') format('svg');
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('../font/segoeui.eot');
+    src: url('../font/segoeui.eot?#iefix') format('embedded-opentype'),
+         url('../font/segoeui.woff') format('woff'),
+         url('../font/segoeui.ttf') format('truetype'),
+         url('../font/segoeui.svg') format('svg');
+}
+@font-face {
+    font-family: 'Segoe UI Bold';
+    src: url('../font/segoeuib.eot');
+    src: url('../font/segoeuib.eot?#iefix') format('embedded-opentype'),
+        url('../font/segoeuib.woff') format('woff'),
+        url('../font/segoeuib.ttf') format('truetype'),
+        url('../font/segoeuib.svg') format('svg');
+}
+@font-face {
+    font-family: 'Segoe UI light';
+    src: url('../font/segoeuil.eot');
+    src: url('../font/segoeuil.eot?#iefix') format('embedded-opentype'),
+        url('../font/segoeuil.woff') format('woff'),
+        url('../font/segoeuil.ttf') format('truetype'),
+        url('../font/segoeuil.svg') format('svg');
+}
+}
+
+header
+	text-align left
+#ContAjax
+	height 360px
+	overflow hidden
+	vertical-align top
+	width 100%
+#ContAvatar
+	float right
+	left 72%
+	position absolute
+	top 10%
+	width 11%
+	z-index 4
+	img
+		border solid 4px #b1cd49
+		width 100%
+#ContFecha
+	overflow hidden
+	position relative
+#contenedorHeader
+	border-bottom solid 4px Lima
+	background #41763c url('../images/fondoHeader.jpg') center 0 no-repeat fixed
+	max-height 167px
+	margin-bottom 0.1em
+	position relative
+	z-index 2
+#contenedorMetro
+	width 74%
+#contenedorMetro,#ContenedorNotf
+	display inline-block
+	vertical-align top
+#ContenedorNotf
+	max-height 100%
+	overflow hidden
+	width 24%
+#contReloj
+	margin-bottom 1.7em
+#Fecha
+	height 50px
+	vertical-align bottom
+	width 70%
+	label
+		color Fucsia
+		font-family "Segoe UI light"
+		font-size 34px
+		line-height 1
+		span
+			float left 
+			font-size 1.5em
+			width 200px
+			line-height 1
+		p
+			float left
+			font-family "Segoe UI light"
+			font-size 1em
+			margin-left 5px
+			position relative
+			top 27%
+			width 50%
+			line-height 1
+#main
+	overflow hidden
+#tela
+	background url('../images/pattern.png')
+	max-height 180px
+	position relative
+	z-index 3
+.bienvenida
+	width 600px
+.botonRegresar
+	float left
+	padding 0 .5em
+	max-width 3em
+	a
+		color rgb(255,255,255)
+		font-family "Segoe UI light"
+		font-size 1em
+		img
+			display block
+			padding 1em 0 0 0
+			width 100%
+.nombre
+	color Blanco
+	font-family "Champagne"
+	font-size 4em
+	line-height 1.8
+@import "clasesGenericas.styl"

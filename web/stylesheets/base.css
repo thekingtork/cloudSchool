@@ -1,0 +1,260 @@
+/* Colores */
+body {
+  font-size: 16px;
+  font-family: "Segoe UI light";
+}
+h1 {
+  color: #fff;
+  font-family: "Champagne";
+  font-size: 3em;
+}
+h2 {
+  color: #fff;
+  font-size: 2em;
+}
+h3 {
+  color: #fff;
+  font-size: 1.5em;
+}
+h4 {
+  color: #fff;
+  font-size: 0.8em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+p,
+margin 0 {
+  padding: 0;
+}
+@font-face {
+  font-family: 'Champagne';
+  src: url('../font/Champagne_Limousines.eot');
+  src: url('../font/Champagne_Limousines.eot?#iefix') format('embedded-opentype'),url('../font/Champagne_Limousines.woff') format('woff'),url('../font/Champagne_Limousines.ttf') format('truetype'),url('../font/Champagne_Limousines.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'Segoe UI';
+  src: url('../font/segoeui.eot');
+  src: url('../font/segoeui.eot?#iefix') format('embedded-opentype'),url('../font/segoeui.woff') format('woff'),url('../font/segoeui.ttf') format('truetype'),url('../font/segoeui.svg') format('svg');
+}
+@font-face {
+  font-family: 'Segoe UI Bold';
+  src: url('../font/segoeuib.eot');
+  src: url('../font/segoeuib.eot?#iefix') format('embedded-opentype'),url('../font/segoeuib.woff') format('woff'),url('../font/segoeuib.ttf') format('truetype'),url('../font/segoeuib.svg') format('svg');
+}
+@font-face {
+  font-family: 'Segoe UI light';
+  src: url('../font/segoeuil.eot');
+  src: url('../font/segoeuil.eot?#iefix') format('embedded-opentype'),url('../font/segoeuil.woff') format('woff'),url('../font/segoeuil.ttf') format('truetype'),url('../font/segoeuil.svg') format('svg');
+}
+header {
+  text-align: left;
+}
+#ContAjax {
+  height: 360px;
+  overflow: hidden;
+  vertical-align: top;
+  width: 100%;
+}
+#ContAvatar {
+  float: right;
+  left: 72%;
+  position: absolute;
+  top: 10%;
+  width: 11%;
+  z-index: 4;
+}
+#ContAvatar img {
+  border: solid 4px #b1cd49;
+  width: 100%;
+}
+#ContFecha {
+  overflow: hidden;
+  position: relative;
+}
+#contenedorHeader {
+  border-bottom: solid 4px #b1cd49;
+  background: #41763c url("../images/fondoHeader.jpg") center 0 no-repeat fixed;
+  max-height: 167px;
+  margin-bottom: 0.1em;
+  position: relative;
+  z-index: 2;
+}
+#contenedorMetro {
+  width: 74%;
+}
+#contenedorMetro,
+#ContenedorNotf {
+  display: inline-block;
+  vertical-align: top;
+}
+#ContenedorNotf {
+  max-height: 100%;
+  overflow: hidden;
+  width: 24%;
+}
+#contReloj {
+  margin-bottom: 1.7em;
+}
+#Fecha {
+  height: 50px;
+  vertical-align: bottom;
+  width: 70%;
+}
+#Fecha label {
+  color: #ca0088;
+  font-family: "Segoe UI light";
+  font-size: 34px;
+  line-height: 1;
+}
+#Fecha label span {
+  float: left;
+  font-size: 1.5em;
+  width: 200px;
+  line-height: 1;
+}
+#Fecha label p {
+  float: left;
+  font-family: "Segoe UI light";
+  font-size: 1em;
+  margin-left: 5px;
+  position: relative;
+  top: 27%;
+  width: 50%;
+  line-height: 1;
+}
+#main {
+  overflow: hidden;
+}
+#tela {
+  background: url("../images/pattern.png");
+  max-height: 180px;
+  position: relative;
+  z-index: 3;
+}
+.bienvenida {
+  width: 600px;
+}
+.botonRegresar {
+  float: left;
+  padding: 0 0.5em;
+  max-width: 3em;
+}
+.botonRegresar a {
+  color: #fff;
+  font-family: "Segoe UI light";
+  font-size: 1em;
+}
+.botonRegresar a img {
+  display: block;
+  padding: 1em 0 0 0;
+  width: 100%;
+}
+.nombre {
+  color: #fff;
+  font-family: "Champagne";
+  font-size: 4em;
+  line-height: 1.8;
+}
+.alineacionPfct {
+  display: inline-block;
+  vertical-align: top;
+}
+.amarillo {
+  background-color: #efc825;
+}
+.amarilloFc {
+  color: #f2c92f;
+}
+.azul {
+  background-color: #00aced;
+}
+.azulFc {
+  color: #00aced;
+}
+.blanco {
+  background-color: #fff;
+}
+.blancoFc {
+  color: #fff;
+}
+.contenidoCentrado {
+  margin: 0 auto 0.3em;
+  max-width: 1000px;
+  overflow: hidden;
+}
+.contenidoFull {
+  margin: 0;
+  width: 100%;
+}
+.contenedorMenu {
+  float: left;
+  margin: 5px 0;
+  overflow: hidden;
+  width: 75%;
+}
+.ContenedorNotificaciones {
+  margin: 5px 0;
+  width: 25%;
+}
+.cuerpoCentrado {
+  margin: 0 auto;
+  max-width: 1000px;
+  position: relative;
+}
+.fucsia {
+  background-color: #ca0088;
+}
+.fucsiaFc {
+  color: #ca0088;
+}
+.gris {
+  background-color: #8a9ba8;
+}
+.grisFc {
+  color: #8a9ba8;
+}
+.lima {
+  background-color: #b1cd49;
+}
+.limaFc {
+  color: #b1cd49;
+}
+.margen {
+  margin: 0.5em;
+}
+.naranja {
+  background-color: #db812d;
+}
+.naranjaFc {
+  color: #db812d;
+}
+.morado {
+  background-color: #8b278b;
+}
+.moradoFc {
+  color: #8b278b;
+}
+.rojo {
+  background-color: #cc2128;
+}
+.rojoFc {
+  color: #cc2128;
+}
+.verdeDark {
+  background-color: #32a456;
+}
+.verdeDarkFc {
+  color: #32a456;
+}
+.verdeLight {
+  background-color: #8c9877;
+}
+.verdeLightFc {
+  color: #8c9877;
+}
