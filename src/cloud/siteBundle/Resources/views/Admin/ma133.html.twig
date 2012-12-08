@@ -1,0 +1,110 @@
+{% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
+{% block title %}
+	MA1321-Tork
+{% endblock %}
+{% block menu_principal %}
+	 <div class="cuerpoCentrado" id="contMetro">
+		<div id="ContAjax">
+           <link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma1321/ma1321.css') }}"/>
+            <script >
+                (function($){
+                    $(window).load(function(){
+                        $("#content_1").mCustomScrollbar({
+                            horizontalScroll:true,
+                            scrollButtons:{
+                                enable:false,
+                                scrollType:"continuous",
+                                scrollSpeed:20,
+                                scrollAmount:40
+                            },
+                            advanced:{
+                                autoExpandHorizontalScroll:true,
+                            },
+                        });
+                    });
+                })(jQuery);
+            </script>
+			<div id="bloqueCgenerales" class="azul">
+                <div class="fila">
+					<div class="botonRegresar">
+						{% block back %}
+							<a href="{{ path('ma13') }}" class="ajax" >
+                                <img src="{{ asset('images/b_atras.png') }}"/>
+                            </a>
+						{% endblock %}
+					</div>
+                    {% if mje is defined %}
+                        <div>
+                            <p>{{ mje }}</p>
+                        </div>
+                    {% else %}
+                    <div id="ContTitulo">
+                        <p>Configurar Cursos</p>
+                    </div>
+                    <div class="breadcumbr">
+                        <a href="{{ path('ma11') }}" class="ajax" >Ajustes generales</a>
+                    </div>   
+                </div>
+                <div class="fila">
+                    <div id="content_1" class="mCustomScrollbar _mCS_1">
+                                {% for grado in grados %}
+                                    {% if grado.name == "Grado" %}
+                                        <div class="nivel">
+                                            <a href="{{ path('ma13', {'id': grado.id }) }}" >
+                                                    <p class="signoUp">+</p>
+                                                    <p class="titulocajas">{{grado.name}}</p>
+                                            </a>
+                                        </div>
+                                        {% else %}
+                                            <div class="nivel letra">
+                                                <a href="{{ path('ma13211', {'id': grado.id }) }}">
+                                                    <p class="titulocajas primera">{{grado.name}}</p>
+                                                    <p class="signoUp textoBlanco">{{grado.name}}</p>
+                                            </a>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                                <script type="text/javascript">
+                                    $(document).on("ready",iniciar);
+
+                                    function iniciar(){
+
+                                       $(".letra .primera").each( function(index){
+                                            var nombre = $(this).text();
+                                            $(this).html( nombre[0] )
+                                       })
+
+                                        $(".nivel a").click( function(e){
+                                            e.preventDefault();
+                                             $.ajax(
+                                                   {
+                                                     url: $(this).attr("href"),
+                                                      type: 'POST',
+                                                      success: function (r) {
+                                                        $(".overlay").html(r);
+                                                         $('.overlay').css('display','block');
+                                                    } 
+                                        
+                                                  });
+                                        })
+                                    }
+                                </script>
+                        </div>
+                    {% endif %}
+                    
+                </div>
+                <div class="overlay">
+                </div>
+			</div>
+		</div>
+		 {% block notificaciones %}         
+                {% include "cloudBundle::layout_notificaciones.html.twig" %}
+        {% endblock notificaciones %}
+	</div>
+    <div class="cuerpoCentrado" id="footer">
+        {% block menu_colores %}
+            {% include "cloudBundle::menuColores.html.twig" %}
+        {% endblock %}
+    </div>
+    
+{% endblock %}

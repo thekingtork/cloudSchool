@@ -275,4 +275,20 @@ class ma13Controller extends Controller
     
     
 
+
+     /**
+     *
+     * @Route("/curso", name="ma133")
+     */
+    public function ma133Action()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('cloudBundle:Grado')->findAll();
+
+        if (!$entity) 
+          return $this->render('cloudBundle:Admin:ma133.html.twig', array('mje'=>"Sin Grados Asignados."));
+        return $this->render('cloudBundle:Admin:ma133.html.twig', array('grados'=>$entity));
+    }
+
 }

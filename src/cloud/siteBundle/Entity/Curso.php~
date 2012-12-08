@@ -98,27 +98,4 @@ class Curso
         return $this->cupo;
     }
 
-
-    /**
-     * Set grado_id
-     *
-     * @param cloud\siteBundle\Entity\Grado $gradoId
-     * @return Curso
-     */
-    public function setGradoId(\cloud\siteBundle\Entity\Grado $gradoId = null)
-    {
-        $this->grado_id = $gradoId;
-    
-        return $this;
-    }
-
-    /**
-     * Get grado_id
-     *
-     * @return cloud\siteBundle\Entity\Grado 
-     */
-    public function getGradoId()
-    {
-        return $this->grado_id;
-    }
 }
