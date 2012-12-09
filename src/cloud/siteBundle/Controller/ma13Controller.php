@@ -36,10 +36,17 @@ class ma13Controller extends Controller
     public function ma13Action(){
        $em=$this->getDoctrine()->getEntityManager();
        $na=$em->getRepository('cloudBundle:Area')->findAll();
+       $periodos=$em->getRepository('cloudBundle:Periodo')->findAll();
        if(!$na){
-            return $this->render('cloudBundle:Admin:ma13.html.twig', array('estado'=>'nulo'));
+          if(!$periodos)
+            return $this->render('cloudBundle:Admin:ma13.html.twig', array('estado'=>'nulo','periodos'=>'nulo'));
+          else    
+            return $this->render('cloudBundle:Admin:ma13.html.twig', array('estado'=>'nulo','periodos'=>'no-nulo'));
        }
-       return $this->render('cloudBundle:Admin:ma13.html.twig', array('estado'=>'no-nulo'));
+       if(!$periodos)
+        return $this->render('cloudBundle:Admin:ma13.html.twig', array('estado'=>'no-nulo','periodos'=>'nulo'));
+      else
+        return $this->render('cloudBundle:Admin:ma13.html.twig', array('estado'=>'no-nulo','periodos'=>'no-nulo'));
     }
 
     /**
