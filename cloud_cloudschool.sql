@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 09-12-2012 a las 00:57:26
+-- Tiempo de generación: 09-12-2012 a las 10:38:06
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -77,7 +77,16 @@ CREATE TABLE IF NOT EXISTS `area` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+--
+-- Volcado de datos para la tabla `area`
+--
+
+INSERT INTO `area` (`id`, `nombre`) VALUES
+(1, 'Ciencias'),
+(2, 'Area'),
+(3, 'Area');
 
 -- --------------------------------------------------------
 
@@ -91,7 +100,16 @@ CREATE TABLE IF NOT EXISTS `asignatura` (
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_DD1ED51EBD0F409C` (`area_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+--
+-- Volcado de datos para la tabla `asignatura`
+--
+
+INSERT INTO `asignatura` (`id`, `area_id`, `nombre`) VALUES
+(1, 1, 'Quimica'),
+(2, 1, 'Asignatura'),
+(3, 1, 'Asignatura');
 
 -- --------------------------------------------------------
 

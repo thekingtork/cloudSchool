@@ -39,12 +39,12 @@ class ma13Controller extends Controller
        $periodos=$em->getRepository('cloudBundle:Periodo')->findAll();
        if(!$na){
           if(!$periodos)
-            return $this->render('cloudBundle:Admin:ma13.html.twig', array('estado'=>'nulo','periodos'=>'nulo'));
+            return $this->render('cloudBundle:Admin:ma13.html.twig', array('estado'=>'nulo','periodos'=>'periodos'));
           else    
             return $this->render('cloudBundle:Admin:ma13.html.twig', array('estado'=>'nulo','periodos'=>'no-nulo'));
        }
        if(!$periodos)
-        return $this->render('cloudBundle:Admin:ma13.html.twig', array('estado'=>'no-nulo','periodos'=>'nulo'));
+        return $this->render('cloudBundle:Admin:ma13.html.twig', array('estado'=>'no-nulo','periodos'=>'periodos'));
       else
         return $this->render('cloudBundle:Admin:ma13.html.twig', array('estado'=>'no-nulo','periodos'=>'no-nulo'));
     }
