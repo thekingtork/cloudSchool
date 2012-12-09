@@ -3,7 +3,6 @@
 	MA112
 {% endblock %}
 {% block menu_principal %}
-	<div class="cuerpoCentrado" id="contMetro">
 		<div id="ContAjax">
 			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/jquery.mCustomScrollbar.css') }}"/>
 			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/contenido.css') }}"/>
@@ -73,14 +72,5 @@
 			})(jQuery);
 			</script>
 		</div>
-		{% block notificaciones %}         
-            {% include "cloudBundle::layout_notificaciones.html.twig" %}
-         {% endblock notificaciones %}
-	</div>
     <span style="display: none;" id="enlace" data-num="{{numero|default('')}}"></span>
-		<div class="cuerpoCentrado" id="footer">
-        	{% block menu_colores %}
-          		{% include "cloudBundle::menuColores.html.twig" %}
-        	{% endblock %}
-    	</div>
 {% endblock %}

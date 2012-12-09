@@ -3,7 +3,6 @@
 	MA11312
 {% endblock %}
 {% block menu_principal %}
-	 <div class="cuerpoCentrado" id="contMetro">
 		<div id="ContAjax">
 			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma11312/ma11312.css') }}"/>
 			<div id="bloqueCgenerales" class="blanco">
@@ -44,11 +43,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		 {% block notificaciones %}         
-                {% include "cloudBundle::layout_notificaciones.html.twig" %}
-         {% endblock notificaciones %}
-         <script >
+		<script >
 				(function($){
 					$(window).load(function(){
 						$("#content_1").mCustomScrollbar({
@@ -66,10 +61,6 @@
 					});
 				})(jQuery);
 			</script>
+		
 		</div>
-		<div class="cuerpoCentrado" id="footer">
-        	{% block menu_colores %}
-          		{% include "cloudBundle::menuColores.html.twig" %}
-        	{% endblock %}
-    	</div>
 {% endblock %}
