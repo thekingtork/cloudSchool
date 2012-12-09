@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 use cloud\siteBundle\Entity\Sede;
 use cloud\siteBundle\Entity\Notificaciones;
@@ -74,7 +75,7 @@ class AdminController extends Controller
      */
     public function ma111Action() {
         $request=$this->getRequest();
-        $em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getEntityManager();
         $user = $this->get('security.context')->getToken()->getUser();
         $institucion = $em->getRepository('cloudBundle:Institucion')->find($user->getInstitucionId());
         $editForm = $this->createForm(new InstitucionType(), $institucion); 
@@ -86,8 +87,21 @@ class AdminController extends Controller
             $editForm->bindRequest($request);
             
             if($editForm->isValid()){
-                $em->persist($institucion);
-                $em->flush();
+                $img=$editForm['url_imagen']->getData();
+                $dir='web/upload/institucion1';
+                $ext=$img->guessExtension();
+                if($ext=='jpeg' or $ext=='png'){
+                    $foto=rand(1,999999).'.'.$ext;
+                    $institucion->setUrlImagen($foto);
+                    $editForm['url_imagen']->getData()->move($dir, $foto);
+                    $em->persist($institucion);
+                    $em->flush();
+                    return $this->redirect($this->generateUrl('ma11'));
+                 }else{
+                    throw $this->createNotFoundException( 'Formato de Imagen Incorrecto');
+                                    
+                 }                   
+                
                 return $this->redirect($this->generateUrl('ma11'));
             }
         }

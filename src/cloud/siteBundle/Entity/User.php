@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
   * @ORM\Entity
   * @ORM\Table(name="user")
   */
-class User implements UserInterface
+class User implements UserInterface, \Serializable
 {
     /**
      * @var integer $id
@@ -150,7 +150,14 @@ class User implements UserInterface
     {
         return $this->avatar_url;
     }
+    
+    public function serialize(){
+        return serialize(array($this->id,$this->password,$this->username));
+    }
 
+    public function unserialize($serialized){
+        list($this->id,$this->password,$this->username) = unserialize($serialized);
+    }
    
 
    
