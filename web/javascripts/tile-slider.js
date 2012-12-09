@@ -37,7 +37,7 @@ $.easing.doubleSqrt = function(t, millisecondsSince, startValue, endValue, total
             plugin.settings = $.extend({}, defaults, options);
 
             // все блоки
-            blocks = $element.children(".noticia");
+            blocks = $element.children(".tile-content");
 
             // если блок всего 1, то слайдинг не нужен
             if (blocks.length <= 1) {

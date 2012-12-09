@@ -1,65 +1,54 @@
 {% block estilos %} 
-    <link rel="stylesheet" href="{{ asset( 'stylesheets/mod-Notf.css') }}"/>
+    
+    <link rel="stylesheet" href="{{ asset( 'stylesheets/Mnotificacion/notificacion2.css') }}"/>
 {% endblock %}
 {% block notificaciones %}
-    <div class="Box-ntf" data-role="tile-slider" data-param-period="10000">
-            <div class="noticia">
-                <h3>Noticias y Eventos</h3>
-                <h4>Semana Cultural:</h4>
-                <p>del 1 al 8 de diciembre empieza la semana cultural</p>
-            </div>
-            <div class="noticia">
-                <h3>Noticias y Eventos</h3>
-                <h4>Ciclo Paseo</h4>
-                <p>el 6 de diciembre gran ciclo paseo</p>
-            </div>
-            <div class="estaticos">
-                <div class="fecha">
-                    <p>26 - Dic- 2012</p>
-                </div>
-                <div class="contador">
-                    <p>12</p>                   
-                </div>
-            </div>
+   <div class="tile azul" data-role="tile-slider" data-param-period="3000">
+    <div class="tile-content">
+        <h2>Noticias y eventos</h2>
+        <h5>Semana Cultural</h5>
+        <p>del 1 al 8 de dic. comienza la semana cultural...</p>
     </div>
-    <div class="Box-ntf" data-role="tile-slider"  data-param-period="12000">
-            <div class="noticia">
-                <h3>Aula virtual</h3>
-                <h4>Tarea de Matemáticas:</h4>
-                <p>para el 8 de diciembre traer la tareas de numeros romanos</p>
-            </div>
-            <div class="noticia">
-                <h3>Aula virtual</h3>
-                <h4>Quiz de Quimica:</h4>
-                <p>para el 3 de diciembre Quiz quimica</p>
-            </div>
-            <div class="estaticos">
-                <div class="fecha">
-                    <p>6 - Dic- 2012</p>
-                </div>
-                <div class="contador">
-                    <p>5</p>                    
-                </div>
-            </div>
-    </div> 
-    <div class="Box-ntf" class="Box-ntf" data-role="tile-slider"  data-param-period="14000">
-            <div class="noticia">
-                <h3>Chat y Foros</h3>
-                <h4>Ricardo Martinez</h4>
-                <p>hola Andres como vas con la tarea de ingles</p>
-            </div>
-            <div class="noticia">
-                <h3>Chat y Foros</h3>
-                <h4>Andrea Lopez</h4>
-                <p>Regresame mis libros</p>
-            </div>
-            <div class="estaticos">
-                <div class="fecha">
-                    <p>26 - Dic- 2012</p>
-                </div>
-                <div class="contador">
-                    <p>7</p>                    
-                </div>
-            </div>
-    </div> 
+        <div class="tile-content">
+            <h2>Noticias y Eventos</h2>
+            <h5>Ciclo Paseo</h5>
+            <p>el 6 de diciembre gran ciclo paseo</p>
+        </div>
+    <div class="brand">
+        <div class="badge">2</div>
+        <img class="icon" src="{{ asset( 'images/b_usua.png') }}"/>
+    </div>
+</div>
+<div class="tile azul2" data-role="tile-slider" data-param-period="5000">
+    <div class="tile-content">
+        <h2>Aula virtual</h2>
+        <h5>Tarea de Matemáticas:</h5>
+        <p>para el 8 de diciembre traer la tareas de numeros romanos</p>
+    </div>
+        <div class="tile-content">
+            <h2>Aula virtual</h2>
+            <h5>Quiz de Quimica:</h5>
+            <p>para el 3 de diciembre Quiz quimica</p>
+        </div>
+    <div class="brand">
+        <div class="badge">5</div>
+        <img class="icon" src="{{ asset( 'images/b_pestud.png') }}"/>
+    </div>
+</div>
+<div class="tile azul3" data-role="tile-slider" data-param-period="7000">
+    <div class="tile-content">
+        <h2>Chat y Foros</h2>
+        <h5>Ricardo Martinez</h5>
+        <p>hola Andres como vas con la tarea de ingles</p>
+    </div>
+        <div class="tile-content">
+            <h2>Chat y Foros</h2>
+            <h5>Andrea Lopez</h5>
+            <p>Regresame mis libros</p>
+        </div>
+    <div class="brand">
+        <div class="badge">11</div>
+        <img class="icon" src="{{ asset( 'images/Mail128.png') }}"/>
+    </div>
+</div>
 {% endblock %}
