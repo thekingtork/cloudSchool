@@ -10,12 +10,16 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use cloud\siteBundle\Entity\Periodo;
 use cloud\siteBundle\Entity\Grado;
 use cloud\siteBundle\Entity\Curso;
+use cloud\siteBundle\Entity\Area;
+use cloud\siteBundle\Entity\Asignatura;
 use cloud\siteBundle\Entity\NivelesAcademicos;
 
 use cloud\siteBundle\Form\PeriodoType;
 use cloud\siteBundle\Form\NivelesAcademicosType;
 use cloud\siteBundle\Form\GradoType;
 use cloud\siteBundle\Form\CursoType;
+use cloud\siteBundle\Form\AreaType;
+use cloud\siteBundle\Form\AsignaturaType;
 
 /**
  * Periodo controller.
@@ -31,11 +35,11 @@ class ma13Controller extends Controller
     */
     public function ma13Action(){
        $em=$this->getDoctrine()->getEntityManager();
-       $na=$em->getRepository('cloudBundle:NivelesAcademicos')->find(7);
+       $na=$em->getRepository('cloudBundle:Area')->findAll();
        if(!$na){
             return $this->render('cloudBundle:Admin:ma13.html.twig', array('estado'=>'nulo'));
        }
-       return $this->render('cloudBundle:Admin:ma13.html.twig', array());
+       return $this->render('cloudBundle:Admin:ma13.html.twig', array('estado'=>'no-nulo'));
     }
 
     /**
@@ -376,4 +380,181 @@ class ma13Controller extends Controller
         $niveles = $em->getRepository('cloudBundle:Curso')->findAll();
         return $this->render('cloudBundle:Admin:ma1331.html.twig', array('cursos'=>$niveles));
     }
+
+
+
+
+
+
+
+
+
+    /** 
+      * @Route("/areas", name="ma134")
+      */
+     public function ma134Action(){
+        $request=$this->getRequest();
+        $em=$this->getDoctrine()->getEntityManager();
+
+
+        if($request->getMethod()=='POST')
+        {
+            $numero=$request->request->get('numsede');
+            for ($i=1; $i <= $numero; $i++) { 
+                $entity  = new Area();
+                $entity->setName("Area");
+                $em->persist($entity);
+                $em->flush();
+            }
+            $areas = $em->getRepository('cloudBundle:Area')->findAll();
+
+            return $this->render('cloudBundle:Admin:ma134.html.twig', array('areas'=>$areas));
+        }
+        
+        $areas=$em->getRepository('cloudBundle:Area')->findAll();
+        if(!$areas)
+            return $this->render('cloudBundle:Admin:ma134.html.twig', array('mje'=>'No tiene tiene areas asociadas'));
+        return $this->render('cloudBundle:Admin:ma134.html.twig', array('areas'=>$areas));
+     }
+
+
+
+    /** 
+      * @Route("/areas/{id}/asignaturas", name="ma1341")
+      */
+     public function ma1341Action($id){
+        $request=$this->getRequest();
+        $em=$this->getDoctrine()->getEntityManager();
+        $area = $em->getRepository('cloudBundle:Area')->find($id);
+
+        if($request->getMethod()=='POST')
+        {
+            $numero=$request->request->get('numsede');
+            for ($i=1; $i <= $numero; $i++) { 
+                $entity  = new Asignatura();
+                $entity->setName("Asignatura");
+                $entity->setAreaId($area);
+                $em->persist($entity);
+                $em->flush();
+            }
+            $asignaturas = $em->getRepository('cloudBundle:Asignatura')->findBy(array('area_id'=>$id));
+            
+
+            return $this->render('cloudBundle:Admin:ma1341.html.twig', array('asignaturas'=>$asignaturas));
+        }
+        
+        $asignaturas = $em->getRepository('cloudBundle:Asignatura')->findBy(array('area_id'=>$id));
+        
+        if(!$asignaturas)
+            return $this->render('cloudBundle:Admin:ma1341.html.twig', array('mje'=>'No tiene tiene asignaturas asociadas'));
+        return $this->render('cloudBundle:Admin:ma1341.html.twig', array('asignaturas'=>$asignaturas));
+     }
+
+       /**
+     *
+     * @Route("/areas/{id}/asignaturas/edit", name="ma1342")
+     */
+    public function ma1342Action($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('cloudBundle:Asignatura')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Curso entity.');
+        }
+
+        $editForm = $this->createForm(new AsignaturaType(), $entity);
+
+        return $this->render('cloudBundle:Admin:ma1342.html.twig', array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
+        ));
+    }
+
+    /**
+     *
+     * @Route("/areas/{id}/asignaturas/update", name="ma13421")
+     * @Method("POST")
+     */
+    public function ma13421Action(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('cloudBundle:Asignatura')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Area entity.');
+        }
+
+        
+        $editForm = $this->createForm(new AsignaturaType(), $entity);
+        $editForm->bind($request);
+
+        if ($editForm->isValid()) {
+            $em->persist($entity);
+            $em->flush();
+
+            $area = $entity->getAreaId();
+
+            return $this->redirect($this->generateUrl('ma1341', array('id'=>$area->getId()) ));
+        }
+
+        $asignaturas = $em->getRepository('cloudBundle:Asignatura')->findBy(array('area_id'=>$id));
+        return $this->render('cloudBundle:Admin:ma134.html.twig', array('asignaturas'=>$asignaturas));
+    }
+
+    /**
+     *
+     * @Route("/areas/{id}/edit", name="ma1343")
+     */
+    public function ma1343Action($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('cloudBundle:Area')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Area entity.');
+        }
+
+        $editForm = $this->createForm(new AreaType(), $entity);
+
+        return $this->render('cloudBundle:Admin:ma1343.html.twig', array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
+        ));
+    }
+
+
+    /**
+     *
+     * @Route("/areas/{id}/update", name="ma13431")
+     * @Method("POST")
+     */
+    public function ma13431Action(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('cloudBundle:Area')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Area entity.');
+        }
+
+        
+        $editForm = $this->createForm(new AreaType(), $entity);
+        $editForm->bind($request);
+
+        if ($editForm->isValid()) {
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('ma134'));
+        }
+
+        $areas = $em->getRepository('cloudBundle:Area')->findAll();
+        return $this->render('cloudBundle:Admin:ma134.html.twig', array('areas'=>$areas));
+    }
+
 }

@@ -26,14 +26,65 @@
 					<div id="menuAux">
 						<ul>
 							<li><a href="{{ path('ma131') }}" class="ajax" >Peridos academicos</a></li>
-							<li><a href="{{ path('ma132') }}" class="iniciar">Niveles y grados</a></li>
+							<li><a href="{{ path('ma132') }}" class="ajax">Niveles y grados</a></li>
 							<li><a href="{{ path('ma133') }}" class="ajax" >Configurar cursos</a></li>
-							<li><a href="{{ path('ma13') }}" class="ajax" >Gestion Asignatura</a></li>
+							<li><a href="{{ path('ma134') }}" class="iniciar" data-as="{{ estado }}">Gestion Asignatura</a></li>
 						</ul>
 					</div>
                     <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
 				</div>
 			</div>
+			<div class="overlay">
+                    <div class="formOverlay lima">
+                        <form action="{{ path('ma134') }}" method="post">
+                            <div class="linea">
+                                <div class="titulo">
+                                    <p>Ingresar el numero de areas</p>
+                                </div>
+                            </div>
+                            <div class="linea">
+                                <div class="entrada">
+                                   <input type="text" name="numsede">
+                                </div>
+                            </div>
+                            <div class="linea">
+                                <div id="botonesDow">
+                                    <ul>
+                                        <li>
+                                            <button class="botonesDw blanco" type="submit">Guardar</button>
+                                        </li>
+                                        <li>
+                                            <input  class="botonesDw blanco" type="button" value="Limpiar" onClick="limpiaForm('#formularioInst form')">
+                                        </li>
+                                        <li>
+                                            <input  class="botonesDw blanco ocultarOverlay" type="button" value="Cancelar">
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                </div>
+                <script>
+                        $(document).ready(function(){  
+                            $(".ocultarOverlay").click( function(){
+                            $(".overlay").css("display","none")
+                        })
+                        })
+                    </script>
+			</div>
+			<script type="text/javascript">
+		    	$(document).ready( function(){
+		    		console.log("iniciar MA13")
+		    		$("a.iniciar").click( function(e){
+		    			if( $(this).attr("data-as") == "nulo" )
+		    				{
+		    					e.preventDefault()
+                                $('.overlay').css('display','block');
+		    					console.log($(this).attr("data-as"));
+		    				}
+		    		})
+		    	})
+		    </script>
 		</div>
         
 		 {% block notificaciones %}         
@@ -41,6 +92,6 @@
          {% endblock notificaciones %}
 	</div>
     <script type="text/javascript" src="{{asset('javascripts/jquery.js')}}"></script>
-   
+
     
 {% endblock %}
