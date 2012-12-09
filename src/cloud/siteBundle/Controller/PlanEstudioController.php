@@ -13,8 +13,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
  *
  * @Route("/admin/planestudio")
  */
-class PlanEstudioController extends Controller
-{
+class PlanEstudioController extends Controller{
     
 
 }
