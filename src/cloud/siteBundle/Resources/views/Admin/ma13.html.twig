@@ -5,35 +5,7 @@
 {% block menu_principal %}
 		<div id="ContAjax">
 			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma13/ma13.css') }}"/> 
-            
-			<div id="bloqueCgenerales" class="azul">
-				<div id="contenidoIzq">
-					<div class="botonRegresar">
-						{% block back %}
-							<a href="{{ path('ma1') }}" class="ajax"><img src="{{ asset('images/b_atras.png') }}"/></a>
-						{% endblock %}
-					</div>
-					<div id="ContTitulo">
-						<p>Criterios academicos</p>
-					</div>
-					<div id="lineas">
-						<img id="decoracionAjax" src="{{ asset('images/backgroudAjax.svg') }}"/>
-					</div>
-				</div>
-				<div id="contenidoDer">
-					<div class="breadcumbr"><a href="{{ path('ma1') }}" class="ajax">Ajustes del sistema</a></div>
-					<div id="menuAux">
-						<ul>
-							<li><a href="{{ path('ma131') }}" class="iniciar" data-as="{{ periodos }}">Peridos academicos</a></li>
-							<li><a href="{{ path('ma132') }}" class="ajax">Niveles y grados</a></li>
-							<li><a href="{{ path('ma133') }}" class="ajax" >Configurar cursos</a></li>
-							<li><a href="{{ path('ma134') }}" class="iniciar" data-as="{{ estado }}">Gestion Asignatura</a></li>
-						</ul>
-					</div>
-                    <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
-				</div>
-			</div>
-			<div class="overlay">
+            <div class="overlay" style="display:none">
                     <div class="formOverlay lima">
                         <form action="{{ path('ma134') }}" method="post">
                             <div class="linea">
@@ -71,21 +43,59 @@
                         })
                     </script>
 			</div>
+			<div id="bloqueCgenerales" class="azul">
+				<div id="contenidoIzq">
+					<div class="botonRegresar">
+						{% block back %}
+							<a href="{{ path('ma1') }}" class="ajax"><img src="{{ asset('images/b_atras.png') }}"/></a>
+						{% endblock %}
+					</div>
+					<div id="ContTitulo">
+						<p>Criterios academicos</p>
+					</div>
+					<div id="lineas">
+						<img id="decoracionAjax" src="{{ asset('images/backgroudAjax.svg') }}"/>
+					</div>
+				</div>
+				<div id="contenidoDer">
+					<div class="breadcumbr"><a href="{{ path('ma1') }}" class="ajax">Ajustes del sistema</a></div>
+					<div id="menuAux">
+						<ul>
+							<li><a href="{{ path('ma131') }}" class="Iperiodo" data-as="{{ periodos }}">Peridos academicos</a></li>
+							<li><a href="{{ path('ma132') }}" class="ajax">Niveles y grados</a></li>
+							<li><a href="{{ path('ma133') }}" class="ajax" >Configurar cursos</a></li>
+							<li><a href="{{ path('ma134') }}" class="iniciar" data-as="{{ estado }}">Gestion Asignatura</a></li>
+						</ul>
+					</div>
+                    <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
+				</div>
+			</div>
+			
+                
 			<script type="text/javascript">
 		    	$(document).ready( function(){
 		    		console.log("iniciar MA13")
 		    		$("a.iniciar").click( function(e){
+		    			
 		    			if( $(this).attr("data-as") == "nulo" )
-		    				{
-		    					e.preventDefault()
-                                $('.overlay').css('display','block');
-		    					console.log($(this).attr("data-as"));
-		    				}
+		    			{
+                            $('.overlay').css('display','block');
+		    				console.log($(this).attr("data-as"));
+		    			}
+		    		})
+
+		    		$("a.Iperiodo").click( function(e){
+		    			e.preventDefault();
+		    			if( $(this).attr("data-as") == "nulo" )
+		    			{
+		    				$('.overlay form').attr('action',"{{ path('ma131') }}");
+		    				$('.overlay .linea p').html("Ingresa el numero de periodos")
+                            $('.overlay').css('display','block');
+		    			}
 		    		})
 		    	})
 		    </script>
 		</div>
-    <script type="text/javascript" src="{{asset('javascripts/jquery.js')}}"></script>
 
     
 {% endblock %}

@@ -14,21 +14,20 @@
 						{% endblock %}
 					</div>
                     {% if requeriment is defined %}
-                        {% if periodo is defined %}
-                            <div>
+                        {% if mje is defined %}
+                            {{ mje }}
+                        
+                        {% elseif periodo is defined %}
+                            
                                 Con periodos
-                            </div>
+                            
                             {% else %}
-                            <div id="form_num_periodo">
-                                <div>
-                                    <label>Numero de periodos</label>
-                                    <input type="text" name="numperidos" id="numperidos" />
-                                    <button type="submit">Ingresar</button>
-                                </div>
-                            </div>
+
+                                Sin Periodos
+
                         {% endif %}
                     {% else %}
-                        <div class="simple_overlay">
+                        <div>
                             Para poder realizar esta accion necesita iniciar el año escolar!
                         </div>
                     {% endif %}
@@ -43,7 +42,6 @@
 				</div>
 			</div>
 		</div>
-    <script type="text/javascript" src="{{asset('javascripts/jquery.js')}}"></script>
     <script>
     	$(document).on("ready", iniciar)
 

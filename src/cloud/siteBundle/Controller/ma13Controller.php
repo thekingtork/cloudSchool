@@ -39,37 +39,66 @@ class ma13Controller extends Controller
        $periodos=$em->getRepository('cloudBundle:Periodo')->findAll();
        if(!$na){
           if(!$periodos)
-            return $this->render('cloudBundle:Admin:ma13.html.twig', array('estado'=>'nulo','periodos'=>'periodos'));
+            return $this->render('cloudBundle:Admin:ma13.html.twig', array('estado'=>'nulo','periodos'=>'nulo'));
           else    
             return $this->render('cloudBundle:Admin:ma13.html.twig', array('estado'=>'nulo','periodos'=>'no-nulo'));
        }
        if(!$periodos)
-        return $this->render('cloudBundle:Admin:ma13.html.twig', array('estado'=>'no-nulo','periodos'=>'periodos'));
+        return $this->render('cloudBundle:Admin:ma13.html.twig', array('estado'=>'no-nulo','periodos'=>'nulo'));
       else
         return $this->render('cloudBundle:Admin:ma13.html.twig', array('estado'=>'no-nulo','periodos'=>'no-nulo'));
     }
 
-    /**
-    *
-    * @Route("/periodos", name="ma131")
-    */
-    public function ma131Action(){
+     /** 
+      * @Route("/periodos", name="ma131")
+      */
+     public function ma131Action(){
+        $request=$this->getRequest();
         $em=$this->getDoctrine()->getEntityManager();
-        $entity = $em->getRepository('cloudBundle:Anio')->findOneBy(array('active'=>'1'));
-        if(!$entity)
-            return $this->render('cloudBundle:Admin:ma131.html.twig');
-        else
+        $anio = $em->getRepository('cloudBundle:Anio')->findBy(array('active'=>'1'));
+
+        if($request->getMethod()=='POST')
         {
-            $entity = $em->getRepository('cloudBundle:Periodo')->find(1);
-            if (!$entity) 
-                return $this->render('cloudBundle:Admin:ma131.html.twig',array('requeriment'=>true));
-            else
-            {
-                
-                return $this->render('cloudBundle:Admin:ma131.html.twig',array('requeriment'=>true,"periodo"=>$entity));
+            $numero=$request->request->get('numsede');
+            $division = 12/$numero;
+            $porcentaje = 100/$numero;
+            $tiempo = new \DateTime();
+
+            for ($i=1; $i <= $numero; $i++) { 
+                $entity  = new Periodo();
+
+                $entity->setPeriodoInicio($tiempo);
+                $tiempo->modify("+".($division*$i)." months");
+                $entity->setPeriodoFinal($tiempo);
+
+                $entity->setPorcentaje($porcentaje);
+
+                $entity->setActividadesMin(1);
+                $entity->setActividadesMax(5);
+
+
+                $entity->setAnioId($anio[0]);
+
+                $estado = $em->getRepository('cloudBundle:EstadoPeriodo')->find(1);
+                $entity->setEstadoId($estado);
+
+                $em->persist($entity);
+                $em->flush();
             }
+            $periodos = $em->getRepository('cloudBundle:Periodo')->findAll();
+
+            if(!$anio)
+              return $this->render('cloudBundle:Admin:ma131.html.twig', array('periodos'=>$periodos));
+            return $this->render('cloudBundle:Admin:ma131.html.twig', array('periodos'=>$periodos,'requeriment'=>true));
+
         }
-    }
+        
+        $periodos = $em->getRepository('cloudBundle:Periodo')->findAll();
+        if (!$anio && !$periodos)
+            return $this->render('cloudBundle:Admin:ma131.html.twig', array('mje'=>'No tiene tiene grados academicos asociadas'));
+          
+        return $this->render('cloudBundle:Admin:ma131.html.twig', array('periodos'=>$periodos,'requeriment'=>true));
+     }
     
     /**
      * 

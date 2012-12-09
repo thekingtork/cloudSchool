@@ -34,7 +34,7 @@ class Periodo
      */
     protected $periodo_final;
     /**
-     * @ORM\OneToOne(targetEntity="EstadoPeriodo")
+     * @ORM\ManyToOne(targetEntity="EstadoPeriodo")
      * @ORM\JoinColumn(name="estado_id", referencedColumnName="id")
      * @Assert\NotNull(message = "Campo Obligatorio")
      */
