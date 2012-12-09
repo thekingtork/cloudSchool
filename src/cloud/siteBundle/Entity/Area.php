@@ -23,6 +23,11 @@ class Area
      * 
      */
     protected $name;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Asignatura", mappedBy="area_id")
+     */
+    protected $area_id;
     
 
 
@@ -63,4 +68,44 @@ class Area
         return $this->name;
     }
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->area_id = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add area_id
+     *
+     * @param cloud\siteBundle\Entity\Asignatura $areaId
+     * @return Area
+     */
+    public function addAreaId(\cloud\siteBundle\Entity\Asignatura $areaId)
+    {
+        $this->area_id[] = $areaId;
+    
+        return $this;
+    }
+
+    /**
+     * Remove area_id
+     *
+     * @param cloud\siteBundle\Entity\Asignatura $areaId
+     */
+    public function removeAreaId(\cloud\siteBundle\Entity\Asignatura $areaId)
+    {
+        $this->area_id->removeElement($areaId);
+    }
+
+    /**
+     * Get area_id
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getAreaId()
+    {
+        return $this->area_id;
+    }
 }

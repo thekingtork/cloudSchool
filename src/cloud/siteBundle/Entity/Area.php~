@@ -23,6 +23,11 @@ class Area
      * 
      */
     protected $name;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Asignatura", mappedBy="area_id")
+     */
+    protected $area_id;
     
 
 
