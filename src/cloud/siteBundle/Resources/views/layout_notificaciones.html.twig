@@ -1,81 +1,65 @@
-
-    {% block estilos %} 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="{{ asset('stylesheets/Mnotificacion/notificacion.css') }}"/>
-        <link rel="stylesheet" media="all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape)" href="{{ asset('stylesheets/Mnotificacion/notificacion_ipadHorizontal.css') }}"/>
-        <link rel="stylesheet" media="all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait)" href="{{ asset('stylesheets/Mnotificacion/notificacion_ipadVertical.css') }}"/>  
-        
-    {% endblock %}
-     <div id="notificaciones">
-        <div id="tituloN">
-            <p class="titulo">Resumen de Actividades</p>
-        </div>
-        <div id="contenidoN">
-            <div id="fechaN"><p>19 de octubre de 2012</p></div>
-            <div class="itemN">
-                <div class="iconoN lima"><label>T</label></div>
-                <div class="ContenidoN">
-                    <div class="tituloN limaFc">
-                        <p>TAREA DE ESPA&Ntilde;OL</p>
-                    </div>
-                    <div class="noticiaN">
-                        <p>Para la proxima clase por favor traer las fotocopias asignadas</p>
-                    </div> 
+{% block estilos %} 
+    <link rel="stylesheet" href="{{ asset( 'stylesheets/mod-Notf.css') }}"/>
+{% endblock %}
+{% block notificaciones %}
+    <div class="Box-ntf" data-role="tile-slider" data-param-period="10000">
+            <div class="noticia">
+                <h3>Noticias y Eventos</h3>
+                <h4>Semana Cultural:</h4>
+                <p>del 1 al 8 de diciembre empieza la semana cultural</p>
+            </div>
+            <div class="noticia">
+                <h3>Noticias y Eventos</h3>
+                <h4>Ciclo Paseo</h4>
+                <p>el 6 de diciembre gran ciclo paseo</p>
+            </div>
+            <div class="estaticos">
+                <div class="fecha">
+                    <p>26 - Dic- 2012</p>
+                </div>
+                <div class="contador">
+                    <p>12</p>                   
                 </div>
             </div>
-            <div class="itemN">
-                <div class="iconoN azul"><label>E</label></div>
-                <div class="ContenidoN">
-                    <div class="tituloN azulFc">
-                        <p>DIA DEL MAESTRO</p>
-                    </div>
-                    <div class="noticiaN">
-                        <p>El dia  23 de octubre, todos los estuduantes deben llevar...</p>
-                    </div> 
+    </div>
+    <div class="Box-ntf" data-role="tile-slider"  data-param-period="12000">
+            <div class="noticia">
+                <h3>Aula virtual</h3>
+                <h4>Tarea de Matemáticas:</h4>
+                <p>para el 8 de diciembre traer la tareas de numeros romanos</p>
+            </div>
+            <div class="noticia">
+                <h3>Aula virtual</h3>
+                <h4>Quiz de Quimica:</h4>
+                <p>para el 3 de diciembre Quiz quimica</p>
+            </div>
+            <div class="estaticos">
+                <div class="fecha">
+                    <p>6 - Dic- 2012</p>
+                </div>
+                <div class="contador">
+                    <p>5</p>                    
                 </div>
             </div>
-            <div class="itemN">
-                <div class="iconoN morado"><label>A</label></div>
-                <div class="ContenidoN">
-                    <div class="tituloN moradoFc">
-                        <p>SEMANA CULTURAL</p>
-                    </div>
-                    <div class="noticiaN">
-                        <p>desde el 4 al 9 de noviembre empieza la semana cultural...</p>
-                    </div> 
+    </div> 
+    <div class="Box-ntf" class="Box-ntf" data-role="tile-slider"  data-param-period="14000">
+            <div class="noticia">
+                <h3>Chat y Foros</h3>
+                <h4>Ricardo Martinez</h4>
+                <p>hola Andres como vas con la tarea de ingles</p>
+            </div>
+            <div class="noticia">
+                <h3>Chat y Foros</h3>
+                <h4>Andrea Lopez</h4>
+                <p>Regresame mis libros</p>
+            </div>
+            <div class="estaticos">
+                <div class="fecha">
+                    <p>26 - Dic- 2012</p>
+                </div>
+                <div class="contador">
+                    <p>7</p>                    
                 </div>
             </div>
-            <div class="itemN">
-                <div class="iconoN fucsia"><label>A</label></div>
-                <div class="ContenidoN">
-                    <div class="tituloN fucsiaFc">
-                        <p>MINITk INSTITUCIONAL</p>
-                    </div>
-                    <div class="noticiaN">
-                        <p>El dia 5 de noviembre habra miniteka con motivo de la...</p>
-                    </div> 
-                </div>
-            </div>
-            <div class="itemN">
-                <div class="iconoN naranja"><label>T</label></div>
-                <div class="ContenidoN">
-                    <div class="tituloN naranjaFc">
-                        <p>TALLER DE Arte</p>
-                    </div>
-                    <div class="noticiaN">
-                        <p>Para la proxima clase habra taller sobre los numeros romanos...</p>
-                    </div> 
-                </div>
-            </div>      
-        </div>
-        <div id="paginadorN">
-            <ul>
-                  <li class="botonN">1</li>
-                  <li class="botonN">2</li>
-                  <li class="botonN">3</li>
-                  <li class="botonN">4</li>
-                  <li class="botonN">5</li>
-                  <li class="botonN">6</li>
-              </ul>  
-        </div>       
-      </div>
+    </div> 
+{% endblock %}

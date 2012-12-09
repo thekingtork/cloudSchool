@@ -1,0 +1,25 @@
+#contenedorML {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  vertical-align: top;
+}
+#menuL ul {
+  list-style: none;
+}
+.boxML {
+  cursor: pointer;
+  margin: 0.25em 0 0 0;
+}
+.boxML img {
+  max-height: 100%;
+  max-width: 100%;
+}
+.efecto {
+  opacity: 0.5;
+  transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+}
+.efecto:hover {
+  opacity: 1;
+}

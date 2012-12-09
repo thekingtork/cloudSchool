@@ -1,0 +1,79 @@
+/* Colores */
+.titulo {
+  width: 100%;
+}
+.titulo h2 {
+  color: #00aced;
+  text-align: center;
+}
+.Box-ntf {
+  cursor: pointer;
+  background-color: #00aced !important;
+  height: 6.5em;
+  margin: 0 auto 0.25em;
+  overflow: hidden;
+  padding: 0.25em;
+  position: relative;
+  transition: all 0.2s ease;
+  vertical-align: top;
+  -webkit-transition: all 0.2s ease;
+  width: 95%;
+}
+.Box-ntf .noticia {
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 3em;
+  position: relative;
+  text-overflow: ellipsis;
+  transition: all 0.2s ease;
+  vertical-align: top;
+  -webkit-transition: all 0.2s ease;
+  width: 100%;
+}
+.Box-ntf .noticia h3 {
+  font-weight: normal;
+  margin: 0 auto 0.15em;
+  width: 95%;
+}
+.Box-ntf .noticia h4,
+.Box-ntf .noticia p {
+  color: #d5d5d5;
+  line-height: 1;
+  margin: 0 auto 0.15em;
+  font-weight: normal;
+  width: 95%;
+}
+.Box-ntf .estaticos {
+  background-color: transparent;
+  bottom: 0;
+  left: 0;
+  min-height: 30px;
+  position: absolute;
+  right: 0;
+  *zoom: 1;
+}
+.Box-ntf .estaticos .fecha {
+  bottom: 0;
+  color: #fff;
+  position: absolute;
+  left: 0.5em;
+}
+.Box-ntf .estaticos .contador {
+  bottom: 0;
+  color: #fff;
+  font-size: 1.8em;
+  position: absolute;
+  right: 0.5em;
+}
+.Box-ntf:nth-child(2n+1) {
+  background-color: #a6d7f6 !important;
+}
+.Box-ntf:nth-child(2n+1) .noticia h4 {
+  color: #8a9ba8;
+}
+.Box-ntf:nth-child(2n+1) .noticia p {
+  color: #8a9ba8;
+}
+.Box-ntf:nth-child(2) {
+  background-color: #0094d6 !important;
+}

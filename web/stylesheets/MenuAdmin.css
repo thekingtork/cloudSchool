@@ -1,0 +1,164 @@
+a {
+  text-decoration: none;
+}
+#admacademica a p {
+  font-size: 1.9em;
+  margin: 28% 0 0 6%;
+}
+#admPersonas a p {
+  font-size: 1.5em;
+  margin-top: 21%;
+}
+#aulaVirtual a p {
+  font-size: 2.5em;
+  margin-top: 17%;
+}
+#CinferiorDer {
+  float: left;
+  height: 38%;
+  overflow: hidden;
+  width: 53%;
+}
+#CinferiorDer .boxMPA:nth-child(1) {
+  margin-right: 0.25em;
+}
+#CinferiorIzq {
+  height: 38%;
+  float: left;
+  margin-right: 0.25em;
+  overflow: hidden;
+  width: 45%;
+}
+#CinferiorIzq .boxMPA:nth-child(1) {
+  margin-right: 0.25em;
+}
+#CsuperiorDer {
+  float: left;
+  height: 57%;
+  margin: 0 0 0.25em 0;
+  overflow: hidden;
+  vertical-align: top;
+  width: 53%;
+}
+#CsuperiorDer .boxMPA:nth-child(1) {
+  margin-right: 0.25em;
+}
+#CsuperiorDer .boxMPA:nth-child(2) {
+  margin-bottom: 0.25em;
+}
+#CsuperiorIzq {
+  float: left;
+  height: 57%;
+  margin: 0 0.25em 0.25em 0;
+  vertical-align: top;
+  width: 45%;
+}
+#CsuperiorIzq .boxMPA:nth-child(1) {
+  margin-right: 0.25em;
+}
+#CsuperiorIzq .boxMPA:nth-child(2) {
+  margin-bottom: 0.25em;
+}
+#CsuperiorIzq,
+#CsuperiorDer,
+#CinferiorIzq,
+#CinferiorDer {
+  display: inline-block;
+  vertical-align: top;
+}
+#confSitema {
+  background: #00aced url("../images/botones/b_ajustes.png") no-repeat;
+  background-position: 50% -84%;
+  background-size: 50%;
+  transition: all 0.2s ease;
+}
+#confSitema:hover {
+  background: rgba(0,172,237,0.8) url("../images/botones/b_ajustes.png") no-repeat center;
+  background-size: 50%;
+}
+#confSitema p {
+  font-size: 2em;
+  margin-top: 70%;
+}
+#confSitema img {
+  display: none;
+}
+#Estaditicas a p {
+  font-size: 1.5em;
+  margin-top: 25%;
+}
+#Estaditicas img {
+  display: none;
+}
+#organizador a p {
+  font-size: 1.3em;
+  margin-top: 21%;
+}
+#obsevaciones a p {
+  font-size: 1.3em;
+  margin-top: 21%;
+}
+#planEstudios a p {
+  font-size: 1.5em;
+  margin-top: 20%;
+}
+#perfil a p {
+  font-size: 3.5em;
+  margin-top: 21%;
+}
+#tutoriales a p {
+  font-size: 1.8em;
+  margin-top: 35%;
+}
+.boxMPA {
+  cursor: pointer;
+  box-shadow: inset 0px 0px 1px #ffc;
+  float: left;
+  overflow: hidden;
+  padding: 0.5em;
+  position: relative;
+  transition: all 0.5s ease;
+  vertical-align: top;
+  -webkit-transition: all 0.1s linear;
+}
+.boxMPA:hover {
+  -webkit-box-shadow: inset 0px 0px 0px 3px rgba(58,58,58,0.8);
+  box-shadow: inset 0px 0px 0px 3px rgba(58,58,58,0.8);
+}
+.caja1MPA {
+  height: 190px;
+  width: 164px;
+}
+.caja2MPA {
+  height: 84.6px;
+  width: 133px;
+}
+.caja3MPA {
+  height: 190px;
+  width: 56%;
+}
+.caja4MPA {
+  height: 120px;
+  width: 164px;
+}
+.caja5MPA {
+  height: 120px;
+  width: 133px;
+}
+.caja6MPA {
+  height: 120px;
+  width: 56%;
+}
+.textoMPA {
+  color: #fff;
+  font-family: "Segoe UI light";
+  line-height: 1.1;
+  position: relative;
+  word-wrap: break-word;
+}
+.TexLeft {
+  text-align: left;
+}
+.TexCentro {
+  text-align: center;
+}

@@ -1,0 +1,23 @@
+#menuC {
+  width: 40%;
+}
+#menuC ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#menuC ul li {
+  width: 1.5em;
+}
+#menuC,
+#salir {
+  display: inline-block;
+  vertical-align: top;
+}
+.box {
+  cursor: pointer;
+  display: inline-block;
+  max-height: 18px;
+  max-width: 18px;
+  vertical-align: top;
+}

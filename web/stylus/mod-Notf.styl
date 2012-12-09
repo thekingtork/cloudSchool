@@ -1,0 +1,81 @@
+/* Colores */
+
+Azul = rgb(0,172,237)
+Azul2 = rgb(166,215,246)
+Azul3 = rgb(0,148,214)
+Amarillo = rgb(239,200,37)
+Rojo = rgb(204,33,40)
+Lima = rgb(177,205,73)
+Fucsia = rgb(202,0,136)
+VerdeLight = rgb(140,152,119)
+VerdeDark = rgb(50,164,86)
+Naranja = rgb(219,129,45)
+Morado = rgb(139,39,139)
+Gris = rgb(138,155,168)
+Negro = rgb(0,0,0)
+Blanco = rgb(255,255,255)
+Blanco2= rgb(213,213,213)
+.titulo
+	width 100%
+	h2
+		color Azul
+		text-align center
+.Box-ntf
+	cursor pointer
+	background-color Azul !important
+	height 6.5em
+	margin 0 auto .25em
+	overflow hidden
+	padding .25em
+	position relative
+	transition all 0.2s ease
+	vertical-align top
+	-webkit-transition all 0.2s ease
+	width 95%
+	.noticia
+		height 100%
+		overflow hidden
+		padding-bottom 3em
+		position relative
+		text-overflow ellipsis
+		transition all 0.2s ease
+		vertical-align top
+		-webkit-transition all 0.2s ease
+		width 100%
+		h3
+			font-weight normal
+			margin 0 auto .15em
+			width 95%
+		h4,p
+			color Blanco2
+			line-height 1
+			margin 0 auto .15em
+			font-weight normal
+			width 95%
+	.estaticos
+		background-color transparent
+		bottom 0
+		left 0
+		min-height 30px
+		position absolute
+		right 0
+		*zoom 1
+		.fecha
+			bottom 0
+			color Blanco
+			position absolute
+			left .5em
+		.contador
+			bottom 0
+			color Blanco
+			font-size 1.8em
+			position absolute
+			right .5em
+.Box-ntf:nth-child(2n+1)
+	background-color Azul2 !important
+	.noticia h4
+		color Gris
+	.noticia p
+		color Gris
+.Box-ntf:nth-child(2)
+	background-color Azul3 !important

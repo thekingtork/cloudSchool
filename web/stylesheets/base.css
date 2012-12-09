@@ -27,8 +27,8 @@ h4,
 h5,
 h6,
 label,
-p,
-margin 0 {
+p {
+  margin: 0;
   padding: 0;
 }
 @font-face {
@@ -115,7 +115,7 @@ header {
 #Fecha label span {
   float: left;
   font-size: 1.5em;
-  width: 200px;
+  width: 40%;
   line-height: 1;
 }
 #Fecha label p {
