@@ -9,12 +9,14 @@ $(document).on("ready", contructor);
 	function call_ajax(){
         $("a.ajax").click( function(e){
             e.preventDefault();
-            $("#ContAjax").html("<div id='imgLoader'><img src='{{ asset('images/ajax-loader.gif') }}' title='Loader' /></div>");
+            $("#ContAjax").html('<img src="{{ asset(\'images/ajax-loader.gif\') }}" title='Loader' />');
             var objeto = $(this).attr("href");
+            console.log(objeto)
             $.ajax({
             	url: objeto,
             	type: 'get',
-            		success: function (r) {                      
+            		success: function (r) {    
+                console.log("Ajax: "+r)                  
                       objeto_ajax.append( "<div style='display:none' id='contHiden'>"+r+"</div>" );
                       var obj = $("#contHiden").find("#ContAjax").html();
                       var _title =  $("#contHiden").find("title").html();

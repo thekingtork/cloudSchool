@@ -3,7 +3,6 @@
 	MA1132
 {% endblock %}
 {% block menu_principal %}
-	 <div class="cuerpoCentrado" id="contMetro">
 		<div id="ContAjax">
 <script type="text/javascript" src="{{ asset('javascripts/jquery.overlay.js') }}"></script>
 <script>
@@ -125,13 +124,4 @@ function iniciar(){
 				</div>
 			</div>
 		</div>
-		{% block notificaciones %}         
-            {% include "cloudBundle::layout_notificaciones.html.twig" %}
-        {% endblock notificaciones %}
-	</div>
-	<div class="cuerpoCentrado" id="footer">
-        	{% block menu_colores %}
-          		{% include "cloudBundle::menuColores.html.twig" %}
-        	{% endblock %}
-    </div>
 {% endblock %}
