@@ -16,7 +16,6 @@ $(document).on("ready", contructor);
             	url: objeto,
             	type: 'get',
             		success: function (r) {    
-                console.log("Ajax: "+r)                  
                       objeto_ajax.append( "<div style='display:none' id='contHiden'>"+r+"</div>" );
                       var obj = $("#contHiden").find("#ContAjax").html();
                       var _title =  $("#contHiden").find("title").html();
