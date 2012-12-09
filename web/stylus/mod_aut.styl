@@ -1,19 +1,15 @@
-.alinear
-	display inline-block
-	margin 0
-	overflow hidden
-	padding 0
-	vertical-align top
 #contenedorAut
 	@extend	.alinear
-	max-width 100%
-	min-width 320px
+	height 40%
+	width 100%
 #contDow
 	@extend	.alinear
+	height 25%
 	left 0
 	width 100%
 #contLeft
 	@extend	.alinear
+	height 100%
 	width 30%
 #contRight
 	@extend	.alinear
@@ -21,30 +17,46 @@
 	width 69%
 #contUp
 	@extend	.alinear
+	height 75%
 	left 0
 	width 100%
-#m
+#a, #d, #e, #o
+	height 50%
+	margin-left -1.2%
+	width 50%
+	label
+		@extend .arregloLabel
+		font-size 5em
+#c,#f
+	height 25%
 	width 100%
 	label
-		font-size 8em
-#d label
-	font-size 6em
-#o label
-	font-size 6em
-#f label
-	font-size 4em
-#a label
-	font-size 6em
-#e label
-	font-size 6em
-#c label
-	font-size 4em
-#l label
-	font-size 4em
-#i label
-	font-size 4em
-#t label
-	font-size 4em
+		@extend .arregloLabel
+		font-size 3em
+#i,#l,#t
+	height 100%
+	margin-left -1.2%
+	width 33.3%
+	label
+		@extend .arregloLabel
+		font-size 3em
+#m
+	height 50%	
+	width 100%
+	label
+		@extend .arregloLabel
+		font-size 6em
+#t
+	margin-left -1.4%
+.alinear
+	display inline-block
+	margin 0
+	overflow hidden
+	padding 0
+	vertical-align top
+.arregloLabel
+	display block
+	margin auto
 .color1
 	background-color rgb(177,205,73)
 .color2
@@ -54,19 +66,16 @@
 .color4
 	background-color rgb(214,226,140)
 .cajaTipo1
-	float left
 	width 100%
 .cajaTipo2
-	float left
 	width 50%
 .cajaTipo3
-	float left
 	width 40% 
 .cajaTipo4
-	float left
 	width 30%
-.Fl
-	float left
+.cajaTipo1, .cajaTipo2, .cajaTipo3, .cajaTipo4
+	display inline-block
+	vertical-align top
 .textoItem
 	color rgb(255,255,255)
 	font-family "Segoe UI light"
