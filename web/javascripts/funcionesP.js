@@ -79,7 +79,7 @@ $(document).on("ready", contructor);
 	function animar (dato) {
 		var Identificador = dato.currentTarget.id;
 		ocultar={
-			margin: "120% 0 0 0"
+			margin: "125% 0 0 0"
 		}
 		switch(Identificador){
 			case 'confSitema': 

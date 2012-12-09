@@ -14,7 +14,6 @@ a {
   margin-top: 17%;
 }
 #CinferiorDer {
-  float: left;
   height: 38%;
   overflow: hidden;
   width: 53%;
@@ -24,8 +23,6 @@ a {
 }
 #CinferiorIzq {
   height: 38%;
-  float: left;
-  margin-right: 0.25em;
   overflow: hidden;
   width: 45%;
 }
@@ -33,8 +30,7 @@ a {
   margin-right: 0.25em;
 }
 #CsuperiorDer {
-  float: left;
-  height: 57%;
+  height: 61%;
   margin: 0 0 0.25em 0;
   overflow: hidden;
   vertical-align: top;
@@ -47,9 +43,9 @@ a {
   margin-bottom: 0.25em;
 }
 #CsuperiorIzq {
-  float: left;
-  height: 57%;
-  margin: 0 0.25em 0.25em 0;
+  height: 61%;
+  margin: 0 0 0.25em 0;
+  overflow: hidden;
   vertical-align: top;
   width: 45%;
 }
@@ -126,15 +122,15 @@ a {
   box-shadow: inset 0px 0px 0px 3px rgba(58,58,58,0.8);
 }
 .caja1MPA {
-  height: 190px;
+  height: 203px;
   width: 164px;
 }
 .caja2MPA {
-  height: 84.6px;
+  height: 91.5px;
   width: 133px;
 }
 .caja3MPA {
-  height: 190px;
+  height: 203px;
   width: 56%;
 }
 .caja4MPA {
