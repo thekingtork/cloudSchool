@@ -10,15 +10,31 @@
   padding: 0;
   vertical-align: top;
 }
+.arregloLabel,
+#a label,
+#d label,
+#e label,
+#o label,
+#c label,
+#f label,
+#i label,
+#l label,
+#t label,
+#m label {
+  display: block;
+  margin: auto;
+}
 #contenedorAut {
-  max-width: 100%;
-  min-width: 320px;
+  height: 40%;
+  width: 100%;
 }
 #contDow {
+  height: 25%;
   left: 0;
   width: 100%;
 }
 #contLeft {
+  height: 100%;
   width: 30%;
 }
 #contRight {
@@ -26,41 +42,54 @@
   width: 69%;
 }
 #contUp {
+  height: 75%;
   left: 0;
   width: 100%;
 }
+#a,
+#d,
+#e,
+#o {
+  height: 50%;
+  margin-left: -1.2%;
+  width: 50%;
+}
+#a label,
+#d label,
+#e label,
+#o label {
+  font-size: 5em;
+}
+#c,
+#f {
+  height: 25%;
+  width: 100%;
+}
+#c label,
+#f label {
+  font-size: 3em;
+}
+#i,
+#l,
+#t {
+  height: 100%;
+  margin-left: -1.2%;
+  width: 33.3%;
+}
+#i label,
+#l label,
+#t label {
+  font-size: 3em;
+}
 #m {
+  height: 50%;
   width: 100%;
 }
 #m label {
-  font-size: 8em;
-}
-#d label {
   font-size: 6em;
 }
-#o label {
-  font-size: 6em;
-}
-#f label {
-  font-size: 4em;
-}
-#a label {
-  font-size: 6em;
-}
-#e label {
-  font-size: 6em;
-}
-#c label {
-  font-size: 4em;
-}
-#l label {
-  font-size: 4em;
-}
-#i label {
-  font-size: 4em;
-}
-#t label {
-  font-size: 4em;
+#t {
+  margin-left: -1.4%;
 }
 .color1 {
   background-color: #b1cd49;
@@ -75,23 +104,23 @@
   background-color: #d6e28c;
 }
 .cajaTipo1 {
-  float: left;
   width: 100%;
 }
 .cajaTipo2 {
-  float: left;
   width: 50%;
 }
 .cajaTipo3 {
-  float: left;
   width: 40%;
 }
 .cajaTipo4 {
-  float: left;
   width: 30%;
 }
-.Fl {
-  float: left;
+.cajaTipo1,
+.cajaTipo2,
+.cajaTipo3,
+.cajaTipo4 {
+  display: inline-block;
+  vertical-align: top;
 }
 .textoItem {
   color: #fff;
