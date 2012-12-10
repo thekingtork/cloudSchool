@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 10-12-2012 a las 04:07:27
+-- Tiempo de generación: 10-12-2012 a las 21:03:28
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -110,6 +110,26 @@ INSERT INTO `asignatura` (`id`, `area_id`, `nombre`) VALUES
 (1, 1, 'Quimica'),
 (2, 1, 'Asignatura'),
 (3, 1, 'Asignatura');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cargo_docente`
+--
+
+CREATE TABLE IF NOT EXISTS `cargo_docente` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `cargo_docente`
+--
+
+INSERT INTO `cargo_docente` (`id`, `nombre`) VALUES
+(1, 'Docente'),
+(2, 'Director de Grupo');
 
 -- --------------------------------------------------------
 
@@ -1659,6 +1679,58 @@ INSERT INTO `notificaciones` (`id`, `tipo_id`, `estado_id`, `asunto`, `mensaje`,
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `perfil_docente`
+--
+
+CREATE TABLE IF NOT EXISTS `perfil_docente` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `municipio_id` int(11) DEFAULT NULL,
+  `tipodocumento_id` int(11) DEFAULT NULL,
+  `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `apellido` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `fecha_nacimiento` datetime NOT NULL,
+  `direccion` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `lugar_nacimiento` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `nmr_documento` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `de` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sexo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `barrio` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `estrato` int(11) NOT NULL,
+  `telefono` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `celular` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `personas_cargo` int(11) NOT NULL,
+  `titulo_profesional` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `anios_experienca` int(11) NOT NULL,
+  `fecha_ingreso` datetime NOT NULL,
+  `salario` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `cargo_id` int(11) DEFAULT NULL,
+  `tipo_contrado` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `numero_contrado` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `titulo_pregrado` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `titulo_postgrado` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `especialidad` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `escalafon` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `resolucion` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `fecha_resolucion` datetime NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_23484C65A76ED395` (`user_id`),
+  KEY `IDX_23484C6558BC1BE0` (`municipio_id`),
+  KEY `IDX_23484C652E595373` (`tipodocumento_id`),
+  KEY `IDX_23484C65813AC380` (`cargo_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `perfil_docente`
+--
+
+INSERT INTO `perfil_docente` (`id`, `municipio_id`, `tipodocumento_id`, `nombre`, `apellido`, `fecha_nacimiento`, `direccion`, `lugar_nacimiento`, `nmr_documento`, `de`, `sexo`, `email`, `barrio`, `estrato`, `telefono`, `celular`, `personas_cargo`, `titulo_profesional`, `anios_experienca`, `fecha_ingreso`, `salario`, `cargo_id`, `tipo_contrado`, `numero_contrado`, `titulo_pregrado`, `titulo_postgrado`, `especialidad`, `escalafon`, `resolucion`, `fecha_resolucion`, `user_id`) VALUES
+(1, 1, 1, 'Docente', 'Docente', '2012-12-10 00:00:00', 'Docente', 'Docente', '10134', 'Docente', 'm', 'Docente@Docente.com', 'Docente', 1, 'Docente', 'Docente', 1, 'Docente', 1, '2012-12-12 00:00:00', 'Docente', 1, 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', '2012-12-11 00:00:00', 10);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `perfil_estudiante`
 --
 
@@ -1666,7 +1738,6 @@ CREATE TABLE IF NOT EXISTS `perfil_estudiante` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `municipio_id` int(11) DEFAULT NULL,
   `tipodocumento_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `apellido` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `fecha_nacimiento` datetime NOT NULL,
@@ -1701,19 +1772,21 @@ CREATE TABLE IF NOT EXISTS `perfil_estudiante` (
   `datos_acudiente` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `cc_acudiente` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `direccion_familia` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_A34B4FFBA76ED395` (`user_id`),
   KEY `IDX_A34B4FFB58BC1BE0` (`municipio_id`),
   KEY `IDX_A34B4FFB2E595373` (`tipodocumento_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `perfil_estudiante`
 --
 
-INSERT INTO `perfil_estudiante` (`id`, `municipio_id`, `tipodocumento_id`, `user_id`, `nombre`, `apellido`, `fecha_nacimiento`, `direccion`, `lugar_nacimiento`, `nmr_documento`, `de`, `sexo`, `email`, `barrio`, `estrato`, `telefono`, `celular`, `salud`, `observaciones_personal`, `colegio_procedencia`, `sede_procedencia`, `jornada_procedencia`, `nivel_procedencia`, `curso_procedencia`, `observaciones_academica`, `nmrPersonas`, `casa_direccion`, `telefono_familia`, `vive_con`, `nmr_hermanos`, `celular_familia`, `datos_madre`, `cc_madre`, `datos_padre`, `cc_padre`, `datos_acudiente`, `cc_acudiente`, `direccion_familia`) VALUES
-(4, 1, 1, 7, 'example', 'example', '2012-11-30 00:00:00', 'example', 'example', '123', 'example', 'f', 'example@example.example', 'example', 1, 'example', '123456', 'example', 'example', 'example', 'example', 'example', 'example', 'example', 'example', 2, 'example', 'example', 'example', 1, 'example', 'example', 'example', 'example', 'example', 'example', 'example', 'example'),
-(5, 1, 1, 8, 'Docente', 'Docente', '2012-11-30 00:00:00', 'Docente', 'Docente', '12345', 'Docente', 'm', 'Docente@Docente.Docente', 'Docente', 2, 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 2, 'Docente', 'Docente', 'Docente', 2, 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente');
+INSERT INTO `perfil_estudiante` (`id`, `municipio_id`, `tipodocumento_id`, `nombre`, `apellido`, `fecha_nacimiento`, `direccion`, `lugar_nacimiento`, `nmr_documento`, `de`, `sexo`, `email`, `barrio`, `estrato`, `telefono`, `celular`, `salud`, `observaciones_personal`, `colegio_procedencia`, `sede_procedencia`, `jornada_procedencia`, `nivel_procedencia`, `curso_procedencia`, `observaciones_academica`, `nmrPersonas`, `casa_direccion`, `telefono_familia`, `vive_con`, `nmr_hermanos`, `celular_familia`, `datos_madre`, `cc_madre`, `datos_padre`, `cc_padre`, `datos_acudiente`, `cc_acudiente`, `direccion_familia`, `user_id`) VALUES
+(4, 1, 1, 'example', 'example', '2012-11-30 00:00:00', 'example', 'example', '123', 'example', 'f', 'example@example.example', 'example', 1, 'example', '123456', 'example', 'example', 'example', 'example', 'example', 'example', 'example', 'example', 2, 'example', 'example', 'example', 1, 'example', 'example', 'example', 'example', 'example', 'example', 'example', 'example', NULL),
+(5, 1, 1, 'Docente', 'Docente', '2012-11-30 00:00:00', 'Docente', 'Docente', '12345', 'Docente', 'm', 'Docente@Docente.Docente', 'Docente', 2, 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 2, 'Docente', 'Docente', 'Docente', 2, 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', NULL),
+(6, 1, 1, 'Tork', '21', '2012-12-10 00:00:00', 'Tork', 'Tork', '1234567', 'Tork', 'm', 'Tork@Tork.Tork', 'Tork', 1, 'Tork', 'Tork', 'Tork', 'Tork', 'Tork', 'Tork', 'Tork', 'Tork', 'Tork', 'Tork', 1, 'Tork', 'Tork', 'Tork', 2, 'Tork', 'Tork', 'Tork', 'Tork', 'Tork', 'Tork', 'Tork', 'Tork', NULL);
 
 -- --------------------------------------------------------
 
@@ -1733,7 +1806,33 @@ CREATE TABLE IF NOT EXISTS `periodo` (
   PRIMARY KEY (`id`),
   KEY `IDX_7316C4EDEC34184E` (`anio_id`),
   KEY `IDX_7316C4ED9F5A440B` (`estado_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `planestudio`
+--
+
+CREATE TABLE IF NOT EXISTS `planestudio` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sede_id` int(11) DEFAULT NULL,
+  `curso_id` int(11) DEFAULT NULL,
+  `asignatura_id` int(11) DEFAULT NULL,
+  `periodo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `nactividades` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_BB415393E19F41BF` (`sede_id`),
+  KEY `IDX_BB41539387CB4A1F` (`curso_id`),
+  KEY `IDX_BB415393C5C70C5B` (`asignatura_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `planestudio`
+--
+
+INSERT INTO `planestudio` (`id`, `sede_id`, `curso_id`, `asignatura_id`, `periodo`, `nactividades`) VALUES
+(1, 8, 2, 1, '1', 4);
 
 -- --------------------------------------------------------
 
@@ -1872,7 +1971,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_8D93D649F85E0677` (`username`),
   KEY `IDX_8D93D649B239FBC6` (`institucion_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
 
 --
 -- Volcado de datos para la tabla `user`
@@ -1882,7 +1981,9 @@ INSERT INTO `user` (`id`, `username`, `password`, `salt`, `nombre`, `apellido`, 
 (1, 'cloudadmin', 'y7q1ig71pslTX3iWrqgQv9SDGZYZFm6dJbajzTeYy26CM5BqPSzO2ZSdR19lwdkBW197/+J6YXWlCJQPskKiWQ==', '7eb3c4430aa57bdbd36710028e0089ef', '', '', '', NULL),
 (3, 'ZOCPKOZZLO', 'BrihVuMtkhSXuKioci4RuWwuCEgbrnZ+/AFnSEjuFdJgW//W3sxRRKO3XUXoLJ2WkjeBNGa5I0O2wRlu0Z0eIw==', '58ffa8a4694ac5ffc7fea4b1f8bd0350', 'Amado', 'Ramos', 'imagen.jpg', 1),
 (7, 'MDO', 'KKx8inoGUZ4uWst1QCZDY65h12TGr3ZF9l+JoCNzdD1BPrWvm/oVGk0WEXWc28YmzrVMXMAP3vEb48qc4eXpqA==', '2baa5cbec08b336b1ddfa00ac12b0a0a', 'example', 'example', 'images.png', 1),
-(8, 'MDOJC', 'lispP26i4ncLGV2bMSn4pVJdu8f6LZ6ot7q8truXJLOMKZYK1erVxytROG4U+SA22uG4fw/GqBmJxvTmi0iygA==', 'c47313b2eec1aec1dd1599beab02ff87', 'Docente', 'Docente', 'images.png', 1);
+(8, 'MDOJC', 'lispP26i4ncLGV2bMSn4pVJdu8f6LZ6ot7q8truXJLOMKZYK1erVxytROG4U+SA22uG4fw/GqBmJxvTmi0iygA==', 'c47313b2eec1aec1dd1599beab02ff87', 'Docente', 'Docente', 'images.png', 1),
+(9, 'MDOJCEL', '1MGA5SmgcKooYTqQdBqEjsHs3sB4ZlwUGByygkQ2EKJkuwS6l8G421bRp8auSTcxIDihDAI+JcIwp1bYzLUueQ==', '7a066b539e66c80cf6db4edda279673b', 'Tork', '21', 'images.png', 1),
+(10, 'ZOZJL', 'qWvOmqGmM27vl8TrRJs1wZta6QCUqVxTnLpmrKOu/oxGxEG+RLmTpIc2HqZH6uX3fqCSDvLnkH2WPdDQWQKrBg==', '8f47cd65839d6ac3abce23530fd8de7b', 'Docente', 'Docente', 'images.png', NULL);
 
 -- --------------------------------------------------------
 
@@ -1906,7 +2007,9 @@ INSERT INTO `user_role` (`user_id`, `role_id`) VALUES
 (1, 3),
 (3, 2),
 (7, 1),
-(8, 4);
+(8, 1),
+(9, 1),
+(10, 4);
 
 --
 -- Restricciones para tablas volcadas
@@ -1980,12 +2083,21 @@ ALTER TABLE `notificaciones`
   ADD CONSTRAINT `FK_6FFCB21A9276E6C` FOREIGN KEY (`tipo_id`) REFERENCES `tipo_notificacion` (`id`);
 
 --
+-- Filtros para la tabla `perfil_docente`
+--
+ALTER TABLE `perfil_docente`
+  ADD CONSTRAINT `FK_23484C65A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `FK_23484C652E595373` FOREIGN KEY (`tipodocumento_id`) REFERENCES `tipo_documento` (`id`),
+  ADD CONSTRAINT `FK_23484C6558BC1BE0` FOREIGN KEY (`municipio_id`) REFERENCES `municipio` (`id`),
+  ADD CONSTRAINT `FK_23484C65813AC380` FOREIGN KEY (`cargo_id`) REFERENCES `cargo_docente` (`id`);
+
+--
 -- Filtros para la tabla `perfil_estudiante`
 --
 ALTER TABLE `perfil_estudiante`
+  ADD CONSTRAINT `FK_A34B4FFBA76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `FK_A34B4FFB2E595373` FOREIGN KEY (`tipodocumento_id`) REFERENCES `tipo_documento` (`id`),
-  ADD CONSTRAINT `FK_A34B4FFB58BC1BE0` FOREIGN KEY (`municipio_id`) REFERENCES `municipio` (`id`),
-  ADD CONSTRAINT `FK_A34B4FFBA76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `FK_A34B4FFB58BC1BE0` FOREIGN KEY (`municipio_id`) REFERENCES `municipio` (`id`);
 
 --
 -- Filtros para la tabla `periodo`
@@ -1993,6 +2105,14 @@ ALTER TABLE `perfil_estudiante`
 ALTER TABLE `periodo`
   ADD CONSTRAINT `FK_7316C4ED9F5A440B` FOREIGN KEY (`estado_id`) REFERENCES `estado_periodo` (`id`),
   ADD CONSTRAINT `FK_7316C4EDEC34184E` FOREIGN KEY (`anio_id`) REFERENCES `anio` (`id`);
+
+--
+-- Filtros para la tabla `planestudio`
+--
+ALTER TABLE `planestudio`
+  ADD CONSTRAINT `FK_BB41539387CB4A1F` FOREIGN KEY (`curso_id`) REFERENCES `curso` (`id`),
+  ADD CONSTRAINT `FK_BB415393C5C70C5B` FOREIGN KEY (`asignatura_id`) REFERENCES `asignatura` (`id`),
+  ADD CONSTRAINT `FK_BB415393E19F41BF` FOREIGN KEY (`sede_id`) REFERENCES `sede` (`id`);
 
 --
 -- Filtros para la tabla `rangocuantitativo`
