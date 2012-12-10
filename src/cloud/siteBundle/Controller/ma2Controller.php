@@ -39,7 +39,7 @@ class ma2Controller extends Controller
             return $this->render('cloudBundle:Admin:MA2/ma21.html.twig',array('perfiles'=>$PerfilEstudiante));
         return $this->render('cloudBundle:Admin:MA2/ma212.html.twig',array('perfiles'=>$PerfilEstudiante));
 
-    }
+    } 
 
      /**
     *
