@@ -23,7 +23,7 @@ class ma2Controller extends Controller
     */
     public function ma2Action(){
        
-        return $this->render('cloudBundle:Admin:ma2.html.twig');
+        return $this->render('cloudBundle:Admin:MA2/ma2.html.twig');
     }
 
      /**
@@ -31,8 +31,14 @@ class ma2Controller extends Controller
     * @Route("/estudiantes", name="ma21")
     */
     public function ma21Action(){
-       
-        return $this->render('cloudBundle:Admin:ma21.html.twig');
+        $em=$this->getDoctrine()->getEntityManager();
+
+        $PerfilEstudiante = $em->getRepository('cloudBundle:PerfilEstudiante')->findAll();
+        
+       if(!$PerfilEstudiante)
+            return $this->render('cloudBundle:Admin:MA2/ma21.html.twig',array('perfiles'=>$PerfilEstudiante));
+        return $this->render('cloudBundle:Admin:MA2/ma212.html.twig',array('perfiles'=>$PerfilEstudiante));
+
     }
 
      /**
@@ -42,7 +48,7 @@ class ma2Controller extends Controller
     public function ma211Action(){
        $entity = new PerfilEstudiante();
         $form   = $this->createForm(new PerfilEstudianteType(), $entity);
-        return $this->render('cloudBundle:Admin:ma211.html.twig', array( 'form'   => $form->createView() ));
+        return $this->render('cloudBundle:Admin:MA2/ma211.html.twig', array( 'form'   => $form->createView() ));
     }
 
 }
