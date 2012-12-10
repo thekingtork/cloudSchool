@@ -17,6 +17,12 @@ class PerfilDocente
      */
     protected $id;
 
+     /** 
+     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user_id;
+
 
     /*:::::::::::::::::::::::INFO PERSONAL ::::::::::::::::::::::::::::::::::::::::*/
 
@@ -133,10 +139,7 @@ class PerfilDocente
      */
     protected $anios_experienca;
 
-    /**
-     * @ORM\OneToOne(targetEntity="User", mappedBy="perfil_id")
-     */
-    protected $user_id;
+   
 
     /*:::::::::::::::::::::::::::::::INFO LABORAL::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
@@ -874,28 +877,7 @@ class PerfilDocente
         return $this->tipodocumento_id;
     }
 
-    /**
-     * Set user_id
-     *
-     * @param cloud\siteBundle\Entity\User $userId
-     * @return PerfilDocente
-     */
-    public function setUserId(\cloud\siteBundle\Entity\User $userId = null)
-    {
-        $this->user_id = $userId;
-    
-        return $this;
-    }
-
-    /**
-     * Get user_id
-     *
-     * @return cloud\siteBundle\Entity\User 
-     */
-    public function getUserId()
-    {
-        return $this->user_id;
-    }
+  
 
     /**
      * Set cargo_id
@@ -918,5 +900,28 @@ class PerfilDocente
     public function getCargoId()
     {
         return $this->cargo_id;
+    }
+
+    /**
+     * Set user_id
+     *
+     * @param cloud\siteBundle\Entity\User $userId
+     * @return PerfilDocente
+     */
+    public function setUserId(\cloud\siteBundle\Entity\User $userId = null)
+    {
+        $this->user_id = $userId;
+    
+        return $this;
+    }
+
+    /**
+     * Get user_id
+     *
+     * @return cloud\siteBundle\Entity\User 
+     */
+    public function getUserId()
+    {
+        return $this->user_id;
     }
 }

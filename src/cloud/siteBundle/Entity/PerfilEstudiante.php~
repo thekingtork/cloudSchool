@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity
  * @ORM\Table(name="perfil_estudiante")
  */
-class PerfilEstudiante
+class PerfilEstudiante 
 {
     /**
      * @ORM\Id
@@ -16,6 +16,12 @@ class PerfilEstudiante
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
+     /** 
+     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user_id;
 
 
     /*:::::::::::::::::::::::INFO PERSONAL ::::::::::::::::::::::::::::::::::::::::*/
@@ -127,10 +133,7 @@ class PerfilEstudiante
      */
     protected $observaciones_personal;
 
-    /**
-     * @ORM\OneToOne(targetEntity="User", mappedBy="perfil_id")
-     */
-    protected $user_id;
+   
 
     /*:::::::::::::::::::::::::::::::INFO ACADEMICA::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
@@ -1114,4 +1117,6 @@ class PerfilEstudiante
     {
         return $this->direccion_familia;
     }
+
+   
 }

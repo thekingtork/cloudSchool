@@ -19,6 +19,8 @@ class User implements UserInterface, \Serializable
      */
     private $id;
 
+
+
     /**
     * @ORM\Column(type="string", length=255, unique=true)
     * @Assert\NotBlank(message = "Username Campo Obligatorio")
@@ -78,11 +80,7 @@ class User implements UserInterface, \Serializable
 
     
 
-     /** 
-     * @ORM\OneToOne(targetEntity="PerfilEstudiante")
-     * @ORM\JoinColumn(name="perfil_id", referencedColumnName="id")
-     */
-    private $perfil_id;
+    
 
    public function __toString() {
         return  $this->getNombre();
@@ -378,26 +376,5 @@ class User implements UserInterface, \Serializable
     }
 
 
-    /**
-     * Set perfil_id
-     *
-     * @param cloud\siteBundle\Entity\PerfilEstudiante $perfilId
-     * @return User
-     */
-    public function setPerfilId(\cloud\siteBundle\Entity\PerfilEstudiante $perfilId = null)
-    {
-        $this->perfil_id = $perfilId;
-    
-        return $this;
-    }
-
-    /**
-     * Get perfil_id
-     *
-     * @return cloud\siteBundle\Entity\PerfilEstudiante 
-     */
-    public function getPerfilId()
-    {
-        return $this->perfil_id;
-    }
+   
 }
