@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use cloud\siteBundle\Entity\PerfilEstudiante;
+use cloud\siteBundle\Entity\Role;
 use cloud\siteBundle\Form\PerfilEstudianteType;
 /**
  * Periodo controller.

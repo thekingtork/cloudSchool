@@ -377,27 +377,4 @@ class User implements UserInterface, \Serializable
         return $this->notificacion_id;
     }
 
-
-    /**
-     * Set perfil_id
-     *
-     * @param cloud\siteBundle\Entity\PerfilEstudiante $perfilId
-     * @return User
-     */
-    public function setPerfilId(\cloud\siteBundle\Entity\PerfilEstudiante $perfilId = null)
-    {
-        $this->perfil_id = $perfilId;
-    
-        return $this;
-    }
-
-    /**
-     * Get perfil_id
-     *
-     * @return cloud\siteBundle\Entity\PerfilEstudiante 
-     */
-    public function getPerfilId()
-    {
-        return $this->perfil_id;
-    }
 }

@@ -1114,27 +1114,4 @@ class PerfilEstudiante
     {
         return $this->direccion_familia;
     }
-
-    /**
-     * Set user_id
-     *
-     * @param cloud\siteBundle\Entity\User $userId
-     * @return PerfilEstudiante
-     */
-    public function setUserId(\cloud\siteBundle\Entity\User $userId = null)
-    {
-        $this->user_id = $userId;
-    
-        return $this;
-    }
-
-    /**
-     * Get user_id
-     *
-     * @return cloud\siteBundle\Entity\User 
-     */
-    public function getUserId()
-    {
-        return $this->user_id;
-    }
 }

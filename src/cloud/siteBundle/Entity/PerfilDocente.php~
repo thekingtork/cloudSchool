@@ -1,0 +1,222 @@
+<?php
+namespace cloud\siteBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="perfil_docente")
+ */
+class PerfilDocente
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+
+    /*:::::::::::::::::::::::INFO PERSONAL ::::::::::::::::::::::::::::::::::::::::*/
+
+     /**
+     * @ORM\Column(name="nombre", type="string", length=255)
+     * @Assert\NotBlank(message = "nombre Campo Obligatorio")
+     */
+    protected $nombre;
+
+    /**
+     * @ORM\Column(name="apellido", type="string", length=255)
+     * @Assert\NotBlank(message = "apellido Campo Obligatorio")
+     */
+    protected $apellido;
+
+    /**
+     * @ORM\Column(name="fecha_nacimiento", type="datetime")
+     * @Assert\NotBlank(message = "fecha Campo Obligatorio")
+     * @Assert\DateTime(message = "Campo de Fecha")
+     */
+    protected $fecha_nacimiento;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Municipio", inversedBy="id")
+     * @ORM\JoinColumn(name="municipio_id", referencedColumnName="id")
+     * @Assert\NotNull(message = "municipio Campo Obligatorio")
+     */
+    protected $municipio_id;
+
+    /**
+     * @ORM\Column(name="direccion", type="string", length=255)
+     * @Assert\NotBlank(message = "direccion Campo Obligatorio")
+     */
+    protected $direccion;
+
+    /**
+     * @ORM\Column(name="lugar_nacimiento", type="string", length=255)
+     * @Assert\NotBlank(message = "lugar nacimiento Campo Obligatorio")
+     */
+    protected $lugar_nacimiento;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="TipoDocumento")
+     * @ORM\JoinColumn(name="tipodocumento_id", referencedColumnName="id")
+     * @Assert\NotNull(message = "tipo documento Campo Obligatorio")
+     */
+    private $tipodocumento_id;
+
+    /**
+     * @ORM\Column(name="nmr_documento", type="string", length=255)
+     * @Assert\NotBlank(message = "nmr documento Campo Obligatorio")
+     */
+    protected $nmr_documento;
+     /**
+     * @ORM\Column(name="de", type="string", length=255)
+     * @Assert\NotBlank(message = " de Campo Obligatorio")
+     */
+    protected $de;
+
+
+
+    /**
+     * @ORM\Column(name="sexo", type="string", length=255)
+     * @Assert\NotNull(message = "sexo Campo Obligatorio")
+     */
+    protected $sexo;
+
+     /**
+     * @ORM\Column(name="email", type="string", length=255)
+     * @Assert\NotBlank(message = "email Campo Obligatorio")
+     * @Assert\Email(message = "Correo incorrecto")
+     */
+    protected $email;
+
+     /**
+     * @ORM\Column(name="barrio", type="string", length=255)
+     * @Assert\NotBlank(message = "barrio Campo Obligatorio")
+     */
+    protected $barrio;
+
+     /**
+     * @ORM\Column(name="estrato", type="integer")
+     * @Assert\NotBlank(message = "estrato Campo Obligatorio")
+     */
+    protected $estrato;
+
+     /**
+     * @ORM\Column(name="telefono", type="string", length=255)
+     * @Assert\NotBlank(message = "telefono Campo Obligatorio")
+     */
+    protected $telefono;
+
+     /**
+     * @ORM\Column(name="celular", type="string", length=255)
+     * @Assert\NotBlank(message = "celular Campo Obligatorio")
+     */
+    protected $celular;
+
+     /**
+     * @ORM\Column(name="personas_cargo", type="integer")
+     * @Assert\NotBlank(message = "Personas a cargo Campo Obligatorio")
+     */
+    protected $personas_cargo;
+
+     /**
+     * @ORM\Column(name="titulo_profesional", type="string", length=255)
+     * @Assert\NotBlank(message = "celular Campo Obligatorio")
+     */
+    protected $titulo_profesional;
+
+     /**
+     * @ORM\Column(name="anios_experienca", type="integer")
+     * @Assert\NotBlank(message = "Personas a cargo Campo Obligatorio")
+     */
+    protected $anios_experienca;
+
+    /**
+     * @ORM\OneToOne(targetEntity="User", mappedBy="perfil_id")
+     */
+    protected $user_id;
+
+    /*:::::::::::::::::::::::::::::::INFO LABORAL::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+   /**
+     * @ORM\Column(name="fecha_ingreso", type="datetime")
+     * @Assert\NotBlank(message = "fecha ingreso Campo Obligatorio")
+     * @Assert\DateTime(message = "Campo de Fecha")
+     */
+    protected $fecha_ingreso;
+
+     /**
+     * @ORM\Column(name="salario", type="string", length=255)
+     * @Assert\NotBlank(message = "salario Campo Obligatorio")
+     */
+    protected $salario;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="CargoDocente", inversedBy="id")
+     * @ORM\JoinColumn(name="cargo_id", referencedColumnName="id")
+     * @Assert\NotNull(message = "cargo Campo Obligatorio")
+     */
+    protected $cargo_id;
+
+     /**
+     * @ORM\Column(name="tipo_contrado", type="string", length=255)
+     * @Assert\NotBlank(message = "tipo contrato Campo Obligatorio")
+     */
+    protected $tipo_contrado;
+
+     /**
+     * @ORM\Column(name="numero_contrado", type="string", length=255)
+     * @Assert\NotBlank(message = "numero contrato Campo Obligatorio")
+     */
+    protected $numero_contrado;
+
+     /**
+     * @ORM\Column(name="titulo_pregrado", type="string", length=255)
+     * @Assert\NotBlank(message = "titulo postgrado Campo Obligatorio")
+     */
+    protected $titulo_pregrado;
+
+     /**
+     * @ORM\Column(name="titulo_postgrado", type="string", length=255)
+     * @Assert\NotBlank(message = "titulo pregado Campo Obligatorio")
+     */
+    protected $titulo_postgrado;
+
+    /**
+     * @ORM\Column(name="especialidad", type="string", length=255)
+     * @Assert\NotBlank(message = "especialidad Campo Obligatorio")
+     */
+    protected $especialidad;
+
+     /**
+     * @ORM\Column(name="escalafon", type="string", length=255)
+     * @Assert\NotBlank(message = "escalafon Campo Obligatorio")
+     */
+    protected $escalafon;
+
+     /**
+     * @ORM\Column(name="resolucion", type="string", length=255)
+     * @Assert\NotBlank(message = "resolucion Campo Obligatorio")
+     */
+    protected $resolucion;
+
+     /**
+     * @ORM\Column(name="fecha_resolucion", type="datetime")
+     * @Assert\NotBlank(message = "fecha resolucion Campo Obligatorio")
+     * @Assert\DateTime(message = "Campo de Fecha")
+     */
+    protected $fecha_resolucion;
+
+
+
+
+
+    public function __toString() {
+        return $this->getNombre();
+    }
+   
+
+
+}
