@@ -13,32 +13,44 @@
 							<a href="{{ path('ma13') }}" class="ajax"><img src="{{ asset('images/b_atras.png') }}"></a>
 						{% endblock %}
 					</div>
-                    {% if requeriment is defined %}
+                   
+				</div>
+				<div id="contenidoDer">
+					<div class="breadcumbr"><a href="{{ path('ma1') }}" class="ajax">Ajustes del sistema</a></div>
+                     {% if requeriment is defined %}
                         {% if mje is defined %}
                             {{ mje }}
                         
-                        {% elseif periodo is defined %}
-                            
-                                Con periodos
-                            
-                            {% else %}
+                        {% elseif periodos is defined %}
+                            <style type="text/css">
+                                .periodo {
+                                    height:50px; 
+                                    width:100%;
+                                    position:relative;
+                                }
 
-                                Sin Periodos
+                                .periodo div{
+                                    width:16.5%;
+                                    float: left;
+                                }
 
+                                .periodo div input{
+                                    width:65px;
+                                }
+                            </style>
+                                    <form action="#" method="post">
+                                        {% for periodo in periodos %}
+                                            <div class="periodo" >
+                                              {{ loop.index }}
+                                            </div>
+                                        {% endfor %}
+                                    </form>
                         {% endif %}
                     {% else %}
                         <div>
                             Para poder realizar esta accion necesita iniciar el año escolar!
                         </div>
                     {% endif %}
-				</div>
-				<div id="contenidoDer">
-					<div class="breadcumbr"><a href="{{ path('ma1') }}" class="ajax">Ajustes del sistema</a></div>
-					<div id="menuAux">
-						<ul>
-							
-						</ul>
-					</div>
 				</div>
 			</div>
 		</div>

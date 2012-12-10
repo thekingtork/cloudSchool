@@ -68,7 +68,6 @@ class ma13Controller extends Controller
                 $entity  = new Periodo();
 
                 $entity->setPeriodoInicio($tiempo);
-                $tiempo->modify("+".($division*$i)." months");
                 $entity->setPeriodoFinal($tiempo);
 
                 $entity->setPorcentaje($porcentaje);
@@ -82,8 +81,10 @@ class ma13Controller extends Controller
                 $estado = $em->getRepository('cloudBundle:EstadoPeriodo')->find(1);
                 $entity->setEstadoId($estado);
 
+
                 $em->persist($entity);
                 $em->flush();
+
             }
             $periodos = $em->getRepository('cloudBundle:Periodo')->findAll();
 
@@ -94,10 +95,20 @@ class ma13Controller extends Controller
         }
         
         $periodos = $em->getRepository('cloudBundle:Periodo')->findAll();
+        $periodo = new Periodo();
+        $form = $this->createForm(new PeriodoType(), $periodo);
+
         if (!$anio && !$periodos)
             return $this->render('cloudBundle:Admin:ma131.html.twig', array('mje'=>'No tiene tiene grados academicos asociadas'));
           
-        return $this->render('cloudBundle:Admin:ma131.html.twig', array('periodos'=>$periodos,'requeriment'=>true));
+         return $this->render(
+                          'cloudBundle:Admin:ma131.html.twig', 
+                              array(
+                                  'periodos'=>$periodos,
+                                  'requeriment'=>true,
+                                  'form'=>$form->createView() 
+                                  ) 
+                            );
      }
     
     /**
