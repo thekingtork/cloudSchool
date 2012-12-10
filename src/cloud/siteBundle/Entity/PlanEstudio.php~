@@ -1,0 +1,162 @@
+<?php
+
+namespace cloud\siteBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * cloud\siteBundle\Entity\PlanEstudio
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="cloud\siteBundle\Entity\PlanEstudioRepository")
+ */
+class PlanEstudio
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string $periodo
+     *
+     * @ORM\Column(name="periodo", type="string", length=255)
+     */
+    private $periodo;
+
+    /**
+     * @var string $sede
+     *
+     * @ORM\ManyToOne(targetEntity="Cloud\siteBundle\Entity\Sede")
+     */
+    private $sede;
+    
+    /**
+     * @var string $curso
+     *
+     * @ORM\ManyToOne(targetEntity="Cloud\siteBundle\Entity\Curso")
+     */
+    private $curso;
+
+    /**
+     * @var string $asignatura
+     *
+     * @ORM\ManyToOne(targetEntity="Cloud\siteBundle\Entity\Asignatura")
+     */
+    private $asignatura;
+    
+    /**
+     * @var string $nactividades
+     *
+     * @ORM\Column(name="nactividades", type="integer")
+     */
+    private $nactividades;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set periodo
+     *
+     * @param string $periodo
+     * @return PlanEstudio
+     */
+    public function setPeriodo($periodo)
+    {
+        $this->periodo = $periodo;
+    
+        return $this;
+    }
+
+    /**
+     * Get periodo
+     *
+     * @return string 
+     */
+    public function getPeriodo()
+    {
+        return $this->periodo;
+    }
+
+    /**
+     * Set sede
+     *
+     * @param string $sede
+     * @return PlanEstudio
+     */
+    public function setSede($sede)
+    {
+        $this->sede = $sede;
+    
+        return $this;
+    }
+
+    /**
+     * Get sede
+     *
+     * @return string 
+     */
+    public function getSede()
+    {
+        return $this->sede;
+    }
+    
+
+    /**
+     * Set nactividades
+     *
+     * @param integer $nactividades
+     * @return PlanEstudio
+     */
+    public function setNactividades($nactividades)
+    {
+        $this->nactividades = $nactividades;
+    
+        return $this;
+    }
+
+    /**
+     * Get nactividades
+     *
+     * @return integer 
+     */
+    public function getNactividades()
+    {
+        return $this->nactividades;
+    }
+
+    /**
+     * Set asignatura
+     *
+     * @param Cloud\siteBundle\Entity\Asignatura $asignatura
+     * @return PlanEstudio
+     */
+    public function setAsignatura(\Cloud\siteBundle\Entity\Asignatura $asignatura = null)
+    {
+        $this->asignatura = $asignatura;
+    
+        return $this;
+    }
+
+    /**
+     * Get asignatura
+     *
+     * @return Cloud\siteBundle\Entity\Asignatura 
+     */
+    public function getAsignatura()
+    {
+        return $this->asignatura;
+    }
+}
