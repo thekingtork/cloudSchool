@@ -51,7 +51,7 @@
     width: 567px;
 }
 #content_1{
-    max-height: 244px;
+    height: 250px;
     overflow: hidden;
 }
 #TituloSecction{
@@ -68,14 +68,17 @@
     cursor: pointer;
     display: inline-block;
     float: left;
-    height: 200px;
+    height: 192px;
     margin: 10px 0;
     padding: 10px;
     position: relative;
     vertical-align: top;
     width: 200px;
 }
-
+.sede:hover{
+   -webkit-box-shadow: inset 0px 0px 0px 3px rgba(0, 0, 0, .4);
+    box-shadow: inset 0px 0px 0px 3px rgba(0, 0, 0, .4);
+}
 .sede:nth-child(3n+1){
     background-color:rgb(0,172,236);
     
@@ -106,7 +109,7 @@
     font-family: "Segoe UI light";
     font-size: 2em;
     line-height: 1;
-    max-width: 95px;
-    margin: auto;
+    max-width: 115px;
+    margin: .5em auto;
     text-align: center;
 }

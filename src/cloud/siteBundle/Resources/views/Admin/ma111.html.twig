@@ -34,88 +34,107 @@
 						<form action="{{ path('ma111')}}" method="post" {{ form_enctype(edit_form) }}>
 							{{form_errors(edit_form)}}
 							<div id="content_1">
-								<div id="pantalla1">	
-		    						<div id="nombreInst" class="entradaTexto">
-		    							<p class="textoEtq">Nombre Intituci&oacute;n</p>
-		    							{{form_errors(edit_form.name)}}
-		    							{{form_widget(edit_form.name)}}
-		    						</div>
-	    							<div id="nit" class="entradaTexto ">
-	    								<p class="textoEtq">NIT</p>
-	    								{{form_errors(edit_form.nit)}}
-	    								{{form_widget(edit_form.nit)}}
-	    							</div>
-	    							<div id="departamentos" class="entradaTexto">
-	    								<p class="porc textoEtq">Departamento</p>
-	    								<select>
-	    									<option>Departamentos</option>
-	    								</select>
-	    							</div>
-	    							<div id="ciudad" class="entradaTexto desplegable">
-	    								<p class="textoEtq">Ciudad</p>
-	    								<select>
-	    									<option>Ciudad</option>
-	    								</select>
-	    							</div>
-	    							<div id="direccion" class="entradaTexto">
-	    								<p class="textoEtq">Direcci&oacute;n</p>
-	    								{{form_errors(edit_form.direccion)}}
-	    								{{form_widget(edit_form.direccion)}}
-	    							</div>
-	    							<div id="telefono" class="entradaTexto">
-	    								<p class="textoEtq">Telefono</p>
-	    								{{form_errors(edit_form.telefono)}}
-	    								{{form_widget(edit_form.telefono)}}
-	    							</div>
-	    							<div id="fax" class="entradaTexto">
-	    								<p class="textoEtq">Fax</p>
-	    								{{form_errors(edit_form.fax)}}
-	    								{{form_widget(edit_form.fax)}}
-	    							</div>
-	    							<div id="email" class="entradaTexto">
-	    								<p class="textoEtq">E-mail</p>
-	    								{{form_errors(edit_form.email)}}
-	    								{{form_widget(edit_form.email)}}
-	    							</div>
-	    							<div id="dane" class="entradaTexto">
-	    								<p class="textoEtq">Registro-DANE</p>
-	    								{{form_errors(edit_form.dane)}}
-	    								{{form_widget(edit_form.dane)}}
-	    							</div>
-	    							<div id="men" class="entradaTexto">
-	    								<p class="textoEtq">Resoluci&oacute;n-MEN</p>
-	    								{{form_errors(edit_form.men)}}
-	    								{{form_widget(edit_form.men)}}
-	    							</div>
+								<div class="pantalla">
+									<div class="fila">
+										<div id="nombreInst" class="entradaTexto">
+			    							<p class="textoEtq">Nombre Intitución</p>
+			    							{{form_errors(edit_form.name)}}
+			    							{{form_widget(edit_form.name)}}
+		    							</div>
+									</div>
+									<div class="fila">
+										<div id="nit" class="entradaTexto ">
+		    								<p class="textoEtq">NIT</p>
+		    								{{form_errors(edit_form.nit)}}
+		    								{{form_widget(edit_form.nit)}}
+	    								</div>
+		    							<div id="departamentos" class="entradaTexto">
+		    								<p class="porc textoEtq">Departamento</p>
+		    								<select>
+		    									<option>Departamentos</option>
+		    								</select>
+		    							</div>
+									</div>
+									<div class="fila">
+										<div id="ciudad" class="entradaTexto desplegable">
+		    								<p class="textoEtq">Ciudad</p>
+		    								<select>
+		    									<option>Ciudad</option>
+		    								</select>
+		    							</div>
+		    							<div id="direccion" class="entradaTexto">
+		    								<p class="textoEtq">Direcci&oacute;n</p>
+		    								{{form_errors(edit_form.direccion)}}
+		    								{{form_widget(edit_form.direccion)}}
+		    							</div>
+									</div>
+									<div class="fila">
+										<div id="telefono" class="entradaTexto">
+		    								<p class="textoEtq">Telefono</p>
+		    								{{form_errors(edit_form.telefono)}}
+		    								{{form_widget(edit_form.telefono)}}
+		    							</div>
+		    							<div id="email" class="entradaTexto">
+		    								<p class="textoEtq">E-mail</p>
+		    								{{form_errors(edit_form.email)}}
+		    								{{form_widget(edit_form.email)}}
+		    							</div>
+									</div>
+									<div class="fila">
+										<div id="fax" class="entradaTexto">
+		    								<p class="textoEtq">Fax</p>
+		    								{{form_errors(edit_form.fax)}}
+		    								{{form_widget(edit_form.fax)}}
+		    							</div>
+		    							<div id="dane" class="entradaTexto">
+		    								<p class="textoEtq">Registro-DANE</p>
+		    								{{form_errors(edit_form.dane)}}
+		    								{{form_widget(edit_form.dane)}}
+		    							</div>
+									</div>
 								</div>
-									<div id="pantalla2">
+								<div class="pantalla">
+									<div class="fila">
 										<div id="mPedagogico" class="entradaTexto">
 		    								<p class="textoEtq">Modelo Pedag&oacute;gico</p>
 		    								{{form_errors(edit_form.modelo_pedagogico)}}
 		    								{{form_widget(edit_form.modelo_pedagogico)}}
 	    								</div>
+									</div>
+									<div class="fila">
 										<div id="rector" class="entradaTexto">
 		    								<p class="textoEtq">Rector(a)</p>
 		    								{{form_errors(edit_form.rector)}}
 		    								{{form_widget(edit_form.rector)}}
 	    								</div>
+									</div>
+									<div class="fila">
 		    							<div id="Secretario" class="entradaTexto">
 		                                    <p class="textoEtq">Secretario(a)</p>
 		                                    {{form_errors(edit_form.secretario)}}
 		                                    {{form_widget(edit_form.secretario)}}
-		                            	</div>
-                                        <div id="" class="">
-		                                    <p class="textoEtq">Distribuci&oacute;n Usuarios</p>
+		                            	</div>										
+									</div>
+									<div class="fila">
+										<div id="men" class="entradaTexto">
+	    									<p class="textoEtq">Resoluci&oacute;n-MEN</p>
+	    										{{form_errors(edit_form.men)}}
+	    										{{form_widget(edit_form.men)}}
+	    								</div>
+	    								<div id="distriUser" class="entradaTexto">
+		                                    <p class="textoEtq">Dist. Usuarios</p>
 		                                    {{form_errors(edit_form.distribucion_usuario)}}
 		                                    {{form_widget(edit_form.distribucion_usuario)}}
 		                            	</div>
-                                        <div id="" class="">
-		                                    <p class="textoEtq">Imagen de la Instituci&oacute;n</p>
+									</div>
+									<div class="fila">
+		                            	<div id="loadImg" class="">
+		                                    <p class="textoEtq">Imagen</p>
 		                                    {{form_errors(edit_form.url_imagen)}}
 		                                    {{form_widget(edit_form.url_imagen)}}
-		                            	</div>		
-                                        {{form_rest(edit_form)}}
+		                            	</div>										
 									</div>
+								</div>
 							</div>
 							<div id="botonesDow">
 								<ul>
@@ -129,23 +148,5 @@
 					</div>
 	            </div>
 			</div>
-			<script >
-				(function($){
-				$(document).ready(function(){
-					$("#content_1").mCustomScrollbar({
-						horizontalScroll:true,
-						scrollButtons:{
-							enable:false,
-							scrollType:"continuous",
-							scrollSpeed:20,
-							scrollAmount:40
-						},
-						advanced:{
-							autoExpandHorizontalScroll:true,
-						},
-					});
-				});
-			})(jQuery);
-			</script>
 		</div>      	
 {% endblock %}

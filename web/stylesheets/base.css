@@ -169,7 +169,16 @@ header {
   vertical-align: top;
 }
 .amarillo {
+  background-color: #f2c92f;
+}
+.amarillo:nth-child(3n+1) {
   background-color: #efc825;
+}
+.amarillo:nth-child(3n+2) {
+  background-color: #efc832;
+}
+.amarillo:nth-child(3n+3) {
+  background-color: #efc85a;
 }
 .amarilloFc {
   color: #f2c92f;
@@ -177,11 +186,14 @@ header {
 .azul {
   background-color: #00aced;
 }
-.azul2 {
-  background-color: #a6d7f6;
-}
-.azul3 {
+.azul:nth-child(3n+1) {
   background-color: #0094d6;
+}
+.azul:nth-child(3n+2) {
+  background-color: #00aced;
+}
+.azul:nth-child(3n+3) {
+  background-color: #a6d7f6;
 }
 .azulFc {
   color: #00aced;
@@ -189,9 +201,30 @@ header {
 .blanco {
   background-color: #fff;
 }
-.blancoFc,
-.Inicio a {
+.blancoFc {
   color: #fff;
+}
+.breadcumbr {
+  float: right;
+  height: 28px;
+  margin-right: 10px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  top: 10px;
+}
+.breadcumbr a {
+  color: #fff;
+  font-size: 1.2em;
+}
+.breadcumbrBlue {
+  left: 70%;
+  max-width: 200px;
+  position: relative;
+}
+.breadcumbrBlue a {
+  color: #00aeef;
+  font-size: 1.2em;
 }
 .contenidoCentrado {
   margin: 0 auto 0.3em;
@@ -224,14 +257,26 @@ header {
   color: #ca0088;
 }
 .Inicio {
+  display: inline;
   float: right;
-  text-align: center;
-  width: 23%;
+  position: relative;
+  right: 20px;
+  top: 102px;
 }
 .Inicio a {
-  font-size: 3em;
-  font-weight: normal;
-  line-height: 0.7;
+  color: #fff;
+  font-family: "Segoe UI light";
+  font-size: 50px;
+}
+.InicioBlue {
+  display: inline;
+  float: left;
+  position: relative;
+  top: 15px;
+}
+.InicioBlue a {
+  color: #00aeef;
+  font-size: 50px;
 }
 .gris {
   background-color: #8a9ba8;
@@ -259,6 +304,44 @@ header {
 }
 .moradoFc {
   color: #8b278b;
+}
+.overlay {
+  background-color: rgba(0,0,0,0.5);
+  display: none;
+  height: 52.3%;
+  position: absolute;
+  z-index: 500;
+  width: 58.6%;
+}
+.formOverlay {
+  height: 180px;
+  margin: auto;
+  position: relative;
+  top: 25%;
+  width: 50%;
+}
+.formOverlay .linea {
+  float: left;
+  width: 100%;
+}
+.formOverlay .linea .titulo {
+  margin: 10px auto;
+  width: 50%;
+}
+.formOverlay .linea .titulo p {
+  color: #fff;
+  font-size: 20px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.formOverlay .linea .entrada {
+  margin: 10px auto;
+  width: 50%;
+}
+.formOverlay .linea .entrada input {
+  font-size: 20px;
+  line-height: 1;
+  text-align: center;
 }
 .rojo {
   background-color: #cc2128;

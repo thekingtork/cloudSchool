@@ -1,8 +1,63 @@
+form{
+    display: inline;
+    vertical-align: top;
+}
+#avatarInst{
+    float: left;
+    width: 100%;
+}
+#botonesDow{
+    margin: auto;
+    overflow: hidden;
+    width: 70%;
+}
+#botonesDow ul{
+    list-style: none;
+}
+#botonesDow ul li{
+    float: left;
+}
+#cargador{
+    overflow: hidden;
+    position: relative;
+    top: 10px;
+    width: 100%;
+}
+#cargador img{
+    width: 100%;
+}
+#contAvatar{
+    float: left;
+    overflow: hidden;
+    padding: 5px;
+    position: relative;
+    top: 10px;
+}
+#contAvatar img{
+    width: 100%;
+}
 #bloqueCgenerales{
     background: rgb(255,255,255) ;
     height: 100%;
     vertical-align: top;
     width: 100%;
+}
+#ciudad{
+    float: left;
+    width: 40%;
+}
+#ciudad p{
+    width: 30%;
+}
+#ciudad select{
+    width: 60%;
+}
+#cloud_sitebundle_instituciontype{
+    display: inline;
+    vertical-align: top;
+}
+#content_1{
+    overflow: hidden;
 }
 #contenidoDer{
     display: inline;
@@ -21,60 +76,78 @@
     font-family: "Segoe UI light";
     font-size: 32px;
 }
-#avatarInst{
+#distriUser{
     float: left;
-    width: 100%;
+    width: 44.75%;
 }
-#contAvatar{
+#distriUser p{
+    width: 44%;
+}
+#distriUser input{
+    width: 54.4%;
+}
+#email{
     float: left;
-    overflow: hidden;
-    padding: 5px;
-    position: relative;
-    top: 10px;
-    width: 100%;
+    width: 58%;
 }
-#contAvatar img{
-    width: 100%;
+#email p{
+    width: 25%;
 }
-#cargador{
-    overflow: hidden;
-    position: relative;
-    top: 10px;
-    width: 100%;
+#email input{
+    width: 71.4%;
 }
-#TituloSecction{
-    position: relative;
-    width: 48%;
+#dane{
+    float: left;
+    width: 61%;
 }
-#TituloSecction label{
-    color: rgb(0,174,239);
-    font-family: "Segoe UI light";
-    font-size: 30px;
+#dane p{
+    width: 40%;
 }
-#cloud_sitebundle_instituciontype{
-    display: inline;
-    vertical-align: top;
+#dane input{
+    width: 58.4%;
+}
+#departamentos p{
+    width: 45%;
+}
+#departamentos select{
+    background: #fff!important;
+    border: solid 1px rgb(0,174,239);
+    width: 54%;
+}
+#direccion{
+    float: left;
+    width: 58.5%;
+}
+#direccion p{
+    width: 25%;
+}
+#direccion input{
+    width: 74%;
+}
+#fax{
+    float: left;
+    width: 38%;
+}
+#fax p{
+    width: 22%;
+}
+#fax input{
+    width: 74%;
 }
 #formularioInst{
     max-height: 279px;
     width: 100%;
     overflow: hidden;
 }
-form{
-    display: inline;
-    vertical-align: top;
-}
-#nombreInst{
+#imagen{
     float: left;
-    margin-top: 23px;
-    width: 100%;
+    width: 47.5%;
 }
-#nombreInst input{
-    width: 70%;   
+#imagen p{
+    width: 22%;
 }
-#nombreInst p{
-    top: 2px;
-    width: 25%;
+#imagen input{
+    width: 78%;
 }
 #lineaDos{
     max-height: 50px;
@@ -86,43 +159,113 @@ form{
     margin-left: 3px;
     width: 54%;
 }
-#nit{
+#loadImg{
     float: left;
-    width: 47%;
+    width: 95%;
+}
+#loadImg p{
+    width: 14%;
+}
+#men{
+    float: left;
+    width: 50%;
+}
+#men p{
+    width: 46%;
+}
+#men input{
+    width: 51%;
+}
+#mPedagogico{
+    float: left;
+    margin-top: 23px;
+    width: 95%;
+}
+#mPedagogico p{
+    width: 33%;
+}
+#mPedagogico input{
+    width: 66%;
 }
 #nit input{
-    width: 78%  
+    width: 80%;
 }
 #nit p{
-    width: 6%;
+    width: 17%;
 }
-#departamentos{
+#nit,#departamentos{
+    display: inline-block;
+    vertical-align: top;
+    width: 49%;
+}
+#nombreInst{
     float: left;
-    margin-left: 5px;
-    width: 47%;
+    margin-top: 23px;
+    width: 100%;
 }
-#departamentos p{
+#nombreInst input{
+    width: 70%;   
+}
+#nombreInst p{
+    top: 2px;
+    width: 28%;
+}
+#rector{
+    float: left;
+    width: 95%;
+}
+#rector p{
+    width: 18.5%;
+}
+#rector input{
+    width: 80.5%;
+}
+#Secretario{
+    float: left;
+    width: 95%;
+}
+#Secretario p{
+    width: 18.5%;
+}
+#Secretario input{
+    width: 80.5%;
+}
+#telefono{
+    float: left;
     width: 42%;
 }
-#departamentos select{
-    background: #fff!important;
-    border: solid 1px rgb(0,174,239);
-    height: 24px;
-    width: 53.1%;
+#telefono p{
+    width: 35%;
 }
-#nit p{
-    width: 6%;
+#telefono input{
+    width: 61%;
 }
-.textoEtq{
-    color: rgb(0,0,0);
-    float: left;
-    font-family: "Segoe UI light";
-    font-size: 1.2em;
-    min-width: 34px;
+#TituloSecction{
     position: relative;
-    text-align: left;
-    vertical-align: bottom;
-    top: 1px;
+    width: 48%;
+}
+#TituloSecction label{
+    color: rgb(0,174,239);
+    font-family: "Segoe UI light";
+    font-size: 30px;
+}
+#Usuario{
+    float: left;
+    width: 47.5%;
+}
+#Usuario p{
+    width: 22%;
+}
+#Usuario input{
+    width: 74%;
+}
+.botonesDw{
+    color: rgb(0,174,239);
+    cursor: pointer;
+    font-family: "Segoe UI light";
+    font-size: 2em;
+    background-color: transparent;
+    border: none;
 }
 .entradaTexto input{
     appearance:none;
@@ -143,156 +286,28 @@ form{
     border: solid 1px rgb(0,174,239);
     height: 24px;
 }
-#ciudad{
+.pantalla{
+    display: inline-block;
     float: left;
-    width: 37%;
+    height: 218px;
+    margin-right: 1em;
+    vertical-align: top;
+    width: 592px;
 }
-#ciudad p{
-    width: 30%;
+.pantalla .fila{
+    display: inline-block;
+    margin-bottom: .5em;
+    vertical-align: top;
+    width: 100%;
 }
-#ciudad select{
-    width: 62%;
-}
-#direccion{
+.textoEtq{
+    color: rgb(0,0,0);
     float: left;
-    width: 58%;
-}
-#direccion p{
-    width: 25%;
-}
-#direccion input{
-    width: 75%;
-}
-#telefono{
-    float: left;
-    width: 32%;
-}
-#telefono p{
-    width: 40%;
-}
-#telefono input{
-    width: 56%;
-}
-#fax{
-    float: left;
-    width: 25%;
-}
-#fax p{
-    width: 22%;
-}
-#fax input{
-    width: 70%;
-}
-#email{
-    float: left;
-    width: 38%;
-}
-#email p{
-    width: 25%;
-}
-#email input{
-    width: 75%;
-}
-#dane{
-    float: left;
-    width: 46%;
-}
-#dane p{
-    width: 44%;
-}
-#dane input{
-    width: 55%;
-}
-#men{
-    float: left;
-    width: 49%;
-}
-#men p{
-    width: 46%;
-}
-#men input{
-    width: 54%;
-}
-#mPedagogico{
-    float: left;
-    margin-top: 23px;
-    width: 95%;
-}
-#mPedagogico p{
-    width: 29%;
-}
-#mPedagogico input{
-    width: 71%;
-}
-#rector{
-    float: left;
-    width: 95%;
-}
-#rector p{
-    width: 18.5%;
-}
-#rector input{
-    width: 81.5%;
-}
-#Secretario{
-    float: left;
-    width: 95%;
-}
-#Secretario p{
-    width: 18.5%;
-}
-#Secretario input{
-    width: 81.5%;
-}
-#Usuario{
-    float: left;
-    width: 47.5%;
-}
-#Usuario p{
-    width: 22%;
-}
-#Usuario input{
-    width: 74%;
-}
-#imagen{
-    float: left;
-    width: 47.5%;
-}
-#imagen p{
-    width: 22%;
-}
-#imagen input{
-    width: 78%;
-}
-#pantalla1{
-    float: left;
-    height: 215px;
-    width: 650px;
-}
-#pantalla2{
-    float: left;
-    height: 215px;
-    width: 650px;
-}
-#botonesDow{
-    margin: auto;
-    overflow: hidden;
-    width: 70%;
-}
-#botonesDow ul{
-    list-style: none;
-}
-#botonesDow ul li{
-    float: left;
-}
-.botonesDw{
-    color: rgb(0,174,239);
-    cursor: pointer;
     font-family: "Segoe UI light";
-    font-size: 2em;
-    background-color: transparent;
-    border: none;
-}
-#content_1{
-    overflow: hidden;
+    font-size: 1.2em;
+    min-width: 34px;
+    position: relative;
+    text-align: left;
+    vertical-align: bottom;
+    top: 1px;
 }

@@ -1,0 +1,266 @@
+{% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
+{% block title %}
+	MA21
+{% endblock %}
+ 	{% block menu_principal %}
+    <link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/jquery.mCustomScrollbar.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('stylesheets/Ma2/Ma21/ma21.css') }}"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <script src="{{ asset('javascripts/scroll/jquery-ui-1.8.21.custom.min.js') }}"></script>
+    <!-- mousewheel plugin -->
+    <script src="{{ asset('javascripts/scroll/jquery.mousewheel.min.js') }}"></script>
+    <!-- custom scrollbars plugin -->
+    <script src="{{ asset('javascripts/scroll/jquery.mCustomScrollbar.js') }}"></script>
+    <script >
+        (function($){
+		  $(document).ready(function(){
+		  $("#content_1").mCustomScrollbar({
+		      horizontalScroll:true,
+		      scrollButtons:{
+		      enable:false,
+		      scrollType:"continuous",
+		      scrollSpeed:20,
+		      scrollAmount:40
+		      },
+		      advanced:{
+		      autoExpandHorizontalScroll:true,
+		      },
+		});
+		});
+		})(jQuery);
+    </script>
+		<div id="ContAjax">
+			<div id="bloqueCgenerales" class="amarillo">
+				<div class="contEneDor">
+					<div class="botonRegresar">
+						{% block back %}
+							<a href="{{ path('ma2') }}" class="ajax"><img src="{{ asset('images/b_atras.png') }}"/></a>
+						{% endblock %}
+					</div>
+					<div id="ContTitulo">
+						<p>Estudiantes</p>
+					</div>
+					<div id="contDerecho">
+					    <div class="breadcumbr">
+						    <a href="{{ path('ma1') }}" class="ajax">Administración de personas</a>
+						</div>
+						<div id="buscador">
+							<input type="search" name="search_user" id="search_user" placeholder="Buscar">
+						</div>
+						<form action="#" method="post" {{ form_enctype(form) }}>
+                            {{ form_errors(form) }}
+							<div id="content_1">
+								<div>{#-------------------#}
+									<div>
+										<p class="textoEtq">Nombre</p>
+										{{form_errors(form.nombre)}}
+		    							{{form_widget(form.nombre)}}
+									</div>
+									<div>
+										<p class="textoEtq">Apellidos</p>
+										{{form_errors(form.apellido)}}
+		    							{{form_widget(form.apellido)}}
+									</div>
+									<div>
+										<p class="textoEtq">Lugar de Nacimiento</p>
+										{{form_errors(form.lugar_nacimiento)}}
+		    							{{form_widget(form.lugar_nacimiento)}}
+									</div>
+									<div>
+										<p class="textoEtq">Fecha de nacimiento</p>
+										{{form_errors(form.fecha_nacimiento)}}
+		    							{{form_widget(form.fecha_nacimiento)}}
+									</div>
+									<div>
+										<p class="textoEtq">Departamento</p>
+										<select >
+											<option value="1">Departamento</option>
+											<option value="2">Departamento</option>
+											<option value="3">Departamento</option>
+										</select>
+									</div>
+									<div>
+										<p class="textoEtq">Municipio</p>
+										{{form_errors(form.municipio_id)}}
+		    							{{form_widget(form.municipio_id)}}
+									</div>
+									<div>
+										<p class="textoEtq">Tipo de documento</p>
+										{{form_errors(form.tipodocumento_id)}}
+		    							{{form_widget(form.tipodocumento_id)}}
+									</div>
+									<div>
+										<p class="textoEtq">Número de documento</p>
+										{{form_errors(form.nmr_documento)}}
+		    							{{form_widget(form.nmr_documento)}}
+									</div>
+									<div>
+										<p class="textoEtq"></p>
+										{{form_errors(form.de)}}
+		    							{{form_widget(form.de)}}
+									</div>
+									<div>
+										<p class="textoEtq">Barrio</p>
+										{{form_errors(form.barrio)}}
+		    							{{form_widget(form.barrio)}}
+									</div>
+									<div>
+										<p class="textoEtq">Dirección</p>
+										{{form_errors(form.direccion)}}
+		    							{{form_widget(form.direccion)}}
+									</div>
+									<div>
+										<p class="textoEtq">Estrato</p>
+										{{form_errors(form.estrato)}}
+		    							{{form_widget(form.estrato)}}
+									</div>
+									<div>
+										<p class="textoEtq">Teléfono</p>
+										{{form_errors(form.telefono)}}
+		    							{{form_widget(form.telefono)}}
+									</div>
+									<div>
+										<p class="textoEtq">Celular</p>
+										{{form_errors(form.celular)}}
+		    							{{form_widget(form.celular)}}
+									</div>
+									<div>
+										<p class="textoEtq">Correo</p>
+										{{form_errors(form.email)}}
+		    							{{form_widget(form.email)}}
+									</div>
+								</div>{#-------------------#}
+                                <div>{#-------------------#}
+                                    <div>
+										<p class="textoEtq">Sexo</p>
+										{{form_errors(form.sexo)}}
+		    							{{form_widget(form.sexo)}}
+									</div>
+                                    <div>
+										<p class="textoEtq">EPS/SISBEN</p>
+										{{form_errors(form.salud)}}
+		    							{{form_widget(form.salud)}}
+									</div>
+                                    <div>
+										<p class="textoEtq">Observaciones</p>
+										{{form_errors(form.observaciones_personal)}}
+		    							{{form_widget(form.observaciones_personal)}}
+									</div>
+                                </div>{#-------------------#}
+                                <div>{#---------------#}
+                                    <div>
+										<p class="textoEtq">Colegio de Procedencia</p>
+										{{form_errors(form.colegio_procedencia)}}
+		    							{{form_widget(form.colegio_procedencia)}}
+									</div>
+                                    <div>
+										<p class="textoEtq">Colegio de Procedencia</p>
+										{{form_errors(form.colegio_procedencia)}}
+		    							{{form_widget(form.colegio_procedencia)}}
+									</div>
+                                    <div>
+										<p class="textoEtq">Sede</p>
+										{{form_errors(form.sede_procedencia)}}
+		    							{{form_widget(form.sede_procedencia)}}
+									</div>
+                                    <div>
+										<p class="textoEtq">Jornada</p>
+										{{form_errors(form.jornada_procedencia)}}
+		    							{{form_widget(form.jornada_procedencia)}}
+									</div>
+                                    <div>
+										<p class="textoEtq">Nivel</p>
+										{{form_errors(form.nivel_procedencia)}}
+		    							{{form_widget(form.nivel_procedencia)}}
+									</div>
+                                    <div>
+										<p class="textoEtq">Curso</p>
+										{{form_errors(form.curso_procedencia)}}
+		    							{{form_widget(form.curso_procedencia)}}
+									</div>
+                                    <div>
+										<p class="textoEtq">Observaciones</p>
+										{{form_errors(form.observaciones_academica)}}
+		    							{{form_widget(form.observaciones_academica)}}
+									</div>
+                                </div>{#-------------#}
+                                <div>{#----------#}
+                                    <div>
+										<p class="textoEtq">Cuantas personas viven en su casa</p>
+										{{form_errors(form.nmrPersonas)}}
+		    							{{form_widget(form.nmrPersonas)}}
+									</div>
+                                    <div>
+										<p class="textoEtq">Casa</p>
+										{{form_errors(form.casa_direccion)}}
+		    							{{form_widget(form.casa_direccion)}}
+									</div>
+                                    <div>
+										<p class="textoEtq">Tel</p>
+										{{form_errors(form.telefono_familia)}}
+		    							{{form_widget(form.telefono_familia)}}
+									</div>
+                                    <div>
+										<p class="textoEtq">Vive con sus padres</p>
+										{{form_errors(form.vive_con)}}
+		    							{{form_widget(form.vive_con)}}
+									</div>
+                                    <div>
+										<p class="textoEtq">Numeros de hermanos</p>
+										{{form_errors(form.nmr_hermanos)}}
+		    							{{form_widget(form.nmr_hermanos)}}
+									</div>
+                                    <div>
+										<p class="textoEtq">CEL</p>
+										{{form_errors(form.celular_familia)}}
+		    							{{form_widget(form.celular_familia)}}
+									</div>
+                                    <div>
+										<p class="textoEtq">Nombre y Apellidos de la Madre</p>
+										{{form_errors(form.datos_madre)}}
+		    							{{form_widget(form.datos_madre)}}
+									</div>
+                                    <div>
+										<p class="textoEtq">CC</p>
+										{{form_errors(form.cc_madre)}}
+		    							{{form_widget(form.cc_madre)}}
+									</div>
+                                    <div>
+										<p class="textoEtq">Nombre y Apellidos del Padre</p>
+										{{form_errors(form.datos_padre)}}
+		    							{{form_widget(form.datos_padre)}}
+									</div>
+                                    <div>
+										<p class="textoEtq">CC</p>
+										{{form_errors(form.cc_padre)}}
+		    							{{form_widget(form.cc_padre)}}
+									</div>
+                                    <div>
+										<p class="textoEtq">Nombre y Apellidos del Acudiente</p>
+										{{form_errors(form.datos_acudiente)}}
+		    							{{form_widget(form.datos_acudiente)}}
+									</div>
+                                    <div>
+										<p class="textoEtq">CC</p>
+										{{form_errors(form.cc_acudiente)}}
+		    							{{form_widget(form.cc_acudiente)}}
+									</div>
+                                    <div>
+										<p class="textoEtq">Dirección</p>
+										{{form_errors(form.direccion_familia)}}
+		    							{{form_widget(form.direccion_familia)}}
+									</div>
+                                </div>{#----------#}
+							</div>
+                            {{ form_rest(form) }}
+						</form>
+					</div>
+				</div>
+				
+				<div class="contEneDor">
+					<div class="Inicio" ><a href="{{ path('ma') }}" class="ajax">Inicio</a></div>
+				</div>
+			</div>
+		</div>		
+{% endblock %}
+

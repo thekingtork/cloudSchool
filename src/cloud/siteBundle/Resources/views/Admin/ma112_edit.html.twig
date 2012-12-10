@@ -30,46 +30,53 @@
 						<label>Informaci&oacute;n de Sede</label>
 					</div>  
 					<div id="formularioInst">
-						<div id="content_1">
 							<form action="{{ path('ma112_update',{ 'id' : entity.id }) }}" method="post" {{ form_enctype(form) }}>
 								<div class="pantalla">
-									<div class="linea">
-										<p class="textoEtq">Nombre</p>
-										{{form_errors(form.name)}}
-				    					{{form_widget(form.name)}}
-									</div>
-									<div class="linea">
-										<p class="textoEtq">Direcci&oacute;n</p>
-										{{form_errors(form.direccion)}}
-				    					{{form_widget(form.direccion)}}
-									</div>
-									<div class="lineaMultiItem">
-										<div class="item">
-											<p class="textoEtq">Telefono</p>
-											{{form_errors(form.telefono)}}
-					    					{{form_widget(form.telefono)}}
+										<div class="fila">
+											<div class="entradaTexto" id="nombre">
+												<p class="textoEtq">Nombre</p>
+													{{form_errors(form.name)}}
+					    							{{form_widget(form.name)}}	
+											</div>
 										</div>
-										<div class="item">
-											<p id="fax"class="textoEtq">Fax</p>
-											{{form_errors(form.fax)}}
-					    					{{form_widget(form.fax)}}
+										<div class="fila">
+											<div id="direccion" class="entradaTexto">
+												<p class="textoEtq">Direcci&oacute;n</p>
+												{{form_errors(form.direccion)}}
+				    							{{form_widget(form.direccion)}}
+											</div>
+											<div id="fax" class="entradaTexto">
+												<p class="textoEtq">Fax</p>
+												{{form_errors(form.fax)}}
+						    					{{form_widget(form.fax)}}
+											</div>
 										</div>
-										<div class="item" id="email">
-											<p class="textoEtq">E-mail</p>
-											{{form_errors(form.email)}}
-					    					{{form_widget(form.email)}}
+										<div class="fila">
+											<div id="telefono" class="entradaTexto">
+												<p class="textoEtq">Telefono</p>
+												{{form_errors(form.telefono)}}
+						    					{{form_widget(form.telefono)}}
+											</div>
+											<div class="item entradaTexto" id="email">
+												<p class="textoEtq">E-mail</p>
+												{{form_errors(form.email)}}
+						    					{{form_widget(form.email)}}
+											</div>
 										</div>
-									</div>
-									<div class="linea">
-										<p class="textoEtq">Coordinador(a)</p>
-										{{form_errors(form.rector)}}
-				    					{{form_widget(form.rector)}}
-									</div>
-									<div class="linea">
-										<p class="textoEtq">Secretario(a)</p>
-										{{form_errors(form.secretaria)}}
-				    					{{form_widget(form.secretaria)}}
-									</div>
+										<div class="fila">
+											<div class="entradaTexto"  id="cordinador">
+												<p class="textoEtq">Coordinador(a)</p>
+												{{form_errors(form.rector)}}
+						    					{{form_widget(form.rector)}}
+											</div>
+										</div>
+										<div class="fila">
+											<div class="entradaTexto" id="secretario">
+												<p class="textoEtq">Secretario(a)</p>
+												{{form_errors(form.secretaria)}}
+						    					{{form_widget(form.secretaria)}}								
+											</div>
+										</div>
 									{{ form_rest(form) }}
 								</div>
 								<div id="botonesDow">
@@ -86,7 +93,6 @@
 									</ul>
 								</div>
 							</form>
-						</div>
 					</div>
 				</div>
 			</div>

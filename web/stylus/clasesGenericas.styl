@@ -2,21 +2,47 @@
 	display inline-block
 	vertical-align top
 .amarillo
+	background-color rgb(242,201,47)
+.amarillo:nth-child(3n+1)
 	background-color rgb(239,200,37)
+.amarillo:nth-child(3n+2)
+	background-color rgb(239,200,50)
+.amarillo:nth-child(3n+3)
+	background-color rgb(239,200,90)
 .amarilloFc
 	color rgb(242,201,47)
 .azul
 	background-color rgb(0,172,237)
-.azul2
+.azul:nth-child(3n+1)
+	background-color rgb(0,148,214)		
+.azul:nth-child(3n+2)
+	background-color rgb(0,172,237)
+.azul:nth-child(3n+3)
 	background-color rgb(166,215,246)
-.azul3
-	background-color rgb(0,148,214)
 .azulFc
 	color rgb(0,172,237)
 .blanco
 	background-color rgb(255,255,255)
 .blancoFc
 	color rgb(255,255,255)
+.breadcumbr
+	float right
+	height 28px
+	margin-right 10px
+	overflow hidden
+	position relative
+	text-align center
+	top 10px
+	a
+		color: rgb(255,255,255)
+		font-size: 1.2em
+.breadcumbrBlue
+	left 70%
+	max-width 200px
+	position relative
+	a
+		color rgb(0,174,239)
+		font-size 1.2em
 .contenidoCentrado
 	margin 0 auto .3em 
 	max-width 1000px
@@ -42,14 +68,23 @@
 .fucsiaFc
 	color rgb(202,0,136)
 .Inicio
+	display inline
 	float right
-	text-align center
-	width 23%
+	position relative
+	right 20px
+	top 102px
 	a
-		@extends .blancoFc
-		font-size 3em
-		font-weight normal
-		line-height .7
+		color rgb(255,255,255)
+		font-family "Segoe UI light"
+		font-size 50px
+.InicioBlue
+	display inline
+	float left
+	position relative
+	top 15px
+	a
+		color rgb(0,174,239)
+		font-size 50px
 .gris
 	background-color rgb(138,155,168)
 .grisFc
@@ -68,6 +103,37 @@
 	background-color rgb(139,39,139)
 .moradoFc
 	color rgb(139,39,139)
+.overlay
+	background-color rgba(0,0,0,.5)
+	display none
+	height 52.3%
+	position absolute
+	z-index 500
+	width 58.6%
+.formOverlay
+	height 180px
+	margin auto
+	position relative
+	top 25%
+	width 50%
+	.linea
+		float left
+		width 100%
+		.titulo
+			margin 10px auto
+			width 50%
+			p
+				color rgb(255,255,255)
+				font-size 20px
+				line-height 1
+				text-transform uppercase
+		.entrada
+			margin 10px auto
+			width 50%
+			input
+				font-size 20px
+				line-height 1
+				text-align center
 .rojo
 	background-color rgb(204,33,40)
 .rojoFc

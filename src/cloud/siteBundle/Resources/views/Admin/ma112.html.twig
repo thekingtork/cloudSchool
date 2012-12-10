@@ -4,14 +4,14 @@
 {% endblock %}
 {% block menu_principal %}
 		<div id="ContAjax">
-			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/jquery.mCustomScrollbar.css') }}"/>
-			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/contenido.css') }}"/>
 			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma112/ma112.css') }}"/>
 			<div id="bloqueCgenerales">
 			  	<div id="contenidoIzq">
 					<div class="botonRegresar">
 						{% block back %}
-							<a href="{{ path('ma11') }}" class="ajax"><img src="{{ asset('images/b_atras_blue.png') }}"></a>
+							<a href="{{ path('ma11') }}" class="ajax">
+								<img src="{{ asset('images/b_atras_blue.png') }}">
+							</a>
 						{% endblock %}
 					</div>
 					<a href="{{ path('ma112_new') }}">
@@ -37,40 +37,16 @@
 						<div id="content_1" class="mCustomScrollbar _mCS_1">
 							    {% for sede in sedes %}
 										<div class="sede">
-			                        <a href="{{ path('ma112_edit',{'id' : sede.id }) }}" class="ajax">
-											<p class="signoUp">+</p>
-											<p class="titulocajas">{{sede.name}}</p>
-									</a>
+					                        <a href="{{ path('ma112_edit',{'id' : sede.id }) }}" class="ajax">
+													<p class="signoUp">+</p>
+													<p class="titulocajas">{{sede.name}}</p>
+											</a>
 										</div>
 			                    {% endfor %}
 						</div>
 		            {% endif %}
 				</div>
 			</div>
-			<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-			<script src="{{ asset('javascripts/scroll/jquery-ui-1.8.21.custom.min.js') }}"></script>
-			<!-- mousewheel plugin -->
-			<script src="{{ asset('javascripts/scroll/jquery.mousewheel.min.js') }}"></script>
-			<!-- custom scrollbars plugin -->
-			<script src="{{ asset('javascripts/scroll/jquery.mCustomScrollbar.js') }}"></script>
-			<script >
-				(function($){
-				$(window).load(function(){
-					$("#content_1").mCustomScrollbar({
-						horizontalScroll:true,
-						scrollButtons:{
-							enable:false,
-							scrollType:"continuous",
-							scrollSpeed:20,
-							scrollAmount:40
-						},
-						advanced:{
-							autoExpandHorizontalScroll:true,
-						},
-					});
-				});
-			})(jQuery);
-			</script>
 		</div>
     <span style="display: none;" id="enlace" data-num="{{numero|default('')}}"></span>
 {% endblock %}

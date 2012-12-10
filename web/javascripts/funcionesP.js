@@ -1,3 +1,4 @@
+var colorAlmacenado = "azul";
 $(document).on("ready", contructor);
 	function contructor () {
 		objeto_ajax = $("#contenedorMetro");
@@ -5,6 +6,7 @@ $(document).on("ready", contructor);
 		call_ajax();
   }
   function call_ajax(){
+    _scroll();//* Falta crear un variable JSON que contenga las vistas que tiene el scroll luego recorrerlas y verificar que (html.title) sea iguala las almacenadas en JSON
 		$(".boxMPA").on("mouseover", animar)
 		$(".boxMPA").on("mouseout", mostrar)
         $("a.ajax").click( function(e){
@@ -78,16 +80,62 @@ $(document).on("ready", contructor);
 	}
 	function animar (dato) {
 		var Identificador = dato.currentTarget.id;
-		ocultar={
+    var colorActual = dato.currentTarget.classList[2];
+		var ocultar = {
 			margin: "125% 0 0 0"
-		}
+		};
 		switch(Identificador){
 			case 'confSitema': 
 				$("#confSitema p").css(ocultar);
+        limpiarClases("#ContenedorNotf div",colorAlmacenado);
+        agregaClases("#ContenedorNotf .tile",colorActual);
 			break;
+      case 'admPersonas':
+        limpiarClases("#ContenedorNotf div",colorAlmacenado);
+        agregaClases("#ContenedorNotf .tile",colorActual);
+      break;
+      case 'Estaditicas':
+        limpiarClases("#ContenedorNotf div",colorAlmacenado);
+        agregaClases("#ContenedorNotf .tile",colorActual);
+      break;
+      case 'planEstudios':
+        limpiarClases("#ContenedorNotf div",colorAlmacenado);
+        agregaClases("#ContenedorNotf .tile",colorActual);
+      break;
+      case 'perfil':
+        limpiarClases("#ContenedorNotf div",colorAlmacenado);
+        agregaClases("#ContenedorNotf .tile",colorActual);
+      break;
+      case 'tutoriales':
+        limpiarClases("#ContenedorNotf div",colorAlmacenado);
+        agregaClases("#ContenedorNotf .tile",colorActual);
+      break;
+      case 'aulaVirtual':
+        limpiarClases("#ContenedorNotf div",colorAlmacenado);
+        agregaClases("#ContenedorNotf .tile",colorActual);
+      break;
+      case 'organizador':
+        limpiarClases("#ContenedorNotf div",colorAlmacenado);
+        agregaClases("#ContenedorNotf .tile",colorActual);
+      break;
+      case 'obsevaciones':
+        limpiarClases("#ContenedorNotf div",colorAlmacenado);
+        agregaClases("#ContenedorNotf .tile",colorActual);
+      break;
+      case 'admacademica':
+        limpiarClases("#ContenedorNotf div",colorAlmacenado);
+        agregaClases("#ContenedorNotf .tile",colorActual);
+      break;
 			default: break;
 		}	
 	}
+  function limpiarClases (selector,clase) {
+    $(selector).removeClass(clase);
+  }
+  function agregaClases (selector,clase) {
+      colorAlmacenado=clase;
+    $(selector).addClass(clase);
+  }
 	function mostrar (dato) {
 		var Identificador = dato.currentTarget.id;
 		mostrar={
@@ -100,3 +148,20 @@ $(document).on("ready", contructor);
 			default: break;
 		}	
 	}
+
+  function _scroll () {
+    $("#content_1").mCustomScrollbar({
+        horizontalScroll:true,
+        scrollButtons:{
+          enable:false,
+          scrollType:"continuous",
+          scrollSpeed:20,
+          scrollAmount:40
+        },
+        advanced:{
+          autoExpandHorizontalScroll:true,
+        },
+    });
+  }
+
+
