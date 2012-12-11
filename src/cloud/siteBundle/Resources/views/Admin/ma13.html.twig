@@ -5,56 +5,57 @@
 {% block menu_principal %}
 		<div id="ContAjax">
 			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma13/ma13.css') }}"/> 
-            <div class="overlay" style="display:none">
-                    <div class="formOverlay lima">
-                        <form action="{{ path('ma134') }}" method="post">
-                            <div class="linea">
-                                <div class="titulo">
-                                    <p>Ingresar el numero de areas</p>
-                                </div>
-                            </div>
-                            <div class="linea">
-                                <div class="entrada">
-                                   <input type="text" name="numsede">
-                                </div>
-                            </div>
-                            <div class="linea">
-                                <div id="botonesDow">
-                                    <ul>
-                                        <li>
-                                            <button class="botonesDw blanco" type="submit">Guardar</button>
-                                        </li>
-                                        <li>
-                                            <input  class="botonesDw blanco" type="button" value="Limpiar" onClick="limpiaForm('#formularioInst form')">
-                                        </li>
-                                        <li>
-                                            <input  class="botonesDw blanco ocultarOverlay" type="button" value="Cancelar">
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </form>
-                </div>
+			<div id="bloqueCgenerales">
+	            <div class="overlay" style="display:none">
                 <script>
                         $(document).ready(function(){  
                             $(".ocultarOverlay").click( function(){
                             $(".overlay").css("display","none")
                         })
                         })
-                    </script>
-			</div>
-			<div id="bloqueCgenerales" class="azul">
+                </script>
+	                <div class="txt">
+	                	<div class="formOverlay lima">	                		
+	                        <form action="{{ path('ma134') }}" method="post">
+	                            <div class="linea">
+	                                <div class="titulo">
+	                                    <p>Ingresar el numero de areas</p>
+	                                </div>
+	                            </div>
+	                            <div class="linea">
+	                                <div class="entrada">
+	                                   <input type="text" name="numsede">
+	                                </div>
+	                            </div>
+	                            <div class="linea">
+	                                <div id="botonesDow">
+	                                    <ul>
+	                                        <li>
+	                                            <button class="botonesDw blanco" type="submit">Guardar</button>
+	                                        </li>
+	                                        <li>
+	                                            <input  class="botonesDw blanco" type="button" value="Limpiar" onClick="limpiaForm('#formularioInst form')">
+	                                        </li>
+	                                        <li>
+	                                            <input  class="botonesDw blanco ocultarOverlay" type="button" value="Cancelar">
+	                                        </li>
+	                                    </ul>
+	                                </div>
+	                            </div>
+	                        </form>
+	                	</div>
+	                </div>
+				</div>
 				<div id="contenidoIzq">
 					<div class="botonRegresar">
 						{% block back %}
-							<a href="{{ path('ma1') }}" class="ajax"><img src="{{ asset('images/b_atras.png') }}"/></a>
+							<a href="{{ path('ma1') }}" class="ajax">
+								<img src="{{ asset('images/b_atras.png') }}"/>
+							</a>
 						{% endblock %}
 					</div>
 					<div id="ContTitulo">
 						<p>Criterios academicos</p>
-					</div>
-					<div id="lineas">
-						<img id="decoracionAjax" src="{{ asset('images/backgroudAjax.svg') }}"/>
 					</div>
 				</div>
 				<div id="contenidoDer">

@@ -5,7 +5,11 @@
 {% block menu_principal %}
         <div id="ContAjax">
             <link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma13/ma13.css') }}"/> 
-            
+            <style type="text/css">
+                .Inicio{
+                    top:183px;
+                }
+            </style>            
             <div id="bloqueCgenerales" class="azul">
                 <div id="contenidoIzq">
                     <div class="botonRegresar">
@@ -15,9 +19,6 @@
                     </div>
                     <div id="ContTitulo">
                         <p>Criterios academicos</p>
-                    </div>
-                    <div id="lineas">
-                        <img id="decoracionAjax" src="{{ asset('images/backgroudAjax.svg') }}"/>
                     </div>
                 </div>
                 <div id="contenidoDer">
@@ -31,7 +32,9 @@
                     <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
                 </div>
                 <div class="overlay">
+				<div class="txt">
                     <div class="formOverlay lima">
+                        <div class="txt">
                         <form action="{{path('ma1321')}}" method="post">
                             <div class="linea">
                                 <div class="titulo">
@@ -60,6 +63,8 @@
                             </div>
                         </form>
                     </div>
+					</div>
+                    </div>
                     <script>
                         $(document).ready(function(){
                             console.log('Soporte jQuey');
@@ -85,7 +90,5 @@
                 </div>
             </div>
         </div>
-    <script type="text/javascript" src="{{asset('javascripts/jquery.js')}}"></script>
-   
-    
+    <script type="text/javascript" src="{{asset('javascripts/jquery.js')}}"></script>    
 {% endblock %}

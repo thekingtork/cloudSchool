@@ -68,26 +68,26 @@ function iniciar(){
 			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma1131/ma1131.css') }}"/> 
 			<div id="bloqueCgenerales" class="azul">
 				<div id="contenidoIzq">
-					<div class="botonRegresar">
+					<div class="botonRegresar alineacionPfct">
 						{% block back %}
 							<a href="{{ path('ma113') }}" class="ajax" ><img src="{{ asset('images/b_atras.png') }}"></a>
 						{% endblock %}
 					</div>
-					<div id="tituloApAn">
+					<div id="tituloApAn" class="alineacionPfct">
 						<p>Apertura de A&ntilde;os</p>
 					</div>
-					<div id="conf">
+					<div id="conf" class="alineacionPfct">
 						<div id="form_user_validacion">
                             <div class="tituloitem">
                                 <p>Digite su usuario</p>
                                 <input type="text" name="user" id="user">
                             </div>
                             <div class="tituloitem">
-                                <p for="password">Digite su contraseña</p>
+                                <p for="password">Contraseña</p>
                                 <input type="password" name="password" id="password">
                             </div>
                             <div class="tituloitem" id="boton_codigo">
-                                <p>Solicite su codigo de verificacion</p>
+                                <p>Codigo de verificacion</p>
                                 <button class="lima">Generar Codigo</button>
                             </div>
                             <div class="tituloitem" id="input_codigo" style="display:none">
@@ -115,12 +115,10 @@ function iniciar(){
                         	{% include "cloudBundle::mod_autenticion.html.twig" %}
                     	{% endblock %}
                     </div>
-                    <div class="Inicio" >
-                    	<a href="{{ path('ma') }}" class="ajax" >Inicio</a>
-                    </div>
 				</div>
 				<!-- Ventana emergente -->
 						 <div class="overlay">
+							<div class="txt">
 			                    <div class="formOverlay lima">
 			                        <form action="{{path('ma1131_create')}}" method="post">
 			                            <div class="linea">
@@ -151,16 +149,9 @@ function iniciar(){
 			                            </div>
 			                        </form>
 			                    </div>
-			                </div>
+							</div>
+			            </div>
 			        <!-- Ventana emergente -->
 			</div>
 		</div>
-		 {% block notificaciones %}         
-                {% include "cloudBundle::layout_notificaciones.html.twig" %}
-             {% endblock notificaciones %}
-	<div class="cuerpoCentrado" id="footer">
-        	{% block menu_colores %}
-          		{% include "cloudBundle::menuColores.html.twig" %}
-        	{% endblock %}
-    </div>
 {% endblock %}

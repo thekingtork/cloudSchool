@@ -1,30 +1,14 @@
-#botonesDow{
-    margin: auto;
-    overflow: hidden;
+.fila{
+    display: inline-block;
+    vertical-align: top;
     width: 100%;
 }
-#botonesDow ul{
-    list-style: none;
-}
-#botonesDow ul li{
-    float: left;
-    margin: 0 13px;
-}
 .botonesDw{
-    color: rgb(255,255,255);
-    cursor: pointer;
-    font-family: "Segoe UI light";
-    font-size: 2em;
-    background-color: transparent;
-    border: none;
-}
-.fila{
-	float: left;
-	width: 100%;
+    line-height: 3;
 }
 .Inicio{
-	top: 0px;
-} 
+    top: 0px;
+}
 .nivel{
     background: lightblue;
     cursor: pointer;
@@ -36,17 +20,17 @@
     position: relative;
     vertical-align: top;
     width: 160px;
-	text-align: center;
+    text-align: center;
 }
 .primera{
-	color: rgb(255,255,255);
+    color: rgb(255,255,255);
     font-family: "Segoe UI light";
     font-size: 8em;
     line-height: 1;
     text-align: center;
 }
 .textoBlanco{
-	color: rgb(255,255,255);
+    color: rgb(255,255,255);
     font-family: "Segoe UI light";
     font-size: 1.5em;
     line-height: 1;
@@ -75,7 +59,6 @@
     width: 100%;
 }
 #ContTitulo{
-    float: left;
     margin: 42px 10px 0 35px;
 }
 #ContTitulo p {
@@ -86,7 +69,8 @@
     text-align: center;
 }
 #content_1{
-    max-height: 244px;
+    height: 212px;
+    margin-top: 1.3em;
     overflow: hidden;
     padding: 0 30px;
 }

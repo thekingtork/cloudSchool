@@ -25,7 +25,7 @@
   margin: auto;
 }
 #contenedorAut {
-  height: 40%;
+  height: 100%;
   width: 100%;
 }
 #contDow {
@@ -38,7 +38,8 @@
   width: 30%;
 }
 #contRight {
-  margin-left: -1%;
+  height: 100%;
+  margin-left: -1.5%;
   width: 69%;
 }
 #contUp {
@@ -51,7 +52,7 @@
 #e,
 #o {
   height: 50%;
-  margin-left: -1.2%;
+  margin-left: -1.6%;
   width: 50%;
 }
 #a label,
@@ -73,7 +74,7 @@
 #l,
 #t {
   height: 100%;
-  margin-left: -1.2%;
+  margin-left: -1.6%;
   width: 33.3%;
 }
 #i label,
@@ -89,7 +90,7 @@
   font-size: 6em;
 }
 #t {
-  margin-left: -1.4%;
+  margin-left: -1.7%;
 }
 .color1 {
   background-color: #b1cd49;

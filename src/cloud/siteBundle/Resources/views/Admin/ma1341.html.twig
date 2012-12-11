@@ -5,29 +5,11 @@
 {% block menu_principal %}
 		<div id="ContAjax">
            <link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma1322/ma1322.css') }}"/>
-            <script >
-                (function($){
-                $(window).load(function(){
-                    $("#content_1").mCustomScrollbar({
-                        horizontalScroll:true,
-                        scrollButtons:{
-                            enable:false,
-                            scrollType:"continuous",
-                            scrollSpeed:20,
-                            scrollAmount:40
-                        },
-                        advanced:{
-                            autoExpandHorizontalScroll:true,
-                        },
-                    });
-                });
-            })(jQuery);
-            </script>
 			<div id="bloqueCgenerales" class="azul">
-                <div class="fila">
-					<div class="botonRegresar">
+                <div class="fila alineacionPfct">
+					<div class="botonRegresar alineacionPfct">
 						{% block back %}
-							<a href="{{ path('ma132') }}" class="ajax" >
+							<a href="{{ path('ma134') }}" class="ajax" >
                                 <img src="{{ asset('images/b_atras.png') }}"/>
                             </a>
 						{% endblock %}
@@ -39,14 +21,14 @@
                         </div>
                     {% else %}
                     {# MMM Preguntar..#}
-                    <div id="ContTitulo">
-                        <p>Asignar Grados</p>
+                    <div id="ContTitulo" class="alineacionPfct">
+                        <p>Crear Asignaturas</p>
                     </div>
-					<div class="breadcumbr">
+					<div class="breadcumbr alineacionPfct">
                         <a href="{{ path('ma11') }}" class="ajax" >Ajustes del Sistema</a>
                     </div>                    
                 </div>
-                <div class="fila">
+                <div class="fila alineacionPfct">
                     <div id="content_1" class="mCustomScrollbar _mCS_1">
                         {% for asignatura in asignaturas %}
                             {% if asignatura.name != "Asignatura" %}

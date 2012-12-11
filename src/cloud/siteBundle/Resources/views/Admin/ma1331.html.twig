@@ -5,27 +5,9 @@
 {% block menu_principal %}
 		<div id="ContAjax">
            <link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma1321/ma1321.css') }}"/>
-            <script >
-                (function($){
-                    $(window).load(function(){
-                        $("#content_1").mCustomScrollbar({
-                            horizontalScroll:true,
-                            scrollButtons:{
-                                enable:false,
-                                scrollType:"continuous",
-                                scrollSpeed:20,
-                                scrollAmount:40
-                            },
-                            advanced:{
-                                autoExpandHorizontalScroll:true,
-                            },
-                        });
-                    });
-                })(jQuery);
-            </script>
 			<div id="bloqueCgenerales" class="azul">
-                <div class="fila">
-					<div class="botonRegresar">
+                <div class="fila alineacionPfct">
+					<div class="botonRegresar alineacionPfct">
 						{% block back %}
 							<a href="{{ path('ma133') }}" class="ajax" >
                                 <img src="{{ asset('images/b_atras.png') }}"/>
@@ -37,14 +19,14 @@
                             <p>{{ mje }}</p>
                         </div>
                     {% else %}
-                    <div id="ContTitulo">
+                    <div id="ContTitulo" class="alineacionPfct">
                         <p>Configurar Cursos</p>
                     </div>
-                    <div class="breadcumbr">
+                    <div class="breadcumbr alineacionPfct">
                         <a href="{{ path('ma11') }}" class="ajax" >Ajustes generales</a>
                     </div>   
                 </div>
-                <div class="fila">
+                <div class="fila alineacionPfct">
                     <div id="content_1" class="mCustomScrollbar _mCS_1">
                                 {% for curso in cursos %}
                                     {% if curso.name == "Curso" %}

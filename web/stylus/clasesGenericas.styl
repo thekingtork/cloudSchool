@@ -25,6 +25,12 @@
 	background-color rgb(255,255,255)
 .blancoFc
 	color rgb(255,255,255)
+.botonesDw
+	color white
+	cursor pointer
+	font-size 1.46em
+	background-color transparent
+	border none
 .breadcumbr
 	float right
 	height 28px
@@ -104,24 +110,42 @@
 .moradoFc
 	color rgb(139,39,139)
 .overlay
-	background-color rgba(0,0,0,.5)
+	background-color:rgba(0, 0, 0, 0.85)
+	background: url(data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNUmK/OAAAAATSURBVBhXY2RgYNgHxGAAYuwDAA78AjwwRoQYAAAAAElFTkSuQmCC) repeat scroll transparent\9
+	bottom:0
+	color:white
+	height 98.2%
+	left:0
+	position:absolute
+	right:0
+	top:0
+	width 74%
+	z-index:9999
+	.txt
+		display: inline-block
+		vertical-align: middle
+		padding: 10px 15px
+		position:relative
+.overlay
 	display none
-	height 52.3%
-	position absolute
-	z-index 500
-	width 58.6%
+	text-align center
+.overlay:before
+	content ''
+	display inline-block
+	height 100%
+	vertical-align middle
+	margin-right -0.25em
 .formOverlay
 	height 180px
 	margin auto
-	position relative
-	top 25%
 	width 50%
 	.linea
-		float left
+		display inline-block
+		vertical-align top
 		width 100%
 		.titulo
 			margin 10px auto
-			width 50%
+			width 80%
 			p
 				color rgb(255,255,255)
 				font-size 20px
@@ -134,6 +158,7 @@
 				font-size 20px
 				line-height 1
 				text-align center
+				width 100%
 .rojo
 	background-color rgb(204,33,40)
 .rojoFc

@@ -9,7 +9,9 @@
 				<div id="contenidoIzq">
 					<div class="botonRegresar">
 						{% block back %}
-							<a href="{{ path('ma11') }}" class="ajax" ><img src="{{ asset('images/b_atras.png') }}"></a>
+							<a href="{{ path('ma11') }}" class="ajax" >
+								<img src="{{ asset('images/b_atras.png') }}">
+							</a>
 						{% endblock %}
 					</div>
 					<div id="ContTitulo">
@@ -25,8 +27,8 @@
 							<li><a href="{{ path('ma1133') }}" >Generación Carnet</a></li>
 						</ul>
 					</div>
-                    <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
 				</div>
+                <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
 			</div>
 		</div>
 {% endblock %}

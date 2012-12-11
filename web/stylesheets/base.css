@@ -58,6 +58,23 @@ p {
 header {
   text-align: left;
 }
+#botonesDow {
+  margin: auto;
+  overflow: hidden;
+  width: 100%;
+}
+#botonesDow ul {
+  list-style: none;
+  margin: auto;
+  overflow: hidden;
+  padding: 0;
+  width: 95%;
+}
+#botonesDow ul li {
+  display: inline-block;
+  margin: 0 5px;
+  vertical-align: top;
+}
 #ContAjax {
   height: 359px;
   overflow: hidden;
@@ -144,7 +161,6 @@ header {
   width: 600px;
 }
 .botonRegresar {
-  float: left;
   padding: 0 0.5em;
   max-width: 3em;
 }
@@ -203,6 +219,13 @@ header {
 }
 .blancoFc {
   color: #fff;
+}
+.botonesDw {
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.46em;
+  background-color: transparent;
+  border: none;
 }
 .breadcumbr {
   float: right;
@@ -306,27 +329,48 @@ header {
   color: #8b278b;
 }
 .overlay {
-  background-color: rgba(0,0,0,0.5);
-  display: none;
-  height: 52.3%;
+  background-color: rgba(0,0,0,0.85);
+  background: url("data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNUmK/OAAAAATSURBVBhXY2RgYNgHxGAAYuwDAA78AjwwRoQYAAAAAElFTkSuQmCC") repeat scroll transparent 9;
+  bottom: 0;
+  color: #fff;
+  height: 98.2%;
+  left: 0;
   position: absolute;
-  z-index: 500;
-  width: 58.6%;
+  right: 0;
+  top: 0;
+  width: 74%;
+  z-index: 9999;
+}
+.overlay .txt {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px 15px;
+  position: relative;
+}
+.overlay {
+  display: none;
+  text-align: center;
+}
+.overlay:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em;
 }
 .formOverlay {
   height: 180px;
   margin: auto;
-  position: relative;
-  top: 25%;
   width: 50%;
 }
 .formOverlay .linea {
-  float: left;
+  display: inline-block;
+  vertical-align: top;
   width: 100%;
 }
 .formOverlay .linea .titulo {
   margin: 10px auto;
-  width: 50%;
+  width: 80%;
 }
 .formOverlay .linea .titulo p {
   color: #fff;
@@ -342,6 +386,7 @@ header {
   font-size: 20px;
   line-height: 1;
   text-align: center;
+  width: 100%;
 }
 .rojo {
   background-color: #cc2128;

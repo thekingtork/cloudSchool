@@ -1,8 +1,9 @@
-#bloqueCgenerales{
-    /*background: rgb(0,174,239) ;*/
-    height: 100%;
-    vertical-align: top;
-    width: 100%;
+#bloqueCgenerales {
+  display: inline-block;
+  height: 100%;
+  vertical-align: top;
+  overflow: hidden;
+  width: 100%;
 }
 #boton_enviar{
   float: left;
@@ -10,24 +11,24 @@
 }
 #boton_codigo button{
   color: rgb(255,255,255);
-  margin: 0 11.52% 0 11.52%;
+  margin: 0 5.5%;
   text-align: center;
+  width: 40%;
 }
-#contenidoDer{
-    float:left;
-    height: 100%;
-    overflow: hidden; 
-    position: relative;
-    width: 50%;
-    z-index: 1;
+#contenidoDer {
+  height: 100%;
+  overflow: hidden;
+  width: 49.5%;
 }
-#contenidoIzq{
-    float: left;
-    max-width: 460px;
-    overflow: hidden;
-    position: relative;
-    width: 50%;
-    z-index: 1;
+#contenidoDer,
+#contenidoIzq {
+  display: inline-block;
+  vertical-align: top;
+}
+#contenidoIzq {
+  height: 100%;
+  overflow: hidden;
+  width: 49.5%;
 }
 #contenidoIzq  label{
     color: rgb(255,255,255);
@@ -74,7 +75,7 @@
     color: rgb(255,255,255);
     font-family:  "Segoe UI light";
     font-size: 24px;
-    margin: 0 5px 5px 30px;
+    margin-left: 10%;
 }
 #lineas{
     left: 180px;
@@ -84,6 +85,7 @@
     width: 46%;
 }
 #modAut{
+  height: 77%;
   margin: auto;
   position: relative;
   overflow: hidden;
@@ -91,12 +93,12 @@
   width: 90%;
 }
 #conf{
-    float: left;
+    height: 70%;
     margin-left: 5%;
-    width: 100%;
+    margin-top: 7%;
+    width: 95%;
 }
 #tituloApAn{
-    float: left;
     margin-top: 4%;
     width: 80%;
 }
@@ -117,7 +119,7 @@
     font-family: "Segoe UI light";
     font-size: 20px;
     text-align: left;
-    width: 50%;
+    width: 48%;
 }
 .tituloitem input{
     float: left;

@@ -1,37 +1,66 @@
 {% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
 {% block title %}
-	MA1322
+    MA1322
 {% endblock %}
 {% block menu_principal %}
-		<div id="ContAjax">
+        <div id="ContAjax">
            <link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma1322/ma1322.css') }}"/>
-            <script >
-                (function($){
-                $(window).load(function(){
-                    $("#content_1").mCustomScrollbar({
-                        horizontalScroll:true,
-                        scrollButtons:{
-                            enable:false,
-                            scrollType:"continuous",
-                            scrollSpeed:20,
-                            scrollAmount:40
-                        },
-                        advanced:{
-                            autoExpandHorizontalScroll:true,
-                        },
-                    });
-                });
-            })(jQuery);
-            </script>
-			<div id="bloqueCgenerales" class="azul">
-                <div class="fila">
-					<div class="botonRegresar">
-						{% block back %}
-							<a href="{{ path('ma132') }}" class="ajax" >
+            <div id="bloqueCgenerales" class="azul">
+                <div class="overlay">
+                    <script>
+                        $(document).ready(function(){  
+                            $(".ocultarOverlay").click( function(){
+                            $(".overlay").css("display","none")
+                        })
+                        })
+                    </script>
+                    <div class="txt">
+                    <div class="formOverlay lima">
+                        <form action="#" method="post">
+                            <div class="linea">
+                                <div class="titulo">
+                                    <p>Ingresar el numero de grados</p>
+                                </div>
+                            </div>
+                            <div class="linea">
+                                <div class="entrada">
+                                   <input type="text" name="numsede">
+                                </div>
+                            </div>
+                            <div class="linea">
+                                <div id="botonesDow">
+                                    <ul>
+                                        <li>
+                                            <button class="botonesDw blanco" type="submit">Guardar</button>
+                                        </li>
+                                        <li>
+                                            <input  class="botonesDw blanco" type="button" value="Limpiar" onClick="limpiaForm('#formularioInst form')">
+                                        </li>
+                                        <li>
+                                            <input  class="botonesDw blanco ocultarOverlay" type="button" value="Cancelar">
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                    <script>
+                        $(document).ready(function(){  
+                            $(".ocultarOverlay").click( function(){
+                            $(".overlay").css("display","none")
+                        })
+                        })
+                    </script>
+                </div>
+                <div class="fila alineacionPfct">
+                    <div class="botonRegresar alineacionPfct">
+                        {% block back %}
+                            <a href="{{ path('ma132') }}" class="ajax" >
                                 <img src="{{ asset('images/b_atras.png') }}"/>
                             </a>
-						{% endblock %}
-					</div>
+                        {% endblock %}
+                    </div>
                     {# Esto no se que es#}
                     {% if mje is defined %}
                         <div>
@@ -39,10 +68,10 @@
                         </div>
                     {% else %}
                     {# MMM Preguntar..#}
-                    <div id="ContTitulo">
-                        <p>Asignar Grados</p>
+                    <div id="ContTitulo" class="alineacionPfct">
+                        <p>Selecciona un nivel</p>
                     </div>
-					<div class="breadcumbr">
+                    <div class="breadcumbr alineacionPfct">
                         <a href="{{ path('ma11') }}" class="ajax" >Ajustes del Sistema</a>
                     </div>                    
                 </div>
@@ -81,44 +110,6 @@
                             }
                     </script>
                     {% endif %}
-                </div>
-                <div class="overlay">
-                    <div class="formOverlay lima">
-                        <form action="#" method="post">
-                            <div class="linea">
-                                <div class="titulo">
-                                    <p>Ingresar el numero de grados</p>
-                                </div>
-                            </div>
-                            <div class="linea">
-                                <div class="entrada">
-                                   <input type="text" name="numsede">
-                                </div>
-                            </div>
-                            <div class="linea">
-                                <div id="botonesDow">
-                                    <ul>
-                                        <li>
-                                            <button class="botonesDw blanco" type="submit">Guardar</button>
-                                        </li>
-                                        <li>
-                                            <input  class="botonesDw blanco" type="button" value="Limpiar" onClick="limpiaForm('#formularioInst form')">
-                                        </li>
-                                        <li>
-                                            <input  class="botonesDw blanco ocultarOverlay" type="button" value="Cancelar">
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <script>
-                        $(document).ready(function(){  
-                            $(".ocultarOverlay").click( function(){
-                            $(".overlay").css("display","none")
-                        })
-                        })
-                    </script>
                 </div>
 			</div>
 		</div>

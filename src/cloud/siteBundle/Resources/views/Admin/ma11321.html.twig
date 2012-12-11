@@ -7,17 +7,17 @@
 			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma11321/ma11321.css') }}"/> 
 			<div id="bloqueCgenerales" class="azul">
 				<div id="contenidoIzq">
-					<div class="botonRegresar">
+					<div class="botonRegresar alineacionPfct">
 						{% block back %}
 							<a href="{{ path('ma113') }}" class="ajax" ><img src="{{ asset('images/b_atras.png') }}"></a>
 						{% endblock %}
 					</div>
-					<div id="tituloApAn">
+					<div id="tituloApAn" class="alineacionPfct">
 						<p class="blancoFc">Apertura de Inscripciones</p>
 					</div>
 					<div id="contForm">
 						 <form action="{{ path('ma11321_update',{ 'id' : entity.id }) }}" method="post" {{ form_enctype(form) }}>
-						 	<div class="fila" id="anio">
+                            <div class="fila" id="anio">
                                 <p class="blancoFc textoEtq">Año</p>
                                 {{form_errors(form.anio_id)}}
                                 {{form_widget(form.anio_id)}}
@@ -46,9 +46,8 @@
                                     </li>
                                 </ul>
                             </div>
-						</form>
-					</div>
-					
+                        </form>
+					</div>					
 				</div>
 				<div id="contenidoDer">
 					<div class="breadcumbr"><a href="{{ path('ma113') }}" class="ajax" >Ajustes del Sistema</a></div>

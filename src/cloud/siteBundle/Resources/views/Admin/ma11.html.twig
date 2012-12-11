@@ -9,7 +9,7 @@
                 <div id="contenidoIzq">
                         <div class="botonRegresar">
                             {% block back %}
-                                <a href="{{ path('ma') }}" class="ajax">
+                                <a href="{{ path('ma1') }}" class="ajax">
                                     <img src="{{ asset('images/b_atras.png') }}"></a>
                             {% endblock %}
                         </div>
@@ -21,16 +21,13 @@
                     <div class="breadcumbr"><a href="{{ path('ma1') }}" class="ajax">Ajustes del sistema</a></div>
                     <div id="menuAux">
                         <ul>
-                            <li>
-                                <a href="{{ path('ma111') }}" class="ajax">Infomación General</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('gestionsede')}}" class="ajax iniciar" id="gestion">Gestión de Sedes</a>
-                            </li>
-                            <li><a href="{{ path('ma113') }}" class="ajax" >Otros Ajustes</a></li>
+                            <li><a href="{{ path('ma111') }}" class="ajax">Infomación General</a></li>
+                            <li><a href="{{ path('gestionsede')}}" class="ajax iniciar" id="gestion">Gestión de Sedes</a>
+                            </li><li><a href="{{ path('ma113') }}" class="ajax" >Otros Ajustes</a></li>
                         </ul>
                     </div>
                 </div>
+                <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
                 <div class="overlay">
                     <div class="formOverlay">
                         <form action="{{path('gestionsede')}}" method="post">

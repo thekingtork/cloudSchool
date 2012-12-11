@@ -39,7 +39,7 @@
 }
 #contSelect{
     overflow: hidden;
-    float: left;
+    margin-bottom: 15px;
 }
 #lineas{
     left: 180px;
@@ -66,7 +66,6 @@
     font-size: 28px;
 }
 #tituloAeV{
-	float: left;
 	margin-top: 4%;
 	width: 80%;
 }
@@ -77,11 +76,10 @@
 	text-align: center;
 }
 #conf{
-	float: left;
 	width: 100%;
 }
 #modeloEv{
-	float: left;
+    margin-bottom: 15px;
     height: 24px;
 	width: 100%;
 }
@@ -97,7 +95,7 @@
 	width: 40%;
 }
 #contEscalaNal{
-	float: left;
+    margin-bottom: 20px;
 	width: 100%;
 }
 #contVinetas{
@@ -106,19 +104,18 @@
     overflow: hidden;
 	width: 4%;
 }
-
 .cajaTransp{
 	background-color: transparent;
     float: left;
 	height: 4px;
-    margin: 5px 5px 25px 5px;      
+    margin: 5px 5px 20px 5px;      
 	width: 100%;
 }
 .cajaBlanca{
 	background-color: rgb(255,255,255);
     float: left;
     height: 14px;
-    margin: 13px 5px 4.5px 5px;
+    margin: 3px 5px 4.5px 5px;
 	width: 100%;
 }
 #escalaNal{
