@@ -7,8 +7,8 @@ $(document).on("ready", contructor);
   }
   function call_ajax(){
     _scroll();//* Falta crear un variable JSON que contenga las vistas que tiene el scroll luego recorrerlas y verificar que (html.title) sea iguala las almacenadas en JSON
-		$(".boxMPA").on("mouseover", animar)
-		$(".boxMPA").on("mouseout", mostrar)
+		/*$(".boxMPA").on("mouseover", animar)
+		$(".boxMPA").on("mouseout", mostrar)*/
         $("a.ajax").click( function(e){
             e.preventDefault();
             $("#ContAjax").html('<img src="{{ asset(\'images/ajax-loader.gif\') }} title=\'Loader\'> ');

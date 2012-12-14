@@ -62,16 +62,6 @@ a {
   display: inline-block;
   vertical-align: top;
 }
-#confSitema {
-  background: #00aced url("../images/botones/b_ajustes.png") no-repeat;
-  background-position: 50% -84%;
-  background-size: 50%;
-  transition: all 0.2s ease;
-}
-#confSitema:hover {
-  background: rgba(0,172,237,0.8) url("../images/botones/b_ajustes.png") no-repeat center;
-  background-size: 50%;
-}
 #confSitema p {
   font-size: 2em;
   margin-top: 70%;
