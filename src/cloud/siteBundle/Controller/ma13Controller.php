@@ -1,7 +1,7 @@
 <?php
 
 namespace cloud\siteBundle\Controller;
-
+ 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -95,8 +95,15 @@ class ma13Controller extends Controller
         }
         
         $periodos = $em->getRepository('cloudBundle:Periodo')->findAll();
-        $periodo = new Periodo();
-        $form = $this->createForm(new PeriodoType(), $periodo);
+        $cont = 1;
+         foreach( $periodos as $periodo )
+            {
+              $nv = "_".$cont;
+
+              $$nv = $this->createForm(new PeriodoType(), $periodo);
+              $form[$cont] = $$nv->createView();
+              $cont++;
+            }
 
         if (!$anio && !$periodos)
             return $this->render('cloudBundle:Admin:ma131.html.twig', array('mje'=>'No tiene tiene grados academicos asociadas'));
@@ -106,11 +113,44 @@ class ma13Controller extends Controller
                               array(
                                   'periodos'=>$periodos,
                                   'requeriment'=>true,
-                                  'form'=>$form->createView() 
+                                  'form'=>$form 
                                   ) 
                             );
      }
-    
+    /**
+     * @Route("/periodos/{id}/update", name="ma1311")
+     *  @Method("POST")
+     */
+   
+    public function ma1311Action(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('cloudBundle:Periodo')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Periodo entity.');
+        }
+
+        
+        $editForm = $this->createForm(new PeriodoType(), $entity);
+        $editForm->bind($request);
+
+        if ($editForm->isValid()) {
+        $anio = $em->getRepository('cloudBundle:Anio')->findBy(array('active'=>'1'));
+        $estado = $em->getRepository('cloudBundle:EstadoPeriodo')->find(4);
+
+          $entity->setAnioId($anio[0]);
+          $entity->setEstadoId($estado);
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('ma131'));
+        }
+
+        $entity = $em->getRepository('cloudBundle:Periodo')->findAll();
+        return $this->render('cloudBundle:Admin:ma13222.html.twig', array('grados'=>$entity));
+    }
     /**
      * 
      * @Route("/niveles-grados", name="ma132")
@@ -128,19 +168,6 @@ class ma13Controller extends Controller
      
      
     
-    /**
-     * @Route("/peridos/create", name="ma1311")
-     *  @Method("POST")
-     */
-    public function ma1311Action()
-    {
-        $entity  = new Periodo();
-        $form = $this->createForm(new PeriodoType(), $entity);
-        
-        return $this->render('cloudBundle:Admin:ma1311.html.twig', array(
-            'form'   => $form->createView(),
-        ));
-    }
 
 
 

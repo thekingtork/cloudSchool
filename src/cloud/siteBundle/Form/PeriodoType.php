@@ -11,13 +11,11 @@ class PeriodoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('periodo_inicio')
-            ->add('periodo_final')
+            ->add('periodo_inicio', 'date', array(    'widget' => 'single_text',    'format' => 'yyyy-MM-dd'))
+            ->add('periodo_final', 'date', array(    'widget' => 'single_text',    'format' => 'yyyy-MM-dd'))
             ->add('porcentaje')
             ->add('actividades_min')
             ->add('actividades_max')
-            ->add('estado_id')
-            ->add('anio_id')
         ;
     }
 
