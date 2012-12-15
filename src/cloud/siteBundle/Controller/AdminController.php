@@ -88,7 +88,7 @@ class AdminController extends Controller
             
             if($editForm->isValid()){
                 $img=$editForm['url_imagen']->getData();
-                $dir='web/upload/institucion1';
+                $dir='upload/institucion';
                 $ext=$img->guessExtension();
                 if($ext=='jpeg' or $ext=='png'){
                     $foto=rand(1,999999).'.'.$ext;
