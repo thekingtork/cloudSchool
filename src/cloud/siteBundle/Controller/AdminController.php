@@ -438,9 +438,6 @@ class AdminController extends Controller
             $form->bindRequest($peticion);
             
             if($form->isValid()){
-                $ae->setModeloEvaluacion($form->get('modelo_evaluacion')->getData());
-                $ae->setEscala($form->get('escala')->getData());
-                $ae->setAcumula($form->get('acumula')->getData());
                 $em->persist($ae);
                 $em->flush();
                 return $this->redirect($this->generateUrl('ma1'));
@@ -465,11 +462,7 @@ class AdminController extends Controller
         {
             $form2->bindRequest($peticion);
             if($form2->isValid()){
-                $rang->setLimite1($form2->get('limite1')->getData());
-                $rang->setLimite1($form2->get('limite2')->getData());
-                $rang->setLimite1($form2->get('limite3')->getData());
-                $rang->setLimite1($form2->get('limite4')->getData());
-                $em->persist($rang);
+               $em->persist($rang);
                 $em->flush();
                 return $this->redirect($this->generateUrl('ma12'));
             }

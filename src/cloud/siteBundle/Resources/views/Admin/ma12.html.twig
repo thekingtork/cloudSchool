@@ -9,7 +9,7 @@
                 <div id="contenidoIzq" class="alineacionPfct">
                     <div class="botonRegresar alineacionPfct">
                         {% block back %}
-                            <a href="{{ path('ma113') }}" class="ajax" ><img src="{{ asset('images/b_atras.png') }}"/></a>
+                            <a href="{{ path('ma1') }}" class="ajax" ><img src="{{ asset('images/b_atras.png') }}"/></a>
                         {% endblock %}
                     </div>
                     <div id="tituloAeV" class="alineacionPfct" ><p>Ajustes de Evaluaci&oacute;n</p></div>
@@ -98,55 +98,7 @@
                 </div>
             </div>
         </div>
-    </div>
         <span style="display: none;" data-url={{url('formrango')}} id="enlace"></span>
-    <script src="{{ asset('javascripts/jquery.js') }}"></script>
-        <script>
         
-            $(document).ready(function(){
-                /*
-                $('#Rangos_limite1,#Rangos_limite2,#Rangos_limite3,#Rangos_limite5').click(function(){
-                    if($('#cloud_sitebundle_ajustesevaluacion_escala option:selected').val()=='Escala Cuantitativa'){
-                    $('#btnEnviaRangos').css('display','block')
-                }
-                })
-                
-                $('#editar').click(function(){
-                    $(this).css('display','none')
-                    $('#btnEnviaRangos').css('display','block')
-                })
-                    
-                $('#cloud_sitebundle_ajustesevaluacion_escala').change(function(){
-                    var valor=$('#cloud_sitebundle_ajustesevaluacion_escala option:selected').val();
-                    if(valor=='Escala Cuantitativa'){
-                        $('#btnEnviaRangos').css('display','block')
-                    }else{
-                        $('#btnEnviaRangos').css('display','none')
-
-                    }
-                })
-                */
-                $('form').submit(function(e){
-                    e.preventDefault();
-                    $('form').each( function(index){
-                        var datos=$(this).serialize();
-                        console.log(index);
-                         $.ajax({
-                            url:$(this).attr('action'),
-                            type:'POST',
-                            data:datos,
-                            success:function(){
-                              console.log(index + "Eniviado")
-                            },
-                            error:function(e){
-                                console.log("Error"+ e)
-                                //alert("Error"+ e)
-                            }
-                        })
-                        
-                    })
-                         return false;
-                })
-            })
-        </script>
+    </div>
 {% endblock %}

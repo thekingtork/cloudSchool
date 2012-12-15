@@ -6,6 +6,7 @@ $(document).on("ready", contructor);
 		call_ajax();
   }
   function call_ajax(){
+    ajax_ajustesEvaluacion();
     _scroll();//* Falta crear un variable JSON que contenga las vistas que tiene el scroll luego recorrerlas y verificar que (html.title) sea iguala las almacenadas en JSON
 		$(".boxMPA").on("mouseover", animar)
 		$(".boxMPA").on("mouseout", mostrar)
@@ -142,18 +143,71 @@ $(document).on("ready", contructor);
 	}
 
   function _scroll () {
-    $("#content_1").mCustomScrollbar({
-        horizontalScroll:true,
-        scrollButtons:{
-          enable:false,
-          scrollType:"continuous",
-          scrollSpeed:20,
-          scrollAmount:40
-        },
-        advanced:{
-          autoExpandHorizontalScroll:true,
-        },
-    });
+    if( $("#content_1").length )
+    {
+      $("#content_1").mCustomScrollbar({
+          horizontalScroll:true,
+          scrollButtons:{
+            enable:false,
+            scrollType:"continuous",
+            scrollSpeed:20,
+            scrollAmount:40
+          },
+          advanced:{
+            autoExpandHorizontalScroll:true,
+          },
+      });
+    }
   }
 
 
+function ajax_ajustesEvaluacion(){
+
+              /*
+              $('#Rangos_limite1,#Rangos_limite2,#Rangos_limite3,#Rangos_limite5').click(function(){
+                  if($('#cloud_sitebundle_ajustesevaluacion_escala option:selected').val()=='Escala Cuantitativa'){
+                  $('#btnEnviaRangos').css('display','block')
+              }
+              })
+              
+              $('#editar').click(function(){
+                  $(this).css('display','none')
+                  $('#btnEnviaRangos').css('display','block')
+              })
+                  
+              $('#cloud_sitebundle_ajustesevaluacion_escala').change(function(){
+                  var valor=$('#cloud_sitebundle_ajustesevaluacion_escala option:selected').val();
+                  if(valor=='Escala Cuantitativa'){
+                      $('#btnEnviaRangos').css('display','block')
+                  }else{
+                      $('#btnEnviaRangos').css('display','none')
+                    }
+                })
+                */
+
+              if( $('#brang').length )
+              {
+                console.log("ajax_ajustesEvaluacion")
+                $('form#brang').submit(function(e){
+                    e.preventDefault();
+                    console.log("click")
+                    $('form').each( function(index){
+                        var datos=$(this).serialize();
+                        console.log(index+"  "+$(this).attr('action'));
+                         $.ajax({
+                            url:$(this).attr('action'),
+                            type:'POST',
+                            data:datos,
+                            success:function(){
+                              console.log(index + "Eniviado")
+                            },
+                            error:function(e){
+                                console.log("Error"+ e)
+                                //alert("Error"+ e)
+                            }
+                        })
+                        
+                    })
+                })
+              }               
+}
