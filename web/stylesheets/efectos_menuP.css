@@ -1,0 +1,140 @@
+.itemMenu {
+  display: inline-block;
+  width: 200px;
+  height: 100px;
+  line-height: 100px;
+  -webkit-perspective: 300px;
+  -moz-perspective: 300px;
+  -o-perspective: 300px;
+  perspective: 300px;
+/* Style for the hidden link */
+}
+.itemMenu > div,
+.itemMenu a {
+  width: 100%;
+  text-align: center;
+}
+.itemMenu > a {
+  display: block;
+  text-decoration: none;
+}
+/* Flip effect */
+.flip > div,
+.flip a {
+  position: absolute;
+}
+.flip > a {
+  -webkit-transform: rotateX(-90deg);
+  -moz-transform: rotateX(-90deg);
+  -o-transform: rotateX(-90deg);
+  transform: rotateX(-90deg);
+}
+.flip:hover > div {
+  -webkit-transform: rotateX(90deg);
+  -moz-transform: rotateX(90deg);
+  -o-transform: rotateX(90deg);
+  transform: rotateX(90deg);
+}
+.flip:hover > a {
+  -webkit-transform: rotateX(0deg);
+  -moz-transform: rotateX(0deg);
+  -o-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+.flip:hover > div,
+.flip > a {
+  -webkit-transition: 0.05s all linear 0;
+  -moz-transition: 0.05s all linear 0;
+  -o-transition: 0.05s all linear 0;
+  transition: 0.05s all linear 0;
+}
+.flip:hover > a,
+.flip > div {
+  -webkit-transition: 0.05s all linear 0.05s;
+  -moz-transition: 0.05s all linear 0.05s;
+  -o-transition: 0.05s all linear 0.05s;
+  transition: 0.05s all linear 0.05s;
+}
+/* Slide effect */
+.slide {
+  overflow: hidden;
+}
+.slide > div,
+.slide a {
+  -webkit-transition: 0.1s all linear;
+  -moz-transition: 0.1s all linear;
+  -o-transition: 0.1s all linear;
+  transition: 0.1s all linear;
+  position: absolute;
+}
+.slide > a {
+  -webkit-transform: translate(200px, 0);
+  -moz-transform: translate(200px, 0);
+  -o-transform: translate(200px, 0);
+  transform: translate(200px, 0);
+}
+.slide:hover > div {
+  -webkit-transform: translate(-200px, 0);
+  -moz-transform: translate(-200px, 0);
+  -o-transform: translate(-200px, 0);
+  transform: translate(-200px, 0);
+}
+.slide:hover > a {
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.slide:hover > a img {
+  display: inline-block;
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+/* Shutter effect */
+.shutter > div,
+.shutter a {
+  -webkit-transition: 0.1s all linear;
+  -moz-transition: 0.1s all linear;
+  -o-transition: 0.1s all linear;
+  transition: 0.1s all linear;
+  position: absolute;
+}
+.shutter > div {
+  z-index: 10;
+  -webkit-transform-origin: 0% 0%;
+  -moz-transform-origin: 0% 0%;
+  -o-transform-origin: 0% 0%;
+  transform-origin: 0% 0%;
+}
+.shutter:hover > div {
+  -webkit-transform: rotateX(90deg);
+  -moz-transform: rotateX(90deg);
+  -o-transform: rotateX(90deg);
+  transform: rotateX(90deg);
+}
+/* Page effect */
+.page > div,
+.page a {
+  -webkit-transition: 0.2s all linear;
+  -moz-transition: 0.2s all linear;
+  -o-transition: 0.2s all linear;
+  transition: 0.2s all linear;
+  position: absolute;
+  z-index: 5;
+}
+.page > div {
+  z-index: 10;
+  -webkit-transform-origin: 0% 0%;
+  -moz-transform-origin: 0% 0%;
+  -o-transform-origin: 0% 0%;
+  transform-origin: 0% 0%;
+}
+.page:hover > div {
+  -webkit-transform: rotateX(360deg);
+  -moz-transform: rotateX(360deg);
+  -o-transform: rotateX(360deg);
+  transform: rotateX(360deg);
+  z-index: 1;
+}

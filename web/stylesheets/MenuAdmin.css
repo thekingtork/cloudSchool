@@ -1,15 +1,15 @@
 a {
   text-decoration: none;
 }
-#admacademica a p {
+#admacademica p {
   font-size: 1.9em;
   margin: 28% 0 0 6%;
 }
-#admPersonas a p {
+#admPersonas p {
   font-size: 1.5em;
   margin-top: 21%;
 }
-#aulaVirtual a p {
+#aulaVirtual p {
   font-size: 2.5em;
   margin-top: 17%;
 }
@@ -67,32 +67,32 @@ a {
   margin-top: 70%;
 }
 #confSitema img {
-  display: none;
+  margin: 30% 10% 0 2%;
 }
-#Estaditicas a p {
+#Estaditicas p {
   font-size: 1.5em;
   margin-top: 25%;
 }
 #Estaditicas img {
-  display: none;
+  margin: 30% 10% 0 2%;
 }
-#organizador a p {
+#organizador p {
   font-size: 1.3em;
   margin-top: 21%;
 }
-#obsevaciones a p {
+#obsevaciones p {
   font-size: 1.3em;
   margin-top: 21%;
 }
-#planEstudios a p {
+#planEstudios p {
   font-size: 1.5em;
   margin-top: 20%;
 }
-#perfil a p {
+#perfil p {
   font-size: 3.5em;
   margin-top: 21%;
 }
-#tutoriales a p {
+#tutoriales p {
   font-size: 1.8em;
   margin-top: 35%;
 }

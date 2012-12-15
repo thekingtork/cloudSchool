@@ -7,8 +7,8 @@ $(document).on("ready", contructor);
   }
   function call_ajax(){
     _scroll();//* Falta crear un variable JSON que contenga las vistas que tiene el scroll luego recorrerlas y verificar que (html.title) sea iguala las almacenadas en JSON
-		/*$(".boxMPA").on("mouseover", animar)
-		$(".boxMPA").on("mouseout", mostrar)*/
+		$(".boxMPA").on("mouseover", animar)
+		$(".boxMPA").on("mouseout", mostrar)
         $("a.ajax").click( function(e){
             e.preventDefault();
             $("#ContAjax").html('<img src="{{ asset(\'images/ajax-loader.gif\') }} title=\'Loader\'> ');
@@ -80,13 +80,9 @@ $(document).on("ready", contructor);
 	}
 	function animar (dato) {
 		var Identificador = dato.currentTarget.id;
-    var colorActual = dato.currentTarget.classList[2];
-		var ocultar = {
-			margin: "125% 0 0 0"
-		};
+    var colorActual = dato.currentTarget.classList[4];
 		switch(Identificador){
 			case 'confSitema': 
-				$("#confSitema p").css(ocultar);
         limpiarClases("#ContenedorNotf div",colorAlmacenado);
         agregaClases("#ContenedorNotf .tile",colorActual);
 			break;
@@ -138,12 +134,8 @@ $(document).on("ready", contructor);
   }
 	function mostrar (dato) {
 		var Identificador = dato.currentTarget.id;
-		mostrar={
-			margin: "70% 0 0 0"
-		}
 		switch(Identificador){
 			case 'confSitema': 
-				$("#confSitema p").css(mostrar);
 			break;
 			default: break;
 		}	
