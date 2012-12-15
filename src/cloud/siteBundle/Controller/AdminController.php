@@ -77,7 +77,7 @@ class AdminController extends Controller
         $request=$this->getRequest();
         $em = $this->getDoctrine()->getEntityManager();
         $user = $this->get('security.context')->getToken()->getUser();
-        $institucion = $em->getRepository('cloudBundle:Institucion')->find($user->getInstitucionId());
+        $institucion = $em->getRepository('cloudBundle:Institucion')->find(1);
         $editForm = $this->createForm(new InstitucionType(), $institucion); 
 
         if (!$institucion) {
@@ -211,10 +211,21 @@ class AdminController extends Controller
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
-            $em->persist($entity);
-            $em->flush();
 
-            return $this->redirect($this->generateUrl('ma112'));
+            $img=$editForm['url_imagen']->getData();
+                $dir='upload/sede';
+                $ext=$img->guessExtension();
+                if($ext=='jpeg' or $ext=='png'){
+                    $foto=rand(1,999999).'.'.$ext;
+                    $entity->setUrlImagen($foto);
+                    $editForm['url_imagen']->getData()->move($dir, $foto);
+                    $em->persist($entity);
+                    $em->flush();
+                    return $this->redirect($this->generateUrl('ma112'));
+                 }else{
+                    throw $this->createNotFoundException( 'Formato de Imagen Incorrecto');
+                                    
+                 }  
         }
 
          return $this->render('cloudBundle:Admin:ma112_edit.html.twig',array(

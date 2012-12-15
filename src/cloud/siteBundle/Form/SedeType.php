@@ -18,6 +18,7 @@ class SedeType extends AbstractType
             ->add('email')
             ->add('rector',null,array('label'=>'Coordinador'))
             ->add('secretaria')
+            ->add('url_imagen','file')
         ;
     }
 

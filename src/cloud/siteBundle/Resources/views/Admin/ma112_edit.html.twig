@@ -14,7 +14,7 @@
 					</div>
 					<div id="avatarInst">
 						<div id="contAvatar">
-							<img src="{{ asset('images/Examinar.png') }}" alt="">
+							<img src="{{ asset('upload/sede/') }}{{ entity.urlImagen }}" alt="Escudo sede">
 						</div>
 						<div id="cargador">
 							<img src="{{ asset('images/b_examinar.png') }}">
@@ -77,6 +77,13 @@
 						    					{{form_widget(form.secretaria)}}								
 											</div>
 										</div>
+										<div class="fila">
+		                            	<div id="loadImg" class="">
+		                                    <p class="textoEtq">Imagen</p>
+		                                    {{form_errors(form.url_imagen)}}
+		                                    {{form_widget(form.url_imagen)}}
+		                            	</div>										
+									</div>
 									{{ form_rest(form) }}
 								</div>
 								<div id="botonesDow">
