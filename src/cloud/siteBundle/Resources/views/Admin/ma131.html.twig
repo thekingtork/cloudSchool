@@ -55,6 +55,10 @@
                                                     {{ form_widget(periodo.periodo_final) }}
                                                 </div>
                                                 <div>
+                                                    {{form_errors(periodo.estado_id)}}
+                                                    {{ form_widget(periodo.estado_id) }}
+                                                </div>
+                                                <div>
                                                     {{form_errors(periodo.porcentaje)}}
                                                     {{ form_widget(periodo.porcentaje) }}
                                                 </div>

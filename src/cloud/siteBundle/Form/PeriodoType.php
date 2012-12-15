@@ -14,6 +14,7 @@ class PeriodoType extends AbstractType
             ->add('periodo_inicio', 'date', array(    'widget' => 'single_text',    'format' => 'yyyy-MM-dd'))
             ->add('periodo_final', 'date', array(    'widget' => 'single_text',    'format' => 'yyyy-MM-dd'))
             ->add('porcentaje')
+            ->add('estado_id')
             ->add('actividades_min')
             ->add('actividades_max')
         ;

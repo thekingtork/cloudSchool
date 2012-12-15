@@ -137,11 +137,7 @@ class ma13Controller extends Controller
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
-        $anio = $em->getRepository('cloudBundle:Anio')->findBy(array('active'=>'1'));
-        $estado = $em->getRepository('cloudBundle:EstadoPeriodo')->find(4);
-
-          $entity->setAnioId($anio[0]);
-          $entity->setEstadoId($estado);
+        
             $em->persist($entity);
             $em->flush();
 
