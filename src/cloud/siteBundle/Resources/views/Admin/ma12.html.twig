@@ -104,6 +104,7 @@
         <script>
         
             $(document).ready(function(){
+                /*
                 $('#Rangos_limite1,#Rangos_limite2,#Rangos_limite3,#Rangos_limite5').click(function(){
                     if($('#cloud_sitebundle_ajustesevaluacion_escala option:selected').val()=='Escala Cuantitativa'){
                     $('#btnEnviaRangos').css('display','block')
@@ -124,23 +125,27 @@
 
                     }
                 })
-                $('#form_Rangos').submit(function(e){
+                */
+                $('form').submit(function(e){
                     e.preventDefault();
-                    var datos=$('#form_Rangos').serialize();
-                    //console.log(datos);
-                     $.ajax({
-                        url:"{{ path('formrango_update') }}",
-                        type:'POST',
-                        data:datos,
-                        success:function(){
-                           $('#btnEnviaRangos').css('display','none')
-                        },
-                        error:function(e){
-                            console.log("Error"+ e)
-                            //alert("Error"+ e)
-                        }
+                    $('form').each( function(index){
+                        var datos=$(this).serialize();
+                        console.log(index);
+                         $.ajax({
+                            url:$(this).attr('action'),
+                            type:'POST',
+                            data:datos,
+                            success:function(){
+                              console.log(index + "Eniviado")
+                            },
+                            error:function(e){
+                                console.log("Error"+ e)
+                                //alert("Error"+ e)
+                            }
+                        })
+                        
                     })
-                     //return false;
+                         return false;
                 })
             })
         </script>
