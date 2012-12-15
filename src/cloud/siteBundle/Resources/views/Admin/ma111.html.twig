@@ -58,9 +58,8 @@
 									<div class="fila">
 										<div id="ciudad" class="entradaTexto desplegable">
 		    								<p class="textoEtq">Ciudad</p>
-		    								<select>
-		    									<option>Ciudad</option>
-		    								</select>
+		    								{{form_errors(edit_form.ciudad)}}
+		    								{{form_widget(edit_form.ciudad)}}
 		    							</div>
 		    							<div id="direccion" class="entradaTexto">
 		    								<p class="textoEtq">Direcci&oacute;n</p>
@@ -143,6 +142,7 @@
 									<li><input  class="botonesDw" type="button" value="Eliminar"></li>
 								</ul>
 							</div>
+							 {{ form_rest(edit_form) }}
 						</form>
 					{% endif %}
 					</div>
