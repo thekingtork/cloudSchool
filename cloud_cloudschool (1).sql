@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 10-12-2012 a las 21:03:28
+-- Tiempo de generación: 16-12-2012 a las 01:18:43
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `ajustesevaluacion` (
 --
 
 INSERT INTO `ajustesevaluacion` (`id`, `modelo_evaluacion`, `acumula`, `escala`) VALUES
-(1, 'Por Logros', 1, 'Escala Cualitativa');
+(1, 'Por Fortaleza y Dificultades', 0, 'Escala Cuantitativa');
 
 -- --------------------------------------------------------
 
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `anio` (
 --
 
 INSERT INTO `anio` (`id`, `nombre`, `date_create`, `active`) VALUES
-(2, '2012', '2012-11-19 02:45:43', 1),
+(2, '2012', '2012-11-19 02:45:43', 0),
 (3, '2011', '2011-01-01 11:25:39', 0),
 (4, '2010', '2010-02-01 13:19:28', 0),
 (5, '2009', '2009-02-02 07:16:16', 0),
@@ -311,7 +311,7 @@ CREATE TABLE IF NOT EXISTS `estado_periodo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `estado_periodo`
@@ -320,7 +320,8 @@ CREATE TABLE IF NOT EXISTS `estado_periodo` (
 INSERT INTO `estado_periodo` (`id`, `nombre`) VALUES
 (1, 'En proceso'),
 (2, 'Detenido'),
-(3, 'Finalizado');
+(3, 'Finalizado'),
+(4, 'En Espera');
 
 -- --------------------------------------------------------
 
@@ -411,7 +412,7 @@ CREATE TABLE IF NOT EXISTS `institucion` (
 --
 
 INSERT INTO `institucion` (`id`, `nombre`, `direccion`, `ciudad`, `telefono`, `fax`, `nit`, `dane`, `men`, `rector`, `secretario`, `email`, `distribucion_usuario`, `modelo_pedagogico`, `url_imagen`) VALUES
-(1, 'IE ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1');
+(1, 'IE ejemplo 1', 'ejemplo 1', 'monteria', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo 1', 'ejemplo@ejemplo.com', 'ejemplo 1', 'ejemplo 1', '870666.png');
 
 -- --------------------------------------------------------
 
@@ -1806,7 +1807,16 @@ CREATE TABLE IF NOT EXISTS `periodo` (
   PRIMARY KEY (`id`),
   KEY `IDX_7316C4EDEC34184E` (`anio_id`),
   KEY `IDX_7316C4ED9F5A440B` (`estado_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+--
+-- Volcado de datos para la tabla `periodo`
+--
+
+INSERT INTO `periodo` (`id`, `anio_id`, `periodo_inicio`, `primer_periodo_final`, `porcentaje`, `actividades_min`, `actividades_max`, `estado_id`) VALUES
+(1, 2, '2012-12-15 00:00:00', '2012-12-15 00:00:00', 33, 1, 5, 4),
+(2, 2, '2012-12-15 00:00:00', '2012-12-15 00:00:00', 35, 1, 4, 4),
+(3, 2, '2012-12-15 00:00:00', '2012-12-15 00:00:00', 36, 1, 3, 4);
 
 -- --------------------------------------------------------
 
@@ -1856,7 +1866,7 @@ CREATE TABLE IF NOT EXISTS `rangocuantitativo` (
 --
 
 INSERT INTO `rangocuantitativo` (`id`, `escalanacional_id`, `limite1`, `limite2`, `limite3`, `limite4`) VALUES
-(1, NULL, 0, 0, 0, 0);
+(1, NULL, 1.9, 2.9, 3.9, 4.9);
 
 -- --------------------------------------------------------
 
@@ -1896,6 +1906,7 @@ CREATE TABLE IF NOT EXISTS `sede` (
   `rector` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `secretaria` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `institucion_id` int(11) DEFAULT NULL,
+  `url_imagen` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_2A9BE2D1B239FBC6` (`institucion_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=14 ;
@@ -1904,13 +1915,13 @@ CREATE TABLE IF NOT EXISTS `sede` (
 -- Volcado de datos para la tabla `sede`
 --
 
-INSERT INTO `sede` (`id`, `nombre`, `direccion`, `telefono`, `fax`, `email`, `rector`, `secretaria`, `institucion_id`) VALUES
-(8, 'Sede 1', '1', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede1@institucion.com', 'Coordinador 1', 'Secretaria 1', NULL),
-(9, 'Sede 2', '2', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede2@institucion.com', 'Coordinador 2', 'Secretaria 2', NULL),
-(10, 'Sede 3', '3', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede3@institucion.com', 'Coordinador 3', 'Secretaria 3', NULL),
-(11, 'Sede 1', '1', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede1@institucion.com', 'Coordinador 1', 'Secretaria 1', NULL),
-(12, 'Sede 2', '2', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede2@institucion.com', 'Coordinador 2', 'Secretaria 2', NULL),
-(13, 'Sede 3', '3', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede3@institucion.com', 'Coordinador 3', 'Secretaria 3', NULL);
+INSERT INTO `sede` (`id`, `nombre`, `direccion`, `telefono`, `fax`, `email`, `rector`, `secretaria`, `institucion_id`, `url_imagen`) VALUES
+(8, 'Sede 1', '1', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede1@institucion.com', 'Coordinador 1', 'Secretaria 1', NULL, '618194.png'),
+(9, 'Sede 2', '2', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede2@institucion.com', 'Coordinador 2', 'Secretaria 2', NULL, 'ejemplo.png'),
+(10, 'Sede 3', '3', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede3@institucion.com', 'Coordinador 3', 'Secretaria 3', NULL, 'ejemplo.png'),
+(11, 'Sede 1', '1', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede1@institucion.com', 'Coordinador 1', 'Secretaria 1', NULL, 'ejemplo.png'),
+(12, 'Sede 2', '2', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede2@institucion.com', 'Coordinador 2', 'Secretaria 2', NULL, 'ejemplo.png'),
+(13, 'Sede 3', '3', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede3@institucion.com', 'Coordinador 3', 'Secretaria 3', NULL, 'ejemplo.png');
 
 -- --------------------------------------------------------
 
@@ -2095,9 +2106,9 @@ ALTER TABLE `perfil_docente`
 -- Filtros para la tabla `perfil_estudiante`
 --
 ALTER TABLE `perfil_estudiante`
-  ADD CONSTRAINT `FK_A34B4FFBA76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `FK_A34B4FFB2E595373` FOREIGN KEY (`tipodocumento_id`) REFERENCES `tipo_documento` (`id`),
-  ADD CONSTRAINT `FK_A34B4FFB58BC1BE0` FOREIGN KEY (`municipio_id`) REFERENCES `municipio` (`id`);
+  ADD CONSTRAINT `FK_A34B4FFB58BC1BE0` FOREIGN KEY (`municipio_id`) REFERENCES `municipio` (`id`),
+  ADD CONSTRAINT `FK_A34B4FFBA76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
 -- Filtros para la tabla `periodo`
