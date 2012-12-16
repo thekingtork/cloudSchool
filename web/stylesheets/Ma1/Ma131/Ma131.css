@@ -37,3 +37,16 @@
   line-height: 1;
   text-align: center;
 }
+.periodo {
+  height:50px; 
+  width:100%;
+  position:relative;
+  margin-top: 35px;
+}
+.periodo div {
+  width:16.5%;
+  float: left;
+}
+.periodo div input{
+  width:65px;
+}
