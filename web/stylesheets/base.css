@@ -184,7 +184,8 @@ header {
   font-size: 4em;
   line-height: 1.8;
 }
-.alineacionPfct {
+.alineacionPfct,
+.fila {
   display: inline-block;
   vertical-align: top;
 }
@@ -276,6 +277,10 @@ header {
   margin: 0 auto;
   max-width: 1000px;
   position: relative;
+}
+.fila {
+  margin-bottom: 0.5em;
+  width: 100%;
 }
 .fucsia {
   background-color: #ca0088;

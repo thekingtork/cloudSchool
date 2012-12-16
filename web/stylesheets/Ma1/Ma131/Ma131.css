@@ -5,6 +5,13 @@
   overflow: hidden;
   width: 100%;
 }
+#botonesDow{
+  margin: 2%;
+  width: 60%;
+}
+#botonesDow ul li{
+  margin: 0 5%;
+}
 #contenidoDer {
   height: 86%;
   overflow: hidden;
@@ -27,8 +34,7 @@
   font-size: 32px;
 }
 #ContTitulo {
-  float: left;
-  margin: 68% 10px 0 10px;
+  margin: 7.2% 2% 0 7%;
 }
 #ContTitulo p {
   color: #fff;
@@ -37,11 +43,89 @@
   line-height: 1;
   text-align: center;
 }
+.estadoPer{
+  width: 13%;
+}
+.estadoPer p{
+  color: rgb(255,255,255);
+  font-size: 2em;
+  line-height: 1;
+  margin-top: 21.6%;
+  text-align: center;
+}
+.estadoPer label{
+  color: rgb(255,255,255);
+  display: block;
+  font-size: 1.2em;
+  line-height: 1.5;
+  margin: auto;
+  text-align: center;
+  width: 90%;
+}
+.Inicio{
+  top: -55px;
+}
+.fechasPer{
+  width: 25%;
+}
+.fechasPer > .subT{
+  width: 45%;
+}
+.fechasPer > .subT input{
+  width: 100%;
+}
+.fechasPer > .subT p{
+  color: rgb(255,255,255);
+  font-size: 1em;
+  text-align: center;
+}
+.fechasPer > .subT p span{
+  font-size: 1.5em
+}
+.fechasPer > .subT:first-child{
+  margin-right: 4%;
+}
+.fechasPer > .subT div{
+  width: 45%;
+}
+.fechasPer > .subT .alineacionPfct:nth-child(2n+2){
+  margin-right: 5%;
+}
+.NotasP{
+  margin-left: 2%;
+  width: 25%;
+}
+.NotasP > .subT{
+  width: 45%;
+}
+.NotasP > .subT input{
+  display: block;
+  margin: auto;
+  width: 80%;
+}
+.NotasP > .subT p{
+  color: rgb(255,255,255);
+  font-size: 1em;
+  text-align: center;
+}
+.NotasP > p {
+  color: rgb(255,255,255);
+  text-align: center;
+}
+.NotasP > p span{
+  font-size: 1.5em;
+}
+.NotasP > .subT:first-child{
+  margin-right: 4%;
+}
 .periodo {
-  height:50px; 
-  width:100%;
-  position:relative;
-  margin-top: 35px;
+  margin: 0 2% 0 2%; 
+  width:20%;
+}
+.periodo p {
+  color: rgb(255,255,255);
+  font-size: 1.5em;
+  text-align: center;
 }
 .periodo div {
   width:16.5%;
@@ -49,4 +133,36 @@
 }
 .periodo div input{
   width:65px;
+}
+.porcentajP{
+  width: 7%;
+}
+.porcentajP input{
+  width: 100%;
+}
+.porcentajP label{
+  color: rgb(255,255,255);
+  display: block;
+  font-size: 1.2em;
+  line-height: 1.5;
+  margin: auto;
+  text-align: center;
+  width: 90%;
+}
+.porcentajP p{
+  margin-top: 38.6%;
+  color: rgb(255,255,255);
+  font-size: 2em;
+  line-height: 1;
+  text-align: center;
+}
+.TituloPer{
+  margin: 3% 2% 0 2%;
+  width: 20%;
+}
+.TituloPer p{
+  color: rgb(255,255,255);
+  font-size: 2em;
+  line-height: 1;
+  text-align: center;
 }

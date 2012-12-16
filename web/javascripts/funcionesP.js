@@ -33,18 +33,13 @@ $(document).on("ready", contructor);
             });
         }
     function limpiaForm(miForm) {
-          // recorremos todos los campos que tiene el formulario
           $(':input', miForm).each(function() {
           var type = this.type;
           var tag = this.tagName.toLowerCase();
-          //limpiamos los valores de los campos…
           if (type == 'text' || type == 'password' || tag == 'textarea')
           this.value = '';
-          // excepto de los checkboxes y radios, le quitamos el checked
-          // pero su valor no debe ser cambiado
           else if (type == 'checkbox' || type == 'radio')
           this.checked = false;
-          // los selects le ponesmos el indice a -
           else if (tag == 'select')
           this.selectedIndex = -1;
   	});
@@ -162,29 +157,6 @@ $(document).on("ready", contructor);
 
 
 function ajax_ajustesEvaluacion(){
-
-              /*
-              $('#Rangos_limite1,#Rangos_limite2,#Rangos_limite3,#Rangos_limite5').click(function(){
-                  if($('#cloud_sitebundle_ajustesevaluacion_escala option:selected').val()=='Escala Cuantitativa'){
-                  $('#btnEnviaRangos').css('display','block')
-              }
-              })
-              
-              $('#editar').click(function(){
-                  $(this).css('display','none')
-                  $('#btnEnviaRangos').css('display','block')
-              })
-                  
-              $('#cloud_sitebundle_ajustesevaluacion_escala').change(function(){
-                  var valor=$('#cloud_sitebundle_ajustesevaluacion_escala option:selected').val();
-                  if(valor=='Escala Cuantitativa'){
-                      $('#btnEnviaRangos').css('display','block')
-                  }else{
-                      $('#btnEnviaRangos').css('display','none')
-                    }
-                })
-                */
-
               if( $('#brang').length )
               {
                 console.log("ajax_ajustesEvaluacion")

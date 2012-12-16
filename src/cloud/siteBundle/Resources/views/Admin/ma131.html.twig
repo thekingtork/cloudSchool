@@ -4,99 +4,126 @@
 {% endblock %}
 {% block menu_principal %}
 		<div id="ContAjax">
-			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma131/ma131.css') }}"/> 
-            
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma131/ma131.css') }}"/>             
 			<div id="bloqueCgenerales" class="azul">
-				<div id="contenidoIzq"> 
-					<div class="botonRegresar">
-						{% block back %}
-							<a href="{{ path('ma13') }}" class="ajax"><img src="{{ asset('images/b_atras.png') }}"></a>
-						{% endblock %}
-					</div>
-                   
-				</div>
-				<div id="contenidoDer">
-					<div class="breadcumbr"><a href="{{ path('ma1') }}" class="ajax">Ajustes del sistema</a></div>
+                <div class="fila">
+                    <div class="botonRegresar alineacionPfct">
+                        {% block back %}
+                            <a href="{{ path('ma13') }}" class="ajax"><img src="{{ asset('images/b_atras.png') }}"></a>
+                        {% endblock %}
+                    </div>
+                    <div id="ContTitulo" class="alineacionPfct">
+                        <p>Periodos Academicos</p>
+                    </div>                      
+					<div class="breadcumbr alineacionPfct">
+                        <a href="{{ path('ma1') }}" class="ajax">Ajustes del sistema</a>
+                    </div>
+                </div>
+                <div class="fila">
                      {% if requeriment is defined %}
                         {% if mje is defined %}
-                            {{ mje }}
-                        
+                            {{ mje }}                        
                         {% elseif form is defined %}
-
-                            <style type="text/css">
-                                .periodo {
-                                    height:50px; 
-                                    width:100%;
-                                    position:relative;
-                                    margin-top: 35px;
-                                }
-
-                                .periodo div{
-                                    width:16.5%;
-                                    float: left;
-                                }
-
-                                .periodo div input{
-                                    width:65px;
-                                }
-                            </style>
-                                        {% for periodo in form %}
-                                    <form action="{{ path('ma1311',{ id : loop.index }) }}" method="post">
-                                            <div class="periodo" >
-                                                <div>
-                                                    {{ loop.index }}
-                                                </div>
-                                                <div>
-                                                    {{form_errors(periodo.periodo_inicio)}}
-                                                    {{ form_widget(periodo.periodo_inicio) }}
-                                                </div>
-                                                <div>
-                                                    {{form_errors(periodo.periodo_final)}}
-                                                    {{ form_widget(periodo.periodo_final) }}
-                                                </div>
-                                                <div>
-                                                    {{form_errors(periodo.estado_id)}}
-                                                    {{ form_widget(periodo.estado_id) }}
-                                                </div>
-                                                <div>
-                                                    {{form_errors(periodo.porcentaje)}}
-                                                    {{ form_widget(periodo.porcentaje) }}
-                                                </div>
-                                                <div>
+                            <div class="fila">
+                                <div class="TituloPer alineacionPfct">
+                                    <p>Periodo</p>
+                                </div>
+                                <div class="fechasPer alineacionPfct">
+                                    <div class="subT alineacionPfct">
+                                        <p><span>Inicio</span></p>
+                                        <div class="alineacionPfct">
+                                            <p>Mes</p>
+                                        </div>
+                                        <div class="alineacionPfct">
+                                            <p>Dia</p>
+                                        </div>
+                                    </div>
+                                    <div class="subT alineacionPfct">
+                                        <p><span>Final</span></p>
+                                        <div class="alineacionPfct">
+                                            <p>Mes</p>
+                                        </div>
+                                        <div class="alineacionPfct">
+                                            <p>Dia</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="estadoPer alineacionPfct">
+                                    <p>Estado</p>
+                                </div>
+                                <div class="porcentajP alineacionPfct">
+                                    <p>%</p>
+                                </div>
+                                <div class="NotasP alineacionPfct">
+                                    <p><span>N° notas</span></p>
+                                    <div class="subT alineacionPfct">
+                                        <p>Min</p>
+                                    </div>
+                                    <div class="subT alineacionPfct">
+                                        <p>Max</p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% for periodo in form %}
+                                <form action="{{ path('ma1311',{ id : loop.index }) }}" method="post">
+                                    <div class="fila">
+                                        <div class="periodo alineacionPfct">
+                                            <p>{{ loop.index }}</p>
+                                        </div>
+                                        <div class="alineacionPfct fechasPer">
+                                            <div class="subT alineacionPfct">
+                                                {{form_errors(periodo.periodo_inicio)}}
+                                                {{ form_widget(periodo.periodo_inicio) }}                                                
+                                            </div>
+                                            <div class="subT alineacionPfct">
+                                                {{form_errors(periodo.periodo_final)}}
+                                                {{ form_widget(periodo.periodo_final) }}
+                                            </div>
+                                        </div>
+                                        <div class="estadoPer alineacionPfct">
+                                            <label>Completo</label>
+                                        </div>
+                                        <div class="porcentajP alineacionPfct">
+                                            {{form_errors(periodo.porcentaje)}}
+                                            {{ form_widget(periodo.porcentaje) }}
+                                        </div>
+                                        <div class="NotasP alineacionPfct">
+                                                <div class="subT alineacionPfct">
                                                     {{form_errors(periodo.actividades_min)}}
                                                     {{ form_widget(periodo.actividades_min) }}
                                                 </div>
-                                                <div>
+                                                <div class="subT alineacionPfct">
                                                     {{form_errors(periodo.actividades_max)}}
                                                     {{ form_widget(periodo.actividades_max) }}
                                                 </div>
-                                            </div>
-                                        {{ form_rest(periodo) }}
-                                    </form>
-                                        {% endfor %}
-                                     <div class="linea">
-                                <div id="botonesDow">
-                                    <ul>
-                                        <li>
-                                            <button class="botonesDw blanco" type="submit">Guardar</button>
-                                        </li>
-                                        <li>
-                                            <input  class="botonesDw blanco" type="button" value="Limpiar" onClick="limpiaForm('form')">
-                                        </li>
-                                        <li>
-                                            <input  class="botonesDw blanco ocultarOverlay" type="button" value="Cancelar">
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
+                                        </div>    
+                                    </div>
+                                    {{ form_rest(periodo) }}
+                                </form>
+                            {% endfor %}
+                </div>
+                <div class="fila">
+                    <div id="botonesDow">
+                        <ul>
+                            <li>
+                                <button class="botonesDw blanco" type="submit">Guardar</button>
+                            </li>
+                            <li>
+                                <input  class="botonesDw blanco" type="button" value="Limpiar" onClick="limpiaForm('form')">
+                            </li>
+                            <li>
+                                <input  class="botonesDw blanco ocultarOverlay" type="button" value="Cancelar">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
+                </div>
                         {% endif %}
-                    {% else %}
-                        <div>
-                            Para poder realizar esta accion necesita iniciar el año escolar!
-                        </div>
+                        {% else %}
+                            <div>
+                                Para poder realizar esta accion necesita iniciar el año escolar!
+                            </div>
                     {% endif %}
-				</div>
 			</div>
 		</div>
     <script>
@@ -114,17 +141,7 @@
                 });
                 return false;
             });
-    		/*	 $.ajax(
-                   {
-                     url: "{{ path('ma131') }}",
-                     type: 'GET',
-                    success: function (r) {
-                    	console.log(r) 
-                    } 
-        
-                  });
-*/
-    	}
+        }
     </script>
 
 {% endblock %}
