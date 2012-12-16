@@ -159,4 +159,27 @@ class PlanEstudio
     {
         return $this->asignatura;
     }
+
+    /**
+     * Set curso
+     *
+     * @param Cloud\siteBundle\Entity\Curso $curso
+     * @return PlanEstudio
+     */
+    public function setCurso(\Cloud\siteBundle\Entity\Curso $curso = null)
+    {
+        $this->curso = $curso;
+    
+        return $this;
+    }
+
+    /**
+     * Get curso
+     *
+     * @return Cloud\siteBundle\Entity\Curso 
+     */
+    public function getCurso()
+    {
+        return $this->curso;
+    }
 }

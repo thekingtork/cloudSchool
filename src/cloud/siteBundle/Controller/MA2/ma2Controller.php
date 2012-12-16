@@ -1,6 +1,6 @@
 <?php
 
-namespace cloud\siteBundle\Controller;
+namespace cloud\siteBundle\Controller\MA2;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -51,5 +51,20 @@ class ma2Controller extends Controller
         $form   = $this->createForm(new PerfilEstudianteType(), $entity);
         return $this->render('cloudBundle:Admin:MA2/ma211.html.twig', array( 'form'   => $form->createView() ));
     }
+
+     /**
+    *
+    * @Route("/estudiantes", name="ma22")
+    */
+    public function ma22Action(){
+        $em=$this->getDoctrine()->getEntityManager();
+
+        $PerfilEstudiante = $em->getRepository('cloudBundle:PerfilDocente')->findAll();
+        
+       if(!$PerfilEstudiante)
+            return $this->render('cloudBundle:Admin:MA2/ma22.html.twig',array('perfiles'=>$PerfilEstudiante));
+        return $this->render('cloudBundle:Admin:MA2/ma222.html.twig',array('perfiles'=>$PerfilEstudiante));
+
+    } 
 
 }

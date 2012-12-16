@@ -1,6 +1,6 @@
 <?php
 
-namespace cloud\siteBundle\Controller\Estudiante;
+namespace cloud\siteBundle\Controller\Docente;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

@@ -403,4 +403,27 @@ class Sede
     {
         return $this->institucion;
     }
+
+    /**
+     * Set url_imagen
+     *
+     * @param string $urlImagen
+     * @return Sede
+     */
+    public function setUrlImagen($urlImagen)
+    {
+        $this->url_imagen = $urlImagen;
+    
+        return $this;
+    }
+
+    /**
+     * Get url_imagen
+     *
+     * @return string 
+     */
+    public function getUrlImagen()
+    {
+        return $this->url_imagen;
+    }
 }

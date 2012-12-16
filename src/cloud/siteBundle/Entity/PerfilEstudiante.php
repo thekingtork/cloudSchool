@@ -17,9 +17,8 @@ class PerfilEstudiante
      */
     protected $id;
 
-     /** 
-     * @ORM\OneToOne(targetEntity="User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+    /**
+     * @ORM\OneToOne(targetEntity="User", mappedBy="profile_estudiante")
      */
     private $user_id;
 

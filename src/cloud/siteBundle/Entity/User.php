@@ -19,8 +19,21 @@ class User implements UserInterface, \Serializable
      */
     private $id;
 
+    /** 
+     * @ORM\OneToOne(targetEntity="PerfilDocente")
+     * @ORM\JoinColumn(name="profile_docente", referencedColumnName="id")
+     */
+    private $profile_docente;
+
+     /** 
+     * @ORM\OneToOne(targetEntity="PerfilEstudiante")
+     * @ORM\JoinColumn(name="profile_estudiante", referencedColumnName="id")
+     */
+    private $profile_estudiante;
 
 
+
+   
     /**
     * @ORM\Column(type="string", length=255, unique=true)
     * @Assert\NotBlank(message = "Username Campo Obligatorio")
@@ -376,5 +389,51 @@ class User implements UserInterface, \Serializable
     }
 
 
-   
+    /**
+     * Set profile_docente
+     *
+     * @param cloud\siteBundle\Entity\PerfilDocente $profileDocente
+     * @return User
+     */
+    public function setProfileDocente(\cloud\siteBundle\Entity\PerfilDocente $profileDocente = null)
+    {
+        $this->profile_docente = $profileDocente;
+    
+        return $this;
+    }
+
+    /**
+     * Get profile_docente
+     *
+     * @return cloud\siteBundle\Entity\PerfilDocente 
+     */
+    public function getProfileDocente()
+    {
+        return $this->profile_docente;
+    }
+
+    
+
+    /**
+     * Set profile_estudiante
+     *
+     * @param cloud\siteBundle\Entity\PerfilEstudiante $profileEstudiante
+     * @return User
+     */
+    public function setProfileEstudiante(\cloud\siteBundle\Entity\PerfilEstudiante $profileEstudiante = null)
+    {
+        $this->profile_estudiante = $profileEstudiante;
+    
+        return $this;
+    }
+
+    /**
+     * Get profile_estudiante
+     *
+     * @return cloud\siteBundle\Entity\PerfilEstudiante 
+     */
+    public function getProfileEstudiante()
+    {
+        return $this->profile_estudiante;
+    }
 }

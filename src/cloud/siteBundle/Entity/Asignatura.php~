@@ -1,0 +1,95 @@
+<?php
+namespace cloud\siteBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="Asignatura")
+ */
+class Asignatura
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(name="nombre", type="string", length=255)
+     * @Assert\NotBlank(message = "Campo Obligatorio")
+     */
+    protected $name;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Area", inversedBy="id")
+     * @ORM\JoinColumn(name="area_id", referencedColumnName="id")
+     * @Assert\NotBlank(message = "Campo Obligatorio")
+     */
+    protected $area_id;
+
+    public function __toString() {
+        return $this->getName();
+    }
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Curso
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+
+    /**
+     * Set area_id
+     *
+     * @param cloud\siteBundle\Entity\Area $areaId
+     * @return Asignatura
+     */
+    public function setAreaId(\cloud\siteBundle\Entity\Area $areaId = null)
+    {
+        $this->area_id = $areaId;
+    
+        return $this;
+    }
+
+    /**
+     * Get area_id
+     *
+     * @return cloud\siteBundle\Entity\Area 
+     */
+    public function getAreaId()
+    {
+        return $this->area_id;
+    }
+}
