@@ -1,6 +1,6 @@
 <?php
 
-namespace cloud\siteBundle\Controller;
+namespace cloud\siteBundle\Controller\MA3;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -15,14 +15,14 @@ use cloud\siteBundle\Entity\PlanEstudio;
  *
  * @Route("admin/planes", name="planes")
  */
-class PlanEstudioController extends Controller{
+class MA3Controller extends Controller{
     
     /**
      * 
-     * @Route("/addplanes", name="planes1")
+     * @Route("/addplanes", name="ma311")
      * 
      */
-    public function PlanesAction(){
+    public function ma311Action(){
         $request= $this->getRequest();
         $plan= new PlanEstudio();
         $form=$this->createForm(new PlanEstudioType(),$plan);
@@ -34,6 +34,6 @@ class PlanEstudioController extends Controller{
                 $em->flush();
             }
         }
-        return $this->render('cloudBundle:PlanesEstudios:Planes1.html.twig',array('form'=>$form->createView()));
+        return $this->render('cloudBundle:Admin:MA3/ma311.html.twig',array('form'=>$form->createView()));
     }
 }
