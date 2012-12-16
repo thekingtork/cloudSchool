@@ -81,8 +81,8 @@
                                 {% else %}
                                             <div class="nivel">
                                                 <a href="{{ path('ma1341',{ 'id':area.id }) }}" data-grado="{% if area.areaId|length > 0 %}1{% else %}0{% endif %}" data-alt-url="{{ path('ma1343',{ 'id':area.id }) }}">
-                                                    <p class="signoUp">+</p>
-                                                    <p class="titulocajas primera">{{area.name}}</p>
+                                                    <p class="signoUp primera">+</p>
+                                                    <p class="titulocajas textoBlanco">{{area.name}}</p>
                                                 </a>
                                             </div>
                             {% endif %}
