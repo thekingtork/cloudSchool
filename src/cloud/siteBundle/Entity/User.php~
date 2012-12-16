@@ -30,8 +30,12 @@ class User implements UserInterface, \Serializable
      * @ORM\JoinColumn(name="profile_estudiante", referencedColumnName="id")
      */
     private $profile_estudiante;
-
-
+    
+     /** 
+     * @ORM\OneToOne(targetEntity="PerfilAdministrativo")
+     * @ORM\JoinColumn(name="profile_administrativo", referencedColumnName="id")
+     */
+    private $profile_administrativo;
 
    
     /**
@@ -413,4 +417,27 @@ class User implements UserInterface, \Serializable
     }
 
     
+
+    /**
+     * Set profile_estudiante
+     *
+     * @param cloud\siteBundle\Entity\PerfilEstudiante $profileEstudiante
+     * @return User
+     */
+    public function setProfileEstudiante(\cloud\siteBundle\Entity\PerfilEstudiante $profileEstudiante = null)
+    {
+        $this->profile_estudiante = $profileEstudiante;
+    
+        return $this;
+    }
+
+    /**
+     * Get profile_estudiante
+     *
+     * @return cloud\siteBundle\Entity\PerfilEstudiante 
+     */
+    public function getProfileEstudiante()
+    {
+        return $this->profile_estudiante;
+    }
 }

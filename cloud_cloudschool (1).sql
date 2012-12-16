@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 16-12-2012 a las 05:14:31
+-- Tiempo de generación: 16-12-2012 a las 17:16:26
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -176,7 +176,7 @@ CREATE TABLE IF NOT EXISTS `curso` (
   `grado_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_BFA6FE891A441CC` (`grado_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `curso`
@@ -185,7 +185,10 @@ CREATE TABLE IF NOT EXISTS `curso` (
 INSERT INTO `curso` (`id`, `nombre`, `cupo`, `grado_id`) VALUES
 (1, 'A', 3, 1),
 (2, 'Curso', 35, 1),
-(3, 'Curso', 35, 1);
+(3, 'Curso', 35, 1),
+(4, 'Curso', 35, 3),
+(5, 'Curso', 35, 3),
+(6, 'Curso', 35, 3);
 
 -- --------------------------------------------------------
 
@@ -335,7 +338,7 @@ CREATE TABLE IF NOT EXISTS `grado` (
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_B98F472ADA3426AE` (`nivel_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `grado`
@@ -343,7 +346,9 @@ CREATE TABLE IF NOT EXISTS `grado` (
 
 INSERT INTO `grado` (`id`, `nivel_id`, `nombre`) VALUES
 (1, 11, 'MATERNAL1'),
-(2, 11, 'TRANSICION1');
+(2, 11, 'TRANSICION1'),
+(3, 12, 'Grado'),
+(4, 12, 'Grado');
 
 -- --------------------------------------------------------
 
@@ -1680,6 +1685,49 @@ INSERT INTO `notificaciones` (`id`, `tipo_id`, `estado_id`, `asunto`, `mensaje`,
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `perfil_administrativo`
+--
+
+CREATE TABLE IF NOT EXISTS `perfil_administrativo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `municipio_id` int(11) DEFAULT NULL,
+  `tipodocumento_id` int(11) DEFAULT NULL,
+  `cargo_id` int(11) DEFAULT NULL,
+  `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `apellido` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `fecha_nacimiento` datetime NOT NULL,
+  `direccion` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `lugar_nacimiento` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `nmr_documento` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `de` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sexo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `barrio` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `estrato` int(11) NOT NULL,
+  `telefono` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `celular` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `personas_cargo` int(11) NOT NULL,
+  `titulo_profesional` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `anios_experienca` int(11) NOT NULL,
+  `fecha_ingreso` datetime NOT NULL,
+  `salario` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `tipo_contrado` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `numero_contrado` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `titulo_pregrado` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `titulo_postgrado` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `especialidad` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `escalafon` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `resolucion` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `fecha_resolucion` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_7CCA0B3C58BC1BE0` (`municipio_id`),
+  KEY `IDX_7CCA0B3C2E595373` (`tipodocumento_id`),
+  KEY `IDX_7CCA0B3C813AC380` (`cargo_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `perfil_docente`
 --
 
@@ -1876,7 +1924,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
 -- Volcado de datos para la tabla `roles`
@@ -1886,7 +1934,8 @@ INSERT INTO `roles` (`id`, `nombre`) VALUES
 (1, 'ROLE_USER'),
 (2, 'ROLE_ADMIN'),
 (3, 'ROLE_SUPER_ADMIN'),
-(4, 'ROLE_DOCENTE');
+(4, 'ROLE_DOCENTE'),
+(5, 'ROLE_ADMINISTRATIVO');
 
 -- --------------------------------------------------------
 
@@ -1979,10 +2028,12 @@ CREATE TABLE IF NOT EXISTS `user` (
   `institucion_id` int(11) DEFAULT NULL,
   `profile_docente` int(11) DEFAULT NULL,
   `profile_estudiante` int(11) DEFAULT NULL,
+  `profile_administrativo` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_8D93D649F85E0677` (`username`),
   UNIQUE KEY `UNIQ_8D93D6492E211138` (`profile_docente`),
   UNIQUE KEY `UNIQ_8D93D649FC5408F0` (`profile_estudiante`),
+  UNIQUE KEY `UNIQ_8D93D649E8905583` (`profile_administrativo`),
   KEY `IDX_8D93D649B239FBC6` (`institucion_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
@@ -1990,15 +2041,15 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `salt`, `nombre`, `apellido`, `avatar_url`, `institucion_id`, `profile_docente`, `profile_estudiante`) VALUES
-(1, 'cloudadmin', 'y7q1ig71pslTX3iWrqgQv9SDGZYZFm6dJbajzTeYy26CM5BqPSzO2ZSdR19lwdkBW197/+J6YXWlCJQPskKiWQ==', '7eb3c4430aa57bdbd36710028e0089ef', '', '', '', NULL, NULL, NULL),
-(3, 'ZOCPKOZZLO', 'BrihVuMtkhSXuKioci4RuWwuCEgbrnZ+/AFnSEjuFdJgW//W3sxRRKO3XUXoLJ2WkjeBNGa5I0O2wRlu0Z0eIw==', '58ffa8a4694ac5ffc7fea4b1f8bd0350', 'Amado', 'Ramos', 'imagen.jpg', 1, NULL, NULL),
-(7, 'MDO', 'KKx8inoGUZ4uWst1QCZDY65h12TGr3ZF9l+JoCNzdD1BPrWvm/oVGk0WEXWc28YmzrVMXMAP3vEb48qc4eXpqA==', '2baa5cbec08b336b1ddfa00ac12b0a0a', 'example', 'example', 'images.png', 1, NULL, NULL),
-(8, 'MDOJC', 'lispP26i4ncLGV2bMSn4pVJdu8f6LZ6ot7q8truXJLOMKZYK1erVxytROG4U+SA22uG4fw/GqBmJxvTmi0iygA==', 'c47313b2eec1aec1dd1599beab02ff87', 'Docente', 'Docente', 'images.png', 1, NULL, NULL),
-(9, 'MDOJCEL', '1MGA5SmgcKooYTqQdBqEjsHs3sB4ZlwUGByygkQ2EKJkuwS6l8G421bRp8auSTcxIDihDAI+JcIwp1bYzLUueQ==', '7a066b539e66c80cf6db4edda279673b', 'Tork', '21', 'images.png', 1, NULL, NULL),
-(10, 'ZOZJL', 'qWvOmqGmM27vl8TrRJs1wZta6QCUqVxTnLpmrKOu/oxGxEG+RLmTpIc2HqZH6uX3fqCSDvLnkH2WPdDQWQKrBg==', '8f47cd65839d6ac3abce23530fd8de7b', 'Docente', 'Docente', 'images.png', NULL, 1, NULL),
-(11, 'ZNJLTCPIK', '5rWzT5onKiHAt0Jz/rcdS3LdlyGK4P7ZRFQbhvkMlG5wHJiAvwgxj61gnzusnvMNTfAXXgXOc0Y+N6AeE9VYQQ==', '7cec52b9bc63c811025001051e4213af', 'Docente2', 'Docente2', 'images.png', NULL, NULL, NULL),
-(12, 'MOJC', 'F3dlSbHvNjQmSYb92PV/ApNR19aCrRQuqaSHYW0EIlQdJM39RbSBzW0lTew34gYFBfSYO1k9yLDKv+ZwlP76vw==', '6627622a51df78c31c86ec31c4e9ee77', 'estudiante', 'example', 'images.png', 1, NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `salt`, `nombre`, `apellido`, `avatar_url`, `institucion_id`, `profile_docente`, `profile_estudiante`, `profile_administrativo`) VALUES
+(1, 'cloudadmin', 'y7q1ig71pslTX3iWrqgQv9SDGZYZFm6dJbajzTeYy26CM5BqPSzO2ZSdR19lwdkBW197/+J6YXWlCJQPskKiWQ==', '7eb3c4430aa57bdbd36710028e0089ef', '', '', '', NULL, NULL, NULL, NULL),
+(3, 'ZOCPKOZZLO', 'BrihVuMtkhSXuKioci4RuWwuCEgbrnZ+/AFnSEjuFdJgW//W3sxRRKO3XUXoLJ2WkjeBNGa5I0O2wRlu0Z0eIw==', '58ffa8a4694ac5ffc7fea4b1f8bd0350', 'Amado', 'Ramos', 'imagen.jpg', 1, NULL, NULL, NULL),
+(7, 'MDO', 'KKx8inoGUZ4uWst1QCZDY65h12TGr3ZF9l+JoCNzdD1BPrWvm/oVGk0WEXWc28YmzrVMXMAP3vEb48qc4eXpqA==', '2baa5cbec08b336b1ddfa00ac12b0a0a', 'example', 'example', 'images.png', 1, NULL, NULL, NULL),
+(8, 'MDOJC', 'lispP26i4ncLGV2bMSn4pVJdu8f6LZ6ot7q8truXJLOMKZYK1erVxytROG4U+SA22uG4fw/GqBmJxvTmi0iygA==', 'c47313b2eec1aec1dd1599beab02ff87', 'Docente', 'Docente', 'images.png', 1, NULL, NULL, NULL),
+(9, 'MDOJCEL', '1MGA5SmgcKooYTqQdBqEjsHs3sB4ZlwUGByygkQ2EKJkuwS6l8G421bRp8auSTcxIDihDAI+JcIwp1bYzLUueQ==', '7a066b539e66c80cf6db4edda279673b', 'Tork', '21', 'images.png', 1, NULL, NULL, NULL),
+(10, 'ZOZJL', 'qWvOmqGmM27vl8TrRJs1wZta6QCUqVxTnLpmrKOu/oxGxEG+RLmTpIc2HqZH6uX3fqCSDvLnkH2WPdDQWQKrBg==', '8f47cd65839d6ac3abce23530fd8de7b', 'Docente', 'Docente', 'images.png', NULL, 1, NULL, NULL),
+(11, 'ZNJLTCPIK', '5rWzT5onKiHAt0Jz/rcdS3LdlyGK4P7ZRFQbhvkMlG5wHJiAvwgxj61gnzusnvMNTfAXXgXOc0Y+N6AeE9VYQQ==', '7cec52b9bc63c811025001051e4213af', 'Docente2', 'Docente2', 'images.png', NULL, NULL, NULL, NULL),
+(12, 'MOJC', 'F3dlSbHvNjQmSYb92PV/ApNR19aCrRQuqaSHYW0EIlQdJM39RbSBzW0lTew34gYFBfSYO1k9yLDKv+ZwlP76vw==', '6627622a51df78c31c86ec31c4e9ee77', 'estudiante', 'example', 'images.png', 1, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2100,6 +2151,14 @@ ALTER TABLE `notificaciones`
   ADD CONSTRAINT `FK_6FFCB21A9276E6C` FOREIGN KEY (`tipo_id`) REFERENCES `tipo_notificacion` (`id`);
 
 --
+-- Filtros para la tabla `perfil_administrativo`
+--
+ALTER TABLE `perfil_administrativo`
+  ADD CONSTRAINT `FK_7CCA0B3C813AC380` FOREIGN KEY (`cargo_id`) REFERENCES `cargo_docente` (`id`),
+  ADD CONSTRAINT `FK_7CCA0B3C2E595373` FOREIGN KEY (`tipodocumento_id`) REFERENCES `tipo_documento` (`id`),
+  ADD CONSTRAINT `FK_7CCA0B3C58BC1BE0` FOREIGN KEY (`municipio_id`) REFERENCES `municipio` (`id`);
+
+--
 -- Filtros para la tabla `perfil_docente`
 --
 ALTER TABLE `perfil_docente`
@@ -2145,9 +2204,10 @@ ALTER TABLE `sede`
 -- Filtros para la tabla `user`
 --
 ALTER TABLE `user`
-  ADD CONSTRAINT `FK_8D93D649FC5408F0` FOREIGN KEY (`profile_estudiante`) REFERENCES `perfil_estudiante` (`id`),
+  ADD CONSTRAINT `FK_8D93D649E8905583` FOREIGN KEY (`profile_administrativo`) REFERENCES `perfil_administrativo` (`id`),
   ADD CONSTRAINT `FK_8D93D6492E211138` FOREIGN KEY (`profile_docente`) REFERENCES `perfil_docente` (`id`),
-  ADD CONSTRAINT `FK_8D93D649B239FBC6` FOREIGN KEY (`institucion_id`) REFERENCES `institucion` (`id`);
+  ADD CONSTRAINT `FK_8D93D649B239FBC6` FOREIGN KEY (`institucion_id`) REFERENCES `institucion` (`id`),
+  ADD CONSTRAINT `FK_8D93D649FC5408F0` FOREIGN KEY (`profile_estudiante`) REFERENCES `perfil_estudiante` (`id`);
 
 --
 -- Filtros para la tabla `user_role`

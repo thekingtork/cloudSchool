@@ -1,0 +1,87 @@
+<h1>PerfilAdministrativo list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Fecha_nacimiento</th>
+            <th>Direccion</th>
+            <th>Lugar_nacimiento</th>
+            <th>Nmr_documento</th>
+            <th>De</th>
+            <th>Sexo</th>
+            <th>Email</th>
+            <th>Barrio</th>
+            <th>Estrato</th>
+            <th>Telefono</th>
+            <th>Celular</th>
+            <th>Personas_cargo</th>
+            <th>Titulo_profesional</th>
+            <th>Anios_experienca</th>
+            <th>Fecha_ingreso</th>
+            <th>Salario</th>
+            <th>Tipo_contrado</th>
+            <th>Numero_contrado</th>
+            <th>Titulo_pregrado</th>
+            <th>Titulo_postgrado</th>
+            <th>Especialidad</th>
+            <th>Escalafon</th>
+            <th>Resolucion</th>
+            <th>Fecha_resolucion</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('admincloud_perfiladministrativo_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.nombre }}</td>
+            <td>{{ entity.apellido }}</td>
+            <td>{% if entity.fechanacimiento %}{{ entity.fechanacimiento|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{{ entity.direccion }}</td>
+            <td>{{ entity.lugarnacimiento }}</td>
+            <td>{{ entity.nmrdocumento }}</td>
+            <td>{{ entity.de }}</td>
+            <td>{{ entity.sexo }}</td>
+            <td>{{ entity.email }}</td>
+            <td>{{ entity.barrio }}</td>
+            <td>{{ entity.estrato }}</td>
+            <td>{{ entity.telefono }}</td>
+            <td>{{ entity.celular }}</td>
+            <td>{{ entity.personascargo }}</td>
+            <td>{{ entity.tituloprofesional }}</td>
+            <td>{{ entity.aniosexperienca }}</td>
+            <td>{% if entity.fechaingreso %}{{ entity.fechaingreso|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{{ entity.salario }}</td>
+            <td>{{ entity.tipocontrado }}</td>
+            <td>{{ entity.numerocontrado }}</td>
+            <td>{{ entity.titulopregrado }}</td>
+            <td>{{ entity.titulopostgrado }}</td>
+            <td>{{ entity.especialidad }}</td>
+            <td>{{ entity.escalafon }}</td>
+            <td>{{ entity.resolucion }}</td>
+            <td>{% if entity.fecharesolucion %}{{ entity.fecharesolucion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('admincloud_perfiladministrativo_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admincloud_perfiladministrativo_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('admincloud_perfiladministrativo_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>

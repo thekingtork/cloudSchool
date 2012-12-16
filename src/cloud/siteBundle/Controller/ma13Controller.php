@@ -388,7 +388,7 @@ class ma13Controller extends Controller
             }
             $cursos = $em->getRepository('cloudBundle:Curso')->findBy(array('grado_id'=>$id));
 
-            return $this->render('cloudBundle:Admin:ma1331.html.twig', array('curso'=>$cursos));
+            return $this->render('cloudBundle:Admin:ma1331.html.twig', array('cursos'=>$cursos));
         }
         
         $cursos = $em->getRepository('cloudBundle:Curso')->findBy(array('grado_id'=>$id));
