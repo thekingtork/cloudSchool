@@ -53,10 +53,9 @@
 	margin 0 auto .3em 
 	max-width 1000px
 	overflow hidden
-.contenidoFull{
+.contenidoFull
 	margin 0
 	width 100%
-}
 .contenedorMenu
 	float left
 	margin 5px 0
@@ -73,6 +72,30 @@
 	@extend .alineacionPfct
 	margin-bottom .5em
 	width 100%
+.formOverlay
+	height 180px
+	margin auto
+	width 50%
+	.linea
+		display inline-block
+		vertical-align top
+		width 100%
+		.titulo
+			margin 10px auto
+			width 80%
+			p
+				color rgb(255,255,255)
+				font-size 20px
+				line-height 1
+				text-transform uppercase
+		.entrada
+			margin 10px auto
+			width 50%
+			input
+				font-size 20px
+				line-height 1
+				text-align center
+				width 100%
 .fucsia
 	background-color rgb(202,0,136)
 .fucsiaFc
@@ -113,6 +136,8 @@
 	background-color rgb(139,39,139)
 .moradoFc
 	color rgb(139,39,139)
+.negro
+	background-color rgb(0, 0, 0)
 .overlay
 	background-color:rgba(0, 0, 0, 0.85)
 	background: url(data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNUmK/OAAAAATSURBVBhXY2RgYNgHxGAAYuwDAA78AjwwRoQYAAAAAElFTkSuQmCC) repeat scroll transparent\9
@@ -139,30 +164,13 @@
 	height 100%
 	vertical-align middle
 	margin-right -0.25em
-.formOverlay
-	height 180px
-	margin auto
-	width 50%
-	.linea
-		display inline-block
-		vertical-align top
-		width 100%
-		.titulo
-			margin 10px auto
-			width 80%
-			p
-				color rgb(255,255,255)
-				font-size 20px
-				line-height 1
-				text-transform uppercase
-		.entrada
-			margin 10px auto
-			width 50%
-			input
-				font-size 20px
-				line-height 1
-				text-align center
-				width 100%
+.pantalla
+	display inline-block
+	float left
+	height 218px
+	margin-right 1em
+	vertical-align top
+	width 592px
 .rojo
 	background-color rgb(204,33,40)
 .rojoFc

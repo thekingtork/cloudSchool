@@ -1,0 +1,119 @@
+#apellidos {
+  width: 47%;
+}
+#apellidos p {
+  display: inline-block;
+  margin-right: 2%;
+  vertical-align: top;
+  width: 30%;
+}
+#apellidos input {
+  display: inline-block;
+  vertical-align: top;
+  width: 63%;
+}
+#bloqueCgenerales,
+display inline-block,
+height 100%,
+vertical-align top,
+overflow hidden,
+width 100%,
+#buscador {
+  float: right;
+  margin: 4% 4% 0 0;
+}
+#botonesDow {
+  width: 62%;
+}
+#ContTitulo {
+  margin-left: 2%;
+  width: 30%;
+}
+#ContTitulo p {
+  font-size: 2.2em;
+  line-height: 1;
+  margin-top: 22%;
+  text-align: center;
+}
+#Nombre {
+  width: 52%;
+}
+#Nombre p {
+  display: inline-block;
+  margin-right: 2%;
+  vertical-align: top;
+  width: 30%;
+}
+#Nombre input {
+  display: inline-block;
+  vertical-align: top;
+  width: 64%;
+}
+.alinear {
+  display: inline-block;
+  vertical-align: top;
+}
+.botonesDw {
+  color: #000;
+}
+.breadcumbr a {
+  color: #000;
+}
+.containerSupDer {
+  width: 57%;
+}
+.contenedorDerecha {
+  margin-left: 2%;
+  width: 20%;
+}
+.contImg {
+  display: inline-block;
+  vertical-align: top;
+}
+.contImg img {
+  width: 100%;
+}
+.contenedorIzq {
+  margin: 0 1.5%;
+  width: 74%;
+}
+.Inicio {
+  top: 10px;
+}
+.Inicio a {
+  color: #000;
+}
+.loader label {
+  cursor: pointer;
+  display: block;
+  font-size: 1.3em;
+  margin: auto;
+  text-align: center;
+  width: 90%;
+}
+.pantalla {
+  width: 546px;
+}
+.tituloVertical {
+  display: inline-block;
+  height: 96%;
+  vertical-align: top;
+  width: 5%;
+}
+.tituloVertical p {
+  font-size: 1.2em !important;
+  left: -4.55em;
+  position: relative;
+  top: 41%;
+  text-align: center;
+  -o-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  width: 200px;
+}
+.contInf {
+  width: 90%;
+  display: inline-block;
+  vertical-align: top;
+}

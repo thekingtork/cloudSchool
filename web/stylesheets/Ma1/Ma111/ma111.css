@@ -286,14 +286,6 @@ form{
     border: solid 1px rgb(0,174,239);
     height: 24px;
 }
-.pantalla{
-    display: inline-block;
-    float: left;
-    height: 218px;
-    margin-right: 1em;
-    vertical-align: top;
-    width: 592px;
-}
 .pantalla .fila{
     display: inline-block;
     margin-bottom: .5em;

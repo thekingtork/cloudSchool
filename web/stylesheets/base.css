@@ -282,6 +282,36 @@ header {
   margin-bottom: 0.5em;
   width: 100%;
 }
+.formOverlay {
+  height: 180px;
+  margin: auto;
+  width: 50%;
+}
+.formOverlay .linea {
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+}
+.formOverlay .linea .titulo {
+  margin: 10px auto;
+  width: 80%;
+}
+.formOverlay .linea .titulo p {
+  color: #fff;
+  font-size: 20px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.formOverlay .linea .entrada {
+  margin: 10px auto;
+  width: 50%;
+}
+.formOverlay .linea .entrada input {
+  font-size: 20px;
+  line-height: 1;
+  text-align: center;
+  width: 100%;
+}
 .fucsia {
   background-color: #ca0088;
 }
@@ -337,6 +367,9 @@ header {
 .moradoFc {
   color: #8b278b;
 }
+.negro {
+  background-color: #000;
+}
 .overlay {
   background-color: rgba(0,0,0,0.85);
   background: url("data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNUmK/OAAAAATSURBVBhXY2RgYNgHxGAAYuwDAA78AjwwRoQYAAAAAElFTkSuQmCC") repeat scroll transparent 9;
@@ -367,35 +400,13 @@ header {
   vertical-align: middle;
   margin-right: -0.25em;
 }
-.formOverlay {
-  height: 180px;
-  margin: auto;
-  width: 50%;
-}
-.formOverlay .linea {
+.pantalla {
   display: inline-block;
+  float: left;
+  height: 218px;
+  margin-right: 1em;
   vertical-align: top;
-  width: 100%;
-}
-.formOverlay .linea .titulo {
-  margin: 10px auto;
-  width: 80%;
-}
-.formOverlay .linea .titulo p {
-  color: #fff;
-  font-size: 20px;
-  line-height: 1;
-  text-transform: uppercase;
-}
-.formOverlay .linea .entrada {
-  margin: 10px auto;
-  width: 50%;
-}
-.formOverlay .linea .entrada input {
-  font-size: 20px;
-  line-height: 1;
-  text-align: center;
-  width: 100%;
+  width: 592px;
 }
 .rojo {
   background-color: #cc2128;
