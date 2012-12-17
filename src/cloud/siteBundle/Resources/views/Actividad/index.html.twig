@@ -1,0 +1,53 @@
+<h1>Actividad list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Porcentaje</th>
+            <th>Publicar</th>
+            <th>Categoria</th>
+            <th>Tipo</th>
+            <th>Date_inicio</th>
+            <th>Date_final</th>
+            <th>Descripcion</th>
+            <th>Logro_competencia</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('admincloud_actividad_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.name }}</td>
+            <td>{{ entity.Porcentaje }}</td>
+            <td>{{ entity.publicar }}</td>
+            <td>{{ entity.categoria }}</td>
+            <td>{{ entity.tipo }}</td>
+            <td>{% if entity.dateinicio %}{{ entity.dateinicio|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{% if entity.datefinal %}{{ entity.datefinal|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{{ entity.descripcion }}</td>
+            <td>{{ entity.logrocompetencia }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('admincloud_actividad_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admincloud_actividad_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('admincloud_actividad_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>

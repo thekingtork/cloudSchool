@@ -13,7 +13,7 @@ use cloud\siteBundle\Entity\PlanEstudio;
 /**
  * Periodo controller.
  *
- * @Route("admin/planes", name="planes")
+ * @Route("admin/planes")
  */
 class MA3Controller extends Controller{
     

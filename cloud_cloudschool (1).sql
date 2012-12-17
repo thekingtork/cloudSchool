@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 16-12-2012 a las 17:16:26
+-- Tiempo de generación: 17-12-2012 a las 03:27:12
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -19,6 +19,28 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `cloud_cloudschool`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `actividad`
+--
+
+CREATE TABLE IF NOT EXISTS `actividad` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `porcentaje` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `publicar` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `categoria` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `tipo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `date_inicio` datetime NOT NULL,
+  `date_final` datetime NOT NULL,
+  `descripcion` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `logro_competencia` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `plan_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_8DF2BD06E899029B` (`plan_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -108,8 +130,8 @@ CREATE TABLE IF NOT EXISTS `asignatura` (
 
 INSERT INTO `asignatura` (`id`, `area_id`, `nombre`) VALUES
 (1, 1, 'Quimica'),
-(2, 1, 'Asignatura'),
-(3, 1, 'Asignatura');
+(2, 1, 'Ciencias Naturales'),
+(3, 1, 'Fisica');
 
 -- --------------------------------------------------------
 
@@ -184,11 +206,11 @@ CREATE TABLE IF NOT EXISTS `curso` (
 
 INSERT INTO `curso` (`id`, `nombre`, `cupo`, `grado_id`) VALUES
 (1, 'A', 3, 1),
-(2, 'Curso', 35, 1),
-(3, 'Curso', 35, 1),
-(4, 'Curso', 35, 3),
-(5, 'Curso', 35, 3),
-(6, 'Curso', 35, 3);
+(2, 'B', 35, 1),
+(3, 'C', 35, 1),
+(4, 'A', 35, 3),
+(5, 'B', 35, 3),
+(6, 'C', 35, 3);
 
 -- --------------------------------------------------------
 
@@ -345,10 +367,10 @@ CREATE TABLE IF NOT EXISTS `grado` (
 --
 
 INSERT INTO `grado` (`id`, `nivel_id`, `nombre`) VALUES
-(1, 11, 'MATERNAL1'),
-(2, 11, 'TRANSICION1'),
-(3, 12, 'Grado'),
-(4, 12, 'Grado');
+(1, 11, 'MATERNAL'),
+(2, 11, 'TRANSICION'),
+(3, 12, 'Primero'),
+(4, 12, 'Segundo');
 
 -- --------------------------------------------------------
 
@@ -1875,20 +1897,21 @@ CREATE TABLE IF NOT EXISTS `planestudio` (
   `sede_id` int(11) DEFAULT NULL,
   `curso_id` int(11) DEFAULT NULL,
   `asignatura_id` int(11) DEFAULT NULL,
-  `periodo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `nactividades` int(11) NOT NULL,
+  `periodo_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_BB415393E19F41BF` (`sede_id`),
   KEY `IDX_BB41539387CB4A1F` (`curso_id`),
-  KEY `IDX_BB415393C5C70C5B` (`asignatura_id`)
+  KEY `IDX_BB415393C5C70C5B` (`asignatura_id`),
+  KEY `IDX_BB4153939C3921AB` (`periodo_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
 -- Volcado de datos para la tabla `planestudio`
 --
 
-INSERT INTO `planestudio` (`id`, `sede_id`, `curso_id`, `asignatura_id`, `periodo`, `nactividades`) VALUES
-(1, 8, 2, 1, '1', 4);
+INSERT INTO `planestudio` (`id`, `sede_id`, `curso_id`, `asignatura_id`, `nactividades`, `periodo_id`) VALUES
+(1, 8, 2, 1, 4, NULL);
 
 -- --------------------------------------------------------
 
@@ -1965,10 +1988,7 @@ CREATE TABLE IF NOT EXISTS `sede` (
 INSERT INTO `sede` (`id`, `nombre`, `direccion`, `telefono`, `fax`, `email`, `rector`, `secretaria`, `institucion_id`, `url_imagen`) VALUES
 (8, 'Sede 1', '1', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede1@institucion.com', 'Coordinador 1', 'Secretaria 1', NULL, '618194.png'),
 (9, 'Sede 2', '2', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede2@institucion.com', 'Coordinador 2', 'Secretaria 2', NULL, 'ejemplo.png'),
-(10, 'Sede 3', '3', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede3@institucion.com', 'Coordinador 3', 'Secretaria 3', NULL, 'ejemplo.png'),
-(11, 'Sede 1', '1', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede1@institucion.com', 'Coordinador 1', 'Secretaria 1', NULL, 'ejemplo.png'),
-(12, 'Sede 2', '2', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede2@institucion.com', 'Coordinador 2', 'Secretaria 2', NULL, 'ejemplo.png'),
-(13, 'Sede 3', '3', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede3@institucion.com', 'Coordinador 3', 'Secretaria 3', NULL, 'ejemplo.png');
+(10, 'Sede 3', '3', '03X 7XX XXX XXX', 'XXX XXX XXX', 'sede3@institucion.com', 'Coordinador 3', 'Secretaria 3', NULL, 'ejemplo.png');
 
 -- --------------------------------------------------------
 
@@ -2084,6 +2104,12 @@ INSERT INTO `user_role` (`user_id`, `role_id`) VALUES
 --
 
 --
+-- Filtros para la tabla `actividad`
+--
+ALTER TABLE `actividad`
+  ADD CONSTRAINT `FK_8DF2BD06E899029B` FOREIGN KEY (`plan_id`) REFERENCES `planestudio` (`id`);
+
+--
 -- Filtros para la tabla `asignatura`
 --
 ALTER TABLE `asignatura`
@@ -2184,6 +2210,7 @@ ALTER TABLE `periodo`
 -- Filtros para la tabla `planestudio`
 --
 ALTER TABLE `planestudio`
+  ADD CONSTRAINT `FK_BB4153939C3921AB` FOREIGN KEY (`periodo_id`) REFERENCES `periodo` (`id`),
   ADD CONSTRAINT `FK_BB41539387CB4A1F` FOREIGN KEY (`curso_id`) REFERENCES `curso` (`id`),
   ADD CONSTRAINT `FK_BB415393C5C70C5B` FOREIGN KEY (`asignatura_id`) REFERENCES `asignatura` (`id`),
   ADD CONSTRAINT `FK_BB415393E19F41BF` FOREIGN KEY (`sede_id`) REFERENCES `sede` (`id`);

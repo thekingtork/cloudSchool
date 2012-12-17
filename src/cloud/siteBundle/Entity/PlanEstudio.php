@@ -24,7 +24,7 @@ class PlanEstudio
     /**
      * @var string $periodo
      *
-     * @ORM\Column(name="periodo", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Cloud\siteBundle\Entity\Periodo")
      */
     private $periodo;
 
@@ -67,28 +67,7 @@ class PlanEstudio
         return $this->id;
     }
 
-    /**
-     * Set periodo
-     *
-     * @param string $periodo
-     * @return PlanEstudio
-     */
-    public function setPeriodo($periodo)
-    {
-        $this->periodo = $periodo;
     
-        return $this;
-    }
-
-    /**
-     * Get periodo
-     *
-     * @return string 
-     */
-    public function getPeriodo()
-    {
-        return $this->periodo;
-    }
 
     /**
      * Set sede
@@ -181,5 +160,28 @@ class PlanEstudio
     public function getCurso()
     {
         return $this->curso;
+    }
+
+    /**
+     * Set periodo
+     *
+     * @param Cloud\siteBundle\Entity\Periodo $periodo
+     * @return PlanEstudio
+     */
+    public function setPeriodo(\Cloud\siteBundle\Entity\Periodo $periodo = null)
+    {
+        $this->periodo = $periodo;
+    
+        return $this;
+    }
+
+    /**
+     * Get periodo
+     *
+     * @return Cloud\siteBundle\Entity\Periodo 
+     */
+    public function getPeriodo()
+    {
+        return $this->periodo;
     }
 }

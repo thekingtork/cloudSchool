@@ -38,7 +38,7 @@ class Curso
     protected $grado_id;
 
     public function __toString() {
-        return $this->getName();
+        return $this->getGradoId() ." - ". $this->getName();
     }
 
 

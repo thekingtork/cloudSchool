@@ -75,6 +75,15 @@ class Periodo
         return $this->id;
     }
 
+     /**
+     * Get name
+     *
+     * @return string
+     */
+    public function __toString() {
+        return (string) $this->getId();
+    }
+
     /**
      * Set periodo_inicio
      *
