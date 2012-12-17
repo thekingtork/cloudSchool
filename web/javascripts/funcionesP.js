@@ -154,8 +154,6 @@ $(document).on("ready", contructor);
       });
     }
   }
-
-
 function ajax_ajustesEvaluacion(){
               if( $('#brang').length )
               {
