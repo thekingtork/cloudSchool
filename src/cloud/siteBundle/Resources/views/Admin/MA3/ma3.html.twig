@@ -1,6 +1,6 @@
 {% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
 {% block title %}
-	MA311
+	MA3
 {% endblock %}
 {% block menu_principal %}
 	 <div class="cuerpoCentrado" id="contMetro">
@@ -20,35 +20,7 @@
                     
 					{#Aca va el contenido del lado derecho #}
 					<p>Formulario para agregar planes de estudios</p>
-                    <form action="{{ path('ma31') }}" method="post">
-
-                    	<div>
-							<p class="textoEtq">Periodo</p>
-							{{form_errors(form.periodo)}}
-		    				{{form_widget(form.periodo)}}
-						</div>
-						<div>
-							<p class="textoEtq">Sede</p>
-							{{form_errors(form.sede)}}
-		    				{{form_widget(form.sede)}}
-						</div>
-						<div>
-							<p class="textoEtq">Curso</p>
-							{{form_errors(form.curso)}}
-		    				{{form_widget(form.curso)}}
-						</div>
-						<div>
-							<p class="textoEtq">Asignatura</p>
-							{{form_errors(form.asignatura)}}
-		    				{{form_widget(form.asignatura)}}
-						</div>
-                    	<div>
-							<p class="textoEtq">Numero de Actividades</p>
-							{{form_errors(form.nactividades)}}
-		    				{{form_widget(form.nactividades)}}
-						</div>
-                        <button type="submit">Agregar</button>
-                    </form>
+                    {{ value }}
                     
                     <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
 				</div>

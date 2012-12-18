@@ -6,28 +6,24 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class PlanEstudioType extends AbstractType
+class ActividadCategoriaType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('periodo')
-            ->add('sede', null, array('empty_value'=>'Principal', 'required'=>false))
-            ->add('curso')
-            ->add('asignatura')
-            ->add('nactividades')
+            ->add('name')
         ;
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'cloud\siteBundle\Entity\PlanEstudio'
+            'data_class' => 'cloud\siteBundle\Entity\ActividadCategoria'
         ));
     }
 
     public function getName()
     {
-        return 'cloud_sitebundle_plantype';
+        return 'cloud_sitebundle_actividadcategoriatype';
     }
 }

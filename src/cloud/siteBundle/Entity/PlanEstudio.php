@@ -56,6 +56,13 @@ class PlanEstudio
      */
     private $nactividades;
 
+    /**
+     * @var string $principal
+     *
+     * @ORM\Column(name="principal", type="boolean")
+     */
+    private $principal;
+
 
     /**
      * Get id
@@ -183,5 +190,28 @@ class PlanEstudio
     public function getPeriodo()
     {
         return $this->periodo;
+    }
+
+    /**
+     * Set principal
+     *
+     * @param boolean $principal
+     * @return PlanEstudio
+     */
+    public function setPrincipal($principal)
+    {
+        $this->principal = $principal;
+    
+        return $this;
+    }
+
+    /**
+     * Get principal
+     *
+     * @return boolean 
+     */
+    public function getPrincipal()
+    {
+        return $this->principal;
     }
 }

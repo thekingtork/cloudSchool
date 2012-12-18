@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 17-12-2012 a las 03:27:12
+-- Tiempo de generación: 18-12-2012 a las 05:08:45
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -40,7 +40,68 @@ CREATE TABLE IF NOT EXISTS `actividad` (
   `plan_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_8DF2BD06E899029B` (`plan_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+
+--
+-- Volcado de datos para la tabla `actividad`
+--
+
+INSERT INTO `actividad` (`id`, `nombre`, `porcentaje`, `publicar`, `categoria`, `tipo`, `date_inicio`, `date_final`, `descripcion`, `logro_competencia`, `plan_id`) VALUES
+(1, 'Actividad', '25', 'no', 'Virtual', 'Foro', '2012-12-18 05:07:50', '2012-12-18 05:07:50', 'Descripcion', 'Logros ó Competencias', 2),
+(2, 'Actividad', '25', 'no', 'Virtual', 'Foro', '2012-12-18 05:07:50', '2012-12-18 05:07:50', 'Descripcion', 'Logros ó Competencias', 2),
+(3, 'Actividad', '25', 'no', 'Virtual', 'Foro', '2012-12-18 05:07:50', '2012-12-18 05:07:50', 'Descripcion', 'Logros ó Competencias', 2),
+(4, 'Actividad', '25', 'no', 'Virtual', 'Foro', '2012-12-18 05:07:50', '2012-12-18 05:07:50', 'Descripcion', 'Logros ó Competencias', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `actividad_categoria`
+--
+
+CREATE TABLE IF NOT EXISTS `actividad_categoria` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+--
+-- Volcado de datos para la tabla `actividad_categoria`
+--
+
+INSERT INTO `actividad_categoria` (`id`, `nombre`) VALUES
+(1, 'Virtual'),
+(2, 'En Casa'),
+(3, 'En Clase');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `actividad_tipo`
+--
+
+CREATE TABLE IF NOT EXISTS `actividad_tipo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `categoria_id` int(11) DEFAULT NULL,
+  `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_753D4F033397707A` (`categoria_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
+
+--
+-- Volcado de datos para la tabla `actividad_tipo`
+--
+
+INSERT INTO `actividad_tipo` (`id`, `categoria_id`, `nombre`) VALUES
+(1, 1, 'Foro'),
+(2, 1, 'Chat'),
+(3, 1, 'Evaluacion'),
+(4, 3, 'Quiz'),
+(5, 3, 'Exposición'),
+(6, 3, 'Taller'),
+(7, 3, 'Evaluacion'),
+(8, 3, 'Otro'),
+(9, 2, 'Tarea'),
+(10, 1, 'Investigación');
 
 -- --------------------------------------------------------
 
@@ -1899,19 +1960,21 @@ CREATE TABLE IF NOT EXISTS `planestudio` (
   `asignatura_id` int(11) DEFAULT NULL,
   `nactividades` int(11) NOT NULL,
   `periodo_id` int(11) DEFAULT NULL,
+  `principal` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_BB415393E19F41BF` (`sede_id`),
   KEY `IDX_BB41539387CB4A1F` (`curso_id`),
   KEY `IDX_BB415393C5C70C5B` (`asignatura_id`),
   KEY `IDX_BB4153939C3921AB` (`periodo_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `planestudio`
 --
 
-INSERT INTO `planestudio` (`id`, `sede_id`, `curso_id`, `asignatura_id`, `nactividades`, `periodo_id`) VALUES
-(1, 8, 2, 1, 4, NULL);
+INSERT INTO `planestudio` (`id`, `sede_id`, `curso_id`, `asignatura_id`, `nactividades`, `periodo_id`, `principal`) VALUES
+(1, NULL, 1, 1, 3, 1, 1),
+(2, NULL, 1, 1, 4, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -2110,6 +2173,12 @@ ALTER TABLE `actividad`
   ADD CONSTRAINT `FK_8DF2BD06E899029B` FOREIGN KEY (`plan_id`) REFERENCES `planestudio` (`id`);
 
 --
+-- Filtros para la tabla `actividad_tipo`
+--
+ALTER TABLE `actividad_tipo`
+  ADD CONSTRAINT `FK_753D4F033397707A` FOREIGN KEY (`categoria_id`) REFERENCES `actividad_categoria` (`id`);
+
+--
 -- Filtros para la tabla `asignatura`
 --
 ALTER TABLE `asignatura`
@@ -2210,8 +2279,8 @@ ALTER TABLE `periodo`
 -- Filtros para la tabla `planestudio`
 --
 ALTER TABLE `planestudio`
-  ADD CONSTRAINT `FK_BB4153939C3921AB` FOREIGN KEY (`periodo_id`) REFERENCES `periodo` (`id`),
   ADD CONSTRAINT `FK_BB41539387CB4A1F` FOREIGN KEY (`curso_id`) REFERENCES `curso` (`id`),
+  ADD CONSTRAINT `FK_BB4153939C3921AB` FOREIGN KEY (`periodo_id`) REFERENCES `periodo` (`id`),
   ADD CONSTRAINT `FK_BB415393C5C70C5B` FOREIGN KEY (`asignatura_id`) REFERENCES `asignatura` (`id`),
   ADD CONSTRAINT `FK_BB415393E19F41BF` FOREIGN KEY (`sede_id`) REFERENCES `sede` (`id`);
 

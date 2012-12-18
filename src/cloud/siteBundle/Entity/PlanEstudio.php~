@@ -56,6 +56,13 @@ class PlanEstudio
      */
     private $nactividades;
 
+    /**
+     * @var string $principal
+     *
+     * @ORM\Column(name="principal", type="boolean")
+     */
+    private $principal;
+
 
     /**
      * Get id
@@ -160,5 +167,28 @@ class PlanEstudio
     public function getCurso()
     {
         return $this->curso;
+    }
+
+    /**
+     * Set periodo
+     *
+     * @param Cloud\siteBundle\Entity\Periodo $periodo
+     * @return PlanEstudio
+     */
+    public function setPeriodo(\Cloud\siteBundle\Entity\Periodo $periodo = null)
+    {
+        $this->periodo = $periodo;
+    
+        return $this;
+    }
+
+    /**
+     * Get periodo
+     *
+     * @return Cloud\siteBundle\Entity\Periodo 
+     */
+    public function getPeriodo()
+    {
+        return $this->periodo;
     }
 }
