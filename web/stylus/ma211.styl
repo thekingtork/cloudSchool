@@ -1,30 +1,100 @@
+/** Funciones **/
+alinear()
+	display inline-block
+	vertical-align top
+itemInput(anchoId,anchoP,anchoT)
+		width anchoId
+		p,input
+			alinear()
+		p
+			width anchoP
+		input
+			width anchoT
+itemSelect(anchoId,anchoP,anchoT)
+		width anchoId
+		p,select
+			alinear()
+		p
+			width anchoP
+		select
+			height 27px
+			width anchoT
 transformar(arg)
 	-o-transform rotate(arg)
 	-moz-transform rotate(arg)
 	-webkit-transform rotate(arg)
-	transform rotate(arg)	
+	transform rotate(arg)
+
+/** ID **/
+#dirFilia
+	itemInput(100%,14%,84.3%)
+#nomAcud
+	itemInput(70%,50%,48%)
+#cedAcud
+	itemInput(29.2%,20%,75%)
+#nomPadre
+	itemInput(70%,50%,48%)
+#cedPadre
+	itemInput(29.2%,20%,75%)
+#nomMadre
+	itemInput(70%,50%,48%)
+#cedMadre
+	itemInput(29.2%,20%,75%)
+#vPadres
+	itemInput(33%,66%,26%)
+#nHerma
+	itemInput(33%,78%,18%)
+#cel
+	itemInput(32.5%,16%,80%)
+#perCasa
+	itemInput(47%,80%,15%)
+#casa
+	itemInput(26%,25%,68%)
+#telFilia
+	itemInput(25.5%,14%,81%)
+#obseV textarea
+	height 4.4em
+	width 98.8%
+#nivel
+	itemInput(49%,12%,84%)
+#curso
+	itemInput(50%,18%,79%)
+#sede
+	itemInput(49%,12%,84%)
+#jornada
+	itemInput(50%,18%,79%)
+#ColAnt
+	itemInput(100%,27%,71%)
+#sexo
+	itemSelect(40%,28%,69%)
+#eps
+	itemInput(59%,38%,58%)
+#obser textarea
+	height 8.75em
+	width 97.8%	
+#telefono
+	itemInput(33%,32%,64%)
+#celular
+	itemInput(33%,24%,72%)
+#correo
+	itemInput(32%,25%,71%)
 #apellidos
-	width 47%
-	p
-		display inline-block
-		margin-right 2%
-		vertical-align top
-		width 30%
-	input
-		display inline-block
-		vertical-align top
-		width 63%
+	itemInput(47%,23%,74%)
+#Barrio
+	itemInput(35%,20%,76%)
 #bloqueCgenerales
-    display inline-block
-    height 100%
-    vertical-align top
-    overflow hidden
-    width 100%
+	display inline-block
+	height 100%
+	vertical-align top
+	overflow hidden
+	width 100%
 #buscador
 	float right
 	margin 4% 4% 0 0
 #botonesDow
 	width 62%
+#cDoc
+	itemInput(42%,11%,85.5%)
 #ContTitulo
 	margin-left 2%
 	width 30%
@@ -33,17 +103,26 @@ transformar(arg)
 		line-height 1
 		margin-top 22%
 		text-align center
+#Direccion
+	itemInput(45%,26%,70%)
+#Estrato
+	itemInput(18%, 44%, 48%)
+#dpto
+	itemSelect(52%,32%,65%)
+#fNacimiento
+	itemInput(44%,52%,44.2%)
+#lNacimiento
+	itemInput(55%,42%,55%)
+#mpio
+	itemSelect(47%,20%,78%)	
+#nDoc
+	itemInput(33%,11%,84%)
 #Nombre
-	width 52%
-	p
-		display inline-block
-		margin-right 2%
-		vertical-align top
-		width 30%
-	input
-		display inline-block
-		vertical-align top
-		width 64%
+	itemInput(52%,24%,72%)
+#tipoDoc
+	width 23%
+	p,input
+		alinear()
 .alinear
 	display inline-block
 	vertical-align top
@@ -57,8 +136,7 @@ transformar(arg)
 	margin-left 2%
 	width 20%
 .contImg
-	display inline-block
-	vertical-align top
+	alinear()
 	img
 		width 100%
 .contenedorIzq
@@ -76,7 +154,14 @@ transformar(arg)
 	text-align center
 	width 90%
 .pantalla
-	width 546px
+	width 42em
+.pantalla2
+	display inline-block
+	float left
+	height 218px
+	margin-right 1em
+	vertical-align top
+	width 25em
 .tituloVertical
 	display inline-block
 	height 96%
@@ -91,6 +176,6 @@ transformar(arg)
 	transformar(-90deg)
 	width 200px
 .contInf
-	width 90%
+	width 93%
 	display inline-block
 	vertical-align top

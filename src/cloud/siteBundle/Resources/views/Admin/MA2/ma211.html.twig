@@ -24,6 +24,8 @@
 						</div>			
 					</div>
 				</div>
+				<form action="#" method="post" {{ form_enctype(form) }}>
+                    {{ form_errors(form) }}
 				<div class="fila">
 					<div class="contenedorDerecha alineacionPfct">
 						<div class="contImg">
@@ -302,6 +304,8 @@
 		                        </ul>
 		                    </div>
 						</div>
+							{{ form_rest(form) }}
+						</form>
 					</div>
 				</div>
 			</div>			
