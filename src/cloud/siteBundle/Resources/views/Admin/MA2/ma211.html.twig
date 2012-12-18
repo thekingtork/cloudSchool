@@ -38,22 +38,252 @@
 					</div>
 					<div class="contenedorIzq alineacionPfct">
 						<div id="content_1">
-							<div class="pantalla">
+							<div class="pantalla alineacionPfct">
 								<div class="tituloVertical">
-									<p>información personal</p>
+									<p>Información Personal</p>
 								</div>
 									<div class="contInf">
-										<div id="Nombre" class="alineacionPfct">
-											<p class="textoEtq">Nombre(s)</p>
-											{{form_errors(form.nombre)}}
-			    							{{form_widget(form.nombre)}}
+										<div class="fila">
+											<div id="Nombre" class="alineacionPfct">
+												<p class="textoEtq">Nombre(s)</p>
+												{{form_errors(form.nombre)}}
+				    							{{form_widget(form.nombre)}}
+											</div>
+											<div id="apellidos" class="alineacionPfct">
+												<p  class="textoEtq">Apellidos</p>
+												{{form_errors(form.apellido)}}
+				    							{{form_widget(form.apellido)}}
+											</div>										
 										</div>
-										<div id="apellidos" class="alineacionPfct">
-										<p  class="textoEtq">Apellidos</p>
-											{{form_errors(form.apellido)}}
-			    							{{form_widget(form.apellido)}}
+										<div class="fila">
+											<div id="lNacimiento" class="alineacionPfct">
+												<p class="textoEtq">Lugar de Nacimiento</p>
+												{{form_errors(form.lugar_nacimiento)}}
+				    							{{form_widget(form.lugar_nacimiento)}}
+											</div>
+											<div id="fNacimiento" class="alineacionPfct">
+												<p class="textoEtq">Fecha de nacimiento</p>
+												{{form_errors(form.fecha_nacimiento)}}
+				    							{{form_widget(form.fecha_nacimiento)}}
+											</div>
+										</div>
+										<div class="fila">
+											<div id="dpto" class="alineacionPfct" >
+												<p class="textoEtq">Departamento</p>
+												<select >
+													<option value="1">Departamento</option>
+													<option value="2">Departamento</option>
+													<option value="3">Departamento</option>
+												</select>
+											</div>
+											<div id="mpio" class="alineacionPfct">
+												<p class="textoEtq">Ciudad</p>
+												{{form_errors(form.municipio_id)}}
+				    							{{form_widget(form.municipio_id)}}
+											</div>
+										</div>
+										<div class="fila">
+											<div id="tipoDoc" class="alineacionPfct">
+												<p class="textoEtq">Identificación</p>
+												{{form_errors(form.tipodocumento_id)}}
+				    							{{form_widget(form.tipodocumento_id)}}
+											</div>
+											<div id="nDoc" class="alineacionPfct">
+												<p class="textoEtq">N°</p>
+												{{form_errors(form.nmr_documento)}}
+				    							{{form_widget(form.nmr_documento)}}
+											</div>
+											<div id="cDoc" class="alineacionPfct">
+												<p class="textoEtq">De</p>
+												{{form_errors(form.de)}}
+				    							{{form_widget(form.de)}}
+											</div>
+										</div>
+										<div class="fila">
+											<div id="Barrio" class="alineacionPfct">
+												<p class="textoEtq">Barrio</p>
+												{{form_errors(form.barrio)}}
+				    							{{form_widget(form.barrio)}}
+											</div>
+											<div id="Direccion" class="alineacionPfct">
+												<p class="textoEtq">Dirección</p>
+												{{form_errors(form.direccion)}}
+				    							{{form_widget(form.direccion)}}
+											</div>
+											<div id="Estrato" class="alineacionPfct">
+												<p class="textoEtq">Estrato</p>
+												{{form_errors(form.estrato)}}
+				    							{{form_widget(form.estrato)}}
+											</div>
+										</div>
+										<div class="fila">
+											<div id="telefono"class="alineacionPfct">
+												<p class="textoEtq">Teléfono</p>
+										 		{{form_errors(form.telefono)}}
+		    									{{form_widget(form.telefono)}}
+											</div>
+											<div id="celular" class="alineacionPfct">
+												<p class="textoEtq">Celular</p>
+												{{form_errors(form.celular)}}
+				    							{{form_widget(form.celular)}}
+											</div>
+											<div id="correo" class="alineacionPfct">
+												<p class="textoEtq">Correo</p>
+												{{form_errors(form.email)}}
+				    							{{form_widget(form.email)}}
+											</div>
 										</div>
 									</div>
+							</div>
+							<div class="alineacionPfct pantalla2">
+								<div class="fila">
+									<div id="sexo" class="alineacionPfct">
+										<p class="textoEtq">Sexo</p>
+										{{form_errors(form.sexo)}}
+		    							{{form_widget(form.sexo)}}
+									</div>
+                                    <div id="eps" class="alineacionPfct">
+										<p class="textoEtq">EPS/SISBEN</p>
+										{{form_errors(form.salud)}}
+		    							{{form_widget(form.salud)}}
+									</div>
+								</div>
+								<div class="fila">
+                                    <div id="obser">
+										<p class="textoEtq">Observaciones</p>
+										{{form_errors(form.observaciones_personal)}}
+		    							{{form_widget(form.observaciones_personal)}}
+									</div>									
+								</div>
+							</div>
+							<div class="alineacionPfct pantalla">
+								<div class="tituloVertical">
+									<p>Información Academica</p>
+								</div>
+								<div class="contInf">
+									<div class="fila">
+	                                    <div id="ColAnt" class="alineacionPfct">
+											<p class="textoEtq">Colegio de Procedencia</p>
+											{{form_errors(form.colegio_procedencia)}}
+			    							{{form_widget(form.colegio_procedencia)}}
+										</div>
+									</div>
+									<div class="fila">
+	                                    <div id="sede" class="alineacionPfct">
+											<p class="textoEtq">Sede</p>
+											{{form_errors(form.sede_procedencia)}}
+			    							{{form_widget(form.sede_procedencia)}}
+										</div>
+	                                    <div id="jornada" class="alineacionPfct">
+											<p class="textoEtq">Jornada</p>
+											{{form_errors(form.jornada_procedencia)}}
+			    							{{form_widget(form.jornada_procedencia)}}
+										</div>
+									</div>
+									<div class="fila">
+	                                    <div id="nivel" class="alineacionPfct">
+											<p class="textoEtq">Nivel</p>
+											{{form_errors(form.nivel_procedencia)}}
+			    							{{form_widget(form.nivel_procedencia)}}
+										</div>
+	                                    <div id="curso" class="alineacionPfct">
+											<p class="textoEtq">Curso</p>
+											{{form_errors(form.curso_procedencia)}}
+			    							{{form_widget(form.curso_procedencia)}}
+										</div>
+									</div>
+									<div class="fila">
+	                                    <div id="obseV">
+											<p class="textoEtq">Observaciones</p>
+											{{form_errors(form.observaciones_academica)}}
+			    							{{form_widget(form.observaciones_academica)}}
+										</div>									
+									</div>
+								</div>
+							</div>
+							<div class="alineacionPfct pantalla">
+								<div class="tituloVertical">
+									<p>Información Personal</p>
+								</div>
+								<div class="contInf">
+									<div class="fila">
+										<div id="perCasa" class="alineacionPfct">
+										    <p class="textoEtq">Cuantas personas viven en su casa</p>
+										    {{form_errors(form.nmrPersonas)}}
+		    							    {{form_widget(form.nmrPersonas)}}
+									    </div>
+                                        <div id="casa" class="alineacionPfct">
+										    <p class="textoEtq">Casa</p>
+										    {{form_errors(form.casa_direccion)}}
+		    							    {{form_widget(form.casa_direccion)}}
+									    </div>
+	                                    <div id="telFilia" class="alineacionPfct">
+											<p class="textoEtq">Tel</p>
+											{{form_errors(form.telefono_familia)}}
+			    							{{form_widget(form.telefono_familia)}}
+										</div>
+									</div>
+									<div class="fila">
+										<div id="vPadres" class="alineacionPfct">
+										    <p class="textoEtq">Vive con sus padres</p>
+											{{form_errors(form.vive_con)}}
+		    								{{form_widget(form.vive_con)}}
+										</div>
+                                    	<div id="nHerma" class="alineacionPfct">
+											<p class="textoEtq">Numeros de hermanos</p>
+											{{form_errors(form.nmr_hermanos)}}
+			    							{{form_widget(form.nmr_hermanos)}}
+										</div>
+	                                    <div id="cel" class="alineacionPfct">
+											<p class="textoEtq">CEL</p>
+											{{form_errors(form.celular_familia)}}
+			    							{{form_widget(form.celular_familia)}}
+										</div>
+									</div>
+									<div class="fila">
+										<div id="nomMadre" class="alineacionPfct">
+										 	<p class="textoEtq">Nombre y Apellidos de la Madre</p>
+											{{form_errors(form.datos_madre)}}
+		    								{{form_widget(form.datos_madre)}}
+										</div>
+	                                    <div id="cedMadre" class="alineacionPfct">
+											<p class="textoEtq">CC</p>
+											{{form_errors(form.cc_madre)}}
+			    							{{form_widget(form.cc_madre)}}
+										</div>
+									</div>
+									<div class="fila">
+										<div id="nomPadre"class="alineacionPfct">
+										 	<p class="textoEtq">Nombre y Apellidos del Padre</p>
+											{{form_errors(form.datos_padre)}}
+		    								{{form_widget(form.datos_padre)}}
+										</div>
+	                                    <div id="cedPadre"class="alineacionPfct">
+											<p class="textoEtq">CC</p>
+											{{form_errors(form.cc_padre)}}
+			    							{{form_widget(form.cc_padre)}}
+										</div>
+									</div>
+									<div class="fila">
+										<div id="nomAcud" class="alineacionPfct">
+											<p class="textoEtq">Nombre y Ap. del Acudiente</p>
+											{{form_errors(form.datos_acudiente)}}
+			    							{{form_widget(form.datos_acudiente)}}
+										</div>
+	                                    <div id="cedAcud" class="alineacionPfct">
+											<p class="textoEtq">CC</p>
+											{{form_errors(form.cc_acudiente)}}
+			    							{{form_widget(form.cc_acudiente)}}
+										</div>
+									</div>
+									<div class="fila">
+										<div id="dirFilia"class="alineacionPfct">
+											<p class="textoEtq">Dirección</p>
+											{{form_errors(form.direccion_familia)}}
+			    							{{form_widget(form.direccion_familia)}}
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div id="botonesDow">

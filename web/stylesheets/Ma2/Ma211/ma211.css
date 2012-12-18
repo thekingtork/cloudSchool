@@ -1,29 +1,391 @@
+/** Funciones **/
+/** ID **/
+#dirFilia {
+  width: 100%;
+}
+#dirFilia p,
+#dirFilia input {
+  display: inline-block;
+  vertical-align: top;
+}
+#dirFilia p {
+  width: 14%;
+}
+#dirFilia input {
+  width: 84.3%;
+}
+#nomAcud {
+  width: 70%;
+}
+#nomAcud p,
+#nomAcud input {
+  display: inline-block;
+  vertical-align: top;
+}
+#nomAcud p {
+  width: 50%;
+}
+#nomAcud input {
+  width: 48%;
+}
+#cedAcud {
+  width: 29.2%;
+}
+#cedAcud p,
+#cedAcud input {
+  display: inline-block;
+  vertical-align: top;
+}
+#cedAcud p {
+  width: 20%;
+}
+#cedAcud input {
+  width: 75%;
+}
+#nomPadre {
+  width: 70%;
+}
+#nomPadre p,
+#nomPadre input {
+  display: inline-block;
+  vertical-align: top;
+}
+#nomPadre p {
+  width: 50%;
+}
+#nomPadre input {
+  width: 48%;
+}
+#cedPadre {
+  width: 29.2%;
+}
+#cedPadre p,
+#cedPadre input {
+  display: inline-block;
+  vertical-align: top;
+}
+#cedPadre p {
+  width: 20%;
+}
+#cedPadre input {
+  width: 75%;
+}
+#nomMadre {
+  width: 70%;
+}
+#nomMadre p,
+#nomMadre input {
+  display: inline-block;
+  vertical-align: top;
+}
+#nomMadre p {
+  width: 50%;
+}
+#nomMadre input {
+  width: 48%;
+}
+#cedMadre {
+  width: 29.2%;
+}
+#cedMadre p,
+#cedMadre input {
+  display: inline-block;
+  vertical-align: top;
+}
+#cedMadre p {
+  width: 20%;
+}
+#cedMadre input {
+  width: 75%;
+}
+#vPadres {
+  width: 33%;
+}
+#vPadres p,
+#vPadres input {
+  display: inline-block;
+  vertical-align: top;
+}
+#vPadres p {
+  width: 66%;
+}
+#vPadres input {
+  width: 26%;
+}
+#nHerma {
+  width: 33%;
+}
+#nHerma p,
+#nHerma input {
+  display: inline-block;
+  vertical-align: top;
+}
+#nHerma p {
+  width: 78%;
+}
+#nHerma input {
+  width: 18%;
+}
+#cel {
+  width: 32.5%;
+}
+#cel p,
+#cel input {
+  display: inline-block;
+  vertical-align: top;
+}
+#cel p {
+  width: 16%;
+}
+#cel input {
+  width: 80%;
+}
+#perCasa {
+  width: 47%;
+}
+#perCasa p,
+#perCasa input {
+  display: inline-block;
+  vertical-align: top;
+}
+#perCasa p {
+  width: 80%;
+}
+#perCasa input {
+  width: 15%;
+}
+#casa {
+  width: 26%;
+}
+#casa p,
+#casa input {
+  display: inline-block;
+  vertical-align: top;
+}
+#casa p {
+  width: 25%;
+}
+#casa input {
+  width: 68%;
+}
+#telFilia {
+  width: 25.5%;
+}
+#telFilia p,
+#telFilia input {
+  display: inline-block;
+  vertical-align: top;
+}
+#telFilia p {
+  width: 14%;
+}
+#telFilia input {
+  width: 81%;
+}
+#obseV textarea {
+  height: 4.4em;
+  width: 98.8%;
+}
+#nivel {
+  width: 49%;
+}
+#nivel p,
+#nivel input {
+  display: inline-block;
+  vertical-align: top;
+}
+#nivel p {
+  width: 12%;
+}
+#nivel input {
+  width: 84%;
+}
+#curso {
+  width: 50%;
+}
+#curso p,
+#curso input {
+  display: inline-block;
+  vertical-align: top;
+}
+#curso p {
+  width: 18%;
+}
+#curso input {
+  width: 79%;
+}
+#sede {
+  width: 49%;
+}
+#sede p,
+#sede input {
+  display: inline-block;
+  vertical-align: top;
+}
+#sede p {
+  width: 12%;
+}
+#sede input {
+  width: 84%;
+}
+#jornada {
+  width: 50%;
+}
+#jornada p,
+#jornada input {
+  display: inline-block;
+  vertical-align: top;
+}
+#jornada p {
+  width: 18%;
+}
+#jornada input {
+  width: 79%;
+}
+#ColAnt {
+  width: 100%;
+}
+#ColAnt p,
+#ColAnt input {
+  display: inline-block;
+  vertical-align: top;
+}
+#ColAnt p {
+  width: 27%;
+}
+#ColAnt input {
+  width: 71%;
+}
+#sexo {
+  width: 40%;
+}
+#sexo p,
+#sexo select {
+  display: inline-block;
+  vertical-align: top;
+}
+#sexo p {
+  width: 28%;
+}
+#sexo select {
+  height: 27px;
+  width: 69%;
+}
+#eps {
+  width: 59%;
+}
+#eps p,
+#eps input {
+  display: inline-block;
+  vertical-align: top;
+}
+#eps p {
+  width: 38%;
+}
+#eps input {
+  width: 58%;
+}
+#obser textarea {
+  height: 8.75em;
+  width: 97.8%;
+}
+#telefono {
+  width: 33%;
+}
+#telefono p,
+#telefono input {
+  display: inline-block;
+  vertical-align: top;
+}
+#telefono p {
+  width: 32%;
+}
+#telefono input {
+  width: 64%;
+}
+#celular {
+  width: 33%;
+}
+#celular p,
+#celular input {
+  display: inline-block;
+  vertical-align: top;
+}
+#celular p {
+  width: 24%;
+}
+#celular input {
+  width: 72%;
+}
+#correo {
+  width: 32%;
+}
+#correo p,
+#correo input {
+  display: inline-block;
+  vertical-align: top;
+}
+#correo p {
+  width: 25%;
+}
+#correo input {
+  width: 71%;
+}
 #apellidos {
   width: 47%;
 }
-#apellidos p {
-  display: inline-block;
-  margin-right: 2%;
-  vertical-align: top;
-  width: 30%;
-}
+#apellidos p,
 #apellidos input {
   display: inline-block;
   vertical-align: top;
-  width: 63%;
 }
-#bloqueCgenerales,
-display inline-block,
-height 100%,
-vertical-align top,
-overflow hidden,
-width 100%,
+#apellidos p {
+  width: 23%;
+}
+#apellidos input {
+  width: 74%;
+}
+#Barrio {
+  width: 35%;
+}
+#Barrio p,
+#Barrio input {
+  display: inline-block;
+  vertical-align: top;
+}
+#Barrio p {
+  width: 20%;
+}
+#Barrio input {
+  width: 76%;
+}
+#bloqueCgenerales {
+  display: inline-block;
+  height: 100%;
+  vertical-align: top;
+  overflow: hidden;
+  width: 100%;
+}
 #buscador {
   float: right;
   margin: 4% 4% 0 0;
 }
 #botonesDow {
   width: 62%;
+}
+#cDoc {
+  width: 42%;
+}
+#cDoc p,
+#cDoc input {
+  display: inline-block;
+  vertical-align: top;
+}
+#cDoc p {
+  width: 11%;
+}
+#cDoc input {
+  width: 85.5%;
 }
 #ContTitulo {
   margin-left: 2%;
@@ -35,19 +397,127 @@ width 100%,
   margin-top: 22%;
   text-align: center;
 }
+#Direccion {
+  width: 45%;
+}
+#Direccion p,
+#Direccion input {
+  display: inline-block;
+  vertical-align: top;
+}
+#Direccion p {
+  width: 26%;
+}
+#Direccion input {
+  width: 70%;
+}
+#Estrato {
+  width: 18%;
+}
+#Estrato p,
+#Estrato input {
+  display: inline-block;
+  vertical-align: top;
+}
+#Estrato p {
+  width: 44%;
+}
+#Estrato input {
+  width: 48%;
+}
+#dpto {
+  width: 52%;
+}
+#dpto p,
+#dpto select {
+  display: inline-block;
+  vertical-align: top;
+}
+#dpto p {
+  width: 32%;
+}
+#dpto select {
+  height: 27px;
+  width: 65%;
+}
+#fNacimiento {
+  width: 44%;
+}
+#fNacimiento p,
+#fNacimiento input {
+  display: inline-block;
+  vertical-align: top;
+}
+#fNacimiento p {
+  width: 52%;
+}
+#fNacimiento input {
+  width: 44.2%;
+}
+#lNacimiento {
+  width: 55%;
+}
+#lNacimiento p,
+#lNacimiento input {
+  display: inline-block;
+  vertical-align: top;
+}
+#lNacimiento p {
+  width: 42%;
+}
+#lNacimiento input {
+  width: 55%;
+}
+#mpio {
+  width: 47%;
+}
+#mpio p,
+#mpio select {
+  display: inline-block;
+  vertical-align: top;
+}
+#mpio p {
+  width: 20%;
+}
+#mpio select {
+  height: 27px;
+  width: 78%;
+}
+#nDoc {
+  width: 33%;
+}
+#nDoc p,
+#nDoc input {
+  display: inline-block;
+  vertical-align: top;
+}
+#nDoc p {
+  width: 11%;
+}
+#nDoc input {
+  width: 84%;
+}
 #Nombre {
   width: 52%;
 }
-#Nombre p {
-  display: inline-block;
-  margin-right: 2%;
-  vertical-align: top;
-  width: 30%;
-}
+#Nombre p,
 #Nombre input {
   display: inline-block;
   vertical-align: top;
-  width: 64%;
+}
+#Nombre p {
+  width: 24%;
+}
+#Nombre input {
+  width: 72%;
+}
+#tipoDoc {
+  width: 23%;
+}
+#tipoDoc p,
+#tipoDoc input {
+  display: inline-block;
+  vertical-align: top;
 }
 .alinear {
   display: inline-block;
@@ -92,7 +562,15 @@ width 100%,
   width: 90%;
 }
 .pantalla {
-  width: 546px;
+  width: 42em;
+}
+.pantalla2 {
+  display: inline-block;
+  float: left;
+  height: 218px;
+  margin-right: 1em;
+  vertical-align: top;
+  width: 25em;
 }
 .tituloVertical {
   display: inline-block;
@@ -113,7 +591,7 @@ width 100%,
   width: 200px;
 }
 .contInf {
-  width: 90%;
+  width: 93%;
   display: inline-block;
   vertical-align: top;
 }
