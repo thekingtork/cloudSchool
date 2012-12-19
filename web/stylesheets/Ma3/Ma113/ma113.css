@@ -1,0 +1,158 @@
+#asignatura {
+  padding: 0 0 0 10%;
+  width: 80%;
+}
+#asignatura p,
+#asignatura select {
+  display: inline-block;
+  vertical-align: top;
+}
+#asignatura p {
+  width: 29%;
+}
+#asignatura select {
+  height: 27px;
+  width: 68.4%;
+}
+#asignatura p {
+  font-size: 1.5em;
+  line-height: 1.2;
+}
+#actividades {
+  padding: 0 0 0 10%;
+  width: 80%;
+}
+#actividades p,
+#actividades input {
+  display: inline-block;
+  vertical-align: top;
+}
+#actividades p {
+  width: 62%;
+}
+#actividades input {
+  width: 34.4%;
+}
+#actividades p {
+  font-size: 1.5em;
+  line-height: 1.2;
+}
+#bloqueCgenerales {
+  display: inline-block;
+  height: 100%;
+  vertical-align: top;
+  overflow: hidden;
+  width: 100%;
+}
+#ContTitulo {
+  margin-left: 2%;
+  width: 36%;
+}
+#ContTitulo p {
+  font-size: 2.2em;
+  line-height: 1;
+  margin-top: 19%;
+  text-align: center;
+}
+#curso {
+  padding: 0 0 0 10%;
+  width: 80%;
+}
+#curso p,
+#curso select {
+  display: inline-block;
+  vertical-align: top;
+}
+#curso p {
+  width: 20%;
+}
+#curso select {
+  height: 27px;
+  width: 77.4%;
+}
+#curso p {
+  font-size: 1.5em;
+  line-height: 1.2;
+}
+#main {
+  margin-top: 2.5%;
+}
+#periodo {
+  padding: 0 0 0 10%;
+  width: 30%;
+}
+#periodo p,
+#periodo select {
+  display: inline-block;
+  vertical-align: top;
+}
+#periodo p {
+  width: 60%;
+}
+#periodo select {
+  height: 27px;
+  width: 30%;
+}
+#periodo p {
+  font-size: 1.5em;
+  line-height: 1.2;
+}
+#sede {
+  width: 48%;
+}
+#sede p,
+#sede select {
+  display: inline-block;
+  vertical-align: top;
+}
+#sede p {
+  width: 22%;
+}
+#sede select {
+  height: 27px;
+  width: 76%;
+}
+#sede p {
+  font-size: 1.5em;
+  line-height: 1.2;
+}
+.breadcumbr a {
+  color: #000;
+}
+.botonNext {
+  margin-top: 30%;
+}
+.botonNext button {
+  background: transparent;
+  border: solid 2px #fff;
+  color: #fff;
+  font-size: 1.3em;
+  padding: 5%;
+  width: 90%;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.1s linear;
+}
+.botonNext button:hover {
+  opacity: 0.6;
+}
+.containerSupDer {
+  width: 57%;
+}
+.contenedorDerecha {
+  margin-left: 2%;
+  width: 70%;
+}
+.contenedorIzq {
+  margin: 0 1.5%;
+  width: 20%;
+}
+.Inicio {
+  top: 10px;
+}
+.descrip p {
+  display: block;
+  font-size: 1.5em;
+  margin: auto;
+  text-align: left;
+  width: 93%;
+}

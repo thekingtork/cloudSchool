@@ -5,52 +5,67 @@
 {% block menu_principal %}
 	 <div class="cuerpoCentrado" id="contMetro">
 		<div id="ContAjax">
-			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma113/ma113.css') }}"/> 
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma3/Ma113/ma113.css') }}"/> 
 			<div id="bloqueCgenerales" class="lima">
-				<div id="contenidoIzq">
-					<div class="botonRegresar">
-						{% block back %}
-							<a href="{{ path('ma') }}" class="ajax" ><img src="{{ asset('images/b_atras.png') }}"></a>
-						{% endblock %}
+				<div class="fila">
+					<div class="fila">
+						<div class="botonRegresar alineacionPfct">
+							{% block back %}
+								<a href="{{ path('ma2') }}" class="ajax"><img src="{{ asset('images/b_atras.png') }}"/></a>
+							{% endblock %}
+						</div>
+						<div id="ContTitulo" class="alineacionPfct">
+							<p class="blancoFc">Plan de Estudios</p>
+						</div>
 					</div>
-                    
-				</div>
-				<div id="contenidoDer">
-					<div class="breadcumbr"><a href="{{ path('ma11') }}" class="ajax" >Ajustes generales</a></div>
-                    
-					{#Aca va el contenido del lado derecho #}
-					<p>Formulario para agregar planes de estudios</p>
-                    <form action="{{ path('ma31') }}" method="post">
-
-                    	<div>
-							<p class="textoEtq">Periodo</p>
-							{{form_errors(form.periodo)}}
-		    				{{form_widget(form.periodo)}}
+					<div class="fila descrip">
+						<p class="blancoFc">Para hacer, editar o eliminar un plan de estudios escoja las opciones en los siguientes campos y haga click en siguiente</p>
+					</div>
+					<div class="fila" id="main">
+						<div class="contenedorDerecha alineacionPfct">
+							<div class="fila">
+							<form action="{{ path('ma31') }}" method="post">
+								<div id="periodo" class="alineacionPfct">
+							 		<p class="blancoFc textoEtq">Periodo</p>
+									{{form_errors(form.periodo)}}
+		    						{{form_widget(form.periodo)}}
+								</div>
+								<div id="sede" class="alineacionPfct">
+									<p class="blancoFc textoEtq">Sede</p>
+									{{form_errors(form.sede)}}
+		    						{{form_widget(form.sede)}}
+								</div>
+							</div>
+							<div class="fila">
+								<div class="alineacionPfct" id="curso">
+									<p class="blancoFc textoEtq">Curso</p>
+									{{form_errors(form.curso)}}
+				    				{{form_widget(form.curso)}}
+								</div>
+							</div>
+							<div class="fila">
+								<div class="alineacionPfct" id="asignatura">
+									<p class=" blancoFc textoEtq">Asignatura</p>
+									{{form_errors(form.asignatura)}}
+				    				{{form_widget(form.asignatura)}}
+								</div>								
+							</div>
+							<div class="fila">							
+		                    	<div class="alineacionPfct" id="actividades">
+									<p class=" blancoFc textoEtq">Numero de Actividades</p>
+									{{form_errors(form.nactividades)}}
+				    				{{form_widget(form.nactividades)}}
+								</div>
+							</div>
 						</div>
-						<div>
-							<p class="textoEtq">Sede</p>
-							{{form_errors(form.sede)}}
-		    				{{form_widget(form.sede)}}
+						<div class="contenedorIzq alineacionPfct">
+							<div class="botonNext">
+								<button type="submit">Siguiente</button>								
+							</div>
+						</form>
+						<div class="Inicio blancoFc" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
 						</div>
-						<div>
-							<p class="textoEtq">Curso</p>
-							{{form_errors(form.curso)}}
-		    				{{form_widget(form.curso)}}
-						</div>
-						<div>
-							<p class="textoEtq">Asignatura</p>
-							{{form_errors(form.asignatura)}}
-		    				{{form_widget(form.asignatura)}}
-						</div>
-                    	<div>
-							<p class="textoEtq">Numero de Actividades</p>
-							{{form_errors(form.nactividades)}}
-		    				{{form_widget(form.nactividades)}}
-						</div>
-                        <button type="submit">Agregar</button>
-                    </form>
-                    
-                    <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
+					</div>
 				</div>
 			</div>
 		</div>

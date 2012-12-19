@@ -1,0 +1,199 @@
+Azul = rgb(0,172,237)
+Amarillo = rgb(239,200,37)
+Rojo = rgb(204,33,40)
+Lima = rgb(177,205,73)
+Fucsia = rgb(202,0,136)
+VerdeLight = rgb(140,152,119)
+VerdeDark = rgb(50,164,86)
+Naranja = rgb(219,129,45)
+Morado = rgb(139,39,139)
+Gris = rgb(138,155,168)
+Negro = rgb(0,0,0)
+Blanco = rgb(255,255,255)
+leyenda1()
+	height 30%
+	opacity 1
+leyenda2()
+	height 28%
+	opacity 1
+.cuadro
+	background: blue
+	cursor pointer
+	display inline-block
+	height 100px
+	overflow hidden
+	position relative
+	transition all 0.5s ease
+	vertical-align: top
+	width: 100px
+	-webkit-transition: all 0.1s linear
+	figure
+		height 100%
+		overflow hidden
+.cuadro:hover
+	opacity .8
+.cuadro:nth-child(10n+1)
+	height 94%
+	margin-right 0.12em
+	width: 240px
+	.nombre
+		background Azul
+		leyenda1()
+		.grado
+			width 40%
+			label
+				display inline-block
+				font-size 4.5em
+				line-height 1
+				margin-left 4%
+				vertical-align bottom
+				width 32%
+			.curso
+				display inline-block
+				vertical-align bottom
+				width 40%
+				label
+					font-size 1.6em
+					line-height 1.4
+		.name
+			overflow hidden
+			width 56%
+			p
+				font-size 1.5em
+				line-height 1.2
+				word-wrap break-word
+.cuadro:nth-child(10n+2),.cuadro:nth-child(10n+8)
+	height 94%
+	margin-right 0.12em
+	width: 120px
+	figure
+		overflow hidden
+		img
+			left -28%
+			position relative
+			width 150%
+		.nombre
+			.grado
+				left 74%
+				position absolute
+				width 30%
+				z-index 33
+				label
+					display inline-block
+					font-size 2.5em
+					line-height 1
+					margin-left 4%
+					vertical-align bottom
+					width 32%
+				.curso
+					display inline-block
+					vertical-align bottom
+					width 40%
+					label
+						font-size 1em
+						line-height 1.3
+			.name
+				overflow hidden
+				width 70%
+				position absolute
+				z-index 1
+				p
+					font-size 1.2em
+					line-height 1.2
+					padding 2%
+					word-wrap break-word
+.cuadro:nth-child(10n+2)
+	.nombre
+		background Lima
+		leyenda1()
+.cuadro:nth-child(10n+3),.cuadro:nth-child(10n+4)
+	height 46%
+	margin-right .12em
+	width 120px
+	.nombre
+			background Naranja
+.cuadro:nth-child(10n+4)
+	left 32.84%
+	position absolute
+	top 48%
+	.nombre
+			background Fucsia
+.cuadro:nth-child(10n+5)
+	.nombre
+		background Morado
+.cuadro:nth-child(10n+5),.cuadro:nth-child(10n+9),.cuadro:nth-child(10n+10)
+	height 46%
+	margin-right .12em
+	width: 240px
+	figure
+		overflow hidden
+		img
+			height 150%
+.cuadro:nth-child(10n+6),.cuadro:nth-child(10n+7)
+	height 46%
+	margin-right .12em
+	width: 117px
+.cuadro:nth-child(10n+6)
+	left 44%
+	position absolute
+	top 48%
+	.nombre
+		background Amarillo
+.cuadro:nth-child(10n+7)
+	left 54.86%
+	position absolute
+	top 48%
+	.nombre
+		background Gris
+.cuadro:nth-child(10n+8) 
+	.nombre
+		background Rojo
+		leyenda1()
+.cuadro:nth-child(10n+9)
+	.nombre
+		background Azul
+.cuadro:nth-child(10n+10)
+	left 76.81%
+	position absolute
+	top 48%
+	.nombre
+		background Gris
+.cuadro:nth-child(10n+3),.cuadro:nth-child(10n+4),.cuadro:nth-child(10n+5),.cuadro:nth-child(10n+6),.cuadro:nth-child(10n+7),.cuadro:nth-child(10n+9),.cuadro:nth-child(10n+10)
+	.nombre
+		leyenda2()
+		.grado
+			height 100%
+			width 25%
+			label
+				display inline-block
+				font-size 2em
+				height 96%
+				line-height 1
+				margin-left 4%
+				vertical-align bottom
+				width 45%
+			.curso
+				display inline-block
+				vertical-align bottom
+				width 35%
+				label
+					font-size 1em
+					line-height 1
+		.name
+			height 100%
+			overflow hidden
+			width 69%
+			p
+				font-size 1em
+				height 100%
+				line-height .85
+				margin-top 5%
+				word-wrap break-word
+.cuadro
+	.nombre
+		position: absolute
+		width: 100%
+		height: 30px
+		bottom: 0
+		font-size: 16px
+		background: green

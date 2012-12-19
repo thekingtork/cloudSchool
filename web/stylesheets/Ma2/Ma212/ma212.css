@@ -1,0 +1,357 @@
+#bloqueCgenerales {
+  display: inline-block;
+  height: 100%;
+  vertical-align: top;
+  overflow: hidden;
+  width: 100%;
+}
+#ContTitulo {
+  margin-left: 2%;
+  width: 30%;
+}
+#ContTitulo p {
+  font-size: 2.2em;
+  line-height: 1;
+  margin-top: 22%;
+  text-align: center;
+}
+.alinear {
+  display: inline-block;
+  vertical-align: top;
+}
+.botonesDw {
+  color: #000;
+}
+.breadcumbr a {
+  color: #000;
+}
+.containerSupDer {
+  width: 57%;
+}
+.contenedorDerecha {
+  margin-left: 2%;
+  width: 20%;
+}
+.contImg {
+  cursor: pointer;
+  display: block;
+  margin: 30% auto 5%;
+  width: 50%;
+}
+.contImg img {
+  width: 100%;
+}
+.contenedorIzq {
+  margin: 0 1.5%;
+  width: 74%;
+}
+.Inicio {
+  top: 10px;
+}
+.Inicio a {
+  color: #000;
+}
+.addEst label {
+  cursor: pointer;
+  display: block;
+  font-size: 1.3em;
+  margin: auto;
+  text-align: center;
+  width: 90%;
+}
+.pantalla {
+  height: 250px;
+  width: 69.75em;
+}
+.pantalla2 {
+  display: inline-block;
+  float: left;
+  height: 218px;
+  margin-right: 1em;
+  vertical-align: top;
+  width: 25em;
+}
+.cuadro {
+  background: #00f;
+  cursor: pointer;
+  display: inline-block;
+  height: 100px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.5s ease;
+  vertical-align: top;
+  width: 100px;
+  -webkit-transition: all 0.1s linear;
+}
+.cuadro figure {
+  height: 100%;
+  overflow: hidden;
+}
+.cuadro:hover {
+  opacity: 0.8;
+}
+.cuadro:nth-child(10n+1) {
+  height: 94%;
+  margin-right: 0.12em;
+  width: 240px;
+}
+.cuadro:nth-child(10n+1) .nombre {
+  background: #00aced;
+  height: 30%;
+  opacity: 1;
+}
+.cuadro:nth-child(10n+1) .nombre .grado {
+  width: 40%;
+}
+.cuadro:nth-child(10n+1) .nombre .grado label {
+  display: inline-block;
+  font-size: 4.5em;
+  line-height: 1;
+  margin-left: 4%;
+  vertical-align: bottom;
+  width: 32%;
+}
+.cuadro:nth-child(10n+1) .nombre .grado .curso {
+  display: inline-block;
+  vertical-align: bottom;
+  width: 40%;
+}
+.cuadro:nth-child(10n+1) .nombre .grado .curso label {
+  font-size: 1.6em;
+  line-height: 1.4;
+}
+.cuadro:nth-child(10n+1) .nombre .name {
+  overflow: hidden;
+  width: 56%;
+}
+.cuadro:nth-child(10n+1) .nombre .name p {
+  font-size: 1.5em;
+  line-height: 1.2;
+  word-wrap: break-word;
+}
+.cuadro:nth-child(10n+2),
+.cuadro:nth-child(10n+8) {
+  height: 94%;
+  margin-right: 0.12em;
+  width: 120px;
+}
+.cuadro:nth-child(10n+2) figure,
+.cuadro:nth-child(10n+8) figure {
+  overflow: hidden;
+}
+.cuadro:nth-child(10n+2) figure img,
+.cuadro:nth-child(10n+8) figure img {
+  left: -28%;
+  position: relative;
+  width: 150%;
+}
+.cuadro:nth-child(10n+2) figure .nombre .grado,
+.cuadro:nth-child(10n+8) figure .nombre .grado {
+  left: 74%;
+  position: absolute;
+  width: 30%;
+  z-index: 33;
+}
+.cuadro:nth-child(10n+2) figure .nombre .grado label,
+.cuadro:nth-child(10n+8) figure .nombre .grado label {
+  display: inline-block;
+  font-size: 2.5em;
+  line-height: 1;
+  margin-left: 4%;
+  vertical-align: bottom;
+  width: 32%;
+}
+.cuadro:nth-child(10n+2) figure .nombre .grado .curso,
+.cuadro:nth-child(10n+8) figure .nombre .grado .curso {
+  display: inline-block;
+  vertical-align: bottom;
+  width: 40%;
+}
+.cuadro:nth-child(10n+2) figure .nombre .grado .curso label,
+.cuadro:nth-child(10n+8) figure .nombre .grado .curso label {
+  font-size: 1em;
+  line-height: 1.3;
+}
+.cuadro:nth-child(10n+2) figure .nombre .name,
+.cuadro:nth-child(10n+8) figure .nombre .name {
+  overflow: hidden;
+  width: 70%;
+  position: absolute;
+  z-index: 1;
+}
+.cuadro:nth-child(10n+2) figure .nombre .name p,
+.cuadro:nth-child(10n+8) figure .nombre .name p {
+  font-size: 1.2em;
+  line-height: 1.2;
+  padding: 2%;
+  word-wrap: break-word;
+}
+.cuadro:nth-child(10n+2) .nombre {
+  background: #b1cd49;
+  height: 30%;
+  opacity: 1;
+}
+.cuadro:nth-child(10n+3),
+.cuadro:nth-child(10n+4) {
+  height: 46%;
+  margin-right: 0.12em;
+  width: 120px;
+}
+.cuadro:nth-child(10n+3) .nombre,
+.cuadro:nth-child(10n+4) .nombre {
+  background: #db812d;
+}
+.cuadro:nth-child(10n+4) {
+  left: 32.84%;
+  position: absolute;
+  top: 48%;
+}
+.cuadro:nth-child(10n+4) .nombre {
+  background: #ca0088;
+}
+.cuadro:nth-child(10n+5) .nombre {
+  background: #8b278b;
+}
+.cuadro:nth-child(10n+5),
+.cuadro:nth-child(10n+9),
+.cuadro:nth-child(10n+10) {
+  height: 46%;
+  margin-right: 0.12em;
+  width: 240px;
+}
+.cuadro:nth-child(10n+5) figure,
+.cuadro:nth-child(10n+9) figure,
+.cuadro:nth-child(10n+10) figure {
+  overflow: hidden;
+}
+.cuadro:nth-child(10n+5) figure img,
+.cuadro:nth-child(10n+9) figure img,
+.cuadro:nth-child(10n+10) figure img {
+  height: 150%;
+}
+.cuadro:nth-child(10n+6),
+.cuadro:nth-child(10n+7) {
+  height: 46%;
+  margin-right: 0.12em;
+  width: 117px;
+}
+.cuadro:nth-child(10n+6) {
+  left: 44%;
+  position: absolute;
+  top: 48%;
+}
+.cuadro:nth-child(10n+6) .nombre {
+  background: #efc825;
+}
+.cuadro:nth-child(10n+7) {
+  left: 54.86%;
+  position: absolute;
+  top: 48%;
+}
+.cuadro:nth-child(10n+7) .nombre {
+  background: #8a9ba8;
+}
+.cuadro:nth-child(10n+8) .nombre {
+  background: #cc2128;
+  height: 30%;
+  opacity: 1;
+}
+.cuadro:nth-child(10n+9) .nombre {
+  background: #00aced;
+}
+.cuadro:nth-child(10n+10) {
+  left: 76.81%;
+  position: absolute;
+  top: 48%;
+}
+.cuadro:nth-child(10n+10) .nombre {
+  background: #8a9ba8;
+}
+.cuadro:nth-child(10n+3) .nombre,
+.cuadro:nth-child(10n+4) .nombre,
+.cuadro:nth-child(10n+5) .nombre,
+.cuadro:nth-child(10n+6) .nombre,
+.cuadro:nth-child(10n+7) .nombre,
+.cuadro:nth-child(10n+9) .nombre,
+.cuadro:nth-child(10n+10) .nombre {
+  height: 28%;
+  opacity: 1;
+}
+.cuadro:nth-child(10n+3) .nombre .grado,
+.cuadro:nth-child(10n+4) .nombre .grado,
+.cuadro:nth-child(10n+5) .nombre .grado,
+.cuadro:nth-child(10n+6) .nombre .grado,
+.cuadro:nth-child(10n+7) .nombre .grado,
+.cuadro:nth-child(10n+9) .nombre .grado,
+.cuadro:nth-child(10n+10) .nombre .grado {
+  height: 100%;
+  width: 25%;
+}
+.cuadro:nth-child(10n+3) .nombre .grado label,
+.cuadro:nth-child(10n+4) .nombre .grado label,
+.cuadro:nth-child(10n+5) .nombre .grado label,
+.cuadro:nth-child(10n+6) .nombre .grado label,
+.cuadro:nth-child(10n+7) .nombre .grado label,
+.cuadro:nth-child(10n+9) .nombre .grado label,
+.cuadro:nth-child(10n+10) .nombre .grado label {
+  display: inline-block;
+  font-size: 2em;
+  height: 96%;
+  line-height: 1;
+  margin-left: 4%;
+  vertical-align: bottom;
+  width: 45%;
+}
+.cuadro:nth-child(10n+3) .nombre .grado .curso,
+.cuadro:nth-child(10n+4) .nombre .grado .curso,
+.cuadro:nth-child(10n+5) .nombre .grado .curso,
+.cuadro:nth-child(10n+6) .nombre .grado .curso,
+.cuadro:nth-child(10n+7) .nombre .grado .curso,
+.cuadro:nth-child(10n+9) .nombre .grado .curso,
+.cuadro:nth-child(10n+10) .nombre .grado .curso {
+  display: inline-block;
+  vertical-align: bottom;
+  width: 35%;
+}
+.cuadro:nth-child(10n+3) .nombre .grado .curso label,
+.cuadro:nth-child(10n+4) .nombre .grado .curso label,
+.cuadro:nth-child(10n+5) .nombre .grado .curso label,
+.cuadro:nth-child(10n+6) .nombre .grado .curso label,
+.cuadro:nth-child(10n+7) .nombre .grado .curso label,
+.cuadro:nth-child(10n+9) .nombre .grado .curso label,
+.cuadro:nth-child(10n+10) .nombre .grado .curso label {
+  font-size: 1em;
+  line-height: 1;
+}
+.cuadro:nth-child(10n+3) .nombre .name,
+.cuadro:nth-child(10n+4) .nombre .name,
+.cuadro:nth-child(10n+5) .nombre .name,
+.cuadro:nth-child(10n+6) .nombre .name,
+.cuadro:nth-child(10n+7) .nombre .name,
+.cuadro:nth-child(10n+9) .nombre .name,
+.cuadro:nth-child(10n+10) .nombre .name {
+  height: 100%;
+  overflow: hidden;
+  width: 69%;
+}
+.cuadro:nth-child(10n+3) .nombre .name p,
+.cuadro:nth-child(10n+4) .nombre .name p,
+.cuadro:nth-child(10n+5) .nombre .name p,
+.cuadro:nth-child(10n+6) .nombre .name p,
+.cuadro:nth-child(10n+7) .nombre .name p,
+.cuadro:nth-child(10n+9) .nombre .name p,
+.cuadro:nth-child(10n+10) .nombre .name p {
+  font-size: 1em;
+  height: 100%;
+  line-height: 0.85;
+  margin-top: 5%;
+  word-wrap: break-word;
+}
+.cuadro .nombre {
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  bottom: 0;
+  font-size: 16px;
+  background: #008000;
+}

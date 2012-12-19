@@ -34,30 +34,11 @@
 						</div>
 					</div>
 					<div class="contenedorIzq alineacionPfct">
-						{% if perfiles is defined %}
 						<div id="content_1">
 							<div class="pantalla">
-								{% for i in 0..9 %}
-									<div class="cuadro">
-										<figure>
-											<img src="{{ asset('upload/perfil/chica.jpg')}}" alt="Perfil imagen" width="100%" height="100%">
-											<div class="nombre">
-												<div class="grado alineacionPfct">
-													<label >9</label>
-													<div class="curso">
-														<label>1</label>
-													</div>
-												</div>
-												<div class="name alineacionPfct">
-													<p>Estudiante Anonimus</p>
-												</div>
-											</div>
-										</figure>
-									</div>							
-							{% endfor %}
+								
 							</div>
 						</div>
-						{% endif %}
 					</div>
 				</div>
 			</div>	

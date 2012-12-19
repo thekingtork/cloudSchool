@@ -54,16 +54,16 @@ class ma2Controller extends Controller
 
      /**
     *
-    * @Route("/estudiantes", name="ma22")
+    * @Route("/estudiantes/lista", name="ma212")
     */
-    public function ma22Action(){
+    public function ma212Action(){
         $em=$this->getDoctrine()->getEntityManager();
 
         $PerfilEstudiante = $em->getRepository('cloudBundle:PerfilDocente')->findAll();
         
        if(!$PerfilEstudiante)
             return $this->render('cloudBundle:Admin:MA2/ma22.html.twig',array('perfiles'=>$PerfilEstudiante));
-        return $this->render('cloudBundle:Admin:MA2/ma222.html.twig',array('perfiles'=>$PerfilEstudiante));
+        return $this->render('cloudBundle:Admin:MA2/ma212.html.twig',array('perfiles'=>$PerfilEstudiante));
 
     } 
 
