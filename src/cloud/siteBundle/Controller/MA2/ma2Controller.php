@@ -54,7 +54,7 @@ class ma2Controller extends Controller
 
      /**
     *
-    * @Route("/estudiantes/lista", name="ma212")
+    * @Route("/estudiantes/lista", name="ma22")
     */
     public function ma212Action(){
         $em=$this->getDoctrine()->getEntityManager();
