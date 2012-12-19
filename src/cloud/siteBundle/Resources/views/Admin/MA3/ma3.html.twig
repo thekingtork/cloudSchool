@@ -6,6 +6,7 @@
 	 <div class="cuerpoCentrado" id="contMetro">
 		<div id="ContAjax">
 			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma113/ma113.css') }}"/> 
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma1321/ma1321.css') }}"/>
 			<div id="bloqueCgenerales" class="lima">
 				<div id="contenidoIzq">
 					<div class="botonRegresar">
@@ -18,9 +19,35 @@
 				<div id="contenidoDer">
 					<div class="breadcumbr"><a href="{{ path('ma11') }}" class="ajax" >Ajustes generales</a></div>
                     
-					{#Aca va el contenido del lado derecho #}
-					<p>Formulario para agregar planes de estudios</p>
-                    {{ value }}
+				{% if entities is defined %}
+					<div id="content_1">
+						{% for entity in entities %}
+						    <div class="nivel letra">
+                        		<a href="{{ path('ma312', {'id': entity.id }) }}" class="ajax">
+	                          		<p class="titulocajas primera">{{entity.asignatura}}</p>
+	                          		<p class="signoUp textoBlanco">{{entity.curso}}</p>
+	                          		<p class="signoUp textoBlanco">{% if entity.principal == 1 %}
+										Principal
+										{% else %}
+										    entity_plan.sedeId
+										{% endif %}</p>
+                        		</a>
+                      		</div>
+						{% endfor %}
+						<script type="text/javascript">
+		                  $(document).on("ready",iniciar);
+		                  function iniciar(){
+		                     $(".letra .primera").each( function(index){
+		                          var nombre = $(this).text();
+		                          $(this).html( nombre[0] )
+		                     })
+		                  }
+              			</script>
+					</div>
+				{% else %}
+				    <p>No tienes Planes</p>
+				{% endif %}
+                    
                     
                     <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
 				</div>
