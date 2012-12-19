@@ -4,7 +4,7 @@ namespace cloud\siteBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
-/**
+/** 
  * @ORM\Entity
  * @ORM\Table(name="perfil_docente")
  */
@@ -81,6 +81,12 @@ class PerfilDocente
      */
     protected $de;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="EstadoCivil")
+     * @ORM\JoinColumn(name="estadocivil_id", referencedColumnName="id")
+     * @Assert\NotNull(message = "estado civil Campo Obligatorio")
+     */
+    private $estadocivil_id;
 
 
     /**
@@ -922,5 +928,28 @@ class PerfilDocente
     public function getUserId()
     {
         return $this->user_id;
+    }
+
+    /**
+     * Set estadocivil_id
+     *
+     * @param cloud\siteBundle\Entity\EstadoCivil $estadocivilId
+     * @return PerfilDocente
+     */
+    public function setEstadocivilId(\cloud\siteBundle\Entity\EstadoCivil $estadocivilId = null)
+    {
+        $this->estadocivil_id = $estadocivilId;
+    
+        return $this;
+    }
+
+    /**
+     * Get estadocivil_id
+     *
+     * @return cloud\siteBundle\Entity\EstadoCivil 
+     */
+    public function getEstadocivilId()
+    {
+        return $this->estadocivil_id;
     }
 }

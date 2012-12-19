@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 19-12-2012 a las 04:25:14
+-- Tiempo de generación: 19-12-2012 a las 19:45:34
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -366,6 +366,29 @@ INSERT INTO `escnacional` (`id`, `valoracion`) VALUES
 (2, 'Desempeño Básico'),
 (3, 'Desempeño Alto'),
 (4, 'Desempeño Superior');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estado_civil`
+--
+
+CREATE TABLE IF NOT EXISTS `estado_civil` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+
+--
+-- Volcado de datos para la tabla `estado_civil`
+--
+
+INSERT INTO `estado_civil` (`id`, `nombre`) VALUES
+(1, 'Soltero(a)'),
+(2, 'Casado(a)'),
+(3, 'Divorciado(a)'),
+(4, 'Viudo(a)'),
+(5, 'Unión libre');
 
 -- --------------------------------------------------------
 
@@ -1845,19 +1868,21 @@ CREATE TABLE IF NOT EXISTS `perfil_docente` (
   `escalafon` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `resolucion` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `fecha_resolucion` datetime NOT NULL,
+  `estadocivil_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_23484C6558BC1BE0` (`municipio_id`),
   KEY `IDX_23484C652E595373` (`tipodocumento_id`),
-  KEY `IDX_23484C65813AC380` (`cargo_id`)
+  KEY `IDX_23484C65813AC380` (`cargo_id`),
+  KEY `IDX_23484C65D2D890D2` (`estadocivil_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `perfil_docente`
 --
 
-INSERT INTO `perfil_docente` (`id`, `municipio_id`, `tipodocumento_id`, `nombre`, `apellido`, `fecha_nacimiento`, `direccion`, `lugar_nacimiento`, `nmr_documento`, `de`, `sexo`, `email`, `barrio`, `estrato`, `telefono`, `celular`, `personas_cargo`, `titulo_profesional`, `anios_experienca`, `fecha_ingreso`, `salario`, `cargo_id`, `tipo_contrado`, `numero_contrado`, `titulo_pregrado`, `titulo_postgrado`, `especialidad`, `escalafon`, `resolucion`, `fecha_resolucion`) VALUES
-(1, 1, 1, 'Docente', 'Docente', '2012-12-10 00:00:00', 'Docente', 'Docente', '10134', 'Docente', 'm', 'Docente@Docente.com', 'Docente', 1, 'Docente', 'Docente', 1, 'Docente', 1, '2012-12-12 00:00:00', 'Docente', 1, 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', '2012-12-11 00:00:00'),
-(2, 15, 1, 'Docente2', 'Docente2', '2012-12-07 00:00:00', 'Docente', 'Docente', '123456789', 'Docente', 'f', 'Docente@Docente.com', 'Docente', 1, 'Docente', 'Docente', 1, 'Docente', 1, '2012-12-21 00:00:00', 'Docente', 1, 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', '2012-12-11 00:00:00');
+INSERT INTO `perfil_docente` (`id`, `municipio_id`, `tipodocumento_id`, `nombre`, `apellido`, `fecha_nacimiento`, `direccion`, `lugar_nacimiento`, `nmr_documento`, `de`, `sexo`, `email`, `barrio`, `estrato`, `telefono`, `celular`, `personas_cargo`, `titulo_profesional`, `anios_experienca`, `fecha_ingreso`, `salario`, `cargo_id`, `tipo_contrado`, `numero_contrado`, `titulo_pregrado`, `titulo_postgrado`, `especialidad`, `escalafon`, `resolucion`, `fecha_resolucion`, `estadocivil_id`) VALUES
+(1, 1, 1, 'Docente', 'Docente', '2012-12-10 00:00:00', 'Docente', 'Docente', '10134', 'Docente', 'm', 'Docente@Docente.com', 'Docente', 1, 'Docente', 'Docente', 1, 'Docente', 1, '2012-12-12 00:00:00', 'Docente', 1, 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', '2012-12-11 00:00:00', NULL),
+(2, 15, 1, 'Docente2', 'Docente2', '2012-12-07 00:00:00', 'Docente', 'Docente', '123456789', 'Docente', 'f', 'Docente@Docente.com', 'Docente', 1, 'Docente', 'Docente', 1, 'Docente', 1, '2012-12-21 00:00:00', 'Docente', 1, 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', 'Docente', '2012-12-11 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -2256,6 +2281,7 @@ ALTER TABLE `perfil_administrativo`
 -- Filtros para la tabla `perfil_docente`
 --
 ALTER TABLE `perfil_docente`
+  ADD CONSTRAINT `FK_23484C65D2D890D2` FOREIGN KEY (`estadocivil_id`) REFERENCES `estado_civil` (`id`),
   ADD CONSTRAINT `FK_23484C652E595373` FOREIGN KEY (`tipodocumento_id`) REFERENCES `tipo_documento` (`id`),
   ADD CONSTRAINT `FK_23484C6558BC1BE0` FOREIGN KEY (`municipio_id`) REFERENCES `municipio` (`id`),
   ADD CONSTRAINT `FK_23484C65813AC380` FOREIGN KEY (`cargo_id`) REFERENCES `cargo_docente` (`id`);

@@ -1,0 +1,273 @@
+{% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
+{% block title %}
+	MA211
+{% endblock %}
+ 	{% block menu_principal %}
+    <link rel="stylesheet" href="{{ asset('stylesheets/Ma2/Ma211/ma211.css') }}"/>
+   		<div id="ContAjax">
+			<div id="bloqueCgenerales" class="amarillo">
+				<div class="fila">
+					<div class="botonRegresar alineacionPfct">
+						{% block back %}
+							<a href="{{ path('ma2') }}" class="ajax"><img src="{{ asset('images/b_atrasNegro.png') }}"/></a>
+						{% endblock %}
+					</div>
+					<div id="ContTitulo" class="alineacionPfct">
+						<p>Docentes</p>
+					</div>
+					<div class="containerSupDer alineacionPfct">
+						<div class="breadcumbr alineacionPfct">
+						    <a href="{{ path('ma2') }}" class="ajax">Administración de personas</a>
+						</div>
+						<div id="buscador">
+							<input type="search" name="search_user" id="search_user" placeholder="Buscar">
+						</div>			
+					</div>
+				</div>
+				<form action="#" method="post" {{ form_enctype(form) }}>
+                    {{ form_errors(form) }}
+				<div class="fila">
+					<div class="contenedorDerecha alineacionPfct">
+						<div class="contImg">
+							<img src="{{ asset('images/perfil.jpg') }}">
+						</div>
+						<div class="loader">
+							<label>Examinar</label>
+						</div>
+						<div class="Inicio" >
+							<a href="{{ path('ma') }}" class="ajax">Inicio</a>
+						</div>
+					</div>
+					<div class="contenedorIzq alineacionPfct">
+						<div id="content_1">
+							<div class="pantalla alineacionPfct">
+								<div class="tituloVertical">
+									<p>Información Personal</p>
+								</div>
+									<div class="contInf">
+										<div class="fila">
+											<div id="Nombre" class="alineacionPfct">
+												<p class="textoEtq">Nombre(s)</p>
+												{{form_errors(form.nombre)}}
+				    							{{form_widget(form.nombre)}}
+											</div>
+											<div id="apellidos" class="alineacionPfct">
+												<p  class="textoEtq">Apellidos</p>
+												{{form_errors(form.apellido)}}
+				    							{{form_widget(form.apellido)}}
+											</div>										
+										</div>
+										<div class="fila">
+											<div id="lNacimiento" class="alineacionPfct">
+												<p class="textoEtq">Lugar de Nacimiento</p>
+												{{form_errors(form.lugar_nacimiento)}}
+				    							{{form_widget(form.lugar_nacimiento)}}
+											</div>
+											<div id="fNacimiento" class="alineacionPfct">
+												<p class="textoEtq">Fecha de nacimiento</p>
+												{{form_errors(form.fecha_nacimiento)}}
+				    							{{form_widget(form.fecha_nacimiento)}}
+											</div>
+										</div>
+										<div class="fila">
+											<div id="dpto" class="alineacionPfct" >
+												<p class="textoEtq">Departamento</p>
+												<select >
+													<option value="1">Departamento</option>
+													<option value="2">Departamento</option>
+													<option value="3">Departamento</option>
+												</select>
+											</div>
+											<div id="mpio" class="alineacionPfct">
+												<p class="textoEtq">Ciudad</p>
+												{{form_errors(form.municipio_id)}}
+				    							{{form_widget(form.municipio_id)}}
+											</div>
+										</div>
+										<div class="fila">
+											<div id="tipoDoc" class="alineacionPfct">
+												<p class="textoEtq">Identificación</p>
+												{{form_errors(form.tipodocumento_id)}}
+				    							{{form_widget(form.tipodocumento_id)}}
+											</div>
+											<div id="nDoc" class="alineacionPfct">
+												<p class="textoEtq">N°</p>
+												{{form_errors(form.nmr_documento)}}
+				    							{{form_widget(form.nmr_documento)}}
+											</div>
+											<div id="cDoc" class="alineacionPfct">
+												<p class="textoEtq">De</p>
+												{{form_errors(form.de)}}
+				    							{{form_widget(form.de)}}
+											</div>
+										</div>
+										<div class="fila">
+											<div id="Barrio" class="alineacionPfct">
+												<p class="textoEtq">Barrio</p>
+												{{form_errors(form.barrio)}}
+				    							{{form_widget(form.barrio)}}
+											</div>
+											<div id="Direccion" class="alineacionPfct">
+												<p class="textoEtq">Dirección</p>
+												{{form_errors(form.direccion)}}
+				    							{{form_widget(form.direccion)}}
+											</div>
+											<div id="Estrato" class="alineacionPfct">
+												<p class="textoEtq">Estrato</p>
+												{{form_errors(form.estrato)}}
+				    							{{form_widget(form.estrato)}}
+											</div>
+										</div>
+										<div class="fila">
+											<div id="telefono"class="alineacionPfct">
+												<p class="textoEtq">Teléfono</p>
+										 		{{form_errors(form.telefono)}}
+		    									{{form_widget(form.telefono)}}
+											</div>
+											<div id="celular" class="alineacionPfct">
+												<p class="textoEtq">Celular</p>
+												{{form_errors(form.celular)}}
+				    							{{form_widget(form.celular)}}
+											</div>
+											<div id="correo" class="alineacionPfct">
+												<p class="textoEtq">Correo</p>
+												{{form_errors(form.email)}}
+				    							{{form_widget(form.email)}}
+											</div>
+										</div>
+									</div>
+							</div>
+							<div class="alineacionPfct pantalla2">
+								<div class="fila">
+                                    <div id="eps" class="alineacionPfct">
+										<p class="textoEtq">Estado civil</p>
+										{{form_errors(form.estadocivil_id)}}
+		    							{{form_widget(form.estadocivil_id)}}
+									</div>
+						
+									<div id="sexo" class="alineacionPfct">
+										<p class="textoEtq">Sexo</p>
+										{{form_errors(form.sexo)}}
+		    							{{form_widget(form.sexo)}}
+									</div>
+									<div  class="alineacionPfct">
+										<p class="textoEtq">Persona a Cargo</p>
+										{{form_errors(form.personas_cargo)}}
+		    							{{form_widget(form.personas_cargo)}}
+									</div>
+								</div>
+								<div class="fila">
+                                    <div id="obser">
+										<p class="textoEtq">Titulo Profesional</p>
+										{{form_errors(form.titulo_profesional)}}
+		    							{{form_widget(form.titulo_profesional)}}
+									</div>									
+								</div>
+								<div class="fila">
+                                    <div id="obser">
+										<p class="textoEtq">Años ed Experiencia</p>
+										{{form_errors(form.anios_experienca)}}
+		    							{{form_widget(form.anios_experienca)}}
+									</div>									
+								</div>
+							</div>
+							<div class="alineacionPfct pantalla">
+								<div class="tituloVertical">
+									<p>Información Laboral</p>
+								</div>
+								<div class="contInf">
+									<div class="fila">
+	                                    <div id="ColAnt" class="alineacionPfct">
+											<p class="textoEtq">Fecha de ingreso</p>
+											{{form_errors(form.fecha_ingreso)}}
+			    							{{form_widget(form.fecha_ingreso)}}
+										</div>
+									</div>
+									<div class="fila">
+	                                    <div id="sede" class="alineacionPfct">
+											<p class="textoEtq">Salario</p>
+											{{form_errors(form.salario)}}
+			    							{{form_widget(form.salario)}}
+										</div>
+	                                    <div id="jornada" class="alineacionPfct">
+											<p class="textoEtq">Cargo</p>
+											{{form_errors(form.cargo_id)}}
+			    							{{form_widget(form.cargo_id)}}
+										</div>
+									</div>
+									<div class="fila">
+	                                    <div id="nivel" class="alineacionPfct">
+											<p class="textoEtq">Tipo de Contrato</p>
+											{{form_errors(form.tipo_contrado)}}
+			    							{{form_widget(form.tipo_contrado)}}
+										</div>
+	                                    <div id="curso" class="alineacionPfct">
+											<p class="textoEtq">Numero de contrato</p>
+											{{form_errors(form.numero_contrado)}}
+			    							{{form_widget(form.numero_contrado)}}
+										</div>
+									</div>
+									<div class="fila">
+	                                    <div id="obseV">
+											<p class="textoEtq">Titulo Pregado</p>
+											{{form_errors(form.titulo_pregrado)}}
+			    							{{form_widget(form.titulo_pregrado)}}
+										</div>									
+									
+	                                    <div id="obseV">
+											<p class="textoEtq">Titulo Postgrado</p>
+											{{form_errors(form.titulo_postgrado)}}
+			    							{{form_widget(form.titulo_postgrado)}}
+										</div>									
+									</div>
+									<div class="fila">
+	                                    <div id="obseV">
+											<p class="textoEtq">Especialidad</p>
+											{{form_errors(form.especialidad)}}
+			    							{{form_widget(form.especialidad)}}
+										</div>									
+									
+	                                    <div id="obseV">
+											<p class="textoEtq">Escalafon</p>
+											{{form_errors(form.escalafon)}}
+			    							{{form_widget(form.escalafon)}}
+										</div>									
+									</div>
+									<div class="fila">
+	                                    <div id="obseV">
+											<p class="textoEtq">Resolucion</p>
+											{{form_errors(form.resolucion)}}
+			    							{{form_widget(form.resolucion)}}
+										</div>									
+									
+	                                    <div id="obseV">
+											<p class="textoEtq">Fecha resolucion</p>
+											{{form_errors(form.fecha_resolucion)}}
+			    							{{form_widget(form.fecha_resolucion)}}
+										</div>									
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="botonesDow">
+		                    <ul>
+		                        <li>
+		                           	<button class="botonesDw blanco" type="submit">
+		                           		Guardar
+		                           	</button>
+		                        </li>
+		                        <li>
+		                            <input  class="botonesDw blanco" type="button" value="Limpiar" onClick="limpiaForm('#formularioInst form')">
+		                        </li>
+		                        <li>
+		                            <input  class="botonesDw blanco ocultarOverlay" type="button" value="Cancelar">
+		                        </li>
+		                        </ul>
+		                    </div>
+						</div>
+							{{ form_rest(form) }}
+						</form>
+					</div>
+				</div>
+			</div>			
+{% endblock %}

@@ -1,77 +1,68 @@
 {% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
 {% block title %}
-	MA222
+	MA212
 {% endblock %}
  	{% block menu_principal %}
 		<div id="ContAjax">
-			<link rel="stylesheet" href="{{ asset('stylesheets/Ma2/Ma21/ma21.css') }}"/> 
-			<div id="bloqueCgenerales" class="amarillo">
-				<div class="contEneDor">
-					<div class="botonRegresar">
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma2/Ma212/ma212.css') }}"/> 
+			<div id="bloqueCgenerales">
+				<div class="fila">
+					<div class="botonRegresar alineacionPfct">
 						{% block back %}
-							<a href="{{ path('ma2') }}" class="ajax"><img src="{{ asset('images/b_atras.png') }}"></a>
+							<a href="{{ path('ma2') }}" class="ajax"><img src="{{ asset('images/b_atrasNegro.png') }}"/></a>
 						{% endblock %}
 					</div>
-					<div id="ContTitulo">
-						<p>Estudiantes</p>
+					<div id="ContTitulo" class="alineacionPfct">
+						<p>Docentes</p>
 					</div>
-					<div id="contDerecho">
-					    <div class="breadcumbr">
-						    <a href="{{ path('ma1') }}" class="ajax">Administración de personas</a>
-						</div>
+					<div class="containerSupDer alineacionPfct">
+						<div class="breadcumbr alineacionPfct">
+						    <a href="{{ path('ma2') }}" class="ajax">Administración de personas</a>
+						</div>			
 					</div>
 				</div>
-					{% if perfiles is defined %}
-
-					<style type="text/css">
-						.perfil {
-							background: blue;
-							display: inline-block;
-							height: 100px;
-							position: relative;
-							vertical-align: top;
-							width: 100px;
-						}
-						.perfil:nth-child(10n+1) .nombre{
-							background: blue;
-						}
-						.perfil:nth-child(10n+1){
-							width: 150px;
-						}
-						.perfil:nth-child(10n+2){
-							width: 75px;
-						}
-						.perfil .nombre {
-							position: absolute;
-							width: 100%;
-							height: 30px;
-							bottom: 0;
-							font-size: 16px;
-							background: green;
-						}
-					</style>
-					<div id="content_1" class="mCustomScrollbar _mCS_1">
-							
-						{% for i in 0..5 %}
-							<div class="perfil">
-								<figure>
-									<img src="{{ 
-									asset('upload/perfil/default.png') 
-									}}" alt="Perfil imagen" width="100%" height="100%">
-
-									</img>
-									<div class="nombre">
-										{{ loop.index }}
-									</div>
-								</figure>
+				<div class="fila">
+					<div class="contenedorDerecha alineacionPfct">
+						<div class="contImg">
+							<img src="{{ asset('images/b_agregarAmarilo.png') }}">
+						</div>
+						<a href="{{ path('ma221') }}" class="ajax">
+							<div class="addEst amarilloFc">
+								<label>agregar Docente</label>
 							</div>
-						{% endfor %}
+						</a>
+						<div class="Inicio" >
+							<a href="{{ path('ma') }}" class="ajax">Inicio</a>
 						</div>
-					{% endif %}
-				<div class="contEneDor">
-					<div class="Inicio" ><a href="{{ path('ma') }}" class="ajax">Inicio</a></div>
+					</div>
+					<div class="contenedorIzq alineacionPfct">
+						{% if perfiles is defined %}
+						<div id="content_1">
+							<div class="pantalla">
+								{% for i in 0..9 %}
+									<div class="cuadro">
+										<figure>
+											<img src="{{ asset('upload/perfil/chica.jpg')}}" alt="Perfil imagen" width="100%" height="100%">
+											<div class="nombre">
+												<div class="grado alineacionPfct">
+													<label >9</label>
+													<div class="curso">
+														<label>1</label>
+													</div>
+												</div>
+												<div class="name alineacionPfct">
+													<p>Docente Anonimus</p>
+												</div>
+											</div>
+										</figure>
+									</div>							
+							{% endfor %}
+							</div>
+						</div>
+						{% endif %}
+					</div>
 				</div>
-			</div>
+			</div>	
 		</div>
 {% endblock %}
 

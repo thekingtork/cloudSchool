@@ -25,6 +25,7 @@ class PerfilDocenteType extends AbstractType
             ->add('telefono')
             ->add('celular')
             ->add('personas_cargo')
+            ->add('estadocivil_id')
             ->add('titulo_profesional')
             ->add('anios_experienca')
             ->add('fecha_ingreso', 'date', array(    'widget' => 'single_text',    'format' => 'yyyy-MM-dd'))
