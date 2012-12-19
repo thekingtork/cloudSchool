@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 18-12-2012 a las 05:08:45
+-- Tiempo de generación: 19-12-2012 a las 04:25:14
 -- Versión del servidor: 5.5.16
 -- Versión de PHP: 5.3.8
 
@@ -1973,7 +1973,6 @@ CREATE TABLE IF NOT EXISTS `planestudio` (
 --
 
 INSERT INTO `planestudio` (`id`, `sede_id`, `curso_id`, `asignatura_id`, `nactividades`, `periodo_id`, `principal`) VALUES
-(1, NULL, 1, 1, 3, 1, 1),
 (2, NULL, 1, 1, 4, 1, 1);
 
 -- --------------------------------------------------------
@@ -2070,8 +2069,8 @@ CREATE TABLE IF NOT EXISTS `tipo_documento` (
 --
 
 INSERT INTO `tipo_documento` (`id`, `nombre`) VALUES
-(1, 'Cédula de Ciudadania'),
-(2, 'Tarjeta de Identidad');
+(1, 'CC'),
+(2, 'TI');
 
 -- --------------------------------------------------------
 
