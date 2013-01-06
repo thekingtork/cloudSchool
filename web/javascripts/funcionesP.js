@@ -19,13 +19,13 @@ $(document).on("ready", contructor);
             	url: objeto,
             	type: 'get',
             		success: function (r) {    
-                      objeto_ajax.append( "<div style='display:none' id='contHiden'>"+r+"</div>" );
-                      obj = $("#contHiden").find("#ContAjax").html();
-                      var _title =  $("#contHiden").find("title").html();
-                      $("#contHiden").remove();
-                      $("#ContAjax").html(obj);
-                      $("title").html(_title);
-                      console.log(_title)
+                      //objeto_ajax.append( "<div style='display:none' id='contHiden'>"+r+"</div>" );
+                      //obj = $("#contHiden").find("#ContAjax").html();
+                      //var _title =  $("#contHiden").find("title").html();
+                      //$("#contHiden").remove();
+                      $("#ContAjax").html(r);
+                      //$("title").html(_title);
+                      //console.log(_title)
                       window.history.pushState(null, _title, objeto);
                       call_ajax();                      
                     } 
