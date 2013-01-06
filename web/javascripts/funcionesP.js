@@ -7,18 +7,16 @@ $(document).on("ready", contructor);
   }
   function call_ajax(){
     ajax_ajustesEvaluacion();
-    _scroll();//* Falta crear un variable JSON que contenga las vistas que tiene el scroll luego recorrerlas y verificar que (html.title) sea iguala las almacenadas en JSON
-		$(".boxMPA").on("mouseover", animar)
-		$(".boxMPA").on("mouseout", mostrar)
+        validarPos ();                    
         $("a.ajax").click( function(e){
             e.preventDefault();
             $("#ContAjax").html("<img src=\"http://localhost/cloudschool/web/images/ajax-loader.gif\" title=\"Loader\" id=\"loader_ajax\">");
             var objeto = $(this).attr("href");
             console.log(objeto)
             $.ajax({
-            	url: objeto,
-            	type: 'get',
-            		success: function (r) {    
+              url: objeto,
+              type: 'get',
+                success: function (r) {    
                       objeto_ajax.append( "<div style='display:none' id='contHiden'>"+r+"</div>" );
                       obj = $("#contHiden").find("#ContAjax").html();
                       var _title =  $("#contHiden").find("title").html();
@@ -27,7 +25,8 @@ $(document).on("ready", contructor);
                       $("title").html(_title);
                       console.log(_title)
                       window.history.pushState(null, _title, objeto);
-                      call_ajax();                      
+                      call_ajax(); 
+                      _scroll();
                     } 
                 });
             });
@@ -121,21 +120,31 @@ $(document).on("ready", contructor);
 			default: break;
 		}	
 	}
+  function validarPos () {
+    contenedor = $('#ContAjax').children('#CsuperiorIzq');
+      if (contenedor.length == 1) {
+        $(".boxMPA").on("mouseover", animar)
+      }
+      else{
+       var color = $('#ContAjax').children('#bloqueCgenerales').attr('class');
+        switch (color){
+          case undefined:
+            agregaClases("#ContenedorNotf .tile",colorAlmacenado);            
+          break;
+          default:
+            limpiarClases("#ContenedorNotf div",colorAlmacenado);
+            agregaClases("#ContenedorNotf .tile",color);
+          break;
+        }
+      };
+  }
   function limpiarClases (selector,clase) {
     $(selector).removeClass(clase);
   }
   function agregaClases (selector,clase) {
-      colorAlmacenado=clase;
+      colorAlmacenado = clase;
     $(selector).addClass(clase);
   }
-	function mostrar (dato) {
-		var Identificador = dato.currentTarget.id;
-		switch(Identificador){
-			case 'confSitema': 
-			break;
-			default: break;
-		}	
-	}
 
   function _scroll () {
     if( $("#content_1").length )

@@ -11,6 +11,7 @@ use cloud\siteBundle\Entity\PerfilEstudiante;
 use cloud\siteBundle\Entity\PerfilDocente;
 use cloud\siteBundle\Entity\Role;
 use cloud\siteBundle\Form\PerfilDocenteType;
+use cloud\siteBundle\Form\PerfilEstudianteType;
 /**
  * Periodo controller.
  *
