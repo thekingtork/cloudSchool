@@ -90,7 +90,7 @@
 #botonesDow {
   margin: auto;
   position: relative;
-  top: -1.4em;
+  top: 0em;
   width: 60%;
 }
 #botonesDow button {
@@ -131,4 +131,7 @@
   display: block;
   font-size: 1em;
   margin-left: 0.385em;
+}
+.pantalla {
+  height: 231px;
 }
