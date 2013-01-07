@@ -89,16 +89,16 @@
                         </div>  
                     </form>
                 </div>
-                <div id="contenidoDer" class="alineacionPfct">
-                    <div class="breadcumbr"><a href="{{ path('ma113') }}" class="ajax" >Ajustes del Sistema</a></div>
-                    
-                    {% render "cloudBundle:Admin:formRangos" %}
-                    
-                    <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
+                    <div id="contenidoDer" class="alineacionPfct">
+                    <div class="breadcumbr">
+                        <a href="{{ path('ma113') }}" class="ajax" >Ajustes del Sistema</a>
+                    </div>                    
+                    {% render "cloudBundle:Admin:formRangos" %}                    
+                    <div class="Inicio" >
+                        <a href="{{ path('ma') }}" class="ajax" >Inicio</a>
+                    </div>
                 </div>
             </div>
+            <span style="display: none;" data-url={{url('formrango')}} id="enlace"></span>        
         </div>
-        <span style="display: none;" data-url={{url('formrango')}} id="enlace"></span>
-        
-    </div>
 {% endblock %}
