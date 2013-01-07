@@ -113,7 +113,7 @@
                                 <input  class="botonesDw blanco" type="button" value="Limpiar" onClick="limpiaForm('form')">
                             </li>
                             <li>
-                                <input  class="botonesDw blanco ocultarOverlay" type="button" value="Cancelar">
+                                <input  class="botonesDw blanco ocultarOverlay" onClick='window.location.href="{{ path('ma13') }}"' type="button" value="Cancelar">
                             </li>
                         </ul>
                     </div>
@@ -146,9 +146,37 @@
 
 
                 function constructor () {
+                     $(document).keyup(operaEvento);
+                }
+
+                function operaEvento(){ 
+                    valor = 0;
+                    b = false;
                     $("input[name='cloud_sitebundle_periodotype[porcentaje]']").each( function(index){
-                        $(this).attr('value','5')
+                        inputValue = parseFloat( $(this).attr('value'))
+                        console.log(inputValue)
+                        if(!inputValue)
+                        {
+                            $(this).attr('value',0)
+                            b = true;
+                        }
+                        else
+                            valor += inputValue;
                     })
+
+                    if(valor > 100 || b == true)
+                    {
+                        console.log("mayor : " + b)
+                        $("input[name='cloud_sitebundle_periodotype[porcentaje]']").css(
+                            'color','red')
+                    }
+                    else
+                    {
+                        console.log("menor: " + b)
+                        $("input[name='cloud_sitebundle_periodotype[porcentaje]']").css(
+                            'color','black')
+                    }
+                    console.log('valor : ' +valor)
                 }
            
     </script>
