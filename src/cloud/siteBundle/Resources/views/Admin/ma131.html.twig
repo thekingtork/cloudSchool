@@ -4,7 +4,8 @@
 {% endblock %}
 {% block menu_principal %}
 		<div id="ContAjax">
-			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma131/ma131.css') }}"/>             
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma131/ma131.css') }}"/>  
+
 			<div id="bloqueCgenerales" class="azul">
                 <div class="fila">
                     <div class="botonRegresar alineacionPfct">
@@ -125,11 +126,11 @@
                             </div>
                     {% endif %}
 			</div>
-		</div>
     <script>
     	$(document).on("ready", iniciar)
 
     	function iniciar(){
+            constructor()
     		$("button[type='submit']").click(function() {
                 console.log("click")
               $('form').each( function (index) {
@@ -142,6 +143,15 @@
                 return false;
             });
         }
+
+
+                function constructor () {
+                    $("input[name='cloud_sitebundle_periodotype[porcentaje]']").each( function(index){
+                        $(this).attr('value','5')
+                    })
+                }
+           
     </script>
+        </div>
 
 {% endblock %}
