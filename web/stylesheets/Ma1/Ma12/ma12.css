@@ -88,11 +88,13 @@
 	float: left;
     font-family: "Segoe UI light";
     font-size: 18px;
-	width: 60%;
+    line-height: 1.8;
+    text-align: center;
+	width: 50%;
 }
 #modeloEv select{
 	float: left;
-	width: 40%;
+	width: 50%;
 }
 #contEscalaNal{
     margin-bottom: 20px;
@@ -146,8 +148,8 @@
 }
 .textoForm{
     float: left;
-    margin: 0 0 0 7%;
-    width: 40%;
+    margin: 0 0 0 6%;
+    width: 36%;
 }
 #escalaUso .textoForm p{
     color: rgb(255,255,255);
@@ -158,7 +160,7 @@
 }
 #escalaUso select{
     float: left;
-    width: 53%;
+    width: 57%;
 }
 #acumulador{
     float: left;
@@ -166,8 +168,8 @@
 }
 .textoForm2{
     float: left;
-    margin: 0 0 0 7%;
-    width: 67%;
+    margin: 0 0 0 0;
+    width: 71%;
 }
 #acumulador .textoForm2 p{
     color: rgb(255,255,255);
@@ -178,8 +180,8 @@
 }
 #acumulador select{
     float: left;
-    margin-left: 5%;
-    width: 21%;
+    margin-left: 3%;
+    width: 26%;
 }
 #contBotones{
     float: left;
@@ -202,7 +204,7 @@
     margin: 0 5px 5px 40px;
 }
 .Inicio{    
-    top: 0px;
+    top: 11px;
 }
 #rang{
     float: left;
@@ -222,25 +224,25 @@
 }
 #Rangos_limite1{
     border-radius: 0;
-    height: 22px;
+    height: 21px;
     margin-bottom:6px; 
     width: 100%;
 }
 #Rangos_limite2{
     border-radius: 0;
-    height: 22px;
+    height: 21px;
     margin-bottom:6px; 
     width: 100%;
 }
 #Rangos_limite3{
     border-radius: 0;
-    height: 22px;
+    height: 21px;
     margin-bottom:6px; 
     width: 100%;
 }
 #Rangos_limite4{
     border-radius: 0;
-    height: 22px;
+    height: 21px;
     margin-bottom:6px; 
     width: 100%;
 }
