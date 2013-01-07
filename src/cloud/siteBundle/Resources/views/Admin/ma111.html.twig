@@ -12,13 +12,22 @@
 							<a href="{{ path('ma11') }}" class="ajax"><img src="{{ asset('images/b_atras_blue.png') }}"/></a>
 						{% endblock %}
 					</div>
-					<div id="avatarInst">
+					<div id="avatarInst" style="cursor:pointer;">
 						<div id="contAvatar">
 							<img src="{{ asset('upload/institucion/') }}{{ institucion.urlImagen }}" alt=""/>
 						</div>
-						<div id="cargador">
+						<div id="cargador" >
 							<img src="{{ asset('images/b_examinar.png') }}"/>
 						</div>
+						<script type="text/javascript">
+							$(document).on('ready',read);
+							function read(){
+								$('#avatarInst').click(function(){
+								console.log("click cargador")
+								$('input[type="file"]').click()
+								});
+							}
+						</script>
 					</div>
 					<div class="InicioBlue" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
 				</div>

@@ -14,19 +14,20 @@ $(document).on("ready", contructor);
             var objeto = $(this).attr("href");
             console.log(objeto)
             $.ajax({
-              url: objeto,
-              type: 'get',
-                success: function (r) {    
-                      objeto_ajax.append( "<div style='display:none' id='contHiden'>"+r+"</div>" );
-                      obj = $("#contHiden").find("#ContAjax").html();
-                      var _title =  $("#contHiden").find("title").html();
-                      $("#contHiden").remove();
-                      $("#ContAjax").html(obj);
-                      $("title").html(_title);
-                      console.log(_title)
-                      window.history.pushState(null, _title, objeto);
-                      call_ajax(); 
-                      _scroll();
+
+            	url: objeto,
+            	type: 'get',
+            		success: function (r) {    
+                      //objeto_ajax.append( "<div style='display:none' id='contHiden'>"+r+"</div>" );
+                      //obj = $("#contHiden").find("#ContAjax").html();
+                      //var _title =  $("#contHiden").find("title").html();
+                      //$("#contHiden").remove();
+                      $("#ContAjax").html(r);
+                      call_ajax();                      
+                      //$("title").html(_title);
+                      //console.log(_title)
+                      window.history.pushState(null, "CloudSchool", objeto);
+
                     } 
                 });
             });
