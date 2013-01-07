@@ -78,6 +78,7 @@ class AdminController extends Controller
         $em = $this->getDoctrine()->getEntityManager();
         $user = $this->get('security.context')->getToken()->getUser();
         $institucion = $em->getRepository('cloudBundle:Institucion')->find(1);
+        $foto = $institucion->getUrlImagen();
         $editForm = $this->createForm(new InstitucionType(), $institucion); 
 
         if (!$institucion) {
@@ -88,19 +89,29 @@ class AdminController extends Controller
             
             if($editForm->isValid()){
                 $img=$editForm['url_imagen']->getData();
-                $dir='upload/institucion';
-                $ext=$img->guessExtension();
-                if($ext=='jpeg' or $ext=='png'){
-                    $foto=rand(1,999999).'.'.$ext;
+                if(!isset($img))
+                {
                     $institucion->setUrlImagen($foto);
-                    $editForm['url_imagen']->getData()->move($dir, $foto);
                     $em->persist($institucion);
                     $em->flush();
-                    return $this->redirect($this->generateUrl('ma11'));
-                 }else{
-                    throw $this->createNotFoundException( 'Formato de Imagen Incorrecto');
-                                    
-                 }                   
+                    return $this->redirect($this->generateUrl('ma111'));
+                }
+                else
+                {
+                    $dir='upload/institucion';
+                    $ext=$img->guessExtension();
+                    if($ext=='jpeg' or $ext=='png'){
+                        $foto=rand(1,999999).'.'.$ext;
+                        $institucion->setUrlImagen($foto);
+                        $editForm['url_imagen']->getData()->move($dir, $foto);
+                        $em->persist($institucion);
+                        $em->flush();
+                        return $this->redirect($this->generateUrl('ma11'));
+                     }else{
+                        throw $this->createNotFoundException( 'Formato de Imagen Incorrecto');
+                                        
+                     }                   
+                }
                 
                 return $this->redirect($this->generateUrl('ma11'));
             }
@@ -220,6 +231,8 @@ class AdminController extends Controller
                 $entity->setUrlImagen($foto);
                 $em->persist($entity);
                 $em->flush();
+                return $this->redirect($this->generateUrl('ma112'));
+
             }
             else
             {

@@ -7,7 +7,8 @@ $(document).on("ready", contructor);
   }
   function call_ajax(){
     ajax_ajustesEvaluacion();
-        validarPos ();                    
+        validarPos ();  
+        _scroll()                  
         $("a.ajax").click( function(e){
             e.preventDefault();
             $("#ContAjax").html("<img src=\"http://localhost/cloudschool/web/images/ajax-loader.gif\" title=\"Loader\" id=\"loader_ajax\">");

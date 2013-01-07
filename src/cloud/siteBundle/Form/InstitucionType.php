@@ -24,7 +24,7 @@ class InstitucionType extends AbstractType
             ->add('email')
             ->add('distribucion_usuario')
             ->add('modelo_pedagogico')
-            ->add('url_imagen','file')
+            ->add('url_imagen','file',array('required'=>false))
         ;
     }
 
