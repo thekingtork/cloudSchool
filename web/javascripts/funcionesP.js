@@ -12,7 +12,7 @@ $(document).on("ready", contructor);
             e.preventDefault();
             $("#ContAjax").html("<img src=\"http://localhost/cloudschool/web/images/ajax-loader.gif\" title=\"Loader\" id=\"loader_ajax\">");
             var objeto = $(this).attr("href");
-            console.log(objeto)
+            //console.log(objeto)
             $.ajax({
 
             	url: objeto,
