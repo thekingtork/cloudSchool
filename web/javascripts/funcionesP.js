@@ -24,10 +24,10 @@ $(document).on("ready", contructor);
                       //var _title =  $("#contHiden").find("title").html();
                       //$("#contHiden").remove();
                       $("#ContAjax").html(r);
+                      call_ajax();                      
                       //$("title").html(_title);
                       //console.log(_title)
-                      window.history.pushState(null, _title, objeto);
-                      call_ajax();                      
+                      window.history.pushState(null, "CloudSchool", objeto);
                     } 
                 });
             });
