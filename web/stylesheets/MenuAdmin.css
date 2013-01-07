@@ -9,6 +9,9 @@ a {
   font-size: 1.5em;
   margin-top: 21%;
 }
+#admPersonas img {
+  margin: 10% 19% 0% 10%;
+}
 #aulaVirtual p {
   font-size: 2.5em;
   margin-top: 17%;
@@ -74,7 +77,7 @@ a {
   margin-top: 25%;
 }
 #Estaditicas img {
-  margin: 30% 10% 0 2%;
+  margin: 5% 15% 0 2%;
 }
 #organizador p {
   font-size: 1.3em;
@@ -87,6 +90,9 @@ a {
 #planEstudios p {
   font-size: 1.5em;
   margin-top: 20%;
+}
+#planEstudios img {
+  margin: 3% 8% 0 0%;
 }
 #perfil p {
   font-size: 3.5em;
