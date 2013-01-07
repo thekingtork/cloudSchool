@@ -201,6 +201,7 @@ class AdminController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('cloudBundle:Sede')->find($id);
+        $foto = $entity->getUrlImagen();
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Sede entity.');
@@ -213,6 +214,16 @@ class AdminController extends Controller
         if ($editForm->isValid()) {
 
             $img=$editForm['url_imagen']->getData();
+            if(! isset($img))
+            {
+                
+                $entity->setUrlImagen($foto);
+                $em->persist($entity);
+                $em->flush();
+            }
+            else
+            {
+
                 $dir='upload/sede';
                 $ext=$img->guessExtension();
                 if($ext=='jpeg' or $ext=='png'){
@@ -226,6 +237,7 @@ class AdminController extends Controller
                     throw $this->createNotFoundException( 'Formato de Imagen Incorrecto');
                                     
                  }  
+            }
         }
 
          return $this->render('cloudBundle:Admin:ma112_edit.html.twig',array(
