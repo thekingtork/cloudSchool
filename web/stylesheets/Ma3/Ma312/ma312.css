@@ -1,0 +1,134 @@
+#bloqueCgenerales {
+  display: inline-block;
+  height: 100%;
+  vertical-align: top;
+  overflow: hidden;
+  width: 100%;
+}
+#buscador {
+  float: right;
+  margin: 4% 4% 0 0;
+}
+#ContTitulo {
+  margin-left: 2%;
+  width: 60%;
+}
+#ContTitulo p {
+  font-size: 2.2em;
+  line-height: 1;
+  margin-top: 11%;
+  text-align: center;
+}
+.alinear {
+  display: inline-block;
+  vertical-align: top;
+}
+.contenedorDerecha {
+  margin-left: 2%;
+  width: 20%;
+}
+.contenedorIzq {
+  margin: 0 1.5%;
+  width: 74%;
+}
+.containerSupDer {
+  width: 27%;
+}
+.fila2 {
+  display: block;
+  margin: auto;
+  vertical-align: top;
+  width: 95%;
+}
+.Inicio {
+  top: -15px;
+}
+.nivel {
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  height: 180px;
+  margin: 5px 5px;
+  padding: 10px;
+  position: relative;
+  vertical-align: top;
+  width: 180px;
+  text-align: center;
+}
+.nivel:nth-child(4n+1) {
+  background-color: #c3d62f;
+}
+.nivel:nth-child(4n+2) {
+  background-color: #aabd26;
+}
+.nivel:nth-child(4n+3) {
+  background-color: #7fbd2c;
+}
+.nivel:nth-child(4n+4) {
+  background-color: #7fbd2c;
+}
+.pantalla {
+  height: 250px;
+  width: 69.75em;
+}
+.primera {
+  color: #fff;
+  font-family: "Segoe UI light";
+  font-size: 8em;
+  line-height: 1;
+  margin-bottom: 0.09em;
+  text-align: center;
+}
+.textoBlanco {
+  color: #fff;
+  font-family: "Segoe UI light";
+  font-size: 1.3em;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+}
+#botonesDow {
+  margin: auto;
+  position: relative;
+  top: -1.4em;
+  width: 60%;
+}
+#botonesDow button {
+  color: #b1cd49;
+}
+#botonesDow input[type="button"] {
+  color: #b1cd49;
+}
+.breadcumbr a {
+  color: #b1cd49;
+}
+.Inicio {
+  right: 37px;
+  top: 10px;
+}
+.Inicio a {
+  color: #b1cd49;
+}
+.panelInf label {
+  color: #b1cd49;
+  font-family: "Segoe UI light";
+  line-height: 1;
+}
+.panelInf label:first-child {
+  display: inline-block;
+  font-size: 8.5em;
+}
+.panelInf label:nth-child(4n+2) {
+  display: inline-block;
+  font-size: 2.5em;
+}
+.panelInf label:nth-child(4n+3) {
+  display: block;
+  font-size: 1.7em;
+  margin-left: 0.2em;
+}
+.panelInf label:nth-child(4n+4) {
+  display: block;
+  font-size: 1em;
+  margin-left: 0.385em;
+}

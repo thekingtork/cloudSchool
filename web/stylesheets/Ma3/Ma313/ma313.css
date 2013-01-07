@@ -1,0 +1,285 @@
+#bloqueCgenerales {
+  display: inline-block;
+  height: 100%;
+  vertical-align: top;
+  overflow: hidden;
+  width: 100%;
+}
+#buscador {
+  float: right;
+  margin: 4% 4% 0 0;
+}
+#ContTitulo {
+  margin-left: 2%;
+  width: 60%;
+}
+#ContTitulo p {
+  font-size: 2.2em;
+  line-height: 1;
+  margin-top: 11%;
+  text-align: center;
+}
+.alinear {
+  display: inline-block;
+  vertical-align: top;
+}
+.contenedorDerecha {
+  margin-left: 2%;
+  width: 20%;
+}
+.contenedorIzq {
+  margin: 0 1.5%;
+  width: 74%;
+}
+.containerSupDer {
+  width: 27%;
+}
+.fila2 {
+  display: block;
+  margin: auto;
+  vertical-align: top;
+  width: 95%;
+}
+.Inicio {
+  top: -15px;
+}
+.nivel {
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  height: 180px;
+  margin: 5px 5px;
+  padding: 10px;
+  position: relative;
+  vertical-align: top;
+  width: 180px;
+  text-align: center;
+}
+.nivel:nth-child(4n+1) {
+  background-color: #c3d62f;
+}
+.nivel:nth-child(4n+2) {
+  background-color: #aabd26;
+}
+.nivel:nth-child(4n+3) {
+  background-color: #7fbd2c;
+}
+.nivel:nth-child(4n+4) {
+  background-color: #7fbd2c;
+}
+.pantalla {
+  height: 250px;
+  width: 69.75em;
+}
+.primera {
+  color: #fff;
+  font-family: "Segoe UI light";
+  font-size: 8em;
+  line-height: 1;
+  margin-bottom: 0.09em;
+  text-align: center;
+}
+.textoBlanco {
+  color: #fff;
+  font-family: "Segoe UI light";
+  font-size: 1.3em;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+}
+#botonesDow {
+  margin: auto;
+  position: relative;
+  top: -0.4em;
+  width: 60%;
+}
+#botonesDow button {
+  color: #fff;
+}
+#botonesDow input[type="button"] {
+  color: #fff;
+}
+#categoria {
+  width: 55%;
+}
+#categoria p,
+#categoria select {
+  display: inline-block;
+  vertical-align: top;
+}
+#categoria p {
+  color: #fff;
+  font-size: 1.3em;
+  width: 34%;
+}
+#categoria select {
+  height: 27px;
+  width: 61%;
+}
+#dateFin {
+  width: 50%;
+}
+#dateFin p,
+#dateFin input {
+  display: inline-block;
+  vertical-align: top;
+}
+#dateFin p {
+  color: #fff;
+  font-size: 1.3em;
+  width: 33%;
+}
+#dateFin input {
+  width: 63%;
+}
+#dateFin p {
+  font-size: 2em;
+  line-height: 0.8;
+}
+#dateInicio {
+  width: 49%;
+}
+#dateInicio p,
+#dateInicio input {
+  display: inline-block;
+  vertical-align: top;
+}
+#dateInicio p {
+  color: #fff;
+  font-size: 1.3em;
+  width: 33%;
+}
+#dateInicio input {
+  width: 60%;
+}
+#dateInicio p {
+  font-size: 2em;
+  line-height: 0.8;
+}
+#nombreInst {
+  width: 100%;
+}
+#nombreInst p,
+#nombreInst input {
+  display: inline-block;
+  vertical-align: top;
+}
+#nombreInst p {
+  color: #fff;
+  font-size: 1.3em;
+  width: 35%;
+}
+#nombreInst input {
+  width: 63%;
+}
+#porcentaje {
+  width: 49%;
+}
+#porcentaje p,
+#porcentaje input {
+  display: inline-block;
+  vertical-align: top;
+}
+#porcentaje p {
+  color: #fff;
+  font-size: 1.3em;
+  width: 46%;
+}
+#porcentaje input {
+  width: 48%;
+}
+#publicar {
+  width: 50%;
+}
+#publicar p,
+#publicar select {
+  display: inline-block;
+  vertical-align: top;
+}
+#publicar p {
+  color: #fff;
+  font-size: 1.3em;
+  width: 40%;
+}
+#publicar select {
+  height: 27px;
+  width: 58%;
+}
+#tipo {
+  width: 44%;
+}
+#tipo p,
+#tipo select {
+  display: inline-block;
+  vertical-align: top;
+}
+#tipo p {
+  color: #fff;
+  font-size: 1.3em;
+  width: 23%;
+}
+#tipo select {
+  height: 27px;
+  width: 75%;
+}
+#categoria,
+#dateInicio,
+#dateFin,
+#porcentaje,
+#publicar,
+#tipo {
+  display: inline-block;
+  vertical-align: top;
+}
+#ultimaFila {
+  margin-top: 5%;
+}
+.Inicio {
+  right: 37px;
+  top: 10px;
+}
+.Inicio a {
+  color: #fff;
+}
+.datosActv {
+  display: inline-block;
+  float: left;
+  height: 218px;
+  margin-right: 1em;
+  vertical-align: top;
+  width: 60em;
+}
+.variasLineas {
+  display: inline-block;
+  margin-top: 2%;
+  vertical-align: top;
+  width: 50%;
+}
+.unaLinea {
+  display: inline-block;
+  vertical-align: top;
+  width: 25%;
+}
+.panelInf label {
+  color: #fff;
+  font-family: "Segoe UI light";
+  line-height: 1;
+}
+.panelInf label:first-child {
+  display: inline-block;
+  font-size: 8.5em;
+}
+.panelInf label:nth-child(4n+2) {
+  display: inline-block;
+  font-size: 2.5em;
+}
+.panelInf label:nth-child(4n+3) {
+  display: block;
+  font-size: 1.7em;
+  margin-left: 0.2em;
+}
+.panelInf label:nth-child(4n+4) {
+  display: block;
+  font-size: 1em;
+  margin-left: 0.385em;
+}

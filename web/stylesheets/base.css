@@ -334,7 +334,7 @@ header {
   display: inline;
   float: left;
   position: relative;
-  top: 15px;
+  top: 0px;
 }
 .InicioBlue a {
   color: #00aeef;
@@ -369,6 +369,9 @@ header {
 }
 .negro {
   background-color: #000;
+}
+.negroFC {
+  color: #000;
 }
 .overlay {
   background-color: rgba(0,0,0,0.85);

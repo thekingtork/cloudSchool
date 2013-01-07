@@ -1,0 +1,98 @@
+@import "clasesLima.styl"
+alinear()
+    display inline-block
+    vertical-align top
+itemInput(anchoId,anchoP,anchoT)
+        width anchoId
+        p,input
+            alinear()
+        p
+            color white
+            font-size 1.3em
+            width anchoP
+        input
+            width anchoT
+itemSelect(anchoId,anchoP,anchoT)
+        width anchoId
+        p,select
+            alinear()
+        p
+            color white
+            font-size 1.3em
+            width anchoP
+        select
+            height 27px
+            width anchoT
+#botonesDow
+    margin auto
+    position relative
+    top -0.4em
+    width 60%
+    button
+        color white
+    input[type="button"]
+        color white
+#categoria
+    itemSelect(55%,34%,61%)
+#dateFin
+    itemInput(50%,33%,63%)
+    p
+        font-size 2em
+        line-height .8
+#dateInicio
+    itemInput(49%,33%,60%)
+    p
+        font-size 2em
+        line-height .8
+#nombreInst
+    itemInput(100%,35%,63%)
+#porcentaje
+    itemInput(49%,46%,48%)
+#publicar
+    itemSelect(50%,40%,58%)
+#tipo
+    itemSelect(44%,23%,75%)
+#categoria,#dateInicio,#dateFin,#porcentaje,#publicar,#tipo
+    alinear()
+#ultimaFila
+    margin-top 5%
+.Inicio
+    right 37px
+    top 10px
+    a
+        color white
+.datosActv
+	display inline-block
+	float left
+	height 218px
+	margin-right 1em
+	vertical-align top
+	width 60em
+.variasLineas
+    display inline-block
+    margin-top 2%
+    vertical-align top
+    width 50%
+.unaLinea
+	display inline-block
+	vertical-align top
+	width 25%
+.panelInf
+    label
+        color white
+        font-family "Segoe UI light"
+        line-height 1
+    label:first-child
+        display inline-block
+        font-size 8.5em
+    label:nth-child(4n+2)
+        display inline-block
+        font-size 2.5em
+    label:nth-child(4n+3)
+        display block
+        font-size 1.7em
+        margin-left .2em
+    label:nth-child(4n+4)
+        display block
+        font-size 1em
+        margin-left .385em

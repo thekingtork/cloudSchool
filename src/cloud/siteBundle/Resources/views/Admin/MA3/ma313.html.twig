@@ -1,127 +1,113 @@
 {% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
 {% block title %}
-	MA312
+	MA313
 {% endblock %}
 {% block menu_principal %}
-	 <div class="cuerpoCentrado" id="contMetro">
+	<div class="cuerpoCentrado" id="contMetro">
 		<div id="ContAjax">
-			<link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma113/ma113.css') }}"/> 
-           <link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma1321/ma1321.css') }}"/>
-
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma3/Ma313/ma313.css') }}"/>
 			<div id="bloqueCgenerales" class="lima">
-				<div id="contenidoIzq">
-					<div class="botonRegresar">
+				<div class="fila">
+					<div class="botonRegresar alineacionPfct">
 						{% block back %}
-							<a href="{{ path('ma312',{ 'id' : id }) }}" class="ajax" ><img src="{{ asset('images/b_atras.png') }}"></a>
+							<a href="{{ path('ma2') }}" class="ajax"><img src="{{ asset('images/b_atras.png') }}"/></a>
 						{% endblock %}
 					</div>
-                    {% if entity_plan is defined %}
-                    	<div class="plan">
-							<div>
-								<div class="grado">{{ entity_plan.curso.gradoId.name }}</div>
-								<span class="curso">{{ entity_plan.curso.name }}</span>
-							</div>
-							<div>
-								<div class="jornada">Jornada</div>
-								<span class="sede">{% if entity_plan.principal == 1 %}
-									Principal
-									{% else %}
-									    entity_plan.sedeId
-									{% endif %}
-								</span>
-							</div>
-						</div>
-						{% else %}
-						    No tienes Plan
-                    {% endif %}
+					<div id="ContTitulo" class="alineacionPfct">
+						<p class="blancoFc">Actividad 1 Primer periodo</p>
+					</div>
+					<div class="containerSupDer alineacionPfct">
+						<div class="breadcumbr alineacionPfct">
+						    <a href="{{ path('ma2') }}" class="ajax">Plan de estudio</a>
+						</div>			
+					</div>
 				</div>
-				<div id="contenidoDer">
-					<div class="breadcumbr"><a href="{{ path('ma11') }}" class="ajax" >Ajustes generales</a></div>
-                    
-					{% if entities is defined %}
-					
+				<div class="fila">
+					<div class="contenedorDerecha alineacionPfct">
+						<div class="panelInf">
+							<label>8</label>
+							<label>1</label>
+							<label>Mañana</label>
+							<label>Principal</label>
+						</div>
+						<div class="Inicio" >
+							<a href="{{ path('ma') }}" class="ajax limaFc">Inicio</a>
+						</div>
+					</div>
+					<div class="contenedorIzq alineacionPfct">
+						{% if entities is defined %}					
 							<form action="{{ path('ma111')}}" method="post" {{ form_enctype(edit_form) }}>
-							{{form_errors(edit_form)}}
-							<div id="content_1">
-								<div class="pantalla">
-									<div class="fila">
-										<div id="nombreInst" class="entradaTexto">
-			    							<p class="textoEtq">Nombre Actividad</p>
-			    							{{form_errors(edit_form.name)}}
-			    							{{form_widget(edit_form.name)}}
-		    							</div>
-									</div>
-									<div class="fila">
-										<div id="nombreInst" class="entradaTexto">
-			    							<p class="textoEtq">Publicar</p>
-			    							{{form_errors(edit_form.publicar)}}
-			    							{{form_widget(edit_form.publicar)}}
-		    							</div>
-									</div>
-									<div class="fila">
-										<div id="nombreInst" class="entradaTexto">
-			    							<p class="textoEtq">Categoria</p>
-			    							{{form_errors(edit_form.categoria)}}
-			    							{{form_widget(edit_form.categoria)}}
-		    							</div>
-									</div>
-									<div class="fila">
-										<div id="nombreInst" class="entradaTexto">
-			    							<p class="textoEtq">Tipo</p>
-			    							{{form_errors(edit_form.tipo)}}
-			    							{{form_widget(edit_form.tipo)}}
-		    							</div>
-									</div>
-									<div class="fila">
-										<div id="nombreInst" class="entradaTexto">
-			    							<p class="textoEtq">Tipo</p>
-			    							{{form_errors(edit_form.date_inicio)}}
-			    							{{form_widget(edit_form.date_inicio)}}
-		    							</div>
-									</div>
-									<div class="fila">
-										<div id="nombreInst" class="entradaTexto">
-			    							<p class="textoEtq">Tipo</p>
-			    							{{form_errors(edit_form.date_final)}}
-			    							{{form_widget(edit_form.date_final)}}
-		    							</div>
-									</div>
-																	
-								</div>
-								<div class="pantalla">
-									<div class="fila">
-										<div id="nombreInst" class="entradaTexto">
-			    							<p class="textoEtq">Descripcion de la Actividad</p>
-			    							{{form_errors(edit_form.descripcion)}}
-			    							{{form_widget(edit_form.descripcion)}}
-		    							</div>
-									</div>
-								</div>
-								<div class="pantalla">
-									<div class="fila">
-										<div id="nombreInst" class="entradaTexto">
-			    							<p class="textoEtq">Logros o Competencias esperados</p>
-			    							{{form_errors(edit_form.logro_competencia)}}
-			    							{{form_widget(edit_form.logro_competencia)}}
-		    							</div>
+								{{form_errors(edit_form)}}
+								<div id="content_1">
+								<div class="datosActv">
+									<div class="variasLineas">
+										<div class="fila">
+											<div id="nombreInst" class="entradaTexto">
+					    						<p class="textoEtq">Nombre Actividad</p>
+					    						{{form_errors(edit_form.name)}}
+					    						{{form_widget(edit_form.name)}}
+				    						</div>
+										</div>
+										<div class="fila">
+											<div id="porcentaje" class="entradaTexto">
+					    						<p class="textoEtq">% Actividad</p>
+					    						{{form_errors(edit_form.Porcentaje)}}
+					    						{{form_widget(edit_form.Porcentaje)}}
+				    						</div>		
+											<div id="publicar" class="entradaTexto">
+					    						<p class="textoEtq">Publicar</p>
+					    						{{form_errors(edit_form.publicar)}}
+					    						{{form_widget(edit_form.publicar)}}
+				    						</div>
+										</div>
+										<div class="fila">
+											<div id="categoria" class="entradaTexto">
+					    						<p class="textoEtq">Categoria</p>
+					    						{{form_errors(edit_form.categoria)}}
+					    						{{form_widget(edit_form.categoria)}}
+				    						</div>
+											<div id="tipo" class="entradaTexto">
+					    						<p class="textoEtq">Tipo</p>
+					    						{{form_errors(edit_form.tipo)}}
+					    						{{form_widget(edit_form.tipo)}}
+				    						</div>
+										</div>
+										<div id="ultimaFila" class="fila">
+											<div id="dateInicio" class="entradaTexto">
+					    						<p class="textoEtq">Inicio</p>
+					    						{{form_errors(edit_form.date_inicio)}}
+					    						{{form_widget(edit_form.date_inicio)}}
+				    						</div>
+											<div id="dateFin" class="entradaTexto">
+					    						<p class="textoEtq">Final</p>
+					    						{{form_errors(edit_form.date_final)}}
+					    						{{form_widget(edit_form.date_final)}}
+				    						</div>
+										</div>	
 									</div>
 								</div>
 							</div>
-							<div id="botonesDow">
-								<ul>
-									<li><button class="botonesDw" type="submit">Guardar</button></li>
-									<li><input  class="botonesDw" type="button" value="Limpiar" onClick="limpiaForm('#formularioInst form')"></li>
-									<li><input  class="botonesDw" type="button" value="Eliminar"></li>
-								</ul>
-							</div>
-							 {{ form_rest(edit_form) }}
-						</form>
+								<div id="botonesDow">
+				                    <ul>
+				                        <li>
+				                           	<button class="botonesDw blanco" type="submit">
+				                           		Guardar
+				                           	</button>
+				                        </li>
+				                        <li>
+				                            <input  class="botonesDw blanco" type="button" value="Limpiar" onClick="limpiaForm('#formularioInst form')">
+				                        </li>
+				                        <li>
+				                            <input  class="botonesDw blanco ocultarOverlay" type="button" value="Cancelar">
+				                        </li>
+				                    </ul>
+				                </div>
+				            </form>
 						{% else %}
 						    <p>No tienes actividades</p>
 					{% endif %}
-                    
-                    <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
-				</div>
+					</div>
+				</div>	
 			</div>
 		</div>
 	</div>

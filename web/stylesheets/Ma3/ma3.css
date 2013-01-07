@@ -1,0 +1,72 @@
+#bloqueCgenerales {
+  display: inline-block;
+  height: 100%;
+  vertical-align: top;
+  overflow: hidden;
+  width: 100%;
+}
+#buscador {
+  float: right;
+  margin: 4% 4% 0 0;
+}
+#ContTitulo {
+  margin-left: 2%;
+  width: 40%;
+}
+#ContTitulo p {
+  font-size: 2.2em;
+  line-height: 1;
+  margin-top: 18%;
+  text-align: center;
+}
+.alinear {
+  display: inline-block;
+  vertical-align: top;
+}
+.breadcumbr a {
+  color: #000;
+}
+.containerSupDer {
+  width: 48%;
+}
+.fila2 {
+  display: block;
+  margin: auto;
+  vertical-align: top;
+  width: 95%;
+}
+.Inicio {
+  top: -15px;
+}
+.Inicio a {
+  color: #fff;
+}
+.nivel {
+  background: #add8e6;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  height: 180px;
+  margin: 5px 5px;
+  padding: 10px;
+  position: relative;
+  vertical-align: top;
+  width: 180px;
+  text-align: center;
+}
+.primera {
+  color: #fff;
+  font-family: "Segoe UI light";
+  font-size: 8em;
+  line-height: 1;
+  margin-bottom: 0.09em;
+  text-align: center;
+}
+.textoBlanco {
+  color: #fff;
+  font-family: "Segoe UI light";
+  font-size: 1.3em;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+}
