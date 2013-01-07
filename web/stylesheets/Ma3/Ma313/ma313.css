@@ -156,6 +156,30 @@
   font-size: 2em;
   line-height: 0.8;
 }
+#descActiv {
+  width: 100%;
+}
+#descActiv p {
+  color: #fff;
+  font-size: 1.3em;
+  margin-top: 1em;
+}
+#descActiv textarea {
+  width: 96%;
+  height: 8.35em;
+}
+#logros {
+  width: 100%;
+}
+#logros p {
+  color: #fff;
+  font-size: 1.3em;
+  margin-top: 1em;
+}
+#logros textarea {
+  width: 96%;
+  height: 8.35em;
+}
 #nombreInst {
   width: 100%;
 }
@@ -247,7 +271,7 @@
   height: 218px;
   margin-right: 1em;
   vertical-align: top;
-  width: 60em;
+  width: 69em;
 }
 .variasLineas {
   display: inline-block;
@@ -259,6 +283,9 @@
   display: inline-block;
   vertical-align: top;
   width: 25%;
+}
+.unaLinea:nth-child(2n+1) {
+  width: 23%;
 }
 .panelInf label {
   color: #fff;
