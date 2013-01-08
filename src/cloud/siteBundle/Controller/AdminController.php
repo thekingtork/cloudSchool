@@ -339,12 +339,12 @@ class AdminController extends Controller
 
         $entity = $em->getRepository('cloudBundle:Anio')->findBy(array('active'=>1));
         if(!$entity)
-            return $this->render('cloudBundle:Admin:ma1132.html.twig', array('entity'=>$entity));
+            return $this->render('cloudBundle:Admin:ma1132.html.twig', array());
         else
             $entity = $em->getRepository('cloudBundle:Inscripcion')->findBy(array('active'=>1));
 
         if(!$entity)
-            return $this->render('cloudBundle:Admin:ma1132.html.twig', array('entity'=>$entity));
+            return $this->render('cloudBundle:Admin:ma1132.html.twig', array());
             
         return $this->redirect($this->generateUrl('ma11321', array('id' => $entity[0]->getId() )));
 
