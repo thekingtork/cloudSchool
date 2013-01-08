@@ -86,9 +86,10 @@
 		    		})
 
 		    		$("a.Iperiodo").click( function(e){
-		    			e.preventDefault();
+		    			console.log($(this).attr("data-as"))
 		    			if( $(this).attr("data-as") == "nulo" )
 		    			{
+		    				e.preventDefault();
 		    				$('.overlay form').attr('action',"{{ path('ma131') }}");
 		    				$('.overlay .linea p').html("Ingresa el numero de periodos")
                             $('.overlay').css('display','block');

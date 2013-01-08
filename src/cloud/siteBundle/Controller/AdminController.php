@@ -163,13 +163,23 @@ class AdminController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $user = $this->get('security.context')->getToken()->getUser();
+            //$user = $this->get('security.context')->getToken()->getUser();
             //$institucion = $em->getRepository('cloudBundle:Institucion')->find(); 
-            $entity->setInstitucionId($user->getInstitucionId());
-            $em->persist($entity);
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('ma112'));
+            //$entity->setInstitucionId($user->getInstitucionId());
+            $img=$form['url_imagen']->getData();
+                $dir='upload/sede';
+                $ext=$img->guessExtension();
+                if($ext=='jpeg' or $ext=='png'){
+                    $foto=rand(1,999999).'.'.$ext;
+                    $entity->setUrlImagen($foto);
+                    $form['url_imagen']->getData()->move($dir, $foto);
+                    $em->persist($entity);
+                    $em->flush();
+                    return $this->redirect($this->generateUrl('ma112'));
+                 }else{
+                    throw $this->createNotFoundException( 'Formato de Imagen Incorrecto');
+                                    
+                 }  
         }
         return $this->render('cloudBundle:Admin:ma112_new.html.twig',array(
             'entity' => $entity,

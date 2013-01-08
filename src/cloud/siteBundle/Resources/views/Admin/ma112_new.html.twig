@@ -13,12 +13,24 @@
 						{% endblock %}
 					</div>
 					<div id="avatarInst">
-						<div id="contAvatar">
+						<div id="contAvatar" style="cursor:pointer;">
 							<img src="{{ asset('images/Examinar.png') }}" alt="">
 						</div>
 						<div id="cargador">
 							<img src="{{ asset('images/b_examinar.png') }}">
 						</div>
+						<script type="text/javascript">
+							$(document).on('ready',read);
+							function read(){
+								$('input[type="file"]')[0].setAttribute("required", "true");
+								$('#avatarInst').click(function(){
+									console.log("click cargador")
+									$('input[type="file"]').click()
+								});
+
+								
+							}
+						</script>
 					</div>
 					<div class="InicioBlue" ><a href="{{ path('ma') }}" class="ajax" >Inicio</a></div>
 				</div>
@@ -31,7 +43,7 @@
 					</div>  
 					<div id="formularioInst">
 						<div id="content_1">
-							<form action="#" method="post" {{ form_enctype(form) }}>
+							<form action="{{ path('ma112_create') }}" method="post" {{ form_enctype(form) }}>
 								<div class="pantalla">
 									<div class="fila">
 											<div class="entradaTexto" id="nombre">
