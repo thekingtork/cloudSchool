@@ -155,7 +155,7 @@
                     b = false;
                     $("input[name='cloud_sitebundle_periodotype[porcentaje]']").each( function(index){
                         inputValue = parseFloat( $(this).attr('value'))
-                        console.log(inputValue)
+                        //console.log(inputValue)
                         if(!inputValue)
                         {
                             $(this).attr('value',0)
@@ -167,17 +167,17 @@
 
                     if(valor > 100 || b == true)
                     {
-                        console.log("mayor : " + b)
+                        //console.log("mayor : " + b)
                         $("input[name='cloud_sitebundle_periodotype[porcentaje]']").css(
                             'color','red')
                     }
                     else
                     {
-                        console.log("menor: " + b)
+                        //console.log("menor: " + b)
                         $("input[name='cloud_sitebundle_periodotype[porcentaje]']").css(
                             'color','black')
                     }
-                    console.log('valor : ' +valor)
+                   // console.log('valor : ' +valor)
                 }
            
     </script>

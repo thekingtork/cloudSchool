@@ -330,18 +330,22 @@ class AdminController extends Controller
 
     /**
      *
-     * @Route("/sistema/otrosajustes/apertinscripcion", name="ma1132")
+     * @Route("/sistema/otrosajustes/apertinscripcion", name="ma1132") 
      */
     public function ma1132Action()
     {
          $em = $this->getDoctrine()->getManager();
         
 
-        $entity = $em->getRepository('cloudBundle:Inscripcion')->findBy(array('active'=>1));
+        $entity = $em->getRepository('cloudBundle:Anio')->findBy(array('active'=>1));
+        if(!$entity)
+            return $this->render('cloudBundle:Admin:ma1132.html.twig', array('entity'=>$entity));
+        else
+            $entity = $em->getRepository('cloudBundle:Inscripcion')->findBy(array('active'=>1));
 
         if(!$entity)
             return $this->render('cloudBundle:Admin:ma1132.html.twig', array('entity'=>$entity));
-        
+            
         return $this->redirect($this->generateUrl('ma11321', array('id' => $entity[0]->getId() )));
 
     }
