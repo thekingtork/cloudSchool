@@ -4,34 +4,37 @@ $(document).on("ready", contructor);
 		objeto_ajax = $("#contenedorMetro");
 		actualizaReloj();
 		call_ajax();
-  }
-  function call_ajax(){
     ajax_ajustesEvaluacion();
         validarPos ();  
         _scroll()                  
+  }
+  function call_ajax(){
         $("a.ajax").click( function(e){
             e.preventDefault();
             $("#ContAjax").html("<img src=\"http://localhost/cloudschool/web/images/ajax-loader.gif\" title=\"Loader\" id=\"loader_ajax\">");
             var objeto = $(this).attr("href");
             //console.log(objeto)
             $.ajax({
-
+              async : true,
             	url: objeto,
             	type: 'get',
             		success: function (r) {    
-                      //objeto_ajax.append( "<div style='display:none' id='contHiden'>"+r+"</div>" );
-                      //obj = $("#contHiden").find("#ContAjax").html();
-                      //var _title =  $("#contHiden").find("title").html();
-                      //$("#contHiden").remove();
                       $("#ContAjax").html(r);
                       call_ajax();                      
-                      //$("title").html(_title);
-                      //console.log(_title)
                       window.history.pushState(null, "CloudSchool", objeto);
-
-                    } 
+                      // $.getScript(objeto, function() {                    });
+                         ajax_ajustesEvaluacion();
+                          validarPos();  
+                          $('#scripts').html('<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script><script src="/cloudschool/web/javascripts/jquery.mCustomScrollbar.js"></script></script><script src="/cloudschool/web/javascripts/jquery.mousewheel.min.js"></script>')                          
+                          console.log("success")
+                    },
+                complete: function(){
+                          _scroll()  
+                          console.log('complete')
+                }
                 });
             });
+
         }
     function limpiaForm(miForm) {
           $(':input', miForm).each(function() {
@@ -43,8 +46,8 @@ $(document).on("ready", contructor);
           this.checked = false;
           else if (tag == 'select')
           this.selectedIndex = -1;
-  	});
-        }
+  	  });
+    }
     function actualizaReloj(){ 
           marcacion = new Date();
           Hora = marcacion.getHours() 
@@ -151,18 +154,19 @@ $(document).on("ready", contructor);
   function _scroll () {
     if( $("#content_1").length )
     {
-      $("#content_1").mCustomScrollbar({
-          horizontalScroll:true,
-          scrollButtons:{
-            enable:false,
-            scrollType:"continuous",
-            scrollSpeed:20,
-            scrollAmount:40
-          },
-          advanced:{
-            autoExpandHorizontalScroll:true,
-          },
-      });
+
+        $("#content_1").mCustomScrollbar({
+            horizontalScroll:true,
+            scrollButtons:{
+              enable:false,
+              scrollType:"continuous",
+              scrollSpeed:20,
+              scrollAmount:40
+            },
+            advanced:{
+              autoExpandHorizontalScroll:true,
+            },
+        });
     }
   }
 function ajax_ajustesEvaluacion(){

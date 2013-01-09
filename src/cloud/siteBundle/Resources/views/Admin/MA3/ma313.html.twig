@@ -10,7 +10,7 @@
 				<div class="fila">
 					<div class="botonRegresar alineacionPfct">
 						{% block back %}
-							<a href="{{ path('ma2') }}" class="ajax"><img src="{{ asset('images/b_atras.png') }}"/></a>
+							<a href="{{ path('ma31') }}" class="ajax"><img src="{{ asset('images/b_atras.png') }}"/></a>
 						{% endblock %}
 					</div>
 					<div id="ContTitulo" class="alineacionPfct">
@@ -25,10 +25,11 @@
 				<div class="fila">
 					<div class="contenedorDerecha alineacionPfct">
 						<div class="panelInf">
-							<label>8</label>
-							<label>1</label>
-							<label>Mañana</label>
-							<label>Principal</label>
+							<label>{{ entity_plan.curso.gradoId.id }}</label>
+							<label>{{ entity_plan.curso.name }}</label>
+							<label>Jornada</label>
+							<label> {% if entity_plan.principal == 1 %} Principal {% else %}
+							    {{ entity_plan.sede_id.name }}{% endif %}</label>
 						</div>
 						<div class="Inicio" >
 							<a href="{{ path('ma') }}" class="ajax limaFc">Inicio</a>
@@ -126,7 +127,7 @@
 					{% endif %}
 					</div>
 				</div>	
-			</div>
+			</div>			
 		</div>
 	</div>
 {% endblock %}
