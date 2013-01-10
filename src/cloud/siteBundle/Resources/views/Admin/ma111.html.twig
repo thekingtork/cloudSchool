@@ -10,7 +10,7 @@
 					<div class="botonRegresar">
 						{% block back %}
 							<a href="{{ path('ma11') }}" class="ajax"><img src="{{ asset('images/b_atras_blue.png') }}"/></a>
-						{% endblock %}
+						{% endblock %} 
 					</div>
 					<div id="avatarInst" style="cursor:pointer;">
 						<div id="contAvatar">
@@ -44,7 +44,7 @@
 						{% if institucion is defined %}		
 						<form action="{{ path('ma111')}}" method="post" {{ form_enctype(edit_form) }}>
 							{{form_errors(edit_form)}}
-							<div id="content_1">
+							<div id="content_1" >
 								<div class="pantalla">
 									<div class="fila">
 										<div id="nombreInst" class="entradaTexto">
