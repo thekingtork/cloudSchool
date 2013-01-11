@@ -54,8 +54,6 @@ body {
 #bloqueLogin p {
   margin: 0.5em 0;
   text-align: center;
-/*input:hover
-            border 2px solid Blanco*/
 }
 #bloqueLogin p input {
   background: transparent;
@@ -94,4 +92,9 @@ body {
   line-height: 1;
   margin: 0.25em auto;
   width: 90%;
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024) and (orientation : landscape) {
+  .bienvenida {
+    width: 70%;
+  }
 }
