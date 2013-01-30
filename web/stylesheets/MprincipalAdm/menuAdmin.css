@@ -1,122 +1,156 @@
-#confSitema  p{
-   font-size: 197%;
-   margin-top: 70%;
+a {
+  text-decoration: none;
 }
-#Estaditicas a p{
-   font-size: 180%;
-   margin-top: 21%;
+#admacademica p {
+  font-size: 1.9em;
+  margin: 28% 0 0 6%;
 }
-#planEstudios a p{
-    font-size: 180%;
+#admPersonas p {
+  font-size: 1.5em;
+  margin-top: 21%;
 }
-#admacademica a p{
-   font-size: 240%;
-   margin: 21% 0 0 10%;
+#admPersonas img {
+  margin: 10% 19% 0% 10%;
 }
-#obsevaciones a p{
-   font-size: 180%;
-   margin-top: 21%;
+#aulaVirtual p {
+  font-size: 2.5em;
+  margin-top: 17%;
 }
-#admPersonas a p{
-   font-size: 153%%;
-   margin-top: 21%;
+#CinferiorDer {
+  height: 38%;
+  overflow: hidden;
+  width: 53%;
 }
-#organizador a p{
-   font-size: 180%;
-   margin-top: 21%;
+#CinferiorDer .boxMPA:nth-child(1) {
+  margin-right: 0.25em;
 }
-#perfil a p{
-   font-size: 360%;
-   margin-top: 21%;
+#CinferiorIzq {
+  height: 38%;
+  overflow: hidden;
+  width: 45%;
 }
-#tutoriales a p{
-   font-size: 180%;
-   margin-top: 21%;
+#CinferiorIzq .boxMPA:nth-child(1) {
+  margin-right: 0.25em;
 }
-#aulaVirtual a p{
-   font-size: 240%;
-   margin: 5% 0 0 10%;
+#CsuperiorDer {
+  height: 61%;
+  margin: 0 0 0.25em 0;
+  overflow: hidden;
+  vertical-align: top;
+  width: 53%;
 }
-#CsuperiorIzq{
-    float: left;
-    height: 64%;
-    overflow: hidden;
-    vertical-align: top;
-    width: 40%;
+#CsuperiorDer .boxMPA:nth-child(1) {
+  margin-right: 0.25em;
 }
-#CsuperiorDer{
-    float: left;
-    height: 64%;
-    overflow: hidden;
-    vertical-align: top;
-    width: 60%;
+#CsuperiorDer .boxMPA:nth-child(2) {
+  margin-bottom: 0.25em;
 }
-#CinferiorIzq{
-    float: left;
-    height: 34%;
-    margin-top:0.9%; 
-    overflow: hidden;
-    width: 40%;
+#CsuperiorIzq {
+  height: 61%;
+  margin: 0 0 0.25em 0;
+  overflow: hidden;
+  vertical-align: top;
+  width: 45%;
 }
-#CinferiorDer{
-    float: left;
-    height: 34%;
-    margin-top:0.9%;
-    overflow: hidden;
-    width: 60%;
+#CsuperiorIzq .boxMPA:nth-child(1) {
+  margin-right: 0.25em;
 }
-.boxMPA{
-    cursor: pointer;
-    box-shadow: inset 0px 0px 1px #FFFFCC;
-    float: left;
-    margin: 0 2% 2% 0;
-    overflow: hidden;
-    padding: 3%;
-    position: relative;
-    vertical-align: top;
+#CsuperiorIzq .boxMPA:nth-child(2) {
+  margin-bottom: 0.25em;
 }
-.boxMPA:hover{
-    border: solid 2px ;
-    border-color: rgba(166, 166, 166, 0.8) 
+#CsuperiorIzq,
+#CsuperiorDer,
+#CinferiorIzq,
+#CinferiorDer {
+  display: inline-block;
+  vertical-align: top;
 }
-.caja1MPA{
-    height: 100%;
-    width: 48%;
+#confSitema p {
+  font-size: 2em;
+  margin-top: 70%;
 }
-.caja2MPA{
-    height: 48.5%;
-    width: 48%;
+#confSitema img {
+  margin: 30% 10% 0 2%;
 }
-.caja3MPA{
-    height: 100%;
-    margin: 0 1.333% 1.333% 0;
-    width: 60%;
+#Estaditicas p {
+  font-size: 1.5em;
+  margin-top: 25%;
 }
-.caja4MPA{
-    height: 48.5%;
-    margin: 0 0 1.333% 0;
-    width: 38%;
+#Estaditicas img {
+  margin: 5% 15% 0 2%;
 }
-.caja5MPA{
-    height: 100%;
-    margin: 0 1.333% 1.333% 0;
-    width: 38%;
+#organizador p {
+  font-size: 1.3em;
+  margin-top: 21%;
 }
-.caja6MPA{
-    height: 100%;
-    margin: 0 0 1.333% 0;
-    width: 60%;
+#obsevaciones p {
+  font-size: 1.3em;
+  margin-top: 21%;
 }
-.textoMPA{
-    color: rgb(255,255,255);
-    font-family: "Segoe UI light";
-    line-height: 1.1;
-    position: relative;
-    word-wrap: break-word; 
+#planEstudios p {
+  font-size: 1.5em;
+  margin-top: 20%;
 }
-.TexLeft{
-    text-align: left;
+#planEstudios img {
+  margin: 3% 8% 0 0%;
 }
-.TexCentro{
-    text-align: center;
+#perfil p {
+  font-size: 3.5em;
+  margin-top: 21%;
+}
+#tutoriales p {
+  font-size: 1.8em;
+  margin-top: 35%;
+}
+.boxMPA {
+  cursor: pointer;
+  box-shadow: inset 0px 0px 1px #ffc;
+  float: left;
+  overflow: hidden;
+  padding: 0.5em;
+  position: relative;
+  transition: all 0.5s ease;
+  vertical-align: top;
+  -webkit-transition: all 0.1s linear;
+}
+.boxMPA:hover {
+  -webkit-box-shadow: inset 0px 0px 0px 3px rgba(58,58,58,0.8);
+  box-shadow: inset 0px 0px 0px 3px rgba(58,58,58,0.8);
+}
+.caja1MPA {
+  height: 203px;
+  width: 164px;
+}
+.caja2MPA {
+  height: 91.5px;
+  width: 133px;
+}
+.caja3MPA {
+  height: 203px;
+  width: 56%;
+}
+.caja4MPA {
+  height: 120px;
+  width: 164px;
+}
+.caja5MPA {
+  height: 120px;
+  width: 133px;
+}
+.caja6MPA {
+  height: 120px;
+  width: 56%;
+}
+.textoMPA {
+  color: #fff;
+  font-family: "Segoe UI light";
+  line-height: 1.1;
+  position: relative;
+  word-wrap: break-word;
+}
+.TexLeft {
+  text-align: left;
+}
+.TexCentro {
+  text-align: center;
 }

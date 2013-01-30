@@ -1,35 +1,35 @@
-#contenedorML{
-	
-	left: 97.4%;
-	position: absolute;
-	width: 2.6%;
+#contenedorML {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  vertical-align: top;
 }
-#menuL{
-	/*overflow: hidden;*/
+#menuL ul {
+  list-style: none;
 }
-#menuL ul{
-	list-style: none;
-	max-width: 35px;
-	width: 100%
+.boxML {
+  cursor: pointer;
+  margin: 0.25em 0 0 0;
 }
-.boxML{
-	cursor: pointer;
-	float: left;
-	margin: 5px 0 0 0;
-	min-height: 35px;
-	max-height: 35px;
-	max-width: 35px;
-	min-width: 35px;
-	text-align: center;
-	width: 19.16%;
+.boxML img {
+  max-height: 100%;
+  max-width: 100%;
 }
-.boxML img{
-	margin-top: 1px;
+.efecto {
+  opacity: 0.5;
+  transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
 }
-.efecto{
-	opacity: .5;
+.efecto:hover {
+  opacity: 1;
 }
-.efecto:hover{
-	-webkit-transition:color .1s ease-in;
-	opacity: 1;
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+  #contenedorML {
+    display: none;
+  }
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+  #contenedorML {
+    display: none;
+  }
 }

@@ -91,6 +91,7 @@ header {
 }
 #ContAvatar img {
   border: solid 4px #b1cd49;
+  height: auto;
   width: 100%;
 }
 #ContFecha {
@@ -165,6 +166,7 @@ header {
   width: 600px;
 }
 .botonRegresar {
+  display: inline-block;
   padding: 0 0.5em;
   max-width: 3em;
 }
@@ -183,6 +185,35 @@ header {
   font-family: "Champagne";
   font-size: 4em;
   line-height: 1.8;
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+  header {
+    height: 200px;
+  }
+  h1 {
+    font-size: 3.5em;
+  }
+  #ContAvatar {
+    width: 15%;
+  }
+  #ContenedorNotf {
+    width: 25.5%;
+  }
+  #contenedorHeader {
+    height: 200px;
+    margin-bottom: 0.5em;
+    max-height: 200px;
+  }
+  #tela {
+    height: 200px;
+    max-height: 200px;
+  }
+  .bienvenida {
+    margin-top: 1.2em;
+  }
+  .nombre {
+    font-size: 5em;
+  }
 }
 .alineacionPfct,
 .fila {

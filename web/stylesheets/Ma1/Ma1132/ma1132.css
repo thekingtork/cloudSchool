@@ -72,7 +72,7 @@
     color: rgb(255,255,255);
     font-family:  "Segoe UI light";
     font-size: 24px;
-    margin: 0 5px 5px 30px;
+    margin: 0 5px 5px 18px;
 }
 #lineas{
     left: 180px;
@@ -82,21 +82,23 @@
     width: 46%;
 }
 #modAut{
+  height: 77%;
   margin: auto;
   position: relative;
   overflow: hidden;
   top: 18px;
-  width: 90%;
+  width: 93%;
 }
 #conf{
     float: left;
-    margin-left: 5%;
+    margin: 7% 0 0 5%;
     width: 100%;
 }
 #tituloApAn{
-    float: left;
-    margin-top: 4%;
-    width: 80%;
+    display: inline-block;
+    margin-top: 14%;
+    vertical-align: top;
+    width: 81%;
 }
 #tituloApAn p{
     color: rgb(255,255,255);
@@ -115,7 +117,7 @@
     font-family: "Segoe UI light";
     font-size: 20px;
     text-align: left;
-    width: 50%;
+    width: 48%;
 }
 .tituloitem input{
     float: left;
