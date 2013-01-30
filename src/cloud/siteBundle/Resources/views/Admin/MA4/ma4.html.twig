@@ -1,0 +1,35 @@
+{% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
+{% block title %}
+	MA4
+{% endblock %}
+ 	{% block menu_principal %}
+		<div id="ContAjax">
+			<link rel="stylesheet" href="{{ asset('stylesheets/Ma2/ma2.css') }}"/> 
+			<div id="bloqueCgenerales" class="amarillo">
+				<div id="contenidoIzq">
+					<div class="botonRegresar">
+						{% block back %}
+							<a href="{{ path('ma') }}" class="ajax"><img src="{{ asset('images/b_atras.png') }}"></a>
+						{% endblock %}
+					</div>
+					<div id="ContTitulo">
+						<p>Aministración de personas</p>
+					</div>
+				</div>
+				<div id="contenidoDer">
+					<div id="menuAux">
+						<ul>
+							<li><a href="{{ path('ma') }}" class="ajax" >Asignar carga academica</a></li>
+							<li><a href="{{ path('ma') }}" class="ajax" >Horario Academico</a></li>
+							<li><a href="{{ path('ma') }}" class="ajax" >Gestion de indicadores</a></li>
+							<li><a href="{{ path('ma') }}" class="ajax" >Calificar</a></li>
+							<li><a href="{{ path('ma') }}" class="ajax" >Gestion de evluaciones</a></li>
+							<li><a href="{{ path('ma') }}" class="ajax" >Inscripciones y matriculas</a></li>
+						</ul>
+					</div>
+				</div>
+                <div class="Inicio" ><a href="{{ path('ma') }}" class="ajax">Inicio</a></div>
+			</div>
+		</div>		
+{% endblock %}
+
