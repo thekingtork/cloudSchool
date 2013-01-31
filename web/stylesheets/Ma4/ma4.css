@@ -1,0 +1,71 @@
+#bloqueCgenerales {
+  display: inline-block;
+  height: 100%;
+  vertical-align: top;
+  overflow: hidden;
+  width: 100%;
+}
+#contenidoDer {
+  background: url("../../images/backgroudAjax.svg") no-repeat;
+  background-position: 0 50%;
+  height: 86%;
+  overflow: hidden;
+  width: 65%;
+}
+#contenidoDer,
+#contenidoIzq {
+  display: inline-block;
+  vertical-align: top;
+}
+#contenidoIzq {
+  float: left;
+  overflow: hidden;
+  width: 30%;
+}
+#contenidoIzq label {
+  color: #fff;
+  display: inline;
+  font-family: "Segoe UI light";
+  font-size: 32px;
+}
+#ContTitulo {
+  float: left;
+  margin: 68% 10px 0 10px;
+}
+#ContTitulo p {
+  color: #fff;
+  font-family: "Segoe UI light";
+  font-size: 32px;
+  line-height: 1;
+  text-align: center;
+}
+#menuAux {
+  display: inline-block;
+  height: 80%;
+  vertical-align: top;
+  width: 100%;
+}
+#menuAux ul {
+  display: inline-block;
+  left: 30%;
+  list-style: none;
+  margin: 0;
+  position: relative;
+  top: 40%;
+}
+#menuAux ul li {
+  margin-bottom: 2px;
+}
+#menuAux ul li a {
+  color: #fff;
+  font-family: "Segoe UI light";
+  font-size: 1.7em;
+  text-decoration: none;
+}
+.Inicio {
+  top: -20px;
+}
+#menuAux ul {
+  left: 25%;
+  top: 30%;
+}

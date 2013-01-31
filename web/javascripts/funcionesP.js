@@ -131,16 +131,23 @@ $(document).on("ready", contructor);
         $(".boxMPA").on("mouseover", animar)
       }
       else{
-       var color = $('#ContAjax').children('#bloqueCgenerales').attr('class');
-        switch (color){
-          case undefined:
-            agregaClases("#ContenedorNotf .tile",colorAlmacenado);            
-          break;
-          default:
+        var color = $('#ContAjax').children('#bloqueCgenerales').attr('class');
+        var colortmp = $('#ContAjax').children('#bloqueCgenerales').data("color");
+        console.log(colortmp);
+       if (color) {
+          if (color == "blanco") {
+            limpiarClases("#ContenedorNotf div",colorAlmacenado);
+            agregaClases("#ContenedorNotf .tile",colortmp);
+          }
+          else{
             limpiarClases("#ContenedorNotf div",colorAlmacenado);
             agregaClases("#ContenedorNotf .tile",color);
-          break;
-        }
+          }
+       }
+       else{
+          limpiarClases("#ContenedorNotf div",colorAlmacenado);
+          agregaClases("#ContenedorNotf .tile",colortmp);
+       };
       };
   }
   function limpiarClases (selector,clase) {

@@ -1,0 +1,61 @@
+{% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
+{% block title %}
+    MA411
+{% endblock %}
+{% block menu_principal %}
+        <div id="ContAjax">
+           <link rel="stylesheet" href="{{ asset('stylesheets/Ma4/ma411/ma411.css') }}"/>
+            <div id="bloqueCgenerales" data-color="fucsia" class="blanco">
+                <div class="fila">
+                    <div class="botonRegresar alineacionPfct">
+                        {% block back %}
+                            <a href="{{ path('ma41') }}" class="ajax" >
+                                <img src="{{ asset('images/b_atrasFucsia.png') }}"/>
+                            </a>
+                        {% endblock %}
+                    </div>
+                    {# Esto no se que es#}
+                    {% if mje is defined %}
+                        <div>
+                            <p>{{ mje }}</p>
+                        </div>
+                    {% else %}
+                    {# MMM Preguntar..#}
+                    <div id="ContTitulo" class="alineacionPfct">
+                        <p class="fucsiaFc">Asignar carga academica</p>
+                    </div>
+                    <div class="containerSupDer alineacionPfct">
+                        <div class="breadcumbr alineacionPfct">
+                            <a href="{{ path('ma41') }}" class="ajax fucsiaFc">
+                                Plan de estudios</a>
+                        </div>          
+                    </div>                   
+                </div>
+                 <div class="fila">
+                    <div class="contenedorDerecha alineacionPfct">
+                        <div class="panelInf">
+                            <label>8</label>
+                            <label>1</label>
+                            <label>Mañana</label>
+                            <label>Principal</label>
+                        </div>
+                    </div>
+                    <div class="contenedorIzq alineacionPfct">
+                        <div id="content_1" class="mCustomScrollbar _mCS_2">
+                            <div class="pantalla">
+                                {% for asignatura in asignaturas %}
+                                        <div class="nivel letra">
+                                            <a href="{{ path('ma4111', { 'id' : curso.id }) }}">
+                                                <input type="checkbox" name="asignatura">
+                                                <p class="signoUp textoBlanco">{{asignatura.name}}</p>
+                                            </a>
+                                        </div>
+                                {% endfor %}                                
+                            {% endif %}                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+{% endblock %}

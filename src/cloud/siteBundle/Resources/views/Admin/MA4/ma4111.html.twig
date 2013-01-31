@@ -1,16 +1,16 @@
 {% extends app.request.isXmlHttpRequest ? "cloudBundle::layout_ajax.html.twig" : "cloudBundle::layout.html.twig" %} 
 {% block title %}
-    MA41
+    MA4111
 {% endblock %}
 {% block menu_principal %}
         <div id="ContAjax">
-           <link rel="stylesheet" href="{{ asset('stylesheets/Ma4/ma41/ma41.css') }}"/>
-            <div id="bloqueCgenerales" data-color="fucsia" class="blanco">
+           <link rel="stylesheet" href="{{ asset('stylesheets/Ma1/Ma1322/ma1322.css') }}"/>
+            <div id="bloqueCgenerales" class="azul">
                 <div class="fila alineacionPfct">
                     <div class="botonRegresar alineacionPfct">
                         {% block back %}
-                            <a href="{{ path('ma4') }}" class="ajax" >
-                                <img src="{{ asset('images/b_atrasFucsia.png') }}"/>
+                            <a href="{{ path('ma411', { 'id' : curso.id }) }}" class="ajax" >
+                                <img src="{{ asset('images/b_atras.png') }}"/>
                             </a>
                         {% endblock %}
                     </div>
@@ -22,22 +22,24 @@
                     {% else %}
                     {# MMM Preguntar..#}
                     <div id="ContTitulo" class="alineacionPfct">
-                        <p class="fucsiaFc">Asignar carga academica</p>
+                        <p>Selecciona un nivel</p>
                     </div>
                     <div class="breadcumbr alineacionPfct">
-                        <a href="{{ path('ma11') }}" class="fucsiaFc ajax" >Administración academica</a>
+                        <a href="{{ path('ma11') }}" class="ajax" >Ajustes del Sistema</a>
                     </div>                    
+                </div>
+                 <div>
+                    <p class="signoUp textoBlanco">{{curso.GradoId}}</p>
+                    <p class="titulocajas primera">{{curso.name}}</p>
+                    <p class="signoUp textoBlanco">Jornada</p>
+                    <p class="signoUp textoBlanco">Principal</p>
                 </div>
                 <div class="fila">
                     <div id="content_1" class="mCustomScrollbar _mCS_1">
-                        {% for curso in cursos %}
+                        {% for i in 0..7 %}
                                 <div class="nivel letra">
-                                    <a href="{{ path('ma411',{ 'id':curso.id }) }}" >
-                                        <p class="signoUp textoBlanco">{{curso.GradoId}}</p>
-                                        <p class="titulocajas primera">{{curso.name}}</p>
-                                        <p class="signoUp textoBlanco">Jornada</p>
-                                        <p class="signoUp textoBlanco">Principal</p>
-                                    </a>
+                                    <input type="checkbox" name="asignatura">
+                                    <p class="signoUp textoBlanco">Docente</p>
                                 </div>
                         {% endfor %}
                     </div>
