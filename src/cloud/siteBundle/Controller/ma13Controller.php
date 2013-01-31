@@ -56,6 +56,7 @@ class ma13Controller extends Controller
         $request=$this->getRequest();
         $em=$this->getDoctrine()->getEntityManager();
         $anio = $em->getRepository('cloudBundle:Anio')->findBy(array('active'=>'1'));
+        $estado = 'Completo';
 
         if($request->getMethod()=='POST')
         {
@@ -90,7 +91,7 @@ class ma13Controller extends Controller
 
             if(!$anio)
               return $this->render('cloudBundle:Admin:ma131.html.twig', array('periodos'=>$periodos));
-            return $this->render('cloudBundle:Admin:ma131.html.twig', array('periodos'=>$periodos,'requeriment'=>true));
+            return $this->render('cloudBundle:Admin:ma131.html.twig', array('periodos'=>$periodos,'requeriment'=>true,'estado'=>$estado));
 
         }
         
@@ -113,10 +114,11 @@ class ma13Controller extends Controller
                               array(
                                   'periodos'=>$periodos,
                                   'requeriment'=>true,
-                                  'form'=>$form 
+                                  'form'=>$form,
+                                  'estado'=>$estado
                                   ) 
                             );
-     }
+     } 
     /**
      * @Route("/periodos/{id}/update", name="ma1311")
      *  @Method("POST")
